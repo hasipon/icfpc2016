@@ -598,10 +598,12 @@ void gvArrowFrom(double x, double y, double r, GV_RGB rgb) {
   g_gvLastLineY = y;
 }
 void gvArrowFrom(double x, double y, double r) {
-  gvArrowTo(x, y, r, gvRGB(0, 0, 0));
+  gvArrowFrom(x, y, r, gvRGB(0, 0, 0));
 }
-void gvArrowFrom(double x, double y, GV_RGB rgb) { gvArrowTo(x, y, 0.5, rgb); }
-void gvArrowFrom(double x, double y) { gvArrowTo(x, y, 0.5); }
+void gvArrowFrom(double x, double y, GV_RGB rgb) {
+  gvArrowFrom(x, y, 0.5, rgb);
+}
+void gvArrowFrom(double x, double y) { gvArrowFrom(x, y, 0.5); }
 void gvArrow2(double x1, double y1, double x2, double y2, double r,
               GV_RGB rgb) {
   if (!g_gvEnableFlag) return;
