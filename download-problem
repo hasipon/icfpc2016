@@ -1,0 +1,32 @@
+#!/bin/bash -x
+./api-snapshot-list > snapshot
+if [ -e "./problem" ]; then
+a=$(cat snapshot | jq -r '.snapshots[] | .snapshot_hash ' | tail -n 1)
+b=$(cat lasthash)
+if [ "$a" == "$b" ]; then
+  echo "Same snapshots"
+fi
+#./api-blob $a > problems.json
+
+function download() {
+  id=$1
+  h=$(echo $2 | sed -e "s/'//g")
+  while true; do
+    ./api-blob ${h} > problems/${id}.txt
+    ret_code=$?
+    if [ $ret_code != 0 ]; then
+      echo "Download retry after sleep"
+      sleep 5
+    else
+      break
+    fi
+  done
+}
+
+cat problems.json | jq -r ".problems[] | [.problem_id, .problem_spec_hash] | @sh" | while read line; do
+  echo $line
+  download $line
+done
+
+echo $b > lasthash
+fi
