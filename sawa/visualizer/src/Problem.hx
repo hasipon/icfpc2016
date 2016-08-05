@@ -216,13 +216,18 @@ class Problem
 	{
 		var string = "";
 		var i = 0;
+		var map = new Map<Int, Int>();
+		
+		var j = 0;
 		for (point in points)
 		{
+			j++;
 			if (!point.active)
 			{
 				continue;
 			}
 			i++;
+			map[j - 1] = i - 1;
 			string += point.toString() + "\n";
 		}
 		string = i + "\n" + string;
@@ -230,7 +235,7 @@ class Problem
 		string += polygons.length + "\n";
 		for (polygon in polygons)
 		{
-			string += polygon.vertexes.length + " " + polygon.vertexes.join(" ") + "\n";
+			string += polygon.vertexes.length + " " + [for (v in polygon.vertexes) map[v]].join(" ") + "\n";
 		}
 		
 		for (point in points)
