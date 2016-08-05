@@ -238,8 +238,9 @@ class Problem
 	
 	public function normalize():Void
 	{
-		points = [for (p in points) if (p.active) new Vertex(p.x, p.y, p.source)];
-		var p = points[0];
+		points = [for (p in points) new Vertex(p.x, p.y, p.source)];
+		var activePoints = [for (p in points) if (p.active) p];
+		var p = activePoints[0];
 		var corners = [
 			MinX => { 
 				p: [p], 
@@ -275,9 +276,9 @@ class Problem
 			},
 		];
 		
-		for (i in 1...points.length)
+		for (i in 1...activePoints.length)
 		{
-			var point = points[i];
+			var point = activePoints[i];
 			
 			for (corner in corners)
 			{
@@ -294,13 +295,31 @@ class Problem
 			}
 		}
 		
+		var minXP = corners[MinX].p[0];
+		var minYP = corners[MinY].p[0];
+		
+		if (corners[MinX].p.length == 1)
+		{
+			// 回転
+			var sin = -(minYP.x - minXP.x);
+			var cos = minXP.y - minYP.y;
+			for (point in activePoints)
+			{
+				var px = point.x;
+				var py = point.y;
+				
+				point.x = cos * px - sin * py;
+				point.y = sin * px + cos * py;
+			}
+		}
+		
 		var minX = corners[MinX].p[0].x;
 		var minY = corners[MinY].p[0].y;
-		for (point in points)
+		for (point in activePoints)
 		{
 			point.x -= minX;
 			point.y -= minY;
-		}		
+		}
 	}
 }
 
