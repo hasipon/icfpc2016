@@ -58,8 +58,8 @@ abstract Rational(RationalImpl) from RationalImpl to RationalImpl {
 	var f = num.gcd(that.num),
         g = den.gcd(that.den),
         s : { num : BigInt, den : BigInt } = create(
-              Std.int(num / f) * Std.int(that.den / g) +
-              Std.int(that.num / f) * Std.int(den / g),
+              (num / f) * (that.den / g) +
+              (that.num / f) * (den / g),
               den.lcm(that.den)
             );
 

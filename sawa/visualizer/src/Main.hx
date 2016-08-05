@@ -11,6 +11,8 @@ import flash.text.TextField;
 import haxe.Resource;
 import haxe.Timer;
 import haxe.ds.Option;
+import thx.BigInt;
+import thx.Rational;
 
 /**
  * ...
