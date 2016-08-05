@@ -1,0 +1,6 @@
+set xrange[0:0.8125]
+set yrange[0:0.8125]
+set terminal png
+set multiplot
+plot "./problem/90.0.dat" w l lw 3 lc rgb "grey"
+plot "./problem/90.1.dat" w l lw 3 lc rgb "red"
