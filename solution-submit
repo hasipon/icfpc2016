@@ -3,17 +3,11 @@ root=$(cd $(dirname $0) && pwd)
 cd $root
 
 ./api-solution-submit $1 $2
-ret_code=$?
-if [ $ret_code != 0 ]; then
-  echo "Failed"
-  exit 1
-fi
+cat result.json | jq -r "."
 
 if [ $(cat result.json | jq -r ".ok") = "true" ]; then
   h=$(cat result.json | jq -r ".solution_spec_hash")
   savename="solutions/$1-$h"
   cp $2 "$savename.txt"
   cat result.json | jq -r "." > "$savename.json"
-else
-  echo "Failed"
 fi
