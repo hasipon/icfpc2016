@@ -5,10 +5,14 @@ from typing import Dict, List
 
 
 class Vector:
-    def __init__(self, s):
+    def __init__(self, x: Fraction, y: Fraction):
+        self.x = x
+        self.y = y
+
+    @staticmethod
+    def from_str(s: str):
         x, y = s.split(',')
-        self.x = Fraction(x)
-        self.y = Fraction(y)
+        return Vector(Fraction(x), Fraction(y))
 
     def __repr__(self):
         return "Vector(" + str(self.x) + ', ' + str(self.y) + ")"
@@ -56,10 +60,10 @@ class Problem:
             num_polygons = int(f.readline())
             for _ in range(num_polygons):
                 num_vertices = int(f.readline())
-                self.polygons.append(Polygon([Vector(f.readline()) for _ in range(num_vertices)]))
+                self.polygons.append(Polygon([Vector.from_str(f.readline()) for _ in range(num_vertices)]))
             num_segments = int(f.readline())
             for _ in range(num_segments):
-                p0, p1 = (Vector(x) for x in f.readline().split(' '))
+                p0, p1 = (Vector.from_str(x) for x in f.readline().split(' '))
                 self.segments.append(Segment(p0, p1))
 
 
@@ -76,7 +80,7 @@ def intersect(s: Segment, t: Segment):
     a = (ux * ty - uy * tx) / cross
     b = (ux * sy - uy * sx) / cross
     if Fraction(0) < a < Fraction(1) and Fraction(0) < b < Fraction(1):
-        return a * sx + s.p0.x, a * sy + s.p0.y
+        return Vector(a * sx + s.p0.x, a * sy + s.p0.y)
     return None
 
 
