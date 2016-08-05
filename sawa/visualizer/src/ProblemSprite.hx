@@ -14,17 +14,19 @@ class ProblemSprite extends Sprite
 	public var lines:Array<LineShape>;
 	public var polygons:Array<PolygonShape>;
 	private var state:ProblemSpriteState;
-	private var problem:Problem;
+	public var problem:Problem;
 	private var updateText:String->Void;
 	
 	private static var RED_TRANSFORM:ColorTransform = new ColorTransform(1, 0.2, 0.2, 1, 100);
 	private static var DARK_RED_TRANSFORM:ColorTransform = new ColorTransform(0.5, 0.0, 0.0, 1, 30);
 	private static var DEFAULT_TRANSFORM:ColorTransform = new ColorTransform();
-	private var right = false;
+	private var right:Option<Point> = Option.None;
+	private var connectPolygons:Int->Int->Void;
 	
-	public function new(problem:Problem, updateText:String->Void) 
+	public function new(problem:Problem, updateText:String->Void, connectPolygons:Int->Int->Void) 
 	{
 		super();
+		this.connectPolygons = connectPolygons;
 		
 		this.updateText = updateText;
 		this.problem = problem;
@@ -63,12 +65,15 @@ class ProblemSprite extends Sprite
 	
 	private function onRightUp(e:MouseEvent):Void 
 	{
-		right = false;
+		right = Option.None;
 	}
 	
 	private function onRightDown(e:MouseEvent):Void 
 	{
-		right = true;
+		var end:Point = this.globalToLocal(new Point(e.stageX, e.stageY));
+		end.x /= 1000;
+		end.y /= 1000;
+		right = Option.Some(end);
 	}
 	
 	private function parsePoint(key:String):ShapePoint
@@ -107,6 +112,27 @@ class ProblemSprite extends Sprite
 	
 	private function onMove(e:MouseEvent):Void 
 	{
+		switch (right)
+		{
+			case Some(start):
+				var end:Point = this.globalToLocal(new Point(e.stageX, e.stageY));
+				end.x /= 1000;
+				end.y /= 1000;
+				for (line in lines)
+				{
+					if (line.crossTest(start, end))
+					{
+						connectPolygons(line.start.index, line.end.index);
+						return;
+					}
+				}
+				
+				right = Option.Some(end);
+				return;
+				
+			case None:
+		}
+		
 		switch (state)
 		{
 			case Newtral:

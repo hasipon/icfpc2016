@@ -185,7 +185,7 @@ class Main extends Sprite
 		}
 		
 		var problem = currentProblem[currentIndex];
-		problemSprite = problem.create(updateText);
+		problemSprite = problem.create(updateText, connectPolygons);
 		problemSprite.scaleX = problemSprite.scaleY = 0.25;
 		problemSprite.x = 300;
 		problemSprite.y = 300;
@@ -199,6 +199,18 @@ class Main extends Sprite
 		redoButton.enabled = currentIndex < (currentProblem.length - 1);
 		
 		addChild(problemSprite);
+	}
+	
+	public function connectPolygons(s:Int, e:Int):Void
+	{
+		switch (problemSprite.problem.connectPolygons(s, e))
+		{
+			case Option.Some(newProblem):
+				addProblem(newProblem);
+				
+			case Option.None:
+				updateText("結合に失敗しました");
+		}
 	}
 	
 	public function updateText(text:String):Void
