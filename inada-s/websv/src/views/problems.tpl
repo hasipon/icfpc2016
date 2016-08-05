@@ -9,6 +9,7 @@
     <th class="text-center">ranking</th>
     <th class="text-center">resemblance</th>
     <th class="text-center">solution_size</th>
+    <th class="text-center">top_resemblance</th>
     <th class="text-center">problem_size</th>
     <th class="text-center">owner_solution_size</th>
     <th class="text-center">image</th>
@@ -33,12 +34,17 @@
     </td>
     <td class="text-center">
 % if p['ok']:
-  {{p['soljson']['resemblance']}}
+  {{float(p['soljson']['resemblance'])}}
 % end
     </td>
     <td class="text-center">
 % if p['ok']:
   {{p['soljson']['solution_size']}}
+% end
+    </td>
+    <td class="text-center">
+% if p['ranking']:
+  {{p['ranking'][0]['resemblance']}}
 % end
     </td>
     <td class="text-center">{{p['problem_size']}}</td>
