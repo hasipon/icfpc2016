@@ -74,7 +74,6 @@ class ProblemSprite extends Sprite
 	
 	private function onUp(e:MouseEvent):Void 
 	{
-		trace(state);
 		switch (state)
 		{
 			case Newtral | LineSelect(_):
@@ -92,7 +91,6 @@ class ProblemSprite extends Sprite
 	
 	private function onMove(e:MouseEvent):Void 
 	{
-		trace(state);
 		switch (state)
 		{
 			case Newtral:
@@ -183,7 +181,6 @@ class ProblemSprite extends Sprite
 
 	private function polygonsHitTest(start:Point, end:Point):Option<PolygonShape>
 	{
-		trace("hitTest:", start, end);
 		var data = Option.None;
 		var top = new Point(-10000, 9999999);
 		for (line in lines)
@@ -218,7 +215,6 @@ class ProblemSprite extends Sprite
 	
 	private function onDown(e:MouseEvent):Void 
 	{
-		trace(state);
 		switch (state)
 		{
 			case LineSelect(_) | PolygonSelect(_) | Newtral:
