@@ -212,7 +212,7 @@ class Problem
 		return child;
 	}
 	
-	public function output():String
+	public function output(sourceProblem:Problem):String
 	{
 		var string = "";
 		var i = 0;
@@ -223,7 +223,7 @@ class Problem
 				continue;
 			}
 			i++;
-			string += point.toString() + " " + point.source + "\n";
+			string += point.toString() + "\n";
 		}
 		string = i + "\n" + string;
 		
@@ -233,6 +233,16 @@ class Problem
 			string += polygon.vertexes.length + " " + polygon.vertexes.join(" ") + "\n";
 		}
 		
+		for (point in points)
+		{
+			if (!point.active)
+			{
+				continue;
+			}
+			i++;
+			
+			string += sourceProblem.points[point.source].toString() + "\n";
+		}
 		return string;
 	}
 	
