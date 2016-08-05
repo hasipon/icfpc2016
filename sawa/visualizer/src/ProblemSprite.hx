@@ -157,11 +157,7 @@ class ProblemSprite extends Sprite
 							case Option.Some(p):
 								if (arr.indexOf(p) != -1)
 								{
-									if (removes.remove(p))
-									{
-										p.transform.colorTransform = RED_TRANSFORM;
-									}
-									else
+									if (removes.indexOf(p) == -1)
 									{
 										p.transform.colorTransform = DARK_RED_TRANSFORM;
 										removes.push(p);
