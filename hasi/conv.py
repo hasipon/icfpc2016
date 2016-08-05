@@ -214,11 +214,8 @@ class Graph:
 
         res = []
         for idx, area in enumerate(self.areas):
-            if idx in self.painted:
-                if self.painted[idx]:
-                    res.append(' '.join(str(x) for x in area))
-            else:
-                res.append('??? ' + ' '.join(str(x) for x in area))
+            if self.painted[idx]:
+                res.append(' '.join(str(x) for x in area))
         print(len(res))
         for x in res:
             print(x)
