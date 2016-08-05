@@ -1,2 +1,10 @@
 #!/bin/bash -x
-curl --compressed --fail -L -H Expect: -H 'X-API-Key: 40-99c9d077970fa19701728558a994a82a' -F "problem_id=$1" -F "solution_spec=@$2" 'http://2016sv.icfpcontest.org/api/solution/submit' > result.json
+rm result.json
+http_code=$(curl --compressed -o result.json -w '%{http_code}' -L -H Expect: -H 'X-API-Key: 40-99c9d077970fa19701728558a994a82a' -F "problem_id=$1" -F "solution_spec=@$2" 'http://2016sv.icfpcontest.org/api/solution/submit')
+
+if [[ $http_code -eq 200 ]]; then
+  exit 0
+else
+  exit 1
+fi
+

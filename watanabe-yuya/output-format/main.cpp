@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 
   cout << s.ps.size() << endl;
   each (i, s.ps) {
-    cout << i.x << ' ' << i.y << endl;
+    cout << i.x << ',' << i.y << endl;
   }
   
   cout << s.pid.size() << endl;
@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
 
   cout << s.ps.size() << endl;
   each (i, s.ps) {
-    cout << h[i.ID].x << ' ' << h[i.ID].y << endl;
+    cout << h[i.ID].x << ',' << h[i.ID].y << endl;
   }
   
   return 0;

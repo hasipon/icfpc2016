@@ -1,6 +1,8 @@
 .DS_Store
 
 result.json
+*.swp
+*.pyc
 
 # Xcode
 #
