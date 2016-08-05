@@ -6,6 +6,11 @@ abstract Rational(RationalImpl) from RationalImpl to RationalImpl {
   public var num(get, never) : BigInt;
   public var den(get, never) : BigInt;
 
+  public function new(num:BigInt, den:BigInt)
+  {
+	  this = { num: num, den: den };
+  }
+  
   @:from public static function fromString(s : String) {
     var parts = s.split("/").map(StringTools.trim);
     if(parts.length > 2)
@@ -24,9 +29,9 @@ abstract Rational(RationalImpl) from RationalImpl to RationalImpl {
   public static function create(num : BigInt, den : BigInt) {
     if(den == 0)
       throw ('division by zero');
-    var g = Ints.gcd(num, den);
-    num = Std.int(num / g);
-    den = Std.int(den / g);
+    var g = num.gcd(den);
+    num = num / g;
+    den = den / g;
     if(den < 0) {
       num = -num;
       den = -den;
@@ -35,9 +40,6 @@ abstract Rational(RationalImpl) from RationalImpl to RationalImpl {
       den = 1;
     return new Rational(num, den);
   }
-
-  inline public function new(num : Int, den : Int)
-    this = { num : num, den : den };
 
   public function abs() : Rational
     return new Rational(num.abs(), den);
@@ -53,12 +55,12 @@ abstract Rational(RationalImpl) from RationalImpl to RationalImpl {
     var a = compareTo(zero);
 	var b = that.compareTo(zero);
 	
-	var f = Ints.gcd(num, that.num),
-        g = Ints.gcd(den, that.den),
+	var f = num.gcd(that.num),
+        g = den.gcd(that.den),
         s : { num : BigInt, den : BigInt } = create(
               Std.int(num / f) * Std.int(that.den / g) +
               Std.int(that.num / f) * Std.int(den / g),
-              Ints.lcm(den, that.den)
+              den.lcm(that.den)
             );
 
     s.num = s.num * f;

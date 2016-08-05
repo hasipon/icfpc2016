@@ -294,7 +294,7 @@ abstract BigInt(BigIntImpl) from BigIntImpl to BigIntImpl {
   inline public function divMod(that : BigInt) : { quotient : BigInt, remainder : BigInt }
     return this.divMod(that);
 
-  @:to inline public function toInt() : Int
+  inline public function toInt() : Int
     return this.toInt();
 
   @:to inline public function toFloat() : Float
