@@ -20,10 +20,12 @@ class ProblemSprite extends Sprite
 	private static var RED_TRANSFORM:ColorTransform = new ColorTransform(1, 0.2, 0.2, 1, 100);
 	private static var DARK_RED_TRANSFORM:ColorTransform = new ColorTransform(0.5, 0.0, 0.0, 1, 30);
 	private static var DEFAULT_TRANSFORM:ColorTransform = new ColorTransform();
+	private var right = false;
 	
 	public function new(problem:Problem, updateText:String->Void) 
 	{
 		super();
+		
 		this.updateText = updateText;
 		this.problem = problem;
 		lines = [];
@@ -52,9 +54,21 @@ class ProblemSprite extends Sprite
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, onDown);
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMove);
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_UP, onUp);
-		addEventListener(Event.REMOVED_FROM_STAGE, onRemove);
+		Lib.current.stage.addEventListener(MouseEvent.RIGHT_MOUSE_DOWN, onRightDown);
+		Lib.current.stage.addEventListener(MouseEvent.RIGHT_MOUSE_UP, onRightUp);
 		
+		addEventListener(Event.REMOVED_FROM_STAGE, onRemove);
 		updateText("ドラッグを開始してください");
+	}
+	
+	private function onRightUp(e:MouseEvent):Void 
+	{
+		right = false;
+	}
+	
+	private function onRightDown(e:MouseEvent):Void 
+	{
+		right = true;
 	}
 	
 	private function parsePoint(key:String):ShapePoint
@@ -70,6 +84,8 @@ class ProblemSprite extends Sprite
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onDown);
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, onMove);
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_UP, onUp);
+		Lib.current.stage.removeEventListener(MouseEvent.RIGHT_MOUSE_DOWN, onRightDown);
+		Lib.current.stage.removeEventListener(MouseEvent.RIGHT_MOUSE_UP, onRightUp);
 	}
 	
 	private function onUp(e:MouseEvent):Void 
