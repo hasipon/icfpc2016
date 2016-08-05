@@ -181,6 +181,11 @@ class Graph:
             assert self.painted[area_idx] == is_inside
             return
         self.painted[area_idx] = is_inside
+        area = self.areas[area_idx]
+        for s, t in zip(area, area[1:] + area[:1]):
+            if (s, t) not in self.e_polygon and (t, s) not in self.e_polygon:
+                next_area_idx = self.area_idx_dict[(t, s)]
+                self.paint(next_area_idx, is_inside)
 
     def build_area(self):
         for x in self.p.polygons:
@@ -190,7 +195,7 @@ class Graph:
             self.add_segment(x, False)
 
         for i in range(len(self.G)):
-            for j in self.G[i]:
+            for j in sorted(self.G[i]):
                 if (i, j) not in self.area_idx_dict:
                     area_idx = len(self.areas)
                     self.areas.append([i])
