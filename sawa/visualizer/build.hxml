@@ -1,0 +1,9 @@
+-cp src
+-cp lib/MinimalCompsHX-Haxe3/Source
+-cp lib/thx/src
+-swf bin/Visualizer.swf
+-swf-header 1200:800:30:FFFFFF
+-D fdb
+-main Main
+-swf-version 11.8 
+--macro BuildMacro.run()

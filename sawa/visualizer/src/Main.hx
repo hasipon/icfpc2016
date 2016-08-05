@@ -87,7 +87,8 @@ class Main extends Sprite
 	
 	private function updateTarget(index:Int):Void
 	{
-		var name = problems[index];
+		this.index = index;
+		this.name = problems[index];
 		currentProblem = [new Problem(name, Resource.getString(name))];
 		update(0);
 	}
