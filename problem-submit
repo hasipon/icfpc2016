@@ -6,9 +6,7 @@ cd $root
 cat result2.json | jq -r "."
 
 if [ $(cat result2.json | jq -r ".ok") = "true" ]; then
-  pid=$(cat result2.json | jq -r ".problem_id")
-  h=$(cat result2.json | jq -r ".solution_spec_hash")
-  savename="challenge/$1"
+  savename="challenges/$1"
   cp $2 "$savename.txt"
   cat result2.json | jq -r "." > "$savename.json"
 fi

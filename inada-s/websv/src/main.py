@@ -10,6 +10,7 @@ www = repo + '/inada-s/websv/www'
 src = repo + '/inada-s/websv/src'
 solutions = repo + '/solutions'
 problems = repo + '/problems'
+challenges = repo + '/challenges'
 visualizer = repo + '/sawa/visualizer/bin'
 
 """
@@ -108,6 +109,7 @@ def solution_submit_post():
     with open(filename, 'w') as f:
         f.write(solution)
     output = subprocess.check_output([repo + "/solution-submit", problem_id, filename])
+    os.remove(filename)
     return template('output', output=output)
 
 @route('/gitstatus')
@@ -129,6 +131,44 @@ def push_solution():
         output += subprocess.check_output(["git", "push", "origin", "master"])
     except subprocess.CalledProcessError, e:
         output += "Error:" + e.output
+    return template('output', output=output)
+
+@route('/pushchallenge')
+def push_solution():
+    output = ""
+    try:
+        output += subprocess.check_output(["git", "pull", "origin", "master"])
+        output += subprocess.check_output(["git", "add", challenges])
+        output += subprocess.check_output(["git", "commit", "-m", "update challenges from webserver"])
+        output += subprocess.check_output(["git", "push", "origin", "master"])
+    except subprocess.CalledProcessError, e:
+        output += "Error:" + e.output
+    return template('output', output=output)
+
+@route('/challenges')
+def route_challenges():
+    files = glob.glob(challenges + "/*.json")
+    params = {}
+    for f in files:
+        data = json.loads(open(f).read())
+        params[data["publish_time"]] = data
+    return template('challenges', params=params, files=files, path=challenges + "/*.json")
+
+@route('/submit-problem/<publish_time:int>')
+def problem_submit_get(publish_time):
+    params = {}
+    params["publish_time"] = publish_time
+    return template('submit-prob', params=params)
+
+@route('/submit-problem/<publish_time>', method='POST')
+def problem_submit_post(publish_time):
+    solution = request.forms.get('solution')
+    solution.replace('\r\n','\n')
+    filename = "/tmp/" + publish_time + "-" + str(time.time())
+    with open(filename, 'w') as f:
+        f.write(solution)
+    output = subprocess.check_output([repo + "/problem-submit", publish_time, filename])
+    os.remove(filename)
     return template('output', output=output)
 
 debug(True)
