@@ -10,6 +10,7 @@ www = repo + '/inada-s/websv/www'
 src = repo + '/inada-s/websv/src'
 solutions = repo + '/solutions'
 problems = repo + '/problems'
+visualizer = repo + '/sawa/visualizer/bin'
 
 """
 Static Routing
@@ -21,6 +22,10 @@ def img(file_name):
 @route('/problems/<file_name>')
 def route_problems(file_name):
     return static_file(file_name, problems)
+
+@route('/visualizer/<file_name>')
+def route_problems(file_name):
+    return static_file(file_name, visualizer)
 
 @route('/css/<file_name>')
 def css(file_name):
