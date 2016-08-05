@@ -78,6 +78,7 @@ class Hoge:
         self.v_list = sorted(v_set)
         self.v_dict = {x: i for i, x in enumerate(self.v_list)}
         self.G = {i: set() for i in range(len(v_set))}
+        self.segment_idx = {}
         self.polygon_idx = {}
         self.polygon = None
         self.polygon2 = []
@@ -90,9 +91,13 @@ class Hoge:
             if p is not None:
                 a.append((p, k))
         b = [x[1] for x in sorted(a)]
+        self.segment_idx[(p0, p1)] = []
+        self.segment_idx[(p1, p0)] = []
         for s, t in zip(b, b[1:]):
             self.G[s].add(t)
             self.G[t].add(s)
+            self.segment_idx[(p0, p1)].append((s, t))
+            self.segment_idx[(p1, p0)].append((t, s))
 
     def visit(self, p, q):
         if q in self.polygon:
@@ -136,21 +141,20 @@ class Hoge:
                         self.polygon2.append(self.polygon)
                         for k in range(len(self.polygon)):
                             self.polygon_idx[(self.polygon[k], self.polygon[(k+1) % len(self.polygon)])] = idx
-        for x in polygons:
-            a = [self.v_dict[y] for y in x]
+        for a in polygons:
             for i in range(len(a)):
                 s = a[i]
                 t = a[(i + 1) % len(a)]
-                idx_i = self.polygon_idx[(s, t)]
-                idx_o = self.polygon_idx[(t, s)]
-                if idx_i in self.polygon3:
-                    assert self.polygon3[idx_i]
-                else:
-                    self.polygon3[idx_i] = True
-                if idx_o in self.polygon3:
-                    assert not self.polygon3[idx_o]
-                else:
-                    self.polygon3[idx_o] = False
+                for idx_i in [self.polygon_idx[x] for x in self.segment_idx[(s, t)]]:
+                    if idx_i in self.polygon3:
+                        assert self.polygon3[idx_i]
+                    else:
+                        self.polygon3[idx_i] = True
+                for idx_o in [self.polygon_idx[x] for x in self.segment_idx[(t, s)]]:
+                    if idx_o in self.polygon3:
+                        assert not self.polygon3[idx_o]
+                    else:
+                        self.polygon3[idx_o] = False
 
     def print_v_list(self):
         print(len(self.v_list))
