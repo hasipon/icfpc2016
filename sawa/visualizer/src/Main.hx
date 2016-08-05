@@ -25,7 +25,11 @@ class Main extends Sprite
 	private var problemSprite:ProblemSprite;
 	private var textField:TextField;
 	private var currentProblem:Array<Problem>;
+	private var currentIndex:Int;
+	
 	private var outputField:TextField;
+	var redoButton:PushButton;
+	var undoButton:PushButton;
 	
 	public function new() 
 	{
@@ -61,9 +65,21 @@ class Main extends Sprite
 		var comboBox = new ComboBox(this, 0, 20, problems[index], problems);
 		comboBox.addEventListener(Event.SELECT, onSelect);
 		new PushButton(this, 0, 50, "cancel", cancel);
-		new PushButton(this, 0, 80, "open", open);
+		new PushButton(this, 0, 70, "open", open);
+		undoButton = new PushButton(this, 0, 90, "undo", undo);
+		redoButton = new PushButton(this, 0, 110, "redo", redo);
 		
 		updateTarget(index);
+	}
+	
+	private function undo(e:Event):Void 
+	{
+		update(currentIndex - 1);
+	}
+	
+	private function redo(e:Event):Void 
+	{
+		update(currentIndex + 1);
 	}
 	
 	private function onSelect(e:Event):Void 
@@ -76,7 +92,7 @@ class Main extends Sprite
 	{
 		var name = problems[index];
 		currentProblem = [new Problem(name, Resource.getString(name))];
-		update();
+		update(0);
 	}
 
 	public function open(e):Void
@@ -85,8 +101,9 @@ class Main extends Sprite
 		{
 			case Option.Some(newProblem):
 				trace(newProblem.points.join(","), newProblem.polygons.join(" "));
+				currentProblem = currentProblem.slice(0, index + 1);
 				currentProblem.push(newProblem);
-				update();
+				update(index + 1);
 				
 			case Option.None:
 		}
@@ -97,21 +114,24 @@ class Main extends Sprite
 		problemSprite.cancel();
 	}
 	
-	public function update():Void
+	public function update(currentIndex:Int):Void
 	{
+		this.currentIndex = currentIndex;
 		if (problemSprite != null)
 		{
 			removeChild(problemSprite);
 			problemSprite = null;
 		}
 		
-		var problem = currentProblem[currentProblem.length - 1];
+		var problem = currentProblem[currentIndex];
 		problemSprite = problem.create(updateText);
 		problemSprite.scaleX = problemSprite.scaleY = 250;
 		problemSprite.x = 300;
 		problemSprite.y = 300;
 		
 		outputField.text = problem.output();
+		undoButton.enabled = (currentIndex > 0);
+		redoButton.enabled = currentIndex < (currentProblem.length - 1);
 		
 		addChild(problemSprite);
 	}
