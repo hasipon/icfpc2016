@@ -30,6 +30,8 @@
     <td class="text-center">
 % if p['ok']:
     {{p['rank']}} / {{len(p['ranking'])}}
+% else:
+    - / {{len(p['ranking'])}}
 % end
     </td>
     <td class="text-center">
