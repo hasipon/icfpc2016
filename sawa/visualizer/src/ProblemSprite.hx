@@ -238,6 +238,27 @@ class ProblemSprite extends Sprite
 				return Option.Some(newProblem);
 		}
 	}
+	
+	public function selectAll() :Void
+	{
+		switch (state)
+		{
+			case LineSelect(_) | PolygonSelect(_) | Newtral:
+				
+			case RemoveSelect(line, _, removePolygons):
+				var arr = [
+					for (polygon in polygons)
+					{
+						if (removePolygons.indexOf(polygon) == -1)
+						{
+							polygon.transform.colorTransform = RED_TRANSFORM;
+						}
+						polygon;
+					}
+				];
+				state = ProblemSpriteState.RemoveSelect(line, arr, removePolygons);
+		}
+	}
 }
 
 enum ProblemSpriteState

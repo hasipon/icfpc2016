@@ -32,6 +32,7 @@ class Main extends Sprite
 	private var redoButton:PushButton;
 	private var undoButton:PushButton;
 	
+	
 	public function new() 
 	{
 		super();
@@ -83,6 +84,7 @@ class Main extends Sprite
 		undoButton = new PushButton(this, 0, 90, "< undo", undo);
 		redoButton = new PushButton(this, 0, 110, "redo >", redo);
 		new PushButton(this, 0, 130, "normalize", normalize);
+		new PushButton(this, 0, 150, "select_all", selectAll);
 		
 		updateTarget(index);
 	}
@@ -102,6 +104,11 @@ class Main extends Sprite
 		var child = currentProblem[currentIndex].clone();
 		child.normalize();
 		addProblem(child);
+	}
+	
+	private function selectAll(e:Event):Void 
+	{
+		problemSprite.selectAll();
 	}
 	
 	private function onSelect(e:Event):Void 

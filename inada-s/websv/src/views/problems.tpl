@@ -10,6 +10,7 @@
     <th class="text-center">resemblance</th>
     <th class="text-center">solution_size</th>
     <th class="text-center">top_resemblance</th>
+    <th class="text-center">complete_teams</th>
     <th class="text-center">problem_size</th>
     <th class="text-center">owner_solution_size</th>
     <th class="text-center">image</th>
@@ -30,6 +31,8 @@
     <td class="text-center">
 % if p['ok']:
     {{p['rank']}} / {{len(p['ranking'])}}
+% else:
+    - / {{len(p['ranking'])}}
 % end
     </td>
     <td class="text-center">
@@ -45,6 +48,12 @@
     <td class="text-center">
 % if p['ranking']:
   {{p['ranking'][0]['resemblance']}}
+% end
+    </td>
+    <td class="text-center">
+% if p['ranking']:
+% complete_count = sum(1 if x['resemblance'] == 1.0 else 0 for x in p['ranking'])
+  {{complete_count}}
 % end
     </td>
     <td class="text-center">{{p['problem_size']}}</td>
