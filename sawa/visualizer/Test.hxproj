@@ -22,12 +22,12 @@
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="fdb" />
+    <option directives="" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="Main" />
     <option enabledebug="True" />
-    <option additional="-swf-version 11.8 &#xA;--macro BuildMacro.run()&#xA;-debug" />
+    <option additional="-swf-version 11.8 &#xA;--macro BuildMacro.run()" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
@@ -42,7 +42,7 @@
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>cmd /c haxe $(OutputFile)</preBuildCommand>
+  <preBuildCommand>cmd /c haxe $(OutputFile) -debug</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->

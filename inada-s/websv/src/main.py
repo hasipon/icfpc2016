@@ -1,4 +1,5 @@
 import json
+import time
 import glob
 import os
 import subprocess
@@ -9,6 +10,7 @@ www = repo + '/inada-s/websv/www'
 src = repo + '/inada-s/websv/src'
 solutions = repo + '/solutions'
 problems = repo + '/problems'
+visualizer = repo + '/sawa/visualizer/bin'
 
 """
 Static Routing
@@ -20,6 +22,10 @@ def img(file_name):
 @route('/problems/<file_name>')
 def route_problems(file_name):
     return static_file(file_name, problems)
+
+@route('/visualizer/<file_name>')
+def route_problems(file_name):
+    return static_file(file_name, visualizer)
 
 @route('/css/<file_name>')
 def css(file_name):
@@ -87,7 +93,43 @@ def dbg():
 @route('/pull')
 def pull():
     output = subprocess.check_output(["git", "pull", "origin", "master"])
-    return template('pull', output=output)
+    return template('output', output=output)
+
+@route('/submit-solution')
+def solution_submit_get():
+    return template('submit')
+
+@route('/submit-solution', method='POST')
+def solution_submit_post():
+    problem_id = request.forms.get('problem_id')
+    solution = request.forms.get('solution')
+    solution.replace('\r\n','\n')
+    filename = "/tmp/" + problem_id + "-" + str(time.time())
+    with open(filename, 'w') as f:
+        f.write(solution)
+    output = subprocess.check_output([repo + "/solution-submit", problem_id, filename])
+    return template('output', output=output)
+
+@route('/gitstatus')
+def git_status():
+    output = ""
+    try:
+        output += subprocess.check_output(["git", "status"])
+    except subprocess.CalledProcessError, e:
+        output += "Error:" + e.output
+    return template('output', output=output)
+
+@route('/pushsolution')
+def push_solution():
+    output = ""
+    try:
+        output += subprocess.check_output(["git", "pull", "origin", "master"])
+        output += subprocess.check_output(["git", "add", solutions])
+        output += subprocess.check_output(["git", "commit", "-m", "update solution from webserver"])
+        output += subprocess.check_output(["git", "push", "origin", "master"])
+    except subprocess.CalledProcessError, e:
+        output += "Error:" + e.output
+    return template('output', output=output)
 
 debug(True)
 run(host="0.0.0.0", port=8000)
