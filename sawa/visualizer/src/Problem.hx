@@ -239,8 +239,6 @@ class Problem
 			{
 				continue;
 			}
-			i++;
-			
 			string += sourceProblem.points[point.source].toString() + "\n";
 		}
 		return string;
@@ -248,7 +246,13 @@ class Problem
 	
 	public function normalize():Void
 	{
-		points = [for (p in points) new Vertex(p.x, p.y, p.source)];
+		points = [
+			for (p in points) {
+				var v = new Vertex(p.x, p.y, p.source);
+				v.active = p.active;
+				v;
+			}
+		];
 		var activePoints = [for (p in points) if (p.active) p];
 		var p = activePoints[0];
 		var corners = [
