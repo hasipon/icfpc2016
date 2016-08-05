@@ -7,6 +7,7 @@ import flash.events.MouseEvent;
 import flash.geom.ColorTransform;
 import flash.geom.Point;
 import haxe.ds.Option;
+import thx.Rational;
 
 class ProblemSprite extends Sprite
 {

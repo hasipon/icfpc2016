@@ -54,7 +54,7 @@ class Bigs {
   }
 
   public static function smallToArray(n : Int) : Array<Int> {
-    thx.Assert.isTrue(n >= 0, 'Bigs.smallToArray should always be non-negative: $n');
+    // thx.Assert.isTrue(n >= 0, 'Bigs.smallToArray should always be non-negative: $n');
     if(n < BASE)
       return [n];
     if(n < DOUBLE_BASE)
@@ -296,13 +296,9 @@ class Bigs {
   public static function fromInt64(value : haxe.Int64) : BigInt
     return Bigs.parseBase(haxe.Int64.toStr(value), 10);
 
-  // TODO needs better implementation
-  public static function toInt64(value : BigIntImpl) : haxe.Int64
-    return thx.Int64s.parse(value.toString());
-
   public static function fromFloat(value : Float) : BigIntImpl {
     if(Math.isNaN(value) || !Math.isFinite(value))
-      throw new Error("Conversion to BigInt failed. Number is NaN or Infinite");
+      throw ("Conversion to BigInt failed. Number is NaN or Infinite");
 
     var noFractions = value - (value % 1),
         result : BigIntImpl = Small.zero,
@@ -506,7 +502,7 @@ class Bigs {
         digits.push(new Small(charCode - 48));
       else if(97 <= charCode && charCode <= 122)
         digits.push(new Small(charCode - 87));
-      else throw new Error('$text is not a valid string');
+      else throw ('$text is not a valid string');
     }
     digits.reverse();
     var mul;

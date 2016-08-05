@@ -123,7 +123,7 @@ abstract BigInt(BigIntImpl) from BigIntImpl to BigIntImpl {
 
   public function modPow(exp : BigInt, mod : BigInt) : BigInt {
     if (mod.isZero())
-      throw new Error("Cannot take modPow with modulus 0");
+      throw ("Cannot take modPow with modulus 0");
 
     var r : BigIntImpl = Small.one,
         base = modulo(mod);
@@ -299,9 +299,6 @@ abstract BigInt(BigIntImpl) from BigIntImpl to BigIntImpl {
 
   @:to inline public function toFloat() : Float
     return this.toFloat();
-
-  inline public function toInt64() : haxe.Int64
-    return Bigs.toInt64(this);
 
   @:to inline public function toString() : String
     return this.toString();

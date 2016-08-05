@@ -2,6 +2,7 @@ import flash.display.Graphics;
 import flash.display.Shape;
 import flash.display.Sprite;
 import flash.geom.Point;
+import thx.Rational;
 
 class Problem
 {
@@ -88,16 +89,7 @@ class Problem
 	
 	private static function parseNum(str:String):Rational
 	{
-		var segs = str.split("/");
-		return if (segs.length == 1)
-		{
-			Rational
-			Std.parseFloat(segs[0]);
-		}
-		else
-		{
-			Std.parseFloat(segs[0]) / Std.parseFloat(segs[1]);
-		}
+		return Rational.fromString(str);
 	}
 	
 	public function create(updateText:String->Void):ProblemSprite
@@ -231,7 +223,7 @@ class Problem
 				continue;
 			}
 			i++;
-			string += point.x + "," + point.y + " " + point.source + "\n";
+			string += point.toString() + " " + point.source + "\n";
 		}
 		string = i + "\n" + string;
 		
@@ -269,7 +261,7 @@ private class Vec
 		var bhx = v.x - sv.x;
 		var bhy = v.y - sv.y;
 		
-		return new RationalPoint(v.x + (ohx - bhx) * new Rational(2), v.y + (ohy- bhy) * new Rational(2));
+		return new RationalPoint(v.x + (ohx - bhx) * Rational.fromInt(2), v.y + (ohy- bhy) * Rational.fromInt(2));
 	}
 	
 	public function length2():Rational

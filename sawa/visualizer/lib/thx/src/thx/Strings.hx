@@ -91,12 +91,6 @@ Compares two strings ignoring their case.
     return StringTools.startsWith(s.toLowerCase(), start.toLowerCase());
 
 /**
-Compares a string `s` with many `values` and see if one of them matches its beginning ignoring their case.
-**/
-  inline public static function caseInsensitiveStartsWithAny(s : String, values : Array<String>) : Bool
-    return startsWithAny(s.toLowerCase(), values.map(function(v) return v.toLowerCase()));
-
-/**
 It cleans up all the whitespaces in the passed `value`. `collapse` does the following:
 
   - remove trailing/leading whitespaces
@@ -144,17 +138,6 @@ Return the number of occurances of `test` in `s`.
   public static function count(s : String, test : String)
     return s.split(test).length - 1;
 
-/**
-`contains` returns `true` if `s` contains any of the strings in `tests` regardless of the text case
-**/
-  inline public static function caseInsensitiveContainsAny(s : String, tests : Array<String>)
-    return tests.any(caseInsensitiveContains.bind(s, _));
-
-/**
-`contains` returns `true` if `s` contains any of the strings in `tests`
-**/
-  inline public static function containsAny(s : String, tests : Array<String>)
-    return tests.any(contains.bind(s, _));
 
 
 /**
@@ -442,12 +425,6 @@ Like `StringTools.split` but it only splits on the first occurrance of separator
       return [s];
     return [s.substring(0, pos), s.substring(pos + separator.length)];
   }
-
-/**
-Returns `true` if `s` starts with any of the values in `values`.
-**/
-  public static function startsWithAny(s : String, values : Iterable<String>) : Bool
-    return Iterables.any(values, function(start) return s.startsWith(start));
 
 /**
 `stripTags` removes any HTML/XML markup from the string leaving only the concatenation

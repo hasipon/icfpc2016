@@ -52,7 +52,7 @@ class Big implements BigIntImpl {
 
   public function divMod(that : BigIntImpl) : { quotient : BigIntImpl, remainder : BigIntImpl } {
     if(that.isZero())
-      throw new Error('division by zero');
+      throw ('division by zero');
     return that.isSmall ? divModSmall(cast that) : divModBig(cast that);
   }
 
@@ -230,6 +230,7 @@ class Big implements BigIntImpl {
     return false;
 
   public function compareTo(that : BigIntImpl) : Int {
+	if (that.isZero() && this.isZero()) return 0;
     if(sign != that.sign)
       return sign ? -1 : 1;
     return that.isSmall ? compareToSmall(cast that) : compareToBig(cast that);
@@ -271,7 +272,7 @@ class Big implements BigIntImpl {
 
   public function toInt() : Int {
     var v = Bigs.arrayToSmall(value);
-    if(null == v) throw new Error('overflow');
+    if(null == v) throw ('overflow');
     return (sign ? -1 : 1) * v;
   }
 

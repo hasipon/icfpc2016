@@ -125,7 +125,8 @@ class Main extends Sprite
 		problemSprite.x = 300;
 		problemSprite.y = 300;
 		
-		outputField.text = problem.output();
+		var name = problems[index];
+		outputField.text = Resource.getString(name).split("\r\n").join("\n") + problem.output();
 		undoButton.enabled = (currentIndex > 0);
 		redoButton.enabled = currentIndex < (currentProblem.length - 1);
 		
