@@ -2,6 +2,7 @@ import flash.display.Graphics;
 import flash.display.Shape;
 import flash.display.Sprite;
 import flash.geom.Point;
+import haxe.ds.Option;
 import thx.Rational;
 
 class Problem
@@ -94,9 +95,9 @@ class Problem
 		return Rational.fromString(str);
 	}
 	
-	public function create(updateText:String->Void):ProblemSprite
+	public function create(updateText:String->Void, connectPolygons:Int->Int->Void):ProblemSprite
 	{
-		return new ProblemSprite(this, updateText);
+		return new ProblemSprite(this, updateText, connectPolygons);
 	}
 	
 	public function apply(startPointIndex:Int, endPointIndex:Int, polygonIndexes:Array<Int>, removePolygonIndexes:Array<Int>):Problem
@@ -344,6 +345,85 @@ class Problem
 			point.x -= minX;
 			point.y -= minY;
 		}
+	}
+	
+	public function connectPolygons(s:Int, e:Int):Option<Problem>
+	{
+		var child = clone();
+		var k = s + "_" + e;
+		var targets = [for (i in child.lineToPolygons[k]) child.polygons[i]];
+		if (targets.length != 2)
+		{
+			return Option.None;
+		}
+		
+		for (t in targets)
+		{
+			child.polygons.remove(t);
+		}
+		
+		var vertexes = [];
+		var lines = [];
+		
+		var v = targets[0].vertexes;
+		var l = v.length;
+		for (i in 0...v.length)
+		{
+			var v0 = v[i % l];
+			var v1 = v[(i + 1) % l];
+			lines.push(v0 + "_" + v1);
+		}
+	
+		var v = targets[1].vertexes;
+		var l = v.length;
+		var matched = false;
+		for (i in 0...l)
+		{
+			var v0 = v[i % l];
+			var v1 = v[(i + 1) % l];
+			
+			if (lines.indexOf(v0 + "_" + v1) != -1)
+			{
+				matched = true;
+			}
+		}
+		
+		if (!matched)
+		{
+			v.reverse();
+		}
+		
+		var insert = 0;
+		var lines1 = [];
+		for (i in 0...l)
+		{
+			var v0 = v[i % l];
+			var v1 = v[(i + 1) % l];
+			var pos = lines.indexOf(v0 + "_" + v1);
+			if (pos != -1)
+			{
+				if (lines.remove(v0 + "_" + v1))
+				{
+					insert = pos;
+				}
+			}
+			else
+			{
+				lines1.push(v0 + "_" + v1);
+			}
+		}
+		
+		for (line in lines1)
+		{
+			lines.insert(insert, line);
+		}
+		
+		vertexes = [for (line in lines) Std.parseInt(line.split("_")[0])];
+		trace(lines.join("-"));
+		trace(vertexes.join("-"));
+		child.polygons.push(new Polygon(vertexes));
+		child.refresh();
+		return Option.Some(child);
 	}
 }
 
