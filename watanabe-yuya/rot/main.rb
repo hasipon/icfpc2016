@@ -1,5 +1,3 @@
-n = STDIN.gets.to_i
-
 class FractionPoint
   attr_accessor :real
   attr_accessor :imag
@@ -30,43 +28,84 @@ class FractionPoint
     i = self.imag - other.imag
     r * r + i * i
   end
+  def < (other)
+    @real != other.real ? (@real < other.real) : (@imag < other.imag)
+  end
+  def == (other)
+    @real == other.real and @imag == other.imag
+  end
+  def > (other)
+    not ((self < other) or (self == other))
+  end
+  def <=> (other)
+    if self == other
+      return 0
+    end
+    if self < other
+      return -1
+    end
+    if self > other
+      return +1
+    end
+  end
 end
 
 ORIGIN = FractionPoint.new(0, 0)
 
+def r(p, a)
+  r = Math.cos(a) * p.real() - Math.sin(a) * p.imag()
+  i = Math.sin(a) * p.real() + Math.cos(a) * p.imag()
+  FractionPoint.new(r, i)
+end
+
+def rot_from(p, a, base)
+  p = p - base
+  r(p, a) + base
+end
+
+def f(ps, a, center)
+  qs = ps.map { |item| rot_from(item, a, center) } 
+  q = qs[0].real - qs[1].real
+  if q <= -1
+    return -1 * q
+  else
+    return q
+  end
+end
+
+def convex_hull(points)
+  points.sort!
+  return points if points.length <= 3
+  def cross(o, a, b)
+    (a.real - o.real) * (b.imag - o.imag) - (a.imag - o.imag) * (b.real - o.real)
+  end
+  lower = Array.new
+  points.each{|p|
+    while lower.length > 1 and cross(lower[-2], lower[-1], p) <= 0 do lower.pop end
+    lower.push(p)
+  }
+  upper = Array.new
+  points.reverse_each{|p|
+    while upper.length > 1 and cross(upper[-2], upper[-1], p) <= 0 do upper.pop end
+    upper.push(p)
+  }
+  return lower[0...-1] + upper[0...-1]
+end
+# fail unless convex_hull((0..9).to_a.repeated_permutation(2).to_a) == [[0, 0], [9, 0], [9, 9], [0, 9]]
+
 ps = []
-n.times do |i|
+STDIN.gets.to_i.times do |i|
   real, imag = STDIN.gets.split(" ").at(0).split(",")
   ps.push(FractionPoint.new(real, imag))
 end
 
-real_mx = ps[0]
-real_mn = ps[0]
-imag_mx = ps[0]
-imag_mn = ps[0]
-
-ps.each do |p|
-  if (p.real < real_mn.real) or (p.real == real_mn.real and p.imag > real_mn.imag)
-    real_mn = p
-  end
-  if (p.real > real_mx.real) or (p.real == real_mx.real and p.imag > real_mx.imag)
-    real_mx = p
-  end
-  if (p.imag < imag_mn.imag) or (p.imag == imag_mn.imag and p.real < imag_mn.real)
-    imag_mn = p
-  end
-  if (p.imag > imag_mx.imag) or (p.imag == imag_mx.imag and p.real < imag_mx.real)
-    imag_mx = p
-  end
-end
-
-bounding_box = [real_mx, real_mn, imag_mx, imag_mn]
+bbox = convex_hull(ps)
 
 # p "BoundingBox"
-# bounding_box.each { |x| p x }
+# bbox.each { |x| p x }
 
-target = bounding_box[0]
-bounding_box.each do |p|
+target = bbox[0]
+bbox.each do |p|
   if ORIGIN.dist(target) > ORIGIN.dist(p)
     target = p
   end
@@ -75,24 +114,13 @@ end
 # p "Target"
 # p target
 
-$center = FractionPoint.new(
-  (real_mx.real - real_mn.real) / 2,
-  (imag_mx.imag - imag_mn.imag) / 2
+center = FractionPoint.new(
+  (bbox[0].real + bbox[1].real + bbox[2].real + bbox[3].real) / 4,
+  (bbox[0].imag + bbox[1].imag + bbox[2].imag + bbox[3].imag) / 4,
 )
 
 # p "Center"
 # p $center
-
-def r(p, a)
-  p = p - $center
-  r = Math.cos(a) * p.real() - Math.sin(a) * p.imag()
-  i = Math.sin(a) * p.real() + Math.cos(a) * p.imag()
-  FractionPoint.new(r, i) + $center
-end
-
-def f(p, a)
-  ORIGIN.dist(r(p, a))
-end
 
 small = Math::PI / 4.0 * -1
 large = Math::PI / 4.0
@@ -100,7 +128,7 @@ large = Math::PI / 4.0
 10000.times do |_|
   s = (small * 2 + large) / 3
   l = (large * 2 + small) / 3
-  if f(target, s) < f(target, l)
+  if f(bbox, s, center) < f(bbox, l, center)
     large = l
   else
     small = s
@@ -109,5 +137,5 @@ end
 
 a = (small + large) / 2
 b = r(target, a)
-p a
+p Rational(a)
 p b.real, b.imag
