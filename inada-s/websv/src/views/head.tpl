@@ -31,6 +31,8 @@ font-size: 24px;
 <ul>
 <li><a href="http://2016sv.icfpcontest.org/leaderboard">Leaderboard</a></li>
 <li><a href="/">Problems</a></li>
+<li><a href="/submit-solution">Submit</a></li>
+<li><a href="/pushsolution">GitPushSolution</a></li>
 <li><a href="/pull">GitPull</a></li>
 </ul>
 </div>
