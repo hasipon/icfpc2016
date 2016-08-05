@@ -108,8 +108,8 @@ class Hoge:
                 vr = self.v_list[r]
                 sx = vq[0] - vp[0]
                 sy = vq[1] - vp[1]
-                tx = vr[0] - vp[0]
-                ty = vr[1] - vp[1]
+                tx = vr[0] - vq[0]
+                ty = vr[1] - vq[1]
                 crs = sx * ty - sy * tx
                 if crs <= Fraction(0):
                     c = (sx * tx + sy * ty) / math.sqrt(sx * sx + sy * sy) / math.sqrt(tx * tx + ty * ty)
