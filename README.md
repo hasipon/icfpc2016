@@ -14,4 +14,4 @@ http://icfpc2016.blogspot.jp/
 
 ## 回答提出
 `./solution-submit <problem_id> <path/to/solution>`  
-提出ログが `solutions/` ディレクトリに残る
+提出ログが `solutions/` ディレクトリに残るので要コミット
