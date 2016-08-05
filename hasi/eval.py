@@ -78,9 +78,10 @@ class Hoge:
         self.v_list = sorted(v_set)
         self.v_dict = {x: i for i, x in enumerate(self.v_list)}
         self.G = {i: set() for i in range(len(v_set))}
-        self.visited = set()
+        self.polygon_idx = {}
         self.polygon = None
         self.polygon2 = []
+        self.polygon3 = {}
 
     def add_segment(self, p0, p1):
         a = []
@@ -124,16 +125,32 @@ class Hoge:
             return False
         return self.visit(q, selected_r)
 
-    def build(self):
+    def build(self, polygons):
         n = len(self.G)
         for i in range(n):
             for j in self.G[i]:
-                if (i, j) not in self.visited:
+                if (i, j) not in self.polygon_idx:
                     self.polygon = [i]
                     if self.visit(i, j):
+                        idx = len(self.polygon2)
                         self.polygon2.append(self.polygon)
                         for k in range(len(self.polygon)):
-                            self.visited.add((self.polygon[k], self.polygon[(k+1) % len(self.polygon)]))
+                            self.polygon_idx[(self.polygon[k], self.polygon[(k+1) % len(self.polygon)])] = idx
+        for x in polygons:
+            a = [self.v_dict[y] for y in x]
+            for i in range(len(a)):
+                s = a[i]
+                t = a[(i + 1) % len(a)]
+                idx_i = self.polygon_idx[(s, t)]
+                idx_o = self.polygon_idx[(t, s)]
+                if idx_i in self.polygon3:
+                    assert self.polygon3[idx_i]
+                else:
+                    self.polygon3[idx_i] = True
+                if idx_o in self.polygon3:
+                    assert not self.polygon3[idx_o]
+                else:
+                    self.polygon3[idx_o] = False
 
     def print_v_list(self):
         print(len(self.v_list))
@@ -141,9 +158,16 @@ class Hoge:
             print(','.join(str(x) for x in v))
 
     def print_polygon2(self):
-        print(len(self.polygon2))
-        for v in self.polygon2:
-            print(' '.join(str(x) for x in v))
+        res = []
+        for idx, v in enumerate(self.polygon2):
+            if idx in self.polygon3:
+                if self.polygon3[idx]:
+                    res.append(' '.join(str(x) for x in v))
+            else:
+                res.append('??? ' + ' '.join(str(x) for x in v))
+        print(len(res))
+        for x in res:
+            print(x)
 
 hoge = Hoge(v_set)
 for x in polygons:
@@ -151,6 +175,6 @@ for x in polygons:
         hoge.add_segment(x[i], x[(i + 1) % len(x)])
 for x in segments:
     hoge.add_segment(x[0], x[1])
-hoge.build()
+hoge.build(polygons)
 hoge.print_v_list()
 hoge.print_polygon2()
