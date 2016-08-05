@@ -10,6 +10,7 @@ www = repo + '/inada-s/websv/www'
 src = repo + '/inada-s/websv/src'
 solutions = repo + '/solutions'
 problems = repo + '/problems'
+visualizer = repo + '/sawa/visualizer/bin'
 
 """
 Static Routing
@@ -21,6 +22,10 @@ def img(file_name):
 @route('/problems/<file_name>')
 def route_problems(file_name):
     return static_file(file_name, problems)
+
+@route('/visualizer/<file_name>')
+def route_problems(file_name):
+    return static_file(file_name, visualizer)
 
 @route('/css/<file_name>')
 def css(file_name):
@@ -103,6 +108,15 @@ def solution_submit_post():
     with open(filename, 'w') as f:
         f.write(solution)
     output = subprocess.check_output([repo + "/solution-submit", problem_id, filename])
+    return template('output', output=output)
+
+@route('/gitstatus')
+def git_status():
+    output = ""
+    try:
+        output += subprocess.check_output(["git", "status"])
+    except subprocess.CalledProcessError, e:
+        output += "Error:" + e.output
     return template('output', output=output)
 
 @route('/pushsolution')
