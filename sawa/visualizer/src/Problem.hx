@@ -111,7 +111,6 @@ class Problem
 		var sv = child.points[startPointIndex];
 		var ev = child.points[endPointIndex];
 		var vecOA = new Vec(sv, ev);
-		trace("ids", polygonIndexes);
 		var newPolygons = [
 			for (i in polygonIndexes)
 			{
@@ -127,11 +126,30 @@ class Problem
 		];
 		
 		child.addPolygons(newPolygons);
+		var removePolygons = [
+			for (i in removePolygonIndexes)
+			{
+				child.polygons[i];
+			}
+		];
+		
+		for (r in removePolygons)
+		{
+			child.polygons.remove(r);
+		}
+		
+		child.refresh();
 		return child;
 	}
 	
-	private function addPolygons(polygons:Array<Polygon>):Void
+	private function refresh():Void
 	{
+		for (point in points)
+		{
+			point.active = false;
+		}
+		
+		lineToPolygons = new Map();
 		for (polygon in polygons)
 		{
 			var v = polygon.vertexes;
@@ -160,6 +178,17 @@ class Problem
 				}
 			}
 			
+			for (i in polygon.vertexes)
+			{
+				points[i].active = true;
+			}
+		}
+	}
+	
+	private function addPolygons(polygons:Array<Polygon>):Void
+	{
+		for (polygon in polygons)
+		{
 			this.polygons.push(polygon);
 		}
 	}
@@ -172,13 +201,11 @@ class Problem
 			var cp = points[i];
 			if (cp.x == p.x && cp.y == p.y)
 			{
-				trace("mirror", v, p, cp, i);
 				return i;
 			}
 		}
 		
 		points.push(new Vertex(p.x, p.y, v.source));
-		trace("mirror", v, p, new Vertex(p.x, p.y, v.source), points.length - 1);
 		return points.length - 1;
 	}
 	
@@ -195,11 +222,18 @@ class Problem
 	public function output():String
 	{
 		var string = "";
-		string += points.length + "\n";
+		var i = 0;
 		for (point in points)
 		{
+			if (!point.active)
+			{
+				continue;
+			}
+			i++;
 			string += point.x + "," + point.y + " " + point.source + "\n";
 		}
+		string = i + "\n" + string;
+		
 		string += polygons.length + "\n";
 		for (polygon in polygons)
 		{
@@ -229,7 +263,6 @@ private class Vec
 	{
 		var bh = new Vec(sv, v);
 		var ohScale = inner(bh) / length2();
-		trace(inner(bh), length2(), ohScale);
 		var ohx = ohScale * (ev.x - sv.x);
 		var ohy = ohScale * (ev.y - sv.y);
 		var bhx = v.x - sv.x;

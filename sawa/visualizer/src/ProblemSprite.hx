@@ -17,6 +17,7 @@ class ProblemSprite extends Sprite
 	private var updateText:String->Void;
 	
 	private static var RED_TRANSFORM:ColorTransform = new ColorTransform(1, 0.2, 0.2, 1, 100);
+	private static var DARK_RED_TRANSFORM:ColorTransform = new ColorTransform(0.5, 0.0, 0.0, 1, 30);
 	private static var DEFAULT_TRANSFORM:ColorTransform = new ColorTransform();
 	
 	public function new(problem:Problem, updateText:String->Void) 
@@ -92,6 +93,8 @@ class ProblemSprite extends Sprite
 				
 			case LineSelect(start):
 				var end:Point = this.globalToLocal(new Point(e.stageX, e.stageY));
+				end.x /= 100;
+				end.y /= 100;
 				for (line in lines)
 				{
 					var ax = start.x, ay = start.y;
@@ -168,9 +171,31 @@ class ProblemSprite extends Sprite
 				}
 				
 				updateText("ドラッグで折りたたむ線に対して交差してください。");
-				state = ProblemSpriteState.LineSelect(this.globalToLocal(new Point(e.stageX, e.stageY)));
+				var start = this.globalToLocal(new Point(e.stageX, e.stageY));
+				start.x /= 100;
+				start.y /= 100;
+				state = ProblemSpriteState.LineSelect(start);
 				
-			case RemoveSelect(_):
+			case RemoveSelect(line, arr, removes):
+				var global = new Point(e.stageX, e.stageY);
+				var end:Point = this.globalToLocal(global);
+				
+				for (polygon in arr)
+				{
+					if (polygon.hitTestPoint(global.x, global.y, true))
+					{
+						if (removes.remove(polygon))
+						{
+							polygon.transform.colorTransform = RED_TRANSFORM;
+						}
+						else
+						{
+							polygon.transform.colorTransform = DARK_RED_TRANSFORM;
+							removes.push(polygon);
+						}
+						break;
+					}
+				}
 		}
 	}
 	
@@ -248,8 +273,8 @@ class LineShape extends Shape
 		this.end = end;
 		graphics.clear();
 		graphics.lineStyle(0.01, 0x45FE34);
-		graphics.moveTo(start.x, start.y);
-		graphics.lineTo(end.x, end.y);
+		graphics.moveTo(start.x * 100, start.y * 100);
+		graphics.lineTo(end.x * 100, end.y * 100);
 	}
 }
 
@@ -269,12 +294,12 @@ class PolygonShape extends Shape
 			var v = problem.points[i];
 			if (first)
 			{
-				graphics.moveTo(v.x, v.y);
+				graphics.moveTo(v.x * 100, v.y * 100);
 				first = false;
 			}
 			else
 			{
-				graphics.lineTo(v.x, v.y);
+				graphics.lineTo(v.x * 100, v.y * 100);
 			}
 		}
 		graphics.endFill();

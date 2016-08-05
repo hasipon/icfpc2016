@@ -28,8 +28,8 @@ class Main extends Sprite
 	private var currentIndex:Int;
 	
 	private var outputField:TextField;
-	var redoButton:PushButton;
-	var undoButton:PushButton;
+	private var redoButton:PushButton;
+	private var undoButton:PushButton;
 	
 	public function new() 
 	{
@@ -100,7 +100,6 @@ class Main extends Sprite
 		switch (problemSprite.open())
 		{
 			case Option.Some(newProblem):
-				trace(newProblem.points.join(","), newProblem.polygons.join(" "));
 				currentProblem = currentProblem.slice(0, index + 1);
 				currentProblem.push(newProblem);
 				update(index + 1);
@@ -125,7 +124,7 @@ class Main extends Sprite
 		
 		var problem = currentProblem[currentIndex];
 		problemSprite = problem.create(updateText);
-		problemSprite.scaleX = problemSprite.scaleY = 250;
+		problemSprite.scaleX = problemSprite.scaleY = 2.5;
 		problemSprite.x = 300;
 		problemSprite.y = 300;
 		
