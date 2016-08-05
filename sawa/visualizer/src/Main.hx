@@ -25,6 +25,7 @@ class Main extends Sprite
 	private var currentIndex:Int;
 	
 	private var outputField:TextField;
+	private var outputField2:TextField;
 	private var redoButton:PushButton;
 	private var undoButton:PushButton;
 	
@@ -49,22 +50,35 @@ class Main extends Sprite
 		outputField.backgroundColor = 0xEEEEEE;
 		outputField.background = true;
 		outputField.border = true;
-		outputField.width = 290;
-		outputField.height = 700;
+		outputField.width = 390;
+		outputField.height = 380;
 		outputField.x = 800;
-		outputField.y = 50;
+		outputField.y = 10;
+		addChild(outputField);
+		
+		outputField2 = new TextField();
+		outputField2.selectable = true;
+		addChild(outputField2);
+		outputField2.backgroundColor = 0xEEEEEE;
+		outputField2.background = true;
+		outputField2.border = true;
+		outputField2.width = 390;
+		outputField2.height = 380;
+		outputField2.x = 800;
+		outputField2.y = 410;
+		addChild(outputField2);
 		
 		graphics.lineStyle(1, 0, 0.1);
 		graphics.beginFill(0, 0.05);
 		graphics.drawRect(300, 300, 250, 250);
-		addChild(outputField);
 		
 		var comboBox = new ComboBox(this, 0, 20, problems[index], problems);
 		comboBox.addEventListener(Event.SELECT, onSelect);
 		new PushButton(this, 0, 50, "cancel", cancel);
 		new PushButton(this, 0, 70, "open", open);
-		undoButton = new PushButton(this, 0, 90, "undo", undo);
-		redoButton = new PushButton(this, 0, 110, "redo", redo);
+		undoButton = new PushButton(this, 0, 90, "< undo", undo);
+		redoButton = new PushButton(this, 0, 110, "redo >", redo);
+		new PushButton(this, 0, 130, "normalize", normalize);
 		
 		updateTarget(index);
 	}
@@ -77,6 +91,13 @@ class Main extends Sprite
 	private function redo(e:Event):Void 
 	{
 		update(currentIndex + 1);
+	}
+	
+	private function normalize(e:Event):Void 
+	{
+		var child = currentProblem[currentIndex].clone();
+		child.normalize();
+		addProblem(child);
 	}
 	
 	private function onSelect(e:Event):Void 
@@ -98,12 +119,17 @@ class Main extends Sprite
 		switch (problemSprite.open())
 		{
 			case Option.Some(newProblem):
-				currentProblem = currentProblem.slice(0, index + 1);
-				currentProblem.push(newProblem);
-				update(index + 1);
+				addProblem(newProblem);
 				
 			case Option.None:
 		}
+	}
+	
+	private function addProblem(newProblem:Problem) 
+	{
+		currentProblem = currentProblem.slice(0, currentIndex + 1);
+		currentProblem.push(newProblem);
+		update(currentIndex + 1);		
 	}
 	
 	public function cancel(e):Void
@@ -128,6 +154,7 @@ class Main extends Sprite
 		
 		var name = problems[index];
 		outputField.text = Resource.getString(name).split("\r\n").join("\n") + problem.output();
+		// outputField.text = Resource.getString(name).split("\r\n").join("\n") + problem.output2();
 		undoButton.enabled = (currentIndex > 0);
 		redoButton.enabled = currentIndex < (currentProblem.length - 1);
 		

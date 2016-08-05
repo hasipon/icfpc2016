@@ -235,6 +235,88 @@ class Problem
 		
 		return string;
 	}
+	
+	public function normalize():Void
+	{
+		points = [for (p in points) if (p.active) new Vertex(p.x, p.y, p.source)];
+		var p = points[0];
+		var corners = [
+			MinX => { 
+				p: [p], 
+				v: function (p:Vertex) return p.x,
+				comp: function (v:Vertex->Rational, curent:Vertex, next:Vertex):Comp 
+				{
+					return if (v(curent) == v(next)) Same else if (v(curent) > v(next)) Over else None;
+				}
+			},
+			MinY => { 
+				p: [p], 
+				v: function (p:Vertex) return p.y,
+				comp: function (v:Vertex->Rational, curent:Vertex, next:Vertex):Comp 
+				{
+					return if (v(curent) == v(next)) Same else if (v(curent) > v(next)) Over else None;
+				}
+			},
+			MaxX => { 
+				p: [p], 
+				v: function (p:Vertex) return p.x, 
+				comp: function (v:Vertex->Rational, curent:Vertex, next:Vertex):Comp 
+				{
+					return if (v(curent) == v(next)) Same else if (v(curent) < v(next)) Over else None;
+				}
+			},
+			MaxY => { 
+				p: [p], 
+				v: function (p:Vertex) return p.y, 
+				comp: function (v:Vertex->Rational, curent:Vertex, next:Vertex):Comp 
+				{
+					return if (v(curent) == v(next)) Same else if (v(curent) < v(next)) Over else None;
+				}
+			},
+		];
+		
+		for (i in 1...points.length)
+		{
+			var point = points[i];
+			
+			for (corner in corners)
+			{
+				switch (corner.comp(corner.v, corner.p[0], point))
+				{
+					case Same:
+						corner.p.push(point); 
+					
+					case Over:
+						corner.p = [point];
+						
+					case None:
+				}
+			}
+		}
+		
+		var minX = corners[MinX].p[0].x;
+		var minY = corners[MinY].p[0].y;
+		for (point in points)
+		{
+			point.x -= minX;
+			point.y -= minY;
+		}		
+	}
+}
+
+enum Comp
+{
+	None;
+	Same;
+	Over;
+}
+
+enum MinMax
+{
+	MinX;
+	MinY;
+	MaxX;
+	MaxY;
 }
 
 private class Vec 
