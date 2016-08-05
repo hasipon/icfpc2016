@@ -1,0 +1,2 @@
+#!/bin/bash -x
+cat problems.json | jq -r ".problems[] | select(.problem_id == $1)"

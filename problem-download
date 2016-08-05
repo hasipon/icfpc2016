@@ -1,0 +1,45 @@
+#!/bin/bash -x
+if [ -e "./problems" ]; then
+a=$(cat snapshot | jq -r '.snapshots[] | .snapshot_hash ' | tail -n 1)
+b=$(cat lasthash)
+if [ "$a" == "$b" ]; then
+  echo "Same snapshots"
+  exit 0
+fi
+
+
+echo "update problems.json"
+./api-blob $a > problems.json
+ret_code=$?
+if [ $ret_code != 0 ]; then
+  echo "Failed to download problems.json"
+  exit 1
+fi
+
+
+
+function download() {
+  id=$1
+  h=$(echo $2 | sed -e "s/'//g")
+  if [ -e "problems/${id}.txt" ]; then
+    echo "Problem $id is already downloaded."
+  else
+    while true; do
+    ./api-blob ${h} > "problems/${id}.txt"
+    ret_code=$?
+    if [ $ret_code != 0 ]; then
+      echo "wait for retry.."
+      sleep 5
+    else
+      break
+    fi
+    done
+  fi
+}
+
+cat problems.json | jq -r ".problems[] | [.problem_id, .problem_spec_hash] | @sh" | while read line; do
+  download $line
+done
+
+echo $a > "lasthash"
+fi

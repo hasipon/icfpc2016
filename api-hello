@@ -1,0 +1,2 @@
+#!/bin/bash -x
+curl --compressed -L -H Expect: -H 'X-API-Key: 40-99c9d077970fa19701728558a994a82a' 'http://2016sv.icfpcontest.org/api/hello'
