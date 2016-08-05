@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
   h.init(cin);
   s.init(cin);
 
-  cout << s.ps.size() << endl;
+  // cout << s.ps.size() << endl;
   each (i, s.ps) {
     cout << i.x << ',' << i.y << endl;
   }
