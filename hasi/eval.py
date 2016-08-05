@@ -111,13 +111,12 @@ class Hoge:
                 tx = vr[0] - vq[0]
                 ty = vr[1] - vq[1]
                 crs = sx * ty - sy * tx
-                if crs <= Fraction(0):
-                    c = (sx * tx + sy * ty) / math.sqrt(sx * sx + sy * sy) / math.sqrt(tx * tx + ty * ty)
+                c = (sx * tx + sy * ty) / math.sqrt(sx * sx + sy * sy) / math.sqrt(tx * tx + ty * ty)
+                if crs >= Fraction(0):
                     if c < min_c:
                         min_c = c
                         selected_r = r
                 elif min_c == 2:
-                    c = (sx * tx + sy * ty) / math.sqrt(sx * sx + sy * sy) / math.sqrt(tx * tx + ty * ty)
                     if c > max_c:
                         max_c = c
                         selected_r = r
