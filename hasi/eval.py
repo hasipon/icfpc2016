@@ -99,6 +99,7 @@ class Hoge:
         self.polygon.append(q)
         # todo 有理数化
         min_c = 2
+        max_c = -2
         selected_r = None
         for r in self.G[q]:
             if p != r:
@@ -114,6 +115,11 @@ class Hoge:
                     c = (sx * tx + sy * ty) / math.sqrt(sx * sx + sy * sy) / math.sqrt(tx * tx + ty * ty)
                     if c < min_c:
                         min_c = c
+                        selected_r = r
+                elif min_c == 2:
+                    c = (sx * tx + sy * ty) / math.sqrt(sx * sx + sy * sy) / math.sqrt(tx * tx + ty * ty)
+                    if c > max_c:
+                        max_c = c
                         selected_r = r
         if selected_r is None:
             return False
