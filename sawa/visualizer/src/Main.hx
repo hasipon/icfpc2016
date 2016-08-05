@@ -7,7 +7,9 @@ import flash.display.Shape;
 import flash.display.Sprite;
 import flash.display.StageScaleMode;
 import flash.events.Event;
+import flash.events.KeyboardEvent;
 import flash.text.TextField;
+import flash.ui.Keyboard;
 import haxe.Resource;
 import haxe.Timer;
 import haxe.ds.Option;
@@ -42,6 +44,7 @@ class Main extends Sprite
 	private function init(e:Event):Void 
 	{
 		stage.scaleMode = StageScaleMode.SHOW_ALL;
+		stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		removeEventListener(Event.ADDED_TO_STAGE, init);
 		problems = getProblems();
 		
@@ -79,14 +82,38 @@ class Main extends Sprite
 		
 		var comboBox = new ComboBox(this, 0, 20, problems[index], problems);
 		comboBox.addEventListener(Event.SELECT, onSelect);
-		new PushButton(this, 0, 50, "cancel", cancel);
-		new PushButton(this, 0, 70, "open", open);
-		undoButton = new PushButton(this, 0, 90, "< undo", undo);
-		redoButton = new PushButton(this, 0, 110, "redo >", redo);
-		new PushButton(this, 0, 130, "normalize", normalize);
-		new PushButton(this, 0, 150, "select_all", selectAll);
+		new PushButton(this, 0, 50, "cancel(C)", cancel);
+		new PushButton(this, 0, 70, "open(O)", open);
+		undoButton = new PushButton(this, 0, 90, "< undo(Z)", undo);
+		redoButton = new PushButton(this, 0, 110, "redo(Y) >", redo);
+		new PushButton(this, 0, 130, "normalize(N)", normalize);
+		new PushButton(this, 0, 150, "select_all(A)", selectAll);
 		
 		updateTarget(index);
+	}
+	
+	private function onKeyDown(e:KeyboardEvent):Void 
+	{
+		switch (e.keyCode)
+		{
+			case Keyboard.A:
+				selectAll(null);
+				
+			case Keyboard.C:
+				cancel(null);
+				
+			case Keyboard.O:
+				open(null);
+				
+			case Keyboard.Z:
+				undo(null);
+				
+			case Keyboard.Y:
+				redo(null);
+				
+			case Keyboard.N:
+				normalize(null);
+		}
 	}
 	
 	private function undo(e:Event):Void 
@@ -159,7 +186,7 @@ class Main extends Sprite
 		
 		var problem = currentProblem[currentIndex];
 		problemSprite = problem.create(updateText);
-		problemSprite.scaleX = problemSprite.scaleY = 2.5;
+		problemSprite.scaleX = problemSprite.scaleY = 0.25;
 		problemSprite.x = 300;
 		problemSprite.y = 300;
 		
