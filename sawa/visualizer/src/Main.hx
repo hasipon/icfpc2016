@@ -5,6 +5,7 @@ import com.bit101.components.PushButton;
 import flash.Lib;
 import flash.display.Shape;
 import flash.display.Sprite;
+import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.text.TextField;
 import haxe.Resource;
@@ -37,6 +38,7 @@ class Main extends Sprite
 	
 	private function init(e:Event):Void 
 	{
+		stage.scaleMode = StageScaleMode.SHOW_ALL;
 		removeEventListener(Event.ADDED_TO_STAGE, init);
 		problems = getProblems();
 		

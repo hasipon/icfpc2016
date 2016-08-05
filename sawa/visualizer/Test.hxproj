@@ -42,7 +42,7 @@
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>cmd /c haxe $(OutputFile)</preBuildCommand>
+  <preBuildCommand>cmd /c haxe $(OutputFile) -debug</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->
