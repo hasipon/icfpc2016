@@ -1,0 +1,14 @@
+#!/bin/bash -x
+root=$(cd $(dirname $0) && pwd)
+cd $root
+
+./api-problem-submit $1 $2
+cat result2.json | jq -r "."
+
+if [ $(cat result2.json | jq -r ".ok") = "true" ]; then
+  pid=$(cat result2.json | jq -r ".problem_id")
+  h=$(cat result2.json | jq -r ".solution_spec_hash")
+  savename="challenge/$1"
+  cp $2 "$savename.txt"
+  cat result2.json | jq -r "." > "$savename.json"
+fi

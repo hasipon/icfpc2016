@@ -1,6 +1,7 @@
 .DS_Store
 
 result.json
+result2.json
 *.swp
 *.pyc
 

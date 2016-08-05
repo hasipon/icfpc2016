@@ -1,0 +1,13 @@
+#!/bin/bash -x
+rm result2.json
+publish_time=$1
+solution_file=$2
+
+http_code=$(curl --compressed -o result2.json -w '%{http_code}' -L -H Expect: -H 'X-API-Key: 40-99c9d077970fa19701728558a994a82a' -F "solution_spec=@$solution_file" -F "publish_time=$publish_time" 'http://2016sv.icfpcontest.org/api/problem/submit')
+
+if [[ $http_code -eq 200 ]]; then
+  exit 0
+else
+  exit 1
+fi
+
