@@ -2,6 +2,8 @@
 
 http://icfpc2016.blogspot.jp/
 
+http://52.197.240.199:8000/
+
 ## requirements
 - jq
 
