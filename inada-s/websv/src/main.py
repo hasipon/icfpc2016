@@ -110,6 +110,15 @@ def solution_submit_post():
     output = subprocess.check_output([repo + "/solution-submit", problem_id, filename])
     return template('output', output=output)
 
+@route('/gitstatus')
+def git_status():
+    output = ""
+    try:
+        output += subprocess.check_output(["git", "status"])
+    except subprocess.CalledProcessError, e:
+        output += "Error:" + e.output
+    return template('output', output=output)
+
 @route('/pushsolution')
 def push_solution():
     output = ""
