@@ -26,3 +26,11 @@ font-size: 24px;
 
 </head>
 <body>
+
+<div class="container">
+<ul>
+<li><a href="http://2016sv.icfpcontest.org/leaderboard">Leaderboard</a></li>
+<li><a href="/">Problems</a></li>
+<li><a href="/pull">GitPull</a></li>
+</ul>
+</div>

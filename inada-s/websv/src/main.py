@@ -87,7 +87,7 @@ def dbg():
 @route('/pull')
 def pull():
     output = subprocess.check_output(["git", "pull", "origin", "master"])
-    return "<pre>" + output + "</pre>"
+    return template('pull', output=output)
 
 debug(True)
 run(host="0.0.0.0", port=8000)

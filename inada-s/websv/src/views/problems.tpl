@@ -1,7 +1,6 @@
 % include('head.tpl')
 
 <div class="container">
-
 <h1>Problems</h1>
 
 <table class="table table-condensed table-striped">
@@ -11,7 +10,8 @@
     <th class="text-center">resemblance</th>
     <th class="text-center">solution_size</th>
     <th class="text-center">problem_size</th>
-    <th class="text-center">solution_size</th>
+    <th class="text-center">owner_solution_size</th>
+    <th class="text-center">image</th>
     <th class="text-center">official</th>
 </tr>
 % for p in problems:
@@ -25,10 +25,7 @@
 <tr>
 % end
 % end
-    <td class="text-center">
-    <a href="/problems/{{p['problem_id']}}.png">{{p['problem_id']}}</a>
-    </td>
-
+    <td class="text-center">{{p['problem_id']}}</td>
     <td class="text-center">
 % if p['ok']:
     {{p['rank']}} / {{len(p['ranking'])}}
@@ -48,6 +45,10 @@
     <td class="text-center">{{p['solution_size']}}</td>
 
     <td class="text-center">
+    <a href="/problems/{{p['problem_id']}}.png">image</a>
+    </td>
+
+    <td class="text-center">
     <a href="http://2016sv.icfpcontest.org/problem/view/{{p['problem_id']}}">detail</a>
     </td>
 </tr>
@@ -56,4 +57,3 @@
 </div>
 
 % include('tail.tpl')
-
