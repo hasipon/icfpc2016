@@ -2,6 +2,7 @@ import flash.display.Graphics;
 import flash.display.Shape;
 import flash.display.Sprite;
 import flash.geom.Point;
+import thx.Rational;
 
 class Problem
 {
@@ -86,17 +87,9 @@ class Problem
 		return new Vertex(parseNum(segs[0]), parseNum(segs[1]), i);
 	}
 	
-	private static function parseNum(str:String):Float
+	private static function parseNum(str:String):Rational
 	{
-		var segs = str.split("/");
-		return if (segs.length == 1)
-		{
-			Std.parseFloat(segs[0]);
-		}
-		else
-		{
-			Std.parseFloat(segs[0]) / Std.parseFloat(segs[1]);
-		}
+		return Rational.fromString(str);
 	}
 	
 	public function create(updateText:String->Void):ProblemSprite
@@ -230,7 +223,7 @@ class Problem
 				continue;
 			}
 			i++;
-			string += point.x + "," + point.y + " " + point.source + "\n";
+			string += point.toString() + " " + point.source + "\n";
 		}
 		string = i + "\n" + string;
 		
@@ -246,8 +239,8 @@ class Problem
 
 private class Vec 
 {
-	private var dx:Float;
-	private var dy:Float;
+	private var dx:Rational;
+	private var dy:Rational;
 	public var ev:Vertex;
 	public var sv:Vertex;
 	
@@ -259,7 +252,7 @@ private class Vec
 		this.dy = sv.y - ev.y;
 	}
 	
-	public function mirror(v:Vertex):Point
+	public function mirror(v:Vertex):RationalPoint
 	{
 		var bh = new Vec(sv, v);
 		var ohScale = inner(bh) / length2();
@@ -268,17 +261,29 @@ private class Vec
 		var bhx = v.x - sv.x;
 		var bhy = v.y - sv.y;
 		
-		return new Point(v.x + (ohx - bhx) * 2, v.y + (ohy- bhy) * 2);
+		return new RationalPoint(v.x + (ohx - bhx) * Rational.fromInt(2), v.y + (ohy- bhy) * Rational.fromInt(2));
 	}
 	
-	public function length2():Float
+	public function length2():Rational
 	{
 		return dx * dx + dy * dy;
 	}
 	
 	// 内積
-	public function inner(vec:Vec):Float
+	public function inner(vec:Vec):Rational
 	{
 		return dx * (vec.dx) + dy * vec.dy;
+	}
+}
+
+private class RationalPoint
+{
+	public var y:Rational;
+	public var x:Rational;
+	
+	public function new(x:Rational, y:Rational)
+	{
+		this.x = x;
+		this.y = y;
 	}
 }

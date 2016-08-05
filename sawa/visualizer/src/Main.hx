@@ -6,9 +6,6 @@ import flash.Lib;
 import flash.display.Shape;
 import flash.display.Sprite;
 import flash.events.Event;
-import flash.filesystem.File;
-import flash.filesystem.FileMode;
-import flash.filesystem.FileStream;
 import flash.text.TextField;
 import haxe.Resource;
 import haxe.Timer;
@@ -128,7 +125,8 @@ class Main extends Sprite
 		problemSprite.x = 300;
 		problemSprite.y = 300;
 		
-		outputField.text = problem.output();
+		var name = problems[index];
+		outputField.text = Resource.getString(name).split("\r\n").join("\n") + problem.output();
 		undoButton.enabled = (currentIndex > 0);
 		redoButton.enabled = currentIndex < (currentProblem.length - 1);
 		
