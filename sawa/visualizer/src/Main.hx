@@ -159,7 +159,7 @@ class Main extends Sprite
 		
 		var problem = currentProblem[currentIndex];
 		problemSprite = problem.create(updateText);
-		problemSprite.scaleX = problemSprite.scaleY = 2.5;
+		problemSprite.scaleX = problemSprite.scaleY = 0.25;
 		problemSprite.x = 300;
 		problemSprite.y = 300;
 		

@@ -8,7 +8,7 @@ class Problem
 {
 	public var points:Array<Vertex>;
 	public var polygons:Array<Polygon>; 
-	public var lineToPolygons:Map<String, Array<Polygon>>;
+	public var lineToPolygons:Map<String, Array<Int>>;
 	
 	public static var newLine:EReg = ~/(\r\n)|\n|\r/g;
 
@@ -34,6 +34,7 @@ class Problem
 		];
 		
 		lineToPolygons = new Map();
+		var c = 0;
 		for (polygon in polygons)
 		{
 			var v = polygon.vertexes;
@@ -59,13 +60,14 @@ class Problem
 						throw "同じ辺を3度以上使用しています。";
 					}
 					
-					arr.push(polygon);
+					arr.push(c);
 				}
 				else
 				{
-					lineToPolygons[line] = [polygon];
+					lineToPolygons[line] = [c];
 				}
 			}
+			c++;
 		}
 	}
 	
@@ -143,6 +145,7 @@ class Problem
 		}
 		
 		lineToPolygons = new Map();
+		var c = 0;
 		for (polygon in polygons)
 		{
 			var v = polygon.vertexes;
@@ -163,11 +166,11 @@ class Problem
 				if (lineToPolygons.exists(line))
 				{
 					var arr = lineToPolygons[line];
-					arr.push(polygon);
+					arr.push(c);
 				}
 				else
 				{
-					lineToPolygons[line] = [polygon];
+					lineToPolygons[line] = [c];
 				}
 			}
 			
@@ -175,6 +178,8 @@ class Problem
 			{
 				points[i].active = true;
 			}
+			
+			c++;
 		}
 	}
 	

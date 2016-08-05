@@ -37,11 +37,15 @@ class ProblemSprite extends Sprite
 			this.addChild(polygon);
 		}
 		
-		for (line in problem.lineToPolygons.keys())
+		for (k in problem.lineToPolygons.keys())
 		{
-			var key = line.split("_");
+			var key = k.split("_");
 			var line = new LineShape(parsePoint(key[0]), parsePoint(key[1]));
 			lines.push(line);
+			for (p in problem.lineToPolygons[k])
+			{
+				polygons[p].lines.push(line);
+			}
 			this.addChild(line);
 		}
 		
@@ -70,23 +74,25 @@ class ProblemSprite extends Sprite
 	
 	private function onUp(e:MouseEvent):Void 
 	{
+		trace(state);
 		switch (state)
 		{
 			case Newtral | LineSelect(_):
 				updateText("ドラッグを開始してください");
 				state = ProblemSpriteState.Newtral;
 				
-			case PolygonSelect(line, arr):
+			case PolygonSelect(_, line, arr):
 				updateText("除去対象をクリックして、openしてください");
-				state = ProblemSpriteState.RemoveSelect(line, arr, []);
+				state = ProblemSpriteState.RemoveSelect(Option.None, line, arr, []);
 				
-			case RemoveSelect(_):
-				// 何もしない
+			case RemoveSelect(_, line, arr, r):
+				state = ProblemSpriteState.RemoveSelect(Option.None, line, arr, r);
 		}
 	}
 	
 	private function onMove(e:MouseEvent):Void 
 	{
+		trace(state);
 		switch (state)
 		{
 			case Newtral:
@@ -94,27 +100,26 @@ class ProblemSprite extends Sprite
 				
 			case LineSelect(start):
 				var end:Point = this.globalToLocal(new Point(e.stageX, e.stageY));
-				end.x /= 100;
-				end.y /= 100;
+				end.x /= 1000;
+				end.y /= 1000;
 				for (line in lines)
 				{
-					var ax = start.x, ay = start.y;
-					var bx = end.x, by = end.y;
-					var cx = line.start.x.toFloat(), cy = line.start.y.toFloat();
-					var dx = line.end.x.toFloat(), dy = line.end.y.toFloat();
-					
-					var ta = (cx - dx) * (ay - cy) + (cy - dy) * (cx - ax);
-					var tb = (cx - dx) * (by - cy) + (cy - dy) * (cx - bx);
-					var tc = (ax - bx) * (cy - ay) + (ay - by) * (ax - cx);
-					var td = (ax - bx) * (dy - ay) + (ay - by) * (ax - dx);
-					
-					if (tc * td < 0 && ta * tb <= 0)
+					if (line.crossTest(start, end))
 					{
 						line.transform.colorTransform = RED_TRANSFORM;
 						updateText("ドラッグで折りたたむ面を通過してください。" + end.x + "," + end.y);
 						var arr = [];
-						state = ProblemSpriteState.PolygonSelect(line, arr);
 						
+						switch (polygonsHitTest(start, end))
+						{
+							case Some(p):
+								p.transform.colorTransform = RED_TRANSFORM;
+								arr.push(p);
+								
+							case None:
+						}
+						
+						state = ProblemSpriteState.PolygonSelect(end, line, arr);
 						return;
 					}
 				}
@@ -122,43 +127,98 @@ class ProblemSprite extends Sprite
 				updateText("ドラッグで折りたたむ線に対して交差してください。" + end.x + "," + end.y);
 				state = ProblemSpriteState.LineSelect(end);
 				
-			case PolygonSelect(line, arr):
+			case PolygonSelect(start, line, arr):
 				var end:Point = this.globalToLocal(new Point(e.stageX, e.stageY));
+				end.x /= 1000;
+				end.y /= 1000;
 				
-				switch (polygonsHitTest(arr, end))
+				switch (polygonsHitTest(start, end))
 				{
 					case Some(p):
-						p.transform.colorTransform = RED_TRANSFORM;
-						arr.push(p);
+						if (arr.indexOf(p) == -1)
+						{
+							p.transform.colorTransform = RED_TRANSFORM;
+							arr.push(p);
+						}
 						
 					case None:
 				}
-				state = ProblemSpriteState.PolygonSelect(line, arr);
 				
-			case RemoveSelect(_):
-				// 何もしない
+				state = ProblemSpriteState.PolygonSelect(end, line, arr);
+				
+			case RemoveSelect(start, line, arr, removes):
+				switch (start)
+				{
+					case Option.Some(_start):
+						var end:Point = this.globalToLocal(new Point(e.stageX, e.stageY));
+						end.x /= 1000;
+						end.y /= 1000;
+						
+						switch (polygonsHitTest(_start, end))
+						{
+							case Option.Some(p):
+								if (arr.indexOf(p) != -1)
+								{
+									if (removes.remove(p))
+									{
+										p.transform.colorTransform = RED_TRANSFORM;
+									}
+									else
+									{
+										p.transform.colorTransform = DARK_RED_TRANSFORM;
+										removes.push(p);
+									}
+								}
+								
+							case Option.None:
+						}
+						
+						state = ProblemSpriteState.RemoveSelect(Option.Some(end), line, arr, removes);
+						
+					case Option.None:
+				}
+				
 		}
 	}
-	
-	private function polygonsHitTest(current:Array<PolygonShape>, point:Point):Option<PolygonShape>
+
+	private function polygonsHitTest(start:Point, end:Point):Option<PolygonShape>
 	{
-		for (polygon in polygons)
+		trace("hitTest:", start, end);
+		var data = Option.None;
+		var top = new Point(-10000, 9999999);
+		for (line in lines)
 		{
-			var global = localToGlobal(point);
-			if (polygon.hitTestPoint(global.x, global.y, true))
+			if (!line.crossTest(start, end))
 			{
-				if (current.indexOf(polygon) == -1)
+				continue;
+			}
+			
+			var key = line.start.index + "_" + line.end.index;
+			var hitPolygons = problem.lineToPolygons[key];
+			for (hitPolygon in hitPolygons) 
+			{
+				var count = 0;
+				for (pl in polygons[hitPolygon].lines)
 				{
-					return Option.Some(polygon);
+					if (pl.crossTest(end, top))
+					{
+						count++;
+					}
+				}
+				
+				if (count % 2 == 1)
+				{
+					data = Option.Some(polygons[hitPolygon]);
 				}
 			}
 		}
 		
-		return Option.None;
+		return data;
 	}
 	
 	private function onDown(e:MouseEvent):Void 
 	{
+		trace(state);
 		switch (state)
 		{
 			case LineSelect(_) | PolygonSelect(_) | Newtral:
@@ -171,32 +231,19 @@ class ProblemSprite extends Sprite
 					polygon.transform.colorTransform = new ColorTransform();
 				}
 				
-				updateText("ドラッグで折りたたむ線に対して交差してください。");
+				updateText("ドラッグで折りたたむ線に対して交差してください。" + e.stageX + "," + e.stageY);
 				var start = this.globalToLocal(new Point(e.stageX, e.stageY));
-				start.x /= 100;
-				start.y /= 100;
+				start.x /= 1000;
+				start.y /= 1000;
 				state = ProblemSpriteState.LineSelect(start);
 				
-			case RemoveSelect(line, arr, removes):
+			case RemoveSelect(_, line, arr, removes):
 				var global = new Point(e.stageX, e.stageY);
 				var end:Point = this.globalToLocal(global);
+				end.x /= 1000;
+				end.y /= 1000;
 				
-				for (polygon in arr)
-				{
-					if (polygon.hitTestPoint(global.x, global.y, true))
-					{
-						if (removes.remove(polygon))
-						{
-							polygon.transform.colorTransform = RED_TRANSFORM;
-						}
-						else
-						{
-							polygon.transform.colorTransform = DARK_RED_TRANSFORM;
-							removes.push(polygon);
-						}
-						break;
-					}
-				}
+				state = ProblemSpriteState.RemoveSelect(Option.Some(end), line, arr, removes);
 		}
 	}
 	
@@ -228,7 +275,7 @@ class ProblemSprite extends Sprite
 			case LineSelect(_) | PolygonSelect(_) | Newtral:
 				return Option.None;
 				
-			case RemoveSelect(line, polygons, removePolygons):
+			case RemoveSelect(_, line, polygons, removePolygons):
 				var newProblem = problem.apply(
 					line.start.index, 
 					line.end.index, 
@@ -245,7 +292,7 @@ class ProblemSprite extends Sprite
 		{
 			case LineSelect(_) | PolygonSelect(_) | Newtral:
 				
-			case RemoveSelect(line, _, removePolygons):
+			case RemoveSelect(p, line, _, removePolygons):
 				var arr = [
 					for (polygon in polygons)
 					{
@@ -256,7 +303,7 @@ class ProblemSprite extends Sprite
 						polygon;
 					}
 				];
-				state = ProblemSpriteState.RemoveSelect(line, arr, removePolygons);
+				state = ProblemSpriteState.RemoveSelect(p, line, arr, removePolygons);
 		}
 	}
 }
@@ -265,8 +312,8 @@ enum ProblemSpriteState
 {
 	Newtral;
 	LineSelect(point:Point);
-	PolygonSelect(line:LineShape, polygons:Array<PolygonShape>);
-	RemoveSelect(line:LineShape, polygons:Array<PolygonShape>, removePolygons:Array<PolygonShape>);
+	PolygonSelect(point:Point, line:LineShape, polygons:Array<PolygonShape>);
+	RemoveSelect(point:Option<Point>, line:LineShape, polygons:Array<PolygonShape>, removePolygons:Array<PolygonShape>);
 }
 
 class ShapePoint
@@ -295,19 +342,37 @@ class LineShape extends Shape
 		this.end = end;
 		graphics.clear();
 		graphics.lineStyle(0.01, 0x45FE34);
-		graphics.moveTo(start.x.toFloat() * 100, start.y.toFloat() * 100);
-		graphics.lineTo(end.x.toFloat() * 100, end.y.toFloat() * 100);
+		graphics.moveTo(start.x.toFloat() * 1000, start.y.toFloat() * 1000);
+		graphics.lineTo(end.x.toFloat() * 1000, end.y.toFloat() * 1000);
+	}
+	
+	public function crossTest(_start:Point, _end:Point):Bool
+	{
+		var ax = _start.x, ay = _start.y;
+		var bx = _end.x, by = _end.y;
+		var cx = start.x.toFloat(), cy = start.y.toFloat();
+		var dx = end.x.toFloat(), dy = end.y.toFloat();
+		
+		var ta = (cx - dx) * (ay - cy) + (cy - dy) * (cx - ax);
+		var tb = (cx - dx) * (by - cy) + (cy - dy) * (cx - bx);
+		var tc = (ax - bx) * (cy - ay) + (ay - by) * (ax - cx);
+		var td = (ax - bx) * (dy - ay) + (ay - by) * (ax - dx);
+		
+		return tc * td < 0 && ta * tb <= 0;
 	}
 }
 
 class PolygonShape extends Shape
 {
 	public var index:Int;
+	public var lines:Array<LineShape>;
 	
 	public function new (problem:Problem, index:Int)
 	{
 		super();
 		this.index = index;
+		this.lines = [];
+		
 		graphics.clear();
 		graphics.beginFill(0x45FE34, 0.2);
 		var first = true;
@@ -316,12 +381,12 @@ class PolygonShape extends Shape
 			var v = problem.points[i];
 			if (first)
 			{
-				graphics.moveTo(v.x.toFloat() * 100, v.y.toFloat() * 100);
+				graphics.moveTo(v.x.toFloat() * 1000, v.y.toFloat() * 1000);
 				first = false;
 			}
 			else
 			{
-				graphics.lineTo(v.x.toFloat() * 100, v.y.toFloat() * 100);
+				graphics.lineTo(v.x.toFloat() * 1000, v.y.toFloat() * 1000);
 			}
 		}
 		graphics.endFill();
