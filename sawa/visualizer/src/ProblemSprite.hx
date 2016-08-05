@@ -99,8 +99,8 @@ class ProblemSprite extends Sprite
 				{
 					var ax = start.x, ay = start.y;
 					var bx = end.x, by = end.y;
-					var cx = line.start.x, cy = line.start.y;
-					var dx = line.end.x, dy = line.end.y;
+					var cx = line.start.x.toFloat(), cy = line.start.y.toFloat();
+					var dx = line.end.x.toFloat(), dy = line.end.y.toFloat();
 					
 					var ta = (cx - dx) * (ay - cy) + (cy - dy) * (cx - ax);
 					var tb = (cx - dx) * (by - cy) + (cy - dy) * (cx - bx);
@@ -250,10 +250,10 @@ enum ProblemSpriteState
 class ShapePoint
 {
 	public var index:Int;
-	public var x:Float;
-	public var y:Float;
+	public var x:Rational;
+	public var y:Rational;
 	
-	public function new (x:Float, y:Float, index:Int)
+	public function new (x:Rational, y:Rational, index:Int)
 	{
 		this.x = x;
 		this.y = y;
@@ -273,8 +273,8 @@ class LineShape extends Shape
 		this.end = end;
 		graphics.clear();
 		graphics.lineStyle(0.01, 0x45FE34);
-		graphics.moveTo(start.x * 100, start.y * 100);
-		graphics.lineTo(end.x * 100, end.y * 100);
+		graphics.moveTo(start.x.toFloat() * 100, start.y.toFloat() * 100);
+		graphics.lineTo(end.x.toFloat() * 100, end.y.toFloat() * 100);
 	}
 }
 
@@ -294,12 +294,12 @@ class PolygonShape extends Shape
 			var v = problem.points[i];
 			if (first)
 			{
-				graphics.moveTo(v.x * 100, v.y * 100);
+				graphics.moveTo(v.x.toFloat() * 100, v.y.toFloat() * 100);
 				first = false;
 			}
 			else
 			{
-				graphics.lineTo(v.x * 100, v.y * 100);
+				graphics.lineTo(v.x.toFloat() * 100, v.y.toFloat() * 100);
 			}
 		}
 		graphics.endFill();

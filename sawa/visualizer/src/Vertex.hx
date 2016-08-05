@@ -3,11 +3,11 @@ package;
 class Vertex
 {
 	public var source:Int;
-	public var y:Float;
-	public var x:Float;
+	public var y:Rational;
+	public var x:Rational;
 	public var active:Bool;
 	
-	public function new(x:Float, y:Float, source:Int) 
+	public function new(x:Rational, y:Rational, source:Int) 
 	{
 		this.x = x;
 		this.y = y;
