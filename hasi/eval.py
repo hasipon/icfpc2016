@@ -32,8 +32,8 @@ def intersect(s, t):
         return None
     ux = t[0][0] - s[0][0]
     uy = t[0][1] - s[0][1]
-    a = (ty * ux + tx * uy) / cross
-    b = (- sy * ux - sx * uy) / cross
+    a = (ux * ty - uy * tx) / cross
+    b = ((-ux) * sy - (-uy) * sx) / cross
     if Fraction(0) < a < Fraction(1) and Fraction(0) < b < Fraction(1):
         return a * sx + s[0][0], a * sy + s[0][1]
     return None
