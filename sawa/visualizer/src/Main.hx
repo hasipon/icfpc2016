@@ -6,10 +6,12 @@ import flash.Lib;
 import flash.display.Shape;
 import flash.display.Sprite;
 import flash.display.StageScaleMode;
+import flash.errors.Error;
 import flash.events.Event;
 import flash.events.KeyboardEvent;
 import flash.text.TextField;
 import flash.ui.Keyboard;
+import haxe.Http;
 import haxe.Resource;
 import haxe.Timer;
 import haxe.ds.Option;
@@ -33,7 +35,7 @@ class Main extends Sprite
 	private var outputField2:TextField;
 	private var redoButton:PushButton;
 	private var undoButton:PushButton;
-	
+	private var submitButton:PushButton;
 	
 	public function new() 
 	{
@@ -71,9 +73,9 @@ class Main extends Sprite
 		outputField2.background = true;
 		outputField2.border = true;
 		outputField2.width = 390;
-		outputField2.height = 380;
+		outputField2.height = 350;
 		outputField2.x = 800;
-		outputField2.y = 410;
+		outputField2.y = 440;
 		addChild(outputField2);
 		
 		graphics.lineStyle(1, 0, 0.1);
@@ -88,6 +90,7 @@ class Main extends Sprite
 		redoButton = new PushButton(this, 0, 110, "redo(Y) >", redo);
 		new PushButton(this, 0, 130, "normalize(N)", normalize);
 		new PushButton(this, 0, 150, "select_all(A)", selectAll);
+		submitButton = new PushButton(this, 800, 400, "submit", submit);
 		
 		updateTarget(index);
 	}
@@ -239,5 +242,39 @@ class Main extends Sprite
 		);
 		
 		return arr;
+	}
+	
+	private static var resultEReg = ~/pre[>](.*)[<]pre/s;
+	public function submit(e:Event):Void
+	{
+		var http = new Http("http://52.197.240.199:8000/submit-solution");
+		var id = StringTools.urlEncode(problems[index].split(".txt")[0]);
+		var solution = StringTools.urlEncode(outputField.text);
+		var postData = "problem_id=" + id + "&solution=" + solution;
+		
+		outputField2.text = "通信中";
+		submitButton.enabled = false;
+		http.onError = function (e)
+		{
+			outputField2.text = "error";
+			submitButton.enabled = true;
+		};
+		http.onData = function (data:String)
+		{
+			if (resultEReg.match(StringTools.htmlUnescape(data)))
+			{
+				outputField2.text = resultEReg.matched(1);
+			}
+			else
+			{
+				outputField2.text = data;
+			}
+			
+			submitButton.enabled = true;
+		};
+		
+		http.setPostData(postData);
+		http.setHeader("ContentType", "application/x-www-form-urlencoded");
+		http.request(true);
 	}
 }

@@ -202,6 +202,15 @@ class Problem
 				}
 			}
 		}
+		
+		// 外周を使用済みの線に
+		for (line in lines)
+		{
+			if (line.polygons.length == 1)
+			{
+				usedLines[line.key] = true;
+			}
+		}
 	}
 	
 	
@@ -352,15 +361,6 @@ class Problem
 		{
 			point.x -= minX;
 			point.y -= minY;
-		}
-		
-		// 外周を使用済みの線に
-		for (line in lines)
-		{
-			if (points[line.start].isOnSquare() && points[line.end].isOnSquare())
-			{
-				usedLines[line.key] = true;
-			}
 		}
 		
 		// 未使用な線の除去
