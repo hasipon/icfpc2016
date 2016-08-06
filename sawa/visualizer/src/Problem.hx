@@ -130,9 +130,7 @@ class Problem
 			polygons.remove(r);
 		}
 		
-		trace([for (key in usedLines.keys()) key]);
 		refresh();
-		trace([for (key in usedLines.keys()) key]);
 	}
 	
 	private function refresh():Void
@@ -385,10 +383,6 @@ class Problem
 				{
 					newVertexes.push(vs[(i + 1) % l]);
 				}
-				else
-				{
-					trace("same");
-				}
 			}
 			polygon.vertexes = newVertexes;
 		}
@@ -410,10 +404,6 @@ class Problem
 				if (!vec0.isParallel(vec1))
 				{
 					newVertexes.push(vs[(i + 1) % l]);
-				}
-				else
-				{
-					trace(v0.x, v0.y, v1.x, v1.y, v2.x, v2.y);
 				}
 			}
 			polygon.vertexes = newVertexes;
