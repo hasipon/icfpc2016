@@ -148,14 +148,7 @@ class Problem
 			for (i in 0...l)
 			{
 				var v0 = points[vs[i]];
-				var v1 = points[vs[(i + 1) % l]];
-				var v2 = points[vs[(i + 2) % l]];
-				var vec0 = new Vec(v0, v1);
-				var vec1 = new Vec(v1, v2);
-				if (vec0.isZero() || vec1.isZero() || !vec0.isParallel(vec1))
-				{
-					v1.active = true;
-				}
+				v0.active = true;
 			}
 		}
 		
