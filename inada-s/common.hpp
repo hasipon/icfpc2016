@@ -152,28 +152,33 @@ CCW ccw(point p0, point a, point b) {
   return CCW::ONSEGMENT;
 }
 
-// double getAngle(point a, point b)
-// {
-//   return acos(dot(a, b) / (abs(a) * abs(b)));
-// }
-
-// double getAngle(point a)
-// {
-//   return atan2(a.real(), a.imag());
-// }
-
-// vector<polygon> convex_cut() {}
-
-#define each(i, c) for (auto& i : c)
-#define unless(cond) if (!(cond))
-
-using namespace std;
-
-typedef long long int lli;
-typedef unsigned long long ull;
-
-template <typename P, typename Q>
-ostream& operator<<(ostream& os, pair<P, Q> p) {
-  os << "<" << p.first << "," << p.second << ">";
-  return os;
+void gvBox(const box& b, GV_RGB rgb) {
+  const auto p1 = b.min_corner();
+  const auto p2 = b.max_corner() - b.min_corner();
+  const auto x = p1.x().convert_to<double>();
+  const auto y = p1.y().convert_to<double>();
+  const auto w = p2.x().convert_to<double>();
+  const auto h = p2.y().convert_to<double>();
+  gvRect(x, y, w, h, rgb);
 }
+
+void gvPolygon(const polygon& pol, GV_RGB rgb) {
+  gvPolygon(rgb, [&pol]() {
+    bg::for_each_point(pol, [&](const point& p) {
+      const auto x = p.x().convert_to<double>();
+      const auto y = p.y().convert_to<double>();
+      gvPolygonAdd(x, y);
+    });
+  });
+}
+
+void gvSegment(const segment& s, double r, GV_RGB rgb) {
+  const auto p1 = s.first;
+  const auto p2 = s.second;
+  const auto x1 = p1.x().convert_to<double>();
+  const auto y1 = p1.y().convert_to<double>();
+  const auto x2 = p2.x().convert_to<double>();
+  const auto y2 = p2.y().convert_to<double>();
+  gvLine(x1, y1, x2, y2, r, rgb);
+}
+void gvSegment(const segment& s, GV_RGB rgb) { gvSegment(s, 0.5, rgb); }
