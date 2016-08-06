@@ -25,3 +25,7 @@ http://52.197.240.199:8000/
 ## 回答提出
 `./solution-submit <problem_id> <path/to/solution>`  
 提出ログが `solutions/` ディレクトリに残るので要コミット
+
+## visualizerビルド
+
+`sawa/visualizer/` で `haxe build.hxml`
