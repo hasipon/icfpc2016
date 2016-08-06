@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		284738811D55A53300544A83 /* common.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = common.hpp; sourceTree = "<group>"; };
 		920C76821D536A4500297534 /* foo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foo; sourceTree = BUILT_PRODUCTS_DIR; };
 		923F48191D536AA1004EF56D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		923F481B1D537513004EF56D /* gv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = gv.hpp; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		920C76791D536A4500297534 = {
 			isa = PBXGroup;
 			children = (
+				284738811D55A53300544A83 /* common.hpp */,
 				923F481B1D537513004EF56D /* gv.hpp */,
 				923F48191D536AA1004EF56D /* main.cpp */,
 				920C76831D536A4500297534 /* Products */,
@@ -157,9 +159,11 @@
 					/usr/local/include,
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lgmp";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -197,8 +201,10 @@
 					/usr/local/include,
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lgmp";
 				SDKROOT = macosx;
 			};
 			name = Release;
