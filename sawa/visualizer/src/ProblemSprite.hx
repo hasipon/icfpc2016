@@ -38,15 +38,15 @@ class ProblemSprite extends Sprite
 			this.addChild(polygon);
 		}
 		
-		for (lineKey in problem.lineToPolygons.keys())
+		for (line in problem.lines)
 		{
-			var line = lineKey.createShape(problem);
-			lines.push(line);
-			for (p in problem.lineToPolygons[lineKey])
+			var lineShape = line.createShape(problem);
+			lines.push(lineShape);
+			for (p in line.polygons)
 			{
-				polygons[p].lines.push(line);
+				polygons[p].lines.push(lineShape);
 			}
-			this.addChild(line);
+			this.addChild(lineShape);
 		}
 		
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, onDown);
@@ -56,6 +56,7 @@ class ProblemSprite extends Sprite
 		addEventListener(Event.REMOVED_FROM_STAGE, onRemove);
 		updateText("ドラッグを開始してください");
 	}
+	
 	
 	
 	private function onRemove(e:Event):Void 
@@ -181,7 +182,7 @@ class ProblemSprite extends Sprite
 			}
 			
 			var key = new LineKey(line.start.index, line.end.index);
-			var hitPolygons = problem.lineToPolygons[key];
+			var hitPolygons = problem.lines[key].polygons;
 			for (hitPolygon in hitPolygons) 
 			{
 				var count = 0;

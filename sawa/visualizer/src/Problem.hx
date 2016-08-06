@@ -12,7 +12,7 @@ class Problem
 	public var polygons:Array<Polygon>;
 	
 	// 高速化用データ
-	public var lineToPolygons:Map<LineKey, Array<Int>>;
+	public var lines:Map<LineKey, Line>;
 	
 	public static var newLine:EReg = ~/(\r\n)|\n|\r/g;
 
@@ -137,8 +137,7 @@ class Problem
 			polygon.vertexes = [for (v in polygon.vertexes) pointMap[v]];
 		}
 		
-		lineToPolygons = new Map();
-		
+		lines = new Map();
 		for (j in 0...polygons.length)
 		{
 			var polygon = polygons[j];
@@ -150,14 +149,13 @@ class Problem
 				var v1 = v[(i + 1) % l];
 				var lineKey = new LineKey(v0, v1);
 				
-				if (lineToPolygons.exists(lineKey))
+				if (lines.exists(lineKey))
 				{
-					var arr = lineToPolygons[lineKey];
-					arr.push(j);
+					lines[lineKey].polygons.push(j);
 				}
 				else
 				{
-					lineToPolygons[lineKey] = [j];
+					lines[lineKey] = new Line(v0, v1, j);
 				}
 			}
 		}
