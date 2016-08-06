@@ -1,3 +1,4 @@
+cd $(dirname $0)
 
 for x in ../problems/*.txt; do
   if [ ! -e ../problems2/$(basename $x) ]; then
