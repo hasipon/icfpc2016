@@ -10,6 +10,7 @@ class Problem
 	// 元データ
 	public var points:Array<Vertex>;
 	public var polygons:Array<Polygon>;
+	public var usedLines:Map<LineKey, Bool>;
 	
 	// 高速化用データ
 	public var lines:Map<LineKey, Line>;
@@ -21,7 +22,6 @@ class Problem
 		var lines = newLine.split(input);
 		var iter = lines.iterator();
 		var pointCount = Std.parseInt(iter.next());
-		
 		points = [
 			for (i in 0...pointCount)
 			{
@@ -36,6 +36,7 @@ class Problem
 				parsePolygon(iter.next());
 			}
 		];
+		usedLines = new Map();
 		
 		refresh();
 	}
@@ -71,6 +72,7 @@ class Problem
 	
 	public function apply(startPointIndex:Int, endPointIndex:Int, polygonIndexes:Array<Int>, removePolygonIndexes:Array<Int>):Void
 	{
+		
 		var sv = points[startPointIndex];
 		var ev = points[endPointIndex];
 		var vecOA = new Vec(sv, ev);
@@ -88,6 +90,33 @@ class Problem
 			}
 		];
 		
+		usedLines[new LineKey(startPointIndex, endPointIndex)] = true;
+		// usedLinesの複製
+		for (i in 0...polygonIndexes.length)
+		{
+			var polygon = polygons[polygonIndexes[i]];
+			var newPolygon = newPolygons[i];
+			var vs = polygon.vertexes;
+			var l = vs.length;
+			for (i in 0...l)
+			{
+				var v0 = vs[i];
+				var v1 = vs[(i + 1) % l];
+				var nv0 = newPolygon.vertexes[i];
+				var nv1 = newPolygon.vertexes[(i + 1) % l];
+				var k = new LineKey(v0, v1);
+				var nk = new LineKey(nv0, nv1);
+				if (usedLines.exists(k))
+				{
+					usedLines[nk] = true;
+				}
+				if (k == nk)
+				{
+					usedLines[nk] = true;
+				}
+			}
+		}
+		
 		addPolygons(newPolygons);
 		var removePolygons = [
 			for (i in removePolygonIndexes)
@@ -101,7 +130,9 @@ class Problem
 			polygons.remove(r);
 		}
 		
+		trace([for (key in usedLines.keys()) key]);
 		refresh();
+		trace([for (key in usedLines.keys()) key]);
 	}
 	
 	private function refresh():Void
@@ -132,9 +163,23 @@ class Problem
 			}
 		}
 		points = newPoints;
-		for (polygon in polygons)
+		polygons = [
+			for (polygon in polygons)
+			{
+				new Polygon([for (v in polygon.vertexes) pointMap[v]]);
+			}
+		];
+		var oldUsedLines = usedLines;
+		usedLines = new Map();
+		for (key in oldUsedLines.keys())
 		{
-			polygon.vertexes = [for (v in polygon.vertexes) pointMap[v]];
+			switch (key.convert(pointMap))
+			{
+				case Option.Some(data):
+					usedLines[data] = true;
+					
+				case Option.None:
+			}
 		}
 		
 		lines = new Map();
@@ -160,6 +205,7 @@ class Problem
 			}
 		}
 	}
+	
 	
 	private function addPolygons(polygons:Array<Polygon>):Void
 	{
@@ -191,7 +237,8 @@ class Problem
 	{
 		var child = Type.createEmptyInstance(Problem);
 		child.points = [for (p in points) p];
-		child.polygons = [for (p in polygons) new Polygon(p.vertexes)];
+		child.polygons = [for (p in polygons) p];
+		child.usedLines = [for (key in usedLines.keys()) key => usedLines[key]];
 		child.refresh();
 		
 		return child;
