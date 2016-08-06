@@ -256,7 +256,7 @@ class Main extends Sprite
 		return arr;
 	}
 	
-	private static var resultEReg = ~/pre[>](.*)[<]pre/s;
+	private static var resultEReg = ~/pre(.*)pre/s;
 	public function submit(e:Event):Void
 	{
 		var http = new Http("http://52.197.240.199:8000/submit-solution");
