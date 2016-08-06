@@ -1,3 +1,6 @@
+#include <ostream>
+#include <sstream>
+
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/point_xy.hpp> 
 #include <boost/geometry/geometries/segment.hpp>
@@ -17,8 +20,9 @@ typedef bg::model::segment<point> segment;
 typedef bg::model::polygon<point> polygon;
 typedef bg::model::box<point> box;
 
-const rational eps = rational("1e-10");
+const rational eps = rational("1/1000000000");
 const rational PI = rational(M_PI);
+const point ORIGIN(0, 0);
 
 point operator -= (point& a, point b)
 {
@@ -35,14 +39,14 @@ point operator += (point& a, point b)
 template<typename T>
 point operator *= (point& a, T t)
 {
-  multiply_value(a, t);
+  bg::multiply_value(a, t);
   return a;
 }
 
 template<typename T>
 point operator /= (point& a, T t)
 {
-  divide_value(a, t);
+  bg::divide_value(a, t);
   return a;
 }
 
@@ -76,6 +80,54 @@ point operator / (point a, T t)
   return b;
 }
 
+std::ostream& operator << (std::ostream& os, const point& a)
+{
+  os << a.x() << "," << a.y();
+  return os;
+}
+
+std::istream& operator >> (std::istream& is, point& a)
+{
+  std::string s;
+  is >> s;
+  replace(s.begin(), s.end(), ',', ' ');
+  std::stringstream ss(s);
+  rational x, y;
+  ss >> x >> y;
+  a.x(x);
+  a.y(y);
+  return is;
+}
+
+rational norm(point a)
+{
+  return a.x() * a.x() + a.y() * a.y();
+}
+rational dot(point a, point b)
+{
+  return a.x() * b.x() + a.y() * b.y();
+}
+rational cross(point a, point b)
+{
+  return a.x() * b.y() - a.y() * b.x();
+}
+
+// rational abs (point a)
+// {
+//   return sqrt(norm(a));
+// }
+
+point project(point s1, point s2, point p) {
+  point base = s2 - s1;
+  rational t = dot(p - s1, base) / norm(base);
+  return s1 + base * t;
+}
+
+point reflect(point s1, point s2, point p)
+{
+  return p + (project(s1, s2, p) - p)*2.0;
+}
+
 rational score(const polygon& submition, const polygon& solution)
 {
   std::vector<polygon> or_;
@@ -98,25 +150,6 @@ rational score(const polygon& submition, const polygon& solution)
   return a / o;
 }
 
-rational norm(point a)
-{
-  return a.x() * a.x() + a.y() * a.y();
-}
-rational dot(point a, point b)
-{
-  return a.x() * b.x() + a.y() * b.y();
-}
-rational cross(point a, point b)
-{
-  return a.x() * b.y() - a.y() * b.x();
-}
-
-point project(point s1, point s2, point p) {
-  point base = s2 - s1;
-  rational t = dot(p - s1, base) / norm(base);
-  return s1 + base * t;
-}
-
 enum CCW {
   COUNTER_CLOCKWISE = 1,
   CLOCKWISE = -1,
@@ -135,6 +168,18 @@ CCW ccw(point p0, point a, point b) {
   return CCW::ONSEGMENT;
 }
 
+// double getAngle(point a, point b)
+// {
+//   return acos(dot(a, b) / (abs(a) * abs(b)));
+// }
+
+// double getAngle(point a)
+// {
+//   return atan2(a.real(), a.imag());
+// }
+
+// vector<polygon> convex_cut() {}
+
 
 #define each(i, c) for (auto& i : c)
 #define unless(cond) if (!(cond))
@@ -147,15 +192,18 @@ typedef unsigned long long ull;
 template<typename P, typename Q>
 ostream& operator << (ostream& os, pair<P, Q> p)
 {
-  os << "(" << p.first << "," << p.second << ")";
+  os << "<" << p.first << "," << p.second << ">";
   return os;
 }
 
 int main(int argc, char *argv[])
 {
-  stringstream ss("10/3");
+  stringstream ss("10/3 3,7/2");
   rational r;
-  ss >> r;
+  point p;
+  ss >> r >> p;
   cout << r << endl;
+  cout << p << endl;
+  cout << ORIGIN << endl;
   return 0;
 }
