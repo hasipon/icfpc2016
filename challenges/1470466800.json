@@ -1,9 +1,9 @@
 {
-  "problem_id": 554,
-  "problem_size": 206,
-  "problem_spec_hash": "d944a6d4d678bbd006bc493ec6d6ce6838f9d89b",
-  "solution_size": 681,
-  "solution_spec_hash": "8852b185bcd7cdbcbf52cb72215ec16f4c1b7015",
+  "problem_id": 664,
+  "problem_size": 2094,
+  "problem_spec_hash": "b2b08e0965114131c56a7578efea9fb68e357622",
+  "solution_size": 2746,
+  "solution_spec_hash": "053ea3f933fb5e1251471acb0ab53569c3cb0b44",
   "ok": true,
   "publish_time": 1470466800
 }
