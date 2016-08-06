@@ -18,6 +18,10 @@ http://52.197.240.199:8000/
 `hasi/conv.sh`
 `problems/` を `problems2/` に変換
 
+## 完全一致検索
+`hasi/getref.sh` , `hasi/solve_ref.sh` を順に実行。
+`hasi/make_submit_ref.sh` を実行して得たコマンドを適当に実行。
+
 ## 回答提出
 `./solution-submit <problem_id> <path/to/solution>`  
 提出ログが `solutions/` ディレクトリに残るので要コミット
