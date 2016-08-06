@@ -140,11 +140,15 @@ class Problem
 		{
 			point.active = false;
 		}
+		// ポリゴンの頂点でない点の削除
 		for (polygon in polygons)
 		{
-			for (v in polygon.vertexes)
+			var vs = polygon.vertexes;
+			var l = vs.length;
+			for (i in 0...l)
 			{
-				points[v].active = true;
+				var v0 = points[vs[i]];
+				v0.active = true;
 			}
 		}
 		
@@ -161,24 +165,7 @@ class Problem
 			}
 		}
 		points = newPoints;
-		polygons = [
-			for (polygon in polygons)
-			{
-				new Polygon([for (v in polygon.vertexes) pointMap[v]]);
-			}
-		];
-		var oldUsedLines = usedLines;
-		usedLines = new Map();
-		for (key in oldUsedLines.keys())
-		{
-			switch (key.convert(pointMap))
-			{
-				case Option.Some(data):
-					usedLines[data] = true;
-					
-				case Option.None:
-			}
-		}
+		applyPointMove(pointMap);
 		
 		lines = new Map();
 		for (j in 0...polygons.length)
@@ -202,8 +189,38 @@ class Problem
 				}
 			}
 		}
+		
+		// 外周を使用済みの線に
+		for (line in lines)
+		{
+			if (line.polygons.length == 1)
+			{
+				usedLines[line.key] = true;
+			}
+		}
 	}
 	
+	public function applyPointMove(pointMap:Map<Int, Int>):Void
+	{
+		polygons = [
+			for (polygon in polygons)
+			{
+				new Polygon([for (v in polygon.vertexes) pointMap[v]]);
+			}
+		];
+		var oldUsedLines = usedLines;
+		usedLines = new Map();
+		for (key in oldUsedLines.keys())
+		{
+			switch (key.convert(pointMap))
+			{
+				case Option.Some(data):
+					usedLines[data] = true;
+					
+				case Option.None:
+			}
+		}
+	}
 	
 	private function addPolygons(polygons:Array<Polygon>):Void
 	{
@@ -216,16 +233,6 @@ class Problem
 	public function resolveMirrorPoint(v:Vertex, vecOA:Vec):Int
 	{
 		var p = vecOA.mirror(v);
-		for (i in 0...points.length)
-		{
-			var cp = points[i];
-			// 一致するポイントが存在すれば、その点を返す
-			if (cp.x == p.x && cp.y == p.y)
-			{
-				return i;
-			}
-		}
-		
 		var mirror = new Vertex(p.x, p.y, v.source);
 		points.push(mirror);
 		return points.length - 1;
@@ -353,62 +360,37 @@ class Problem
 			point.x -= minX;
 			point.y -= minY;
 		}
-		
-		// 外周を使用済みの線に
-		for (line in lines)
+	}
+	
+	public function reduce():Void
+	{
+		var pointMap = [0 => 0];
+		// 同一の点を除去
+		for (i in 1...points.length)
 		{
-			if (points[line.start].isOnSquare() && points[line.end].isOnSquare())
+			var p0 = points[i];
+			for (j in 0...i)
 			{
-				usedLines[line.key] = true;
+				var p1 = points[j];
+				if (p0.x == p1.x && p0.y == p1.y)
+				{
+					pointMap[i] = j;
+					break;
+				}
+			}
+			if (!pointMap.exists(i))
+			{
+				pointMap[i] = i;
 			}
 		}
+		applyPointMove(pointMap);
+		refresh();
 		
 		// 未使用な線の除去
 		while (removeUnusedLine())
 		{
 			refresh();
 		}
-		
-		// 同一の点を除去
-		for (polygon in polygons)
-		{
-			var newVertexes = [];
-			var vs = polygon.vertexes;
-			var l = vs.length;
-			for (i in 0...l)
-			{
-				var v0 = points[vs[i]];
-				var v1 = points[vs[(i + 1) % l]];
-				if (v0.x != v1.x || v0.y != v1.y)
-				{
-					newVertexes.push(vs[(i + 1) % l]);
-				}
-			}
-			polygon.vertexes = newVertexes;
-		}
-		refresh();
-		
-		// 真っすぐ繋がる線分の除去
-		for (polygon in polygons)
-		{
-			var newVertexes = [];
-			var vs = polygon.vertexes;
-			var l = vs.length;
-			for (i in 0...l)
-			{
-				var v0 = points[vs[i]];
-				var v1 = points[vs[(i + 1) % l]];
-				var v2 = points[vs[(i + 2) % l]];
-				var vec0 = new Vec(v0, v1);
-				var vec1 = new Vec(v0, v2);
-				if (!vec0.isParallel(vec1))
-				{
-					newVertexes.push(vs[(i + 1) % l]);
-				}
-			}
-			polygon.vertexes = newVertexes;
-		}
-		refresh();
 	}
 	
 	public function removeUnusedLine():Bool
@@ -418,17 +400,32 @@ class Problem
 			if (!usedLines.exists(line.key) && line.polygons.length == 2)
 			{
 				var targets = line.polygons.map(function (i) return polygons[i]);
-				polygons.push(targets[0].connect(targets[1]));
-				for (p in targets)
+				
+				switch (targets[0].connect(targets[1]))
 				{
-					polygons.remove(p);
+					case Option.Some(newP):
+						polygons.push(newP);
+						for (p in targets)
+						{
+							polygons.remove(p);
+						}
+						
+						return true;
+						
+					case Option.None:
 				}
-				return true;
 			}
 		}
 		
 		return false;
 	}
+	
+	public function finalize():Void
+	{
+		normalize();
+		reduce();
+	}
+	
 }
 
 enum Comp
@@ -487,6 +484,11 @@ private class Vec
 	public function isParallel(vec:Vec):Bool
 	{
 		return dx * (vec.dy) == dy * vec.dx;
+	}
+	
+	public function isZero():Bool
+	{
+		return dx.isZero() && dy.isZero();
 	}
 }
 
