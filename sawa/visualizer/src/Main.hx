@@ -88,8 +88,7 @@ class Main extends Sprite
 		new PushButton(this, 0, 70, "open(O)", open);
 		undoButton = new PushButton(this, 0, 90, "< undo(Z)", undo);
 		redoButton = new PushButton(this, 0, 110, "redo(Y) >", redo);
-		new PushButton(this, 0, 130, "normalize(N)", normalize);
-		new PushButton(this, 0, 150, "reduce(R)", reduce);
+		new PushButton(this, 0, 130, "finalize(N)", finalize);
 		new PushButton(this, 0, 180, "select_all(A)", selectAll);
 		submitButton = new PushButton(this, 800, 400, "submit", submit);
 		
@@ -117,7 +116,7 @@ class Main extends Sprite
 				redo(null);
 				
 			case Keyboard.N:
-				normalize(null);
+				finalize(null);
 				
 			case Keyboard.R:
 				reduce(null);
@@ -135,10 +134,10 @@ class Main extends Sprite
 		update(currentIndex + 1);
 	}
 	
-	private function normalize(e:Event):Void 
+	private function finalize(e:Event):Void 
 	{
 		var child = currentProblem[currentIndex].clone();
-		child.normalize();
+		child.finalize();
 		addProblem(child);
 	}
 	

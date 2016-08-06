@@ -140,11 +140,22 @@ class Problem
 		{
 			point.active = false;
 		}
+		// ポリゴンの頂点でない点の削除
 		for (polygon in polygons)
 		{
-			for (v in polygon.vertexes)
+			var vs = polygon.vertexes;
+			var l = vs.length;
+			for (i in 0...l)
 			{
-				points[v].active = true;
+				var v0 = points[vs[i]];
+				var v1 = points[vs[(i + 1) % l]];
+				var v2 = points[vs[(i + 2) % l]];
+				var vec0 = new Vec(v0, v1);
+				var vec1 = new Vec(v1, v2);
+				if (vec0.isZero() || vec1.isZero() || !vec0.isParallel(vec1))
+				{
+					v1.active = true;
+				}
 			}
 		}
 		
@@ -161,24 +172,7 @@ class Problem
 			}
 		}
 		points = newPoints;
-		polygons = [
-			for (polygon in polygons)
-			{
-				new Polygon([for (v in polygon.vertexes) pointMap[v]]);
-			}
-		];
-		var oldUsedLines = usedLines;
-		usedLines = new Map();
-		for (key in oldUsedLines.keys())
-		{
-			switch (key.convert(pointMap))
-			{
-				case Option.Some(data):
-					usedLines[data] = true;
-					
-				case Option.None:
-			}
-		}
+		applyPointMove(pointMap);
 		
 		lines = new Map();
 		for (j in 0...polygons.length)
@@ -213,6 +207,27 @@ class Problem
 		}
 	}
 	
+	public function applyPointMove(pointMap:Map<Int, Int>):Void
+	{
+		polygons = [
+			for (polygon in polygons)
+			{
+				new Polygon([for (v in polygon.vertexes) pointMap[v]]);
+			}
+		];
+		var oldUsedLines = usedLines;
+		usedLines = new Map();
+		for (key in oldUsedLines.keys())
+		{
+			switch (key.convert(pointMap))
+			{
+				case Option.Some(data):
+					usedLines[data] = true;
+					
+				case Option.None:
+			}
+		}
+	}
 	
 	private function addPolygons(polygons:Array<Polygon>):Void
 	{
@@ -225,16 +240,6 @@ class Problem
 	public function resolveMirrorPoint(v:Vertex, vecOA:Vec):Int
 	{
 		var p = vecOA.mirror(v);
-		for (i in 0...points.length)
-		{
-			var cp = points[i];
-			// 一致するポイントが存在すれば、その点を返す
-			if (cp.x == p.x && cp.y == p.y)
-			{
-				return i;
-			}
-		}
-		
 		var mirror = new Vertex(p.x, p.y, v.source);
 		points.push(mirror);
 		return points.length - 1;
@@ -366,52 +371,33 @@ class Problem
 	
 	public function reduce():Void
 	{
+		var pointMap = [0 => 0];
+		// 同一の点を除去
+		for (i in 1...points.length)
+		{
+			var p0 = points[i];
+			for (j in 0...i)
+			{
+				var p1 = points[j];
+				if (p0.x == p1.x && p0.y == p1.y)
+				{
+					pointMap[i] = j;
+					break;
+				}
+			}
+			if (!pointMap.exists(i))
+			{
+				pointMap[i] = i;
+			}
+		}
+		applyPointMove(pointMap);
+		refresh();
+		
 		// 未使用な線の除去
 		while (removeUnusedLine())
 		{
 			refresh();
 		}
-		
-		// 同一の点を除去
-		for (polygon in polygons)
-		{
-			var newVertexes = [];
-			var vs = polygon.vertexes;
-			var l = vs.length;
-			for (i in 0...l)
-			{
-				var v0 = points[vs[i]];
-				var v1 = points[vs[(i + 1) % l]];
-				if (v0.x != v1.x || v0.y != v1.y)
-				{
-					newVertexes.push(vs[(i + 1) % l]);
-				}
-			}
-			polygon.vertexes = newVertexes;
-		}
-		refresh();
-		
-		// 真っすぐ繋がる線分の除去
-		for (polygon in polygons)
-		{
-			var newVertexes = [];
-			var vs = polygon.vertexes;
-			var l = vs.length;
-			for (i in 0...l)
-			{
-				var v0 = points[vs[i]];
-				var v1 = points[vs[(i + 1) % l]];
-				var v2 = points[vs[(i + 2) % l]];
-				var vec0 = new Vec(v0, v1);
-				var vec1 = new Vec(v0, v2);
-				if (!vec0.isParallel(vec1))
-				{
-					newVertexes.push(vs[(i + 1) % l]);
-				}
-			}
-			polygon.vertexes = newVertexes;
-		}
-		refresh();
 	}
 	
 	public function removeUnusedLine():Bool
@@ -439,6 +425,12 @@ class Problem
 		}
 		
 		return false;
+	}
+	
+	public function finalize():Void
+	{
+		normalize();
+		reduce();
 	}
 	
 }
@@ -499,6 +491,11 @@ private class Vec
 	public function isParallel(vec:Vec):Bool
 	{
 		return dx * (vec.dy) == dy * vec.dx;
+	}
+	
+	public function isZero():Bool
+	{
+		return dx.isZero() && dy.isZero();
 	}
 }
 
