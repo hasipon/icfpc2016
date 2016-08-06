@@ -29,4 +29,9 @@ class Vertex
 	{
 		return new ShapePoint(x, y, index);
 	}
+	
+	public function isOnSquare():Bool
+	{
+		return (x.isZero() || x == 1) && (y.isZero() || y == 1);
+	}
 }

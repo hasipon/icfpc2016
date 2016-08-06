@@ -13,7 +13,7 @@ class LineShape extends Shape
 		this.start = start;
 		this.end = end;
 		graphics.clear();
-		var color = if (isUsed) (if (isRational) 0x55AE44 else 0x5544AE) else (if (isRational) 0x45FE34 else 0x4534FE);
+		var color = if (isUsed) (if (isRational) 0x559E44 else 0x55449E) else (if (isRational) 0x45FE34 else 0x4534FE);
 		
 		graphics.lineStyle(0.01, color);
 		graphics.moveTo(start.x.toFloat() * 1000, start.y.toFloat() * 1000);
