@@ -24,6 +24,7 @@ class Line
 		var dy = s.y - e.y;
 		var d:Rational = dx * dx + dy * dy;
 		var isRational = BigIntTools.isSquareNumber(d.num * d.den);
-		return new LineShape(s.createShape(start), e.createShape(end), isRational);
+		var isUsed = problem.usedLines.exists(new LineKey(start, end));
+		return new LineShape(s.createShape(start), e.createShape(end), isRational, isUsed);
 	}
 }

@@ -1,4 +1,5 @@
 import flash.display.Shape;
+import flash.geom.ColorTransform;
 import flash.geom.Point;
 
 class LineShape extends Shape
@@ -6,13 +7,15 @@ class LineShape extends Shape
 	public var start:ShapePoint;
 	public var end:ShapePoint;
 	
-	public function new (start:ShapePoint, end:ShapePoint, isRational:Bool)
+	public function new (start:ShapePoint, end:ShapePoint, isRational:Bool, isUsed)
 	{
 		super();
 		this.start = start;
 		this.end = end;
 		graphics.clear();
-		graphics.lineStyle(0.01, if (isRational) 0x45FE34 else 0x4534FE);
+		var color = if (isUsed) (if (isRational) 0x55AE44 else 0x5544AE) else (if (isRational) 0x45FE34 else 0x4534FE);
+		
+		graphics.lineStyle(0.01, color);
 		graphics.moveTo(start.x.toFloat() * 1000, start.y.toFloat() * 1000);
 		graphics.lineTo(end.x.toFloat() * 1000, end.y.toFloat() * 1000);
 	}
