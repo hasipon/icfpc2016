@@ -1,5 +1,7 @@
 
 for x in ../problems/*.txt; do
-  echo $x
-  python3.5 conv.py $x > ../problems2/$(basename $x)
+  if [ ! -e ../problems2/$(basename $x) ]; then
+    echo $x
+    python3.5 conv.py $x > ../problems2/$(basename $x)
+  fi
 done
