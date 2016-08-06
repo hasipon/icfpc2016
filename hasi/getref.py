@@ -87,8 +87,8 @@ def hoge(v: List[Vector]) -> str:
 
 
 def func1(p: Vector, flip_x, flip_y, swap_xy):
-    x = -p.x if flip_x else p.x
-    y = -p.y if flip_y else p.y
+    x = Fraction(1) - p.x if flip_x else p.x
+    y = Fraction(1) - p.y if flip_y else p.y
     if swap_xy:
         x, y = y, x
     return Vector(x, y)
