@@ -58,6 +58,16 @@ def find_best_solutions():
         ret[pid] = dict(json=data, solution_path=s)
     return ret
 
+def make_user_dict(json_data):
+    users = json_data['users']
+    leaderboard = json_data['leaderboard']
+    ret = {}
+    for u in users:
+        print u
+        ret[u['username']] = u
+    for u in leaderboard:
+        ret[u['username']]['score'] = u['score']
+    return ret
 
 """
 Public Page Routing
@@ -68,9 +78,12 @@ def title():
     data = json.loads(json_data)
     probs = data['problems']
     sol = find_best_solutions()
+    users = make_user_dict(data)
     for p in probs:
         p['solution_path'] = ""
         p['ok'] = False
+        if p['owner'] in users:
+            p['owner'] = users[p['owner']]['display_name'] + '(' + p['owner']  + ')'
         pid = p['problem_id']
         if pid in sol:
             p['ok'] = True
