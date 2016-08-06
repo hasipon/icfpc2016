@@ -86,14 +86,26 @@ def hoge(v: List[Vector]) -> str:
     return r
 
 
-def func(p: Vector, flip_x, flip_y, swap_xy):
-    return p
+def func(v: List[Vector], flip_x, flip_y, swap_xy):
+    def f(p: Vector):
+        x = -p.x if flip_x else p.x
+        y = -p.y if flip_y else p.y
+        if swap_xy:
+            x, y = y, x
+        return Vector(x, y)
+    return [f(q) for q in v]
 
 
 def calc(polygons: List[List[Vector]], solution: Solution, flip_x, flip_y, swap_xy):
-    problem0 = [[func(p, flip_x, flip_y, swap_xy) for p in q] for q in polygons]
-    source = [func(p, flip_x, flip_y, swap_xy) for p in solution.source]
-    target0 = [func(p, flip_x, flip_y, swap_xy) for p in solution.target]
+    problem0 = [func(q, flip_x, flip_y, swap_xy) for q in polygons]
+    if flip_x:
+        problem0 = problem0[::-1]
+    if flip_y:
+        problem0 = problem0[::-1]
+    if swap_xy:
+        problem0 = problem0[::-1]
+    source = solution.source
+    target0 = func(solution.target, flip_x, flip_y, swap_xy)
 
     min_x = min(min(p.x for p in q) for q in problem0)
     min_y = min(min(p.y for p in q) for q in problem0)
@@ -122,7 +134,8 @@ def main():
     problem.load(sys.argv[1])
     solution = Solution()
     solution.load(sys.argv[2])
-    calc([x.points for x in problem.polygons], solution, False, False, False)
+    for i in range(8):
+        calc([x.points for x in problem.polygons], solution, bool(i & 4), bool(i & 2), bool(i & 1))
 
 
 main()
