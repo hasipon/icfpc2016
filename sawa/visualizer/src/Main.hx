@@ -185,7 +185,7 @@ class Main extends Sprite
 		}
 		
 		var problem = currentProblem[currentIndex];
-		problemSprite = problem.create(updateText, connectPolygons);
+		problemSprite = problem.create(updateText);
 		problemSprite.scaleX = problemSprite.scaleY = 0.25;
 		problemSprite.x = 300;
 		problemSprite.y = 300;
@@ -193,24 +193,11 @@ class Main extends Sprite
 		outputField.text = problem.output(currentProblem[0]);
 		outputField2.text = outputField.text.length + "Byte です。";
 		
-		
 		// outputField.text = Resource.getString(name).split("\r\n").join("\n") + problem.output2();
 		undoButton.enabled = (currentIndex > 0);
 		redoButton.enabled = currentIndex < (currentProblem.length - 1);
 		
 		addChild(problemSprite);
-	}
-	
-	public function connectPolygons(s:Int, e:Int):Void
-	{
-		switch (problemSprite.problem.connectPolygons(s, e))
-		{
-			case Option.Some(newProblem):
-				addProblem(newProblem);
-				
-			case Option.None:
-				updateText("結合に失敗しました");
-		}
 	}
 	
 	public function updateText(text:String):Void

@@ -20,13 +20,10 @@ class ProblemSprite extends Sprite
 	private static var RED_TRANSFORM:ColorTransform = new ColorTransform(1, 0.2, 0.2, 1, 100);
 	private static var DARK_RED_TRANSFORM:ColorTransform = new ColorTransform(0.5, 0.0, 0.0, 1, 30);
 	private static var DEFAULT_TRANSFORM:ColorTransform = new ColorTransform();
-	private var right:Option<Point> = Option.None;
-	private var connectPolygons:Int->Int->Void;
 	
-	public function new(problem:Problem, updateText:String->Void, connectPolygons:Int->Int->Void) 
+	public function new(problem:Problem, updateText:String->Void) 
 	{
 		super();
-		this.connectPolygons = connectPolygons;
 		
 		this.updateText = updateText;
 		this.problem = problem;
@@ -41,12 +38,11 @@ class ProblemSprite extends Sprite
 			this.addChild(polygon);
 		}
 		
-		for (k in problem.lineToPolygons.keys())
+		for (lineKey in problem.lineToPolygons.keys())
 		{
-			var key = k.split("_");
-			var line = new LineShape(parsePoint(key[0]), parsePoint(key[1]));
+			var line = lineKey.createShape(problem);
 			lines.push(line);
-			for (p in problem.lineToPolygons[k])
+			for (p in problem.lineToPolygons[lineKey])
 			{
 				polygons[p].lines.push(line);
 			}
@@ -56,32 +52,11 @@ class ProblemSprite extends Sprite
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, onDown);
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMove);
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_UP, onUp);
-		Lib.current.stage.addEventListener(MouseEvent.RIGHT_MOUSE_DOWN, onRightDown);
-		Lib.current.stage.addEventListener(MouseEvent.RIGHT_MOUSE_UP, onRightUp);
 		
 		addEventListener(Event.REMOVED_FROM_STAGE, onRemove);
 		updateText("ドラッグを開始してください");
 	}
 	
-	private function onRightUp(e:MouseEvent):Void 
-	{
-		right = Option.None;
-	}
-	
-	private function onRightDown(e:MouseEvent):Void 
-	{
-		var end:Point = this.globalToLocal(new Point(e.stageX, e.stageY));
-		end.x /= 1000;
-		end.y /= 1000;
-		right = Option.Some(end);
-	}
-	
-	private function parsePoint(key:String):ShapePoint
-	{
-		var i = Std.parseInt(key);
-		var p = problem.points[i];
-		return new ShapePoint(p.x, p.y, i);
-	}
 	
 	private function onRemove(e:Event):Void 
 	{
@@ -89,8 +64,6 @@ class ProblemSprite extends Sprite
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onDown);
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, onMove);
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_UP, onUp);
-		Lib.current.stage.removeEventListener(MouseEvent.RIGHT_MOUSE_DOWN, onRightDown);
-		Lib.current.stage.removeEventListener(MouseEvent.RIGHT_MOUSE_UP, onRightUp);
 	}
 	
 	private function onUp(e:MouseEvent):Void 
@@ -111,28 +84,7 @@ class ProblemSprite extends Sprite
 	}
 	
 	private function onMove(e:MouseEvent):Void 
-	{
-		switch (right)
-		{
-			case Some(start):
-				var end:Point = this.globalToLocal(new Point(e.stageX, e.stageY));
-				end.x /= 1000;
-				end.y /= 1000;
-				for (line in lines)
-				{
-					if (line.crossTest(start, end))
-					{
-						connectPolygons(line.start.index, line.end.index);
-						return;
-					}
-				}
-				
-				right = Option.Some(end);
-				return;
-				
-			case None:
-		}
-		
+	{	
 		switch (state)
 		{
 			case Newtral:
@@ -228,7 +180,7 @@ class ProblemSprite extends Sprite
 				continue;
 			}
 			
-			var key = line.start.index + "_" + line.end.index;
+			var key = new LineKey(line.start.index, line.end.index);
 			var hitPolygons = problem.lineToPolygons[key];
 			for (hitPolygon in hitPolygons) 
 			{
@@ -310,12 +262,14 @@ class ProblemSprite extends Sprite
 				return Option.None;
 				
 			case RemoveSelect(_, line, polygons, removePolygons):
-				var newProblem = problem.apply(
+				var newProblem = problem.clone();
+				newProblem.apply(
 					line.start.index, 
 					line.end.index, 
 					[for (p in polygons) p.index],
 					[for (p in removePolygons) p.index]
 				);
+				
 				return Option.Some(newProblem);
 		}
 	}
@@ -348,81 +302,4 @@ enum ProblemSpriteState
 	LineSelect(point:Point);
 	PolygonSelect(point:Point, line:LineShape, polygons:Array<PolygonShape>);
 	RemoveSelect(point:Option<Point>, line:LineShape, polygons:Array<PolygonShape>, removePolygons:Array<PolygonShape>);
-}
-
-class ShapePoint
-{
-	public var index:Int;
-	public var x:Rational;
-	public var y:Rational;
-	
-	public function new (x:Rational, y:Rational, index:Int)
-	{
-		this.x = x;
-		this.y = y;
-		this.index = index;
-	}
-}
-
-class LineShape extends Shape
-{
-	public var start:ShapePoint;
-	public var end:ShapePoint;
-	
-	public function new (start:ShapePoint, end:ShapePoint)
-	{
-		super();
-		this.start = start;
-		this.end = end;
-		graphics.clear();
-		graphics.lineStyle(0.01, 0x45FE34);
-		graphics.moveTo(start.x.toFloat() * 1000, start.y.toFloat() * 1000);
-		graphics.lineTo(end.x.toFloat() * 1000, end.y.toFloat() * 1000);
-	}
-	
-	public function crossTest(_start:Point, _end:Point):Bool
-	{
-		var ax = _start.x, ay = _start.y;
-		var bx = _end.x, by = _end.y;
-		var cx = start.x.toFloat(), cy = start.y.toFloat();
-		var dx = end.x.toFloat(), dy = end.y.toFloat();
-		
-		var ta = (cx - dx) * (ay - cy) + (cy - dy) * (cx - ax);
-		var tb = (cx - dx) * (by - cy) + (cy - dy) * (cx - bx);
-		var tc = (ax - bx) * (cy - ay) + (ay - by) * (ax - cx);
-		var td = (ax - bx) * (dy - ay) + (ay - by) * (ax - dx);
-		
-		return tc * td < 0 && ta * tb <= 0;
-	}
-}
-
-class PolygonShape extends Shape
-{
-	public var index:Int;
-	public var lines:Array<LineShape>;
-	
-	public function new (problem:Problem, index:Int)
-	{
-		super();
-		this.index = index;
-		this.lines = [];
-		
-		graphics.clear();
-		graphics.beginFill(0x45FE34, 0.2);
-		var first = true;
-		for (i in problem.polygons[index].vertexes)
-		{
-			var v = problem.points[i];
-			if (first)
-			{
-				graphics.moveTo(v.x.toFloat() * 1000, v.y.toFloat() * 1000);
-				first = false;
-			}
-			else
-			{
-				graphics.lineTo(v.x.toFloat() * 1000, v.y.toFloat() * 1000);
-			}
-		}
-		graphics.endFill();
-	}
 }
