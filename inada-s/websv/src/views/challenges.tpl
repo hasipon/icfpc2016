@@ -15,7 +15,7 @@
     <th class="text-center">update</th>
 </tr>
 
-% for i in xrange(1470441600, 1470603600, 3600):
+% for i in xrange(1470441600, 1470603601, 3600):
 
 % ok = i in params
 % if ok:

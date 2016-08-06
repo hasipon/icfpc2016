@@ -12,6 +12,7 @@
     <th class="text-center">top_resemblance</th>
     <th class="text-center">complete_teams</th>
     <th class="text-center">problem_size</th>
+    <th class="text-center">owner</th>
     <th class="text-center">owner_solution_size</th>
     <th class="text-center">image</th>
     <th class="text-center">official</th>
@@ -57,8 +58,8 @@
 % end
     </td>
     <td class="text-center">{{p['problem_size']}}</td>
+    <td class="text-center">{{p['owner']}}</td>
     <td class="text-center">{{p['solution_size']}}</td>
-
     <td class="text-center">
     <a href="/problems/{{p['problem_id']}}.png">image</a>
     </td>

@@ -7,9 +7,13 @@ import thx.Rational;
 
 class Problem
 {
+	// 元データ
 	public var points:Array<Vertex>;
-	public var polygons:Array<Polygon>; 
-	public var lineToPolygons:Map<String, Array<Int>>;
+	public var polygons:Array<Polygon>;
+	public var usedLines:Map<LineKey, Bool>;
+	
+	// 高速化用データ
+	public var lines:Map<LineKey, Line>;
 	
 	public static var newLine:EReg = ~/(\r\n)|\n|\r/g;
 
@@ -18,7 +22,6 @@ class Problem
 		var lines = newLine.split(input);
 		var iter = lines.iterator();
 		var pointCount = Std.parseInt(iter.next());
-		
 		points = [
 			for (i in 0...pointCount)
 			{
@@ -33,46 +36,12 @@ class Problem
 				parsePolygon(iter.next());
 			}
 		];
+		usedLines = new Map();
 		
-		lineToPolygons = new Map();
-		var c = 0;
-		for (polygon in polygons)
-		{
-			var v = polygon.vertexes;
-			var l = polygon.vertexes.length;
-			for (i in 0...l)
-			{
-				var v0 = v[i];
-				var v1 = v[(i + 1) % l];
-				var line = if (v0 < v1)
-				{
-					v[i] + "_" + v[(i + 1) % l];
-				}
-				else
-				{
-					v[(i + 1) % l] + "_" + v[i];
-				}
-				
-				if (lineToPolygons.exists(line))
-				{
-					var arr = lineToPolygons[line];
-					if (arr.length > 1)
-					{
-						throw "同じ辺を3度以上使用しています。";
-					}
-					
-					arr.push(c);
-				}
-				else
-				{
-					lineToPolygons[line] = [c];
-				}
-			}
-			c++;
-		}
+		refresh();
 	}
 	
-	private static function parsePolygon(str:String):Polygon 
+	private function parsePolygon(str:String):Polygon 
 	{
 		var vs = str.split(" ");
 		var data = [
@@ -81,6 +50,7 @@ class Problem
 				Std.parseInt(v);
 			}
 		];
+		
 		return new Polygon(data);
 	}
 	
@@ -95,92 +65,160 @@ class Problem
 		return Rational.fromString(str);
 	}
 	
-	public function create(updateText:String->Void, connectPolygons:Int->Int->Void):ProblemSprite
+	public function create(updateText:String->Void):ProblemSprite
 	{
-		return new ProblemSprite(this, updateText, connectPolygons);
+		return new ProblemSprite(this, updateText);
 	}
 	
-	public function apply(startPointIndex:Int, endPointIndex:Int, polygonIndexes:Array<Int>, removePolygonIndexes:Array<Int>):Problem
+	public function apply(startPointIndex:Int, endPointIndex:Int, polygonIndexes:Array<Int>, removePolygonIndexes:Array<Int>):Void
 	{
-		var child = clone(); 
 		
-		var sv = child.points[startPointIndex];
-		var ev = child.points[endPointIndex];
+		var sv = points[startPointIndex];
+		var ev = points[endPointIndex];
 		var vecOA = new Vec(sv, ev);
 		var newPolygons = [
 			for (i in polygonIndexes)
 			{
-				var polygon:Polygon = child.polygons[i];
+				var polygon:Polygon = polygons[i];
 				var vs = [
-					for (pv in polygon.vertexes)
+					for (v in polygon.vertexes)
 					{
-						child.resolveMirrorPoint(child.points[pv], vecOA);
+						resolveMirrorPoint(points[v], vecOA);
 					}
 				];
 				new Polygon(vs);
 			}
 		];
 		
-		child.addPolygons(newPolygons);
+		usedLines[new LineKey(startPointIndex, endPointIndex)] = true;
+		// usedLinesの複製
+		for (i in 0...polygonIndexes.length)
+		{
+			var polygon = polygons[polygonIndexes[i]];
+			var newPolygon = newPolygons[i];
+			var vs = polygon.vertexes;
+			var l = vs.length;
+			for (i in 0...l)
+			{
+				var v0 = vs[i];
+				var v1 = vs[(i + 1) % l];
+				var nv0 = newPolygon.vertexes[i];
+				var nv1 = newPolygon.vertexes[(i + 1) % l];
+				var k = new LineKey(v0, v1);
+				var nk = new LineKey(nv0, nv1);
+				if (usedLines.exists(k))
+				{
+					usedLines[nk] = true;
+				}
+				if (k == nk)
+				{
+					usedLines[nk] = true;
+				}
+			}
+		}
+		
+		addPolygons(newPolygons);
 		var removePolygons = [
 			for (i in removePolygonIndexes)
 			{
-				child.polygons[i];
+				polygons[i];
 			}
 		];
 		
 		for (r in removePolygons)
 		{
-			child.polygons.remove(r);
+			polygons.remove(r);
 		}
 		
-		child.refresh();
-		return child;
+		refresh();
 	}
 	
 	private function refresh():Void
 	{
+		// 不要な点を消去して、インデックスを更新
 		for (point in points)
 		{
 			point.active = false;
 		}
-		
-		lineToPolygons = new Map();
-		var c = 0;
+		// ポリゴンの頂点でない点の削除
 		for (polygon in polygons)
 		{
+			var vs = polygon.vertexes;
+			var l = vs.length;
+			for (i in 0...l)
+			{
+				var v0 = points[vs[i]];
+				v0.active = true;
+			}
+		}
+		
+		var newPoints = [];
+		var pointMap = new Map();
+		
+		for (i in 0...points.length)
+		{
+			var point = points[i];
+			if (point.active)
+			{
+				pointMap[i] = newPoints.length;
+				newPoints.push(point); 
+			}
+		}
+		points = newPoints;
+		applyPointMove(pointMap);
+		
+		lines = new Map();
+		for (j in 0...polygons.length)
+		{
+			var polygon = polygons[j];
 			var v = polygon.vertexes;
 			var l = polygon.vertexes.length;
 			for (i in 0...l)
 			{
 				var v0 = v[i];
 				var v1 = v[(i + 1) % l];
-				var line = if (v0 < v1)
-				{
-					v[i] + "_" + v[(i + 1) % l];
-				}
-				else
-				{
-					v[(i + 1) % l] + "_" + v[i];
-				}
+				var lineKey = new LineKey(v0, v1);
 				
-				if (lineToPolygons.exists(line))
+				if (lines.exists(lineKey))
 				{
-					var arr = lineToPolygons[line];
-					arr.push(c);
+					lines[lineKey].polygons.push(j);
 				}
 				else
 				{
-					lineToPolygons[line] = [c];
+					lines[lineKey] = new Line(v0, v1, j);
 				}
 			}
-			
-			for (i in polygon.vertexes)
+		}
+		
+		// 外周を使用済みの線に
+		for (line in lines)
+		{
+			if (line.polygons.length == 1)
 			{
-				points[i].active = true;
+				usedLines[line.key] = true;
 			}
-			
-			c++;
+		}
+	}
+	
+	public function applyPointMove(pointMap:Map<Int, Int>):Void
+	{
+		polygons = [
+			for (polygon in polygons)
+			{
+				new Polygon([for (v in polygon.vertexes) pointMap[v]]);
+			}
+		];
+		var oldUsedLines = usedLines;
+		usedLines = new Map();
+		for (key in oldUsedLines.keys())
+		{
+			switch (key.convert(pointMap))
+			{
+				case Option.Some(data):
+					usedLines[data] = true;
+					
+				case Option.None:
+			}
 		}
 	}
 	
@@ -195,16 +233,8 @@ class Problem
 	public function resolveMirrorPoint(v:Vertex, vecOA:Vec):Int
 	{
 		var p = vecOA.mirror(v);
-		for (i in 0...points.length)
-		{
-			var cp = points[i];
-			if (cp.x == p.x && cp.y == p.y)
-			{
-				return i;
-			}
-		}
-		
-		points.push(new Vertex(p.x, p.y, v.source));
+		var mirror = new Vertex(p.x, p.y, v.source);
+		points.push(mirror);
 		return points.length - 1;
 	}
 	
@@ -213,7 +243,8 @@ class Problem
 		var child = Type.createEmptyInstance(Problem);
 		child.points = [for (p in points) p];
 		child.polygons = [for (p in polygons) p];
-		child.lineToPolygons = [for (key in lineToPolygons.keys()) key => lineToPolygons[key]];
+		child.usedLines = [for (key in usedLines.keys()) key => usedLines[key]];
+		child.refresh();
 		
 		return child;
 	}
@@ -221,35 +252,20 @@ class Problem
 	public function output(sourceProblem:Problem):String
 	{
 		var string = "";
-		var i = 0;
-		var map = new Map<Int, Int>();
-		
-		var j = 0;
+		string += points.length + "\n";
 		for (point in points)
 		{
-			j++;
-			if (!point.active)
-			{
-				continue;
-			}
-			i++;
-			map[j - 1] = i - 1;
 			string += point.toString() + "\n";
 		}
-		string = i + "\n" + string;
 		
 		string += polygons.length + "\n";
 		for (polygon in polygons)
 		{
-			string += polygon.vertexes.length + " " + [for (v in polygon.vertexes) map[v]].join(" ") + "\n";
+			string += polygon.vertexes.length + " " + [for (v in polygon.vertexes) v].join(" ") + "\n";
 		}
 		
 		for (point in points)
 		{
-			if (!point.active)
-			{
-				continue;
-			}
 			string += sourceProblem.points[point.source].toString() + "\n";
 		}
 		return string;
@@ -260,12 +276,11 @@ class Problem
 		points = [
 			for (p in points) {
 				var v = new Vertex(p.x, p.y, p.source);
-				v.active = p.active;
 				v;
 			}
 		];
-		var activePoints = [for (p in points) if (p.active) p];
-		var p = activePoints[0];
+		
+		var p = points[0];
 		var corners = [
 			MinX => { 
 				p: [p], 
@@ -301,9 +316,9 @@ class Problem
 			},
 		];
 		
-		for (i in 1...activePoints.length)
+		for (i in 1...points.length)
 		{
-			var point = activePoints[i];
+			var point = points[i];
 			
 			for (corner in corners)
 			{
@@ -328,7 +343,7 @@ class Problem
 			// 回転
 			var sin = -(minYP.x - minXP.x);
 			var cos = minXP.y - minYP.y;
-			for (point in activePoints)
+			for (point in points)
 			{
 				var px = point.x;
 				var py = point.y;
@@ -340,91 +355,77 @@ class Problem
 		
 		var minX = corners[MinX].p[0].x;
 		var minY = corners[MinY].p[0].y;
-		for (point in activePoints)
+		for (point in points)
 		{
 			point.x -= minX;
 			point.y -= minY;
 		}
 	}
 	
-	public function connectPolygons(s:Int, e:Int):Option<Problem>
+	public function reduce():Void
 	{
-		var child = clone();
-		var k = s + "_" + e;
-		var targets = [for (i in child.lineToPolygons[k]) child.polygons[i]];
-		if (targets.length != 2)
+		var pointMap = [0 => 0];
+		// 同一の点を除去
+		for (i in 1...points.length)
 		{
-			return Option.None;
-		}
-		
-		for (t in targets)
-		{
-			child.polygons.remove(t);
-		}
-		
-		var vertexes = [];
-		var lines = [];
-		
-		var v = targets[0].vertexes;
-		var l = v.length;
-		for (i in 0...v.length)
-		{
-			var v0 = v[i % l];
-			var v1 = v[(i + 1) % l];
-			lines.push(v0 + "_" + v1);
-		}
-	
-		var v = targets[1].vertexes;
-		var l = v.length;
-		var matched = false;
-		for (i in 0...l)
-		{
-			var v0 = v[i % l];
-			var v1 = v[(i + 1) % l];
-			
-			if (lines.indexOf(v0 + "_" + v1) != -1)
+			var p0 = points[i];
+			for (j in 0...i)
 			{
-				matched = true;
-			}
-		}
-		
-		if (!matched)
-		{
-			v.reverse();
-		}
-		
-		var insert = 0;
-		var lines1 = [];
-		for (i in 0...l)
-		{
-			var v0 = v[i % l];
-			var v1 = v[(i + 1) % l];
-			var pos = lines.indexOf(v0 + "_" + v1);
-			if (pos != -1)
-			{
-				if (lines.remove(v0 + "_" + v1))
+				var p1 = points[j];
+				if (p0.x == p1.x && p0.y == p1.y)
 				{
-					insert = pos;
+					pointMap[i] = j;
+					break;
 				}
 			}
-			else
+			if (!pointMap.exists(i))
 			{
-				lines1.push(v0 + "_" + v1);
+				pointMap[i] = i;
+			}
+		}
+		applyPointMove(pointMap);
+		refresh();
+		
+		// 未使用な線の除去
+		while (removeUnusedLine())
+		{
+			refresh();
+		}
+	}
+	
+	public function removeUnusedLine():Bool
+	{
+		for (line in lines)
+		{
+			if (!usedLines.exists(line.key) && line.polygons.length == 2)
+			{
+				var targets = line.polygons.map(function (i) return polygons[i]);
+				
+				switch (targets[0].connect(targets[1]))
+				{
+					case Option.Some(newP):
+						polygons.push(newP);
+						for (p in targets)
+						{
+							polygons.remove(p);
+						}
+						
+						return true;
+						
+					case Option.None:
+				}
 			}
 		}
 		
-		for (line in lines1)
-		{
-			lines.insert(insert, line);
-		}
-		
-		vertexes = [for (line in lines) Std.parseInt(line.split("_")[0])];
-		trace(lines.join("-"));
-		trace(vertexes.join("-"));
-		child.polygons.push(new Polygon(vertexes));
-		child.refresh();
-		return Option.Some(child);
+		return false;
 	}
+	
+	public function finalize():Void
+	{
+		normalize();
+		reduce();
+	}
+	
 }
 
 enum Comp
@@ -478,6 +479,16 @@ private class Vec
 	public function inner(vec:Vec):Rational
 	{
 		return dx * (vec.dx) + dy * vec.dy;
+	}
+	
+	public function isParallel(vec:Vec):Bool
+	{
+		return dx * (vec.dy) == dy * vec.dx;
+	}
+	
+	public function isZero():Bool
+	{
+		return dx.isZero() && dy.isZero();
 	}
 }
 

@@ -24,4 +24,14 @@ class Vertex
 		var yStr = if (yd == "1") y.num.toString() else y.num.toString() + "/" + y.den.toString();
 		return xStr + "," + yStr;
 	}
+	
+	public function createShape(index:Int):ShapePoint
+	{
+		return new ShapePoint(x, y, index);
+	}
+	
+	public function isOnSquare():Bool
+	{
+		return (x.isZero() || x == 1) && (y.isZero() || y == 1);
+	}
 }

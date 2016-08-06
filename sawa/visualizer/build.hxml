@@ -6,5 +6,3 @@
 -main Main
 -swf-version 11.8 
 --macro BuildMacro.run()
--debug
--D fdb
