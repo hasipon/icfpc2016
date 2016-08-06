@@ -355,6 +355,89 @@ class Problem
 			point.x -= minX;
 			point.y -= minY;
 		}
+		
+		// 外周を使用済みの線に
+		for (line in lines)
+		{
+			if (points[line.start].isOnSquare() && points[line.end].isOnSquare())
+			{
+				usedLines[line.key] = true;
+			}
+		}
+		
+		// 未使用な線の除去
+		while (removeUnusedLine())
+		{
+			refresh();
+		}
+		
+		// 同一の点を除去
+		for (polygon in polygons)
+		{
+			var newVertexes = [];
+			var vs = polygon.vertexes;
+			var l = vs.length;
+			for (i in 0...l)
+			{
+				var v0 = points[vs[i]];
+				var v1 = points[vs[(i + 1) % l]];
+				if (v0.x != v1.x || v0.y != v1.y)
+				{
+					newVertexes.push(vs[(i + 1) % l]);
+				}
+				else
+				{
+					trace("same");
+				}
+			}
+			polygon.vertexes = newVertexes;
+		}
+		refresh();
+		
+		// 真っすぐ繋がる線分の除去
+		for (polygon in polygons)
+		{
+			var newVertexes = [];
+			var vs = polygon.vertexes;
+			var l = vs.length;
+			for (i in 0...l)
+			{
+				var v0 = points[vs[i]];
+				var v1 = points[vs[(i + 1) % l]];
+				var v2 = points[vs[(i + 2) % l]];
+				var vec0 = new Vec(v0, v1);
+				var vec1 = new Vec(v0, v2);
+				if (!vec0.isParallel(vec1))
+				{
+					newVertexes.push(vs[(i + 1) % l]);
+				}
+				else
+				{
+					trace(v0.x, v0.y, v1.x, v1.y, v2.x, v2.y);
+				}
+			}
+			polygon.vertexes = newVertexes;
+		}
+		refresh();
+	}
+	
+	public function removeUnusedLine():Bool
+	{
+		for (line in lines)
+		{
+			if (!usedLines.exists(line.key) && line.polygons.length == 2)
+			{
+				var targets = line.polygons.map(function (i) return polygons[i]);
+				polygons.push(targets[0].connect(targets[1]));
+				for (p in targets)
+				{
+					polygons.remove(p);
+				}
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }
 
@@ -409,6 +492,11 @@ private class Vec
 	public function inner(vec:Vec):Rational
 	{
 		return dx * (vec.dx) + dy * vec.dy;
+	}
+	
+	public function isParallel(vec:Vec):Bool
+	{
+		return dx * (vec.dy) == dy * vec.dx;
 	}
 }
 

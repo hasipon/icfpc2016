@@ -5,6 +5,7 @@ class Line
 {
 	public var start:Int;
 	public var end:Int;
+	public var key:LineKey;
 	
 	// 隣接ポリゴン
 	public var polygons:Array<Int>;
@@ -13,6 +14,7 @@ class Line
 	{
 		this.start = start;
 		this.end = end;
+		this.key = new LineKey(start, end);
 		this.polygons = [polygon];
 	}	
 	
@@ -24,7 +26,7 @@ class Line
 		var dy = s.y - e.y;
 		var d:Rational = dx * dx + dy * dy;
 		var isRational = BigIntTools.isSquareNumber(d.num * d.den);
-		var isUsed = problem.usedLines.exists(new LineKey(start, end));
+		var isUsed = problem.usedLines.exists(key);
 		return new LineShape(s.createShape(start), e.createShape(end), isRational, isUsed);
 	}
 }

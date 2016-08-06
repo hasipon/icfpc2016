@@ -37,6 +37,7 @@ class Main extends Sprite
 	
 	public function new() 
 	{
+		trace(new Polygon([0, 1, 4]).connect(new Polygon([1, 0, 4, 5])));
 		super();
 		addEventListener(Event.ADDED_TO_STAGE, init);
 	}
