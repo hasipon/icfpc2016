@@ -89,11 +89,13 @@ class Main extends Sprite
 		undoButton = new PushButton(this, 0, 90, "< undo(Z)", undo);
 		redoButton = new PushButton(this, 0, 110, "redo(Y) >", redo);
 		new PushButton(this, 0, 130, "normalize(N)", normalize);
-		new PushButton(this, 0, 150, "select_all(A)", selectAll);
+		new PushButton(this, 0, 150, "reduce(R)", reduce);
+		new PushButton(this, 0, 180, "select_all(A)", selectAll);
 		submitButton = new PushButton(this, 800, 400, "submit", submit);
 		
 		updateTarget(index);
 	}
+	
 	
 	private function onKeyDown(e:KeyboardEvent):Void 
 	{
@@ -116,8 +118,12 @@ class Main extends Sprite
 				
 			case Keyboard.N:
 				normalize(null);
+				
+			case Keyboard.R:
+				reduce(null);
 		}
 	}
+	
 	
 	private function undo(e:Event):Void 
 	{
@@ -133,6 +139,13 @@ class Main extends Sprite
 	{
 		var child = currentProblem[currentIndex].clone();
 		child.normalize();
+		addProblem(child);
+	}
+	
+	private function reduce(e):Void
+	{
+		var child = currentProblem[currentIndex].clone();
+		child.reduce();
 		addProblem(child);
 	}
 	

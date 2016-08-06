@@ -362,7 +362,10 @@ class Problem
 			point.x -= minX;
 			point.y -= minY;
 		}
-		
+	}
+	
+	public function reduce():Void
+	{
 		// 未使用な線の除去
 		while (removeUnusedLine())
 		{
@@ -418,17 +421,26 @@ class Problem
 			if (!usedLines.exists(line.key) && line.polygons.length == 2)
 			{
 				var targets = line.polygons.map(function (i) return polygons[i]);
-				polygons.push(targets[0].connect(targets[1]));
-				for (p in targets)
+				
+				switch (targets[0].connect(targets[1]))
 				{
-					polygons.remove(p);
+					case Option.Some(newP):
+						polygons.push(newP);
+						for (p in targets)
+						{
+							polygons.remove(p);
+						}
+						
+						return true;
+						
+					case Option.None:
 				}
-				return true;
 			}
 		}
 		
 		return false;
 	}
+	
 }
 
 enum Comp

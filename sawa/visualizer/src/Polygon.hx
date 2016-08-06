@@ -1,5 +1,6 @@
 package;
 import flash.geom.Point;
+import haxe.ds.Option;
 
 class Polygon
 {
@@ -15,9 +16,10 @@ class Polygon
 		return vertexes.join("_");
 	}
 	
-	public function connect(target:Polygon):Polygon
+	public function connect(target:Polygon):Option<Polygon>
 	{
 		var matched:Map<LineKey, Array<Int>> = new Map();
+		var matchedCount = 0;
 		var lines:Map<String, Int> = new Map();
 		var vs = vertexes;
 		var l = vs.length;
@@ -30,7 +32,6 @@ class Polygon
 			lines[line] = (i + 1) % l;
 		}
 		
-		var hit:Bool = false;
 		inline function searchTarget():Void
 		{
 			var vs = target.vertexes;
@@ -44,30 +45,32 @@ class Polygon
 				if (lines.exists(line))
 				{
 					matched[new LineKey(v0, v1)] = [lines[line], (i + 1) % l];
-					hit = true;
+					matchedCount ++;
 				}
 			} 
 		}
 		
 		searchTarget();
-		if (!hit)
+		if (matchedCount == 0)
 		{
 			target.vertexes.reverse();
 			searchTarget();
 		}
-		if (!hit)
+		if (matchedCount == 0)
 		{
 			throw "共通の辺がありませんでした。";
 		}
 		
 		var result = [];
+		var lengthSum = vertexes.length + target.vertexes.length;
+		
 		for (start in 0...vertexes.length)
 		{
 			var j = 0;
 			var i = start;
 			var vs = [vertexes, target.vertexes];
 			var ls = [vertexes.length, target.vertexes.length];
-			for (_ in 0...(vertexes.length + target.vertexes.length))
+			for (_ in 0...(lengthSum))
 			{
 				var v0 = vs[j][i];
 				var v1 = vs[j][(i + 1) % ls[j]];
@@ -94,6 +97,14 @@ class Polygon
 				break;
 			}
 		}
-		return new Polygon(result);
+		
+		return if (result.length + matchedCount * 2 != lengthSum)
+		{
+			Option.None;
+		}
+		else
+		{
+			Option.Some(new Polygon(result));
+		}
 	}
 }
