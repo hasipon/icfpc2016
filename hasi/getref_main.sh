@@ -193,6 +193,7 @@ python3.5 getref.py ../problems/1372.txt ../solutions/1372-50f8c7d820006ceccb337
 python3.5 getref.py ../problems/1373.txt ../solutions/1373-50f8c7d820006ceccb33739f3e7ef071688ff37c.txt
 python3.5 getref.py ../problems/1374.txt ../solutions/1374-50f8c7d820006ceccb33739f3e7ef071688ff37c.txt
 python3.5 getref.py ../problems/1375.txt ../solutions/1375-50f8c7d820006ceccb33739f3e7ef071688ff37c.txt
+python3.5 getref.py ../problems/1376.txt ../solutions/1376-5c6784920de7cfc1be61c7c1c6794e0803c00983.txt
 python3.5 getref.py ../problems/1377.txt ../solutions/1377-50f8c7d820006ceccb33739f3e7ef071688ff37c.txt
 python3.5 getref.py ../problems/1382.txt ../solutions/1382-9dd05573d15d4513279b06a029ca733634952e0c.txt
 python3.5 getref.py ../problems/1383.txt ../solutions/1383-50f8c7d820006ceccb33739f3e7ef071688ff37c.txt
@@ -206,9 +207,12 @@ python3.5 getref.py ../problems/1405.txt ../solutions/1405-30a914d9fdd8e93c566e4
 python3.5 getref.py ../problems/1407.txt ../solutions/1407-30a914d9fdd8e93c566e492904cb18e4ce706a1f.txt
 python3.5 getref.py ../problems/1412.txt ../solutions/1412-5f4d726ff27ba78d56db7d13b5ac6afec3bc7756.txt
 python3.5 getref.py ../problems/1478.txt ../solutions/1478-7934e22825c83ac5c37c73dc79fc6be9dd5a3ebb.txt
+python3.5 getref.py ../problems/1558.txt ../solutions/1558-a78eea01effbb6bf1ee6b995442146207c5165a4.txt
 python3.5 getref.py ../problems/1567.txt ../solutions/1567-50f8c7d820006ceccb33739f3e7ef071688ff37c.txt
 python3.5 getref.py ../problems/1570.txt ../solutions/1570-d2b3d3132716b9df04578173550c9750cd12a4af.txt
 python3.5 getref.py ../problems/1603.txt ../solutions/1603-d6d6d1d1e9f7bc37495c309cf285a6f44173d37c.txt
+python3.5 getref.py ../problems/1606.txt ../solutions/1606-91a46065d54b39636e9f0e3301f7e5d508a3cb4c.txt
+python3.5 getref.py ../problems/1610.txt ../solutions/1610-865aecb81f6376afdb74d095e5319b893c263bc6.txt
 python3.5 getref.py ../problems/1624.txt ../solutions/1624-50f8c7d820006ceccb33739f3e7ef071688ff37c.txt
 python3.5 getref.py ../problems/1705.txt ../solutions/1705-6867803401e4295fa10cd2cc2fe67c117c55c565.txt
 python3.5 getref.py ../problems/1731.txt ../solutions/1731-7bf6053791d2f9820fc5699e75a4529cecde1122.txt
@@ -262,6 +266,7 @@ python3.5 getref.py ../problems/2338.txt ../solutions/2338-e423e0396e776495da5b2
 python3.5 getref.py ../problems/2339.txt ../solutions/2339-e423e0396e776495da5b28adacf7c24022e0dff4.txt
 python3.5 getref.py ../problems/2356.txt ../solutions/2356-f02898f97acea440e624f301e39c4512c8b31378.txt
 python3.5 getref.py ../problems/2357.txt ../solutions/2357-5c6784920de7cfc1be61c7c1c6794e0803c00983.txt
+python3.5 getref.py ../problems/2358.txt ../solutions/2358-5c6784920de7cfc1be61c7c1c6794e0803c00983.txt
 python3.5 getref.py ../problems/2359.txt ../solutions/2359-5c6784920de7cfc1be61c7c1c6794e0803c00983.txt
 python3.5 getref.py ../problems/2398.txt ../solutions/2398-9dd05573d15d4513279b06a029ca733634952e0c.txt
 python3.5 getref.py ../problems/2412.txt ../solutions/2412-50f8c7d820006ceccb33739f3e7ef071688ff37c.txt
