@@ -109,7 +109,7 @@ class Problem
 				{
 					usedLines[nk] = true;
 				}
-				if (vecOA.isParallel(new Vec(points[v0], points[v1])))
+				if (vecOA.isParallel(new Vec(points[v0], points[v1])) && vecOA.isParallel(new Vec(sv, points[v1])))
 				{
 					usedLines[nk] = true;
 					usedLines[k] = true;
