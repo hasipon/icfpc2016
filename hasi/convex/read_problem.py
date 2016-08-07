@@ -56,16 +56,50 @@ def calc(polygons: List[List[Vector]]):
     min_x = min(s.x for s in a)
     min_y = min(s.y for s in a)
     b = [Vector(s.x - min_x, s.y - min_y) for s in a]
-    if max(s.x for s in b) > Fraction(1) or max(s.y for s in b) > Fraction(1):
-        return
-        # todo 回転を考える
+    if max(s.x for s in b) <= Fraction(1) and max(s.y for s in b) <= Fraction(1):
+        return {
+            'a': True,
+            'x': ['1', '0', str(min_x)],  # 出力変換式
+            'y': ['0', '1', str(min_y)],
+            'v': [str(s) for s in b],
+        }
 
-    return {
-        'a': True,
-        'x': ['1', '0', str(min_x)],  # 出力変換式
-        'y': ['0', '1', str(min_y)],
-        'v': [str(s) for s in b],
-    }
+    pyt = [
+        (3, 4, 5),
+        (5, 12, 13),
+        (7, 24, 25),
+        (8, 15, 17),
+        (9, 40, 41),
+        (11, 60, 61),
+        (12, 35, 37),
+        (13, 84, 85),
+        (16, 63, 65),
+        (20, 21, 29),
+        (28, 45, 53),
+        (33, 56, 65),
+        (36, 77, 85),
+        (39, 80, 89),
+        (48, 55, 73),
+        (65, 72, 97),
+    ]
+    for aa, bb, cc in pyt:
+        for i in range(8):
+            cs = Fraction(aa, cc)
+            sn = Fraction(bb, cc)
+            if i & 1: cs, sn = sn, cs
+            if i & 2: cs = -cs
+            if i & 4: sn = -sn
+            a_rot = [Vector(cs * s.x + sn * s.y, - sn * s.x + cs * s.y) for s in a]
+            min_x = min(s.x for s in a_rot)
+            min_y = min(s.y for s in a_rot)
+            b_rot = [Vector(s.x - min_x, s.y - min_y) for s in a_rot]
+            if max(s.x for s in b_rot) <= Fraction(1) and max(s.y for s in b_rot) <= Fraction(1):
+                return {
+                    'a': True,
+                    'x': [str(cs), str(-sn), str((cs * min_x - sn * min_y))],  # 出力変換式
+                    'y': [str(sn), str(cs), str((sn * min_x + cs * min_y))],
+                    'v': [str(s) for s in b_rot],
+                }
 
 
 def main():
