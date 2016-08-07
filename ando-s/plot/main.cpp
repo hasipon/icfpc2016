@@ -113,6 +113,8 @@ void f(int id)
     fout << "set grid" << endl;
     fout << "set xrange[" << -eps << ":" << c.convert_to<double>()+eps << "]" << endl;
     fout << "set yrange[" << -eps << ":" << c.convert_to<double>()+eps << "]" << endl;
+    fout << "set xtics 0.1" <<endl;
+    fout << "set ytics 0.1" <<endl;
     fout << "set terminal png" << endl;
     fout << "set multiplot"<< endl;
     fout << "plot ";
