@@ -226,8 +226,8 @@ void gvCircle(double x, double y, double r, GV_RGB rgb) {
   if (!g_gvEnableFlag) return;
   gvInit();
 #ifdef GV_JS
-  fprintf(g_gvFile, "c(%g, %g, %g).rgb(%d, %d, %d);\n", x, y, r, rgb.r, rgb.g,
-          rgb.b);
+  fprintf(g_gvFile, "c(%g, %g, %g).rgb(%d, %d, %d, %d);\n", x, y, r, rgb.r,
+          rgb.g, rgb.b, rgb.a);
 #else
   fprintf(g_gvFile, "c %g %g %d %g\n", x, y, rgb.toInt(), r);
 #endif
@@ -247,7 +247,8 @@ void gvCircle(double x, double y, GV_RGB rgb) {
   if (!g_gvEnableFlag) return;
   gvInit();
 #ifdef GV_JS
-  fprintf(g_gvFile, "c(%g, %g).rgb(%d, %d, %d);\n", x, y, rgb.r, rgb.g, rgb.b);
+  fprintf(g_gvFile, "c(%g, %g).rgb(%d, %d, %d, %d);\n", x, y, rgb.r, rgb.g,
+          rgb.b, rgb.a);
 #else
   fprintf(g_gvFile, "c %g %g %d\n", x, y, rgb.toInt());
 #endif
@@ -263,8 +264,8 @@ void gvText(double x, double y, double r, GV_RGB rgb, const char* format = "?",
   va_start(arg, format);
   vfprintf(g_gvFile, format, arg);
   va_end(arg);
-  fprintf(g_gvFile, "\", %g, %g, %g).rgb(%d, %d, %d);\n", x, y, r, rgb.r, rgb.g,
-          rgb.b);
+  fprintf(g_gvFile, "\", %g, %g, %g).rgb(%d, %d, %d, %d);\n", x, y, r, rgb.r,
+          rgb.g, rgb.b, rgb.a);
 #else
   fprintf(g_gvFile, "t %g %g %d %g ", x, y, rgb.toInt(), r);
   va_list arg;
@@ -304,8 +305,8 @@ void gvText(double x, double y, GV_RGB rgb, const char* format = "?", ...) {
   va_start(arg, format);
   vfprintf(g_gvFile, format, arg);
   va_end(arg);
-  fprintf(g_gvFile, "\", %g, %g).rgb(%d, %d, %d);\n", x, y, rgb.r, rgb.g,
-          rgb.b);
+  fprintf(g_gvFile, "\", %g, %g).rgb(%d, %d, %d, %d);\n", x, y, rgb.r, rgb.g,
+          rgb.b, rgb.a);
 #else
   fprintf(g_gvFile, "t %g %g %d 0.5 ", x, y, rgb.toInt());
   va_list arg;
@@ -392,7 +393,9 @@ void gvPolygon(GV_RGB rgb, std::function<void()> f) {
   g_polygon = g_polygon_begin = true;
   gvInit();
   f();
-  fprintf(g_gvFile, ").rgb(%d, %d, %d, %d);\n", rgb.r, rgb.g, rgb.b, rgb.a);
+  if (!g_polygon_begin) {
+    fprintf(g_gvFile, ").rgb(%d, %d, %d, %d);\n", rgb.r, rgb.g, rgb.b, rgb.a);
+  }
   fflush(g_gvFile);
   g_polygon = g_polygon_begin = false;
 }
