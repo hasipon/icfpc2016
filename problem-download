@@ -33,6 +33,7 @@ function download() {
       echo "wait for retry.."
       sleep 3
     else
+      sleep 3
       break
     fi
     done
@@ -41,7 +42,6 @@ function download() {
 
 cat problems.json | jq -r ".problems[] | [.problem_id, .problem_spec_hash] | @sh" | while read line; do
   download $line
-  sleep 3
 done
 
 echo $a > "lasthash"
