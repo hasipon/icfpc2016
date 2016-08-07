@@ -430,11 +430,12 @@ class Problem
 			if (px < x) x = px;
 			if (py < y) y = py;
 		}
-		for (point in points)
-		{
-			point.x -= x;
-			point.y -= y;
-		}
+		points = [
+			for (point in points)
+			{
+				new Vertex(point.x - x, point.y - y,point.source);
+			}
+		];
 	}
 	
 }
