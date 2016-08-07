@@ -89,7 +89,7 @@ vector<polygon> cut(const polygon& pol, point p1, point p2) {
 }
 
 // p1, p2は targetの交点
-polygon fold(const polygon& target, point p1, point p2) {
+polygon flip(const polygon& target, point p1, point p2) {
   auto ret = target;
   for (int i = 0; i < target.outer().size(); ++i) {
     if (bg::equals(target.outer()[i], p1)) {
@@ -171,11 +171,19 @@ void solve_convex_hull(Problem2 base_prob) {
 
   struct polygon2 {
     int id = -1;
+    int parent_id = -1;
     polygon pol;
   };
 
+  struct Cut {
+    segment seg;
+    int step;
+    int polygon_parent;
+    int polygon_child1;
+    int polygon_child2;
+  };
+
   struct Node {
-    segment cut;
     vector<polygon2> pols;
   };
 
@@ -186,6 +194,7 @@ void solve_convex_hull(Problem2 base_prob) {
   bg::exterior_ring(node.pols[0].pol) =
       boost::assign::list_of<point>(0, 0)(0, 1)(1, 1)(1, 0)(0, 0);
 
+  vector<Cut> history;
   vector<Node> nodes;
   nodes.push_back(node);
 
@@ -268,19 +277,32 @@ void solve_convex_hull(Problem2 base_prob) {
           if (area_hull(separeted[1]) < area_hull(separeted[0])) {
             swap(separeted[0], separeted[1]);
           }
-          auto folded = fold(separeted[0], out[0], out[1]);
+          auto flipped = flip(separeted[0], out[0], out[1]);
           next.pols.erase(
               remove_if(next.pols.begin(), next.pols.end(),
                         [&](const polygon2& a) { return a.id == pol.id; }),
               next.pols.end());
 
           polygon2 a;
-          a.pol = std::move(folded);
+          a.pol = std::move(flipped);
           a.id = polygon_cnt++;
-          next.pols.emplace_back(std::move(a));
+          a.parent_id = pol.id;
+          const int child1 = a.id;
+          next.pols.push_back(a);
+
           a.pol = std::move(separeted[1]);
           a.id = polygon_cnt++;
-          next.pols.emplace_back(std::move(a));
+          const int child2 = a.id;
+          a.parent_id = pol.id;
+          next.pols.push_back(a);
+
+          Cut cut;
+          cut.step = step;
+          cut.seg = segment(out[0], out[1]);
+          cut.polygon_parent = pol.id;
+          cut.polygon_child1 = child1;
+          cut.polygon_child2 = child2;
+          history.push_back(cut);
         }
       }
     }
@@ -289,6 +311,33 @@ void solve_convex_hull(Problem2 base_prob) {
       nodes.push_back(next);
     } else {
       break;
+    }
+  }
+
+  reverse(begin(history), end(history));
+
+  vector<polygon2> reversing;
+  for (auto& p : nodes.back().pols) {
+    reversing.push_back(p);
+  }
+
+  for (int h = 0; h < history.size(); ++h) {
+    auto& cut = history[h];
+    gvNewTime();
+    gvPolygon(hull, gvColor(0));
+    gvSegment(history[h].seg, 0.1, gvColor(1));
+
+    for (int i = 0; i < reversing.size(); ++i) {
+      if (cut.polygon_child1 == reversing[i].id) {
+        reversing[i].pol =
+            flip(reversing[i].pol, cut.seg.first, cut.seg.second);
+        reversing[i].id = cut.polygon_parent;
+      } else if (cut.polygon_child2 == reversing[i].id) {
+        reversing[i].id = cut.polygon_parent;
+      }
+    }
+    for (int i = 0; i < reversing.size(); ++i) {
+      gvPolygon(reversing[i].pol, gvColor(i));
     }
   }
 
