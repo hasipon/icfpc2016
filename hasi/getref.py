@@ -130,6 +130,8 @@ def calc(polygons: List[List[Vector]], solution: Solution, flip_x, flip_y, swap_
 
 
 def main():
+    if not os.path.exists(sys.argv[1]):
+        return
     problem = Problem()
     problem.load(sys.argv[1])
     solution = Solution()
