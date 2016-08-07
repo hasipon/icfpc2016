@@ -408,6 +408,12 @@ class Problem
 		refresh();
 	
 		// 線分の途中に点があったらその点を経由
+		var neighberPoint = [for (i in 0...points.length) i => []];
+		for (line in lines)
+		{
+			neighberPoint[line.start].push(line.end);
+			neighberPoint[line.end].push(line.start);
+		}
 		for (line in lines)
 		{
 			var s = points[line.start];
@@ -416,7 +422,7 @@ class Problem
 			var vec0Length = vec0.length2();
 			var targets = [];
 			
-			for (j in 0...points.length)
+			for (j in neighberPoint[line.start])
 			{
 				var vec1 = new Vec(s, points[j]);
 				var inner = vec0.inner(vec1);
@@ -457,6 +463,8 @@ class Problem
 					polygon.vertexes = newVs;
 				}
 			}
+			
+			usedLines[line.key] = true;
 		}
 		refresh();
 	}
