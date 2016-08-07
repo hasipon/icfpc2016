@@ -17,7 +17,10 @@ class BuildMacro
 			{
 				var id = name.split("-")[0];
 				var data = Json.parse(File.getContent(dir + "/" + name));
-				solutionFiles[id] = data;
+				if (!solutionFiles.exists(id) || data.resemblance > solutionFiles[id].resemblance)
+				{
+					solutionFiles[id] = data;
+				}
 			}
 		}
 		
