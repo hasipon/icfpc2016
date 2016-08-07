@@ -1,986 +1,979 @@
-./solution-submit 4358 hasi/convex/hull_solutions/4358.txt; sleep 2
-./solution-submit 5515 hasi/convex/hull_solutions/5515.txt; sleep 2
-./solution-submit 5811 hasi/convex/hull_solutions/5811.txt; sleep 2
-./solution-submit 2293 hasi/convex/hull_solutions/2293.txt; sleep 2
-./solution-submit 6086 hasi/convex/hull_solutions/6086.txt; sleep 2
-./solution-submit 2123 hasi/convex/hull_solutions/2123.txt; sleep 2
-./solution-submit 524 hasi/convex/hull_solutions/524.txt; sleep 2
-./solution-submit 2891 hasi/convex/hull_solutions/2891.txt; sleep 2
-./solution-submit 5513 hasi/convex/hull_solutions/5513.txt; sleep 2
-./solution-submit 846 hasi/convex/hull_solutions/846.txt; sleep 2
-./solution-submit 3729 hasi/convex/hull_solutions/3729.txt; sleep 2
-./solution-submit 5266 hasi/convex/hull_solutions/5266.txt; sleep 2
-./solution-submit 6132 hasi/convex/hull_solutions/6132.txt; sleep 2
-./solution-submit 2883 hasi/convex/hull_solutions/2883.txt; sleep 2
-./solution-submit 3610 hasi/convex/hull_solutions/3610.txt; sleep 2
-./solution-submit 690 hasi/convex/hull_solutions/690.txt; sleep 2
-./solution-submit 5333 hasi/convex/hull_solutions/5333.txt; sleep 2
-./solution-submit 3962 hasi/convex/hull_solutions/3962.txt; sleep 2
-./solution-submit 4724 hasi/convex/hull_solutions/4724.txt; sleep 2
-./solution-submit 2739 hasi/convex/hull_solutions/2739.txt; sleep 2
-./solution-submit 2284 hasi/convex/hull_solutions/2284.txt; sleep 2
-./solution-submit 2232 hasi/convex/hull_solutions/2232.txt; sleep 2
-./solution-submit 2750 hasi/convex/hull_solutions/2750.txt; sleep 2
-./solution-submit 1980 hasi/convex/hull_solutions/1980.txt; sleep 2
-./solution-submit 1737 hasi/convex/hull_solutions/1737.txt; sleep 2
-./solution-submit 5565 hasi/convex/hull_solutions/5565.txt; sleep 2
-./solution-submit 1727 hasi/convex/hull_solutions/1727.txt; sleep 2
-./solution-submit 3569 hasi/convex/hull_solutions/3569.txt; sleep 2
-./solution-submit 2286 hasi/convex/hull_solutions/2286.txt; sleep 2
-./solution-submit 5879 hasi/convex/hull_solutions/5879.txt; sleep 2
-./solution-submit 5386 hasi/convex/hull_solutions/5386.txt; sleep 2
-./solution-submit 4876 hasi/convex/hull_solutions/4876.txt; sleep 2
-./solution-submit 743 hasi/convex/hull_solutions/743.txt; sleep 2
-./solution-submit 2527 hasi/convex/hull_solutions/2527.txt; sleep 2
-./solution-submit 4354 hasi/convex/hull_solutions/4354.txt; sleep 2
-./solution-submit 2000 hasi/convex/hull_solutions/2000.txt; sleep 2
-./solution-submit 5079 hasi/convex/hull_solutions/5079.txt; sleep 2
-./solution-submit 5418 hasi/convex/hull_solutions/5418.txt; sleep 2
-./solution-submit 1732 hasi/convex/hull_solutions/1732.txt; sleep 2
-./solution-submit 3745 hasi/convex/hull_solutions/3745.txt; sleep 2
-./solution-submit 5335 hasi/convex/hull_solutions/5335.txt; sleep 2
-./solution-submit 2280 hasi/convex/hull_solutions/2280.txt; sleep 2
-./solution-submit 4415 hasi/convex/hull_solutions/4415.txt; sleep 2
-./solution-submit 3754 hasi/convex/hull_solutions/3754.txt; sleep 2
-./solution-submit 3397 hasi/convex/hull_solutions/3397.txt; sleep 2
-./solution-submit 6038 hasi/convex/hull_solutions/6038.txt; sleep 2
-./solution-submit 4476 hasi/convex/hull_solutions/4476.txt; sleep 2
-./solution-submit 4829 hasi/convex/hull_solutions/4829.txt; sleep 2
-./solution-submit 3986 hasi/convex/hull_solutions/3986.txt; sleep 2
-./solution-submit 5010 hasi/convex/hull_solutions/5010.txt; sleep 2
-./solution-submit 5347 hasi/convex/hull_solutions/5347.txt; sleep 2
-./solution-submit 4360 hasi/convex/hull_solutions/4360.txt; sleep 2
-./solution-submit 2886 hasi/convex/hull_solutions/2886.txt; sleep 2
-./solution-submit 1711 hasi/convex/hull_solutions/1711.txt; sleep 2
-./solution-submit 715 hasi/convex/hull_solutions/715.txt; sleep 2
-./solution-submit 4652 hasi/convex/hull_solutions/4652.txt; sleep 2
-./solution-submit 2310 hasi/convex/hull_solutions/2310.txt; sleep 2
-./solution-submit 5502 hasi/convex/hull_solutions/5502.txt; sleep 2
-./solution-submit 5131 hasi/convex/hull_solutions/5131.txt; sleep 2
-./solution-submit 6225 hasi/convex/hull_solutions/6225.txt; sleep 2
-./solution-submit 2331 hasi/convex/hull_solutions/2331.txt; sleep 2
-./solution-submit 2466 hasi/convex/hull_solutions/2466.txt; sleep 2
-./solution-submit 519 hasi/convex/hull_solutions/519.txt; sleep 2
-./solution-submit 5411 hasi/convex/hull_solutions/5411.txt; sleep 2
-./solution-submit 4997 hasi/convex/hull_solutions/4997.txt; sleep 2
-./solution-submit 5955 hasi/convex/hull_solutions/5955.txt; sleep 2
-./solution-submit 3711 hasi/convex/hull_solutions/3711.txt; sleep 2
-./solution-submit 678 hasi/convex/hull_solutions/678.txt; sleep 2
-./solution-submit 4608 hasi/convex/hull_solutions/4608.txt; sleep 2
-./solution-submit 4905 hasi/convex/hull_solutions/4905.txt; sleep 2
-./solution-submit 3985 hasi/convex/hull_solutions/3985.txt; sleep 2
-./solution-submit 1744 hasi/convex/hull_solutions/1744.txt; sleep 2
-./solution-submit 4833 hasi/convex/hull_solutions/4833.txt; sleep 2
-./solution-submit 5576 hasi/convex/hull_solutions/5576.txt; sleep 2
-./solution-submit 5603 hasi/convex/hull_solutions/5603.txt; sleep 2
-./solution-submit 2759 hasi/convex/hull_solutions/2759.txt; sleep 2
-./solution-submit 5372 hasi/convex/hull_solutions/5372.txt; sleep 2
-./solution-submit 328 hasi/convex/hull_solutions/328.txt; sleep 2
-./solution-submit 3989 hasi/convex/hull_solutions/3989.txt; sleep 2
-./solution-submit 3576 hasi/convex/hull_solutions/3576.txt; sleep 2
-./solution-submit 680 hasi/convex/hull_solutions/680.txt; sleep 2
-./solution-submit 4423 hasi/convex/hull_solutions/4423.txt; sleep 2
-./solution-submit 4844 hasi/convex/hull_solutions/4844.txt; sleep 2
-./solution-submit 4410 hasi/convex/hull_solutions/4410.txt; sleep 2
-./solution-submit 294 hasi/convex/hull_solutions/294.txt; sleep 2
-./solution-submit 3961 hasi/convex/hull_solutions/3961.txt; sleep 2
-./solution-submit 6126 hasi/convex/hull_solutions/6126.txt; sleep 2
-./solution-submit 4389 hasi/convex/hull_solutions/4389.txt; sleep 2
-./solution-submit 100 hasi/convex/hull_solutions/100.txt; sleep 2
-./solution-submit 4054 hasi/convex/hull_solutions/4054.txt; sleep 2
-./solution-submit 3716 hasi/convex/hull_solutions/3716.txt; sleep 2
-./solution-submit 3974 hasi/convex/hull_solutions/3974.txt; sleep 2
-./solution-submit 6121 hasi/convex/hull_solutions/6121.txt; sleep 2
-./solution-submit 3707 hasi/convex/hull_solutions/3707.txt; sleep 2
-./solution-submit 3566 hasi/convex/hull_solutions/3566.txt; sleep 2
-./solution-submit 5526 hasi/convex/hull_solutions/5526.txt; sleep 2
-./solution-submit 2305 hasi/convex/hull_solutions/2305.txt; sleep 2
-./solution-submit 166 hasi/convex/hull_solutions/166.txt; sleep 2
-./solution-submit 5259 hasi/convex/hull_solutions/5259.txt; sleep 2
-./solution-submit 2844 hasi/convex/hull_solutions/2844.txt; sleep 2
-./solution-submit 163 hasi/convex/hull_solutions/163.txt; sleep 2
-./solution-submit 3199 hasi/convex/hull_solutions/3199.txt; sleep 2
-./solution-submit 2289 hasi/convex/hull_solutions/2289.txt; sleep 2
-./solution-submit 2095 hasi/convex/hull_solutions/2095.txt; sleep 2
-./solution-submit 454 hasi/convex/hull_solutions/454.txt; sleep 2
-./solution-submit 4706 hasi/convex/hull_solutions/4706.txt; sleep 2
-./solution-submit 6118 hasi/convex/hull_solutions/6118.txt; sleep 2
-./solution-submit 4841 hasi/convex/hull_solutions/4841.txt; sleep 2
-./solution-submit 5346 hasi/convex/hull_solutions/5346.txt; sleep 2
-./solution-submit 5408 hasi/convex/hull_solutions/5408.txt; sleep 2
-./solution-submit 5956 hasi/convex/hull_solutions/5956.txt; sleep 2
-./solution-submit 2302 hasi/convex/hull_solutions/2302.txt; sleep 2
-./solution-submit 3411 hasi/convex/hull_solutions/3411.txt; sleep 2
-./solution-submit 3875 hasi/convex/hull_solutions/3875.txt; sleep 2
-./solution-submit 2271 hasi/convex/hull_solutions/2271.txt; sleep 2
-./solution-submit 6170 hasi/convex/hull_solutions/6170.txt; sleep 2
-./solution-submit 5317 hasi/convex/hull_solutions/5317.txt; sleep 2
-./solution-submit 5384 hasi/convex/hull_solutions/5384.txt; sleep 2
-./solution-submit 3179 hasi/convex/hull_solutions/3179.txt; sleep 2
-./solution-submit 4981 hasi/convex/hull_solutions/4981.txt; sleep 2
-./solution-submit 1714 hasi/convex/hull_solutions/1714.txt; sleep 2
-./solution-submit 2097 hasi/convex/hull_solutions/2097.txt; sleep 2
-./solution-submit 5316 hasi/convex/hull_solutions/5316.txt; sleep 2
-./solution-submit 5589 hasi/convex/hull_solutions/5589.txt; sleep 2
-./solution-submit 6180 hasi/convex/hull_solutions/6180.txt; sleep 2
-./solution-submit 4348 hasi/convex/hull_solutions/4348.txt; sleep 2
-./solution-submit 1943 hasi/convex/hull_solutions/1943.txt; sleep 2
-./solution-submit 5641 hasi/convex/hull_solutions/5641.txt; sleep 2
-./solution-submit 5050 hasi/convex/hull_solutions/5050.txt; sleep 2
-./solution-submit 3168 hasi/convex/hull_solutions/3168.txt; sleep 2
-./solution-submit 5914 hasi/convex/hull_solutions/5914.txt; sleep 2
-./solution-submit 4896 hasi/convex/hull_solutions/4896.txt; sleep 2
-./solution-submit 5535 hasi/convex/hull_solutions/5535.txt; sleep 2
-./solution-submit 3194 hasi/convex/hull_solutions/3194.txt; sleep 2
-./solution-submit 4361 hasi/convex/hull_solutions/4361.txt; sleep 2
-./solution-submit 4710 hasi/convex/hull_solutions/4710.txt; sleep 2
-./solution-submit 2455 hasi/convex/hull_solutions/2455.txt; sleep 2
-./solution-submit 676 hasi/convex/hull_solutions/676.txt; sleep 2
-./solution-submit 5599 hasi/convex/hull_solutions/5599.txt; sleep 2
-./solution-submit 5538 hasi/convex/hull_solutions/5538.txt; sleep 2
-./solution-submit 6089 hasi/convex/hull_solutions/6089.txt; sleep 2
-./solution-submit 3347 hasi/convex/hull_solutions/3347.txt; sleep 2
-./solution-submit 2794 hasi/convex/hull_solutions/2794.txt; sleep 2
-./solution-submit 2506 hasi/convex/hull_solutions/2506.txt; sleep 2
-./solution-submit 5329 hasi/convex/hull_solutions/5329.txt; sleep 2
-./solution-submit 5512 hasi/convex/hull_solutions/5512.txt; sleep 2
-./solution-submit 97 hasi/convex/hull_solutions/97.txt; sleep 2
-./solution-submit 5380 hasi/convex/hull_solutions/5380.txt; sleep 2
-./solution-submit 6203 hasi/convex/hull_solutions/6203.txt; sleep 2
-./solution-submit 91 hasi/convex/hull_solutions/91.txt; sleep 2
-./solution-submit 1740 hasi/convex/hull_solutions/1740.txt; sleep 2
-./solution-submit 681 hasi/convex/hull_solutions/681.txt; sleep 2
-./solution-submit 4819 hasi/convex/hull_solutions/4819.txt; sleep 2
-./solution-submit 20 hasi/convex/hull_solutions/20.txt; sleep 2
-./solution-submit 5322 hasi/convex/hull_solutions/5322.txt; sleep 2
-./solution-submit 1163 hasi/convex/hull_solutions/1163.txt; sleep 2
-./solution-submit 1750 hasi/convex/hull_solutions/1750.txt; sleep 2
-./solution-submit 2628 hasi/convex/hull_solutions/2628.txt; sleep 2
-./solution-submit 1717 hasi/convex/hull_solutions/1717.txt; sleep 2
-./solution-submit 3760 hasi/convex/hull_solutions/3760.txt; sleep 2
-./solution-submit 5843 hasi/convex/hull_solutions/5843.txt; sleep 2
-./solution-submit 4350 hasi/convex/hull_solutions/4350.txt; sleep 2
-./solution-submit 4366 hasi/convex/hull_solutions/4366.txt; sleep 2
-./solution-submit 4336 hasi/convex/hull_solutions/4336.txt; sleep 2
-./solution-submit 3036 hasi/convex/hull_solutions/3036.txt; sleep 2
-./solution-submit 5905 hasi/convex/hull_solutions/5905.txt; sleep 2
-./solution-submit 6201 hasi/convex/hull_solutions/6201.txt; sleep 2
-./solution-submit 2888 hasi/convex/hull_solutions/2888.txt; sleep 2
-./solution-submit 4731 hasi/convex/hull_solutions/4731.txt; sleep 2
-./solution-submit 4105 hasi/convex/hull_solutions/4105.txt; sleep 2
-./solution-submit 5394 hasi/convex/hull_solutions/5394.txt; sleep 2
-./solution-submit 5015 hasi/convex/hull_solutions/5015.txt; sleep 2
-./solution-submit 210 hasi/convex/hull_solutions/210.txt; sleep 2
-./solution-submit 5780 hasi/convex/hull_solutions/5780.txt; sleep 2
-./solution-submit 4026 hasi/convex/hull_solutions/4026.txt; sleep 2
-./solution-submit 5957 hasi/convex/hull_solutions/5957.txt; sleep 2
-./solution-submit 2400 hasi/convex/hull_solutions/2400.txt; sleep 2
-./solution-submit 2746 hasi/convex/hull_solutions/2746.txt; sleep 2
-./solution-submit 60 hasi/convex/hull_solutions/60.txt; sleep 2
-./solution-submit 4990 hasi/convex/hull_solutions/4990.txt; sleep 2
-./solution-submit 4722 hasi/convex/hull_solutions/4722.txt; sleep 2
-./solution-submit 369 hasi/convex/hull_solutions/369.txt; sleep 2
-./solution-submit 5189 hasi/convex/hull_solutions/5189.txt; sleep 2
-./solution-submit 5320 hasi/convex/hull_solutions/5320.txt; sleep 2
-./solution-submit 2515 hasi/convex/hull_solutions/2515.txt; sleep 2
-./solution-submit 2839 hasi/convex/hull_solutions/2839.txt; sleep 2
-./solution-submit 1960 hasi/convex/hull_solutions/1960.txt; sleep 2
-./solution-submit 3873 hasi/convex/hull_solutions/3873.txt; sleep 2
-./solution-submit 5054 hasi/convex/hull_solutions/5054.txt; sleep 2
-./solution-submit 84 hasi/convex/hull_solutions/84.txt; sleep 2
-./solution-submit 3954 hasi/convex/hull_solutions/3954.txt; sleep 2
-./solution-submit 2742 hasi/convex/hull_solutions/2742.txt; sleep 2
-./solution-submit 6188 hasi/convex/hull_solutions/6188.txt; sleep 2
-./solution-submit 6124 hasi/convex/hull_solutions/6124.txt; sleep 2
-./solution-submit 3037 hasi/convex/hull_solutions/3037.txt; sleep 2
-./solution-submit 6211 hasi/convex/hull_solutions/6211.txt; sleep 2
-./solution-submit 208 hasi/convex/hull_solutions/208.txt; sleep 2
-./solution-submit 4468 hasi/convex/hull_solutions/4468.txt; sleep 2
-./solution-submit 3102 hasi/convex/hull_solutions/3102.txt; sleep 2
-./solution-submit 167 hasi/convex/hull_solutions/167.txt; sleep 2
-./solution-submit 5348 hasi/convex/hull_solutions/5348.txt; sleep 2
-./solution-submit 217 hasi/convex/hull_solutions/217.txt; sleep 2
-./solution-submit 3762 hasi/convex/hull_solutions/3762.txt; sleep 2
-./solution-submit 3399 hasi/convex/hull_solutions/3399.txt; sleep 2
-./solution-submit 2896 hasi/convex/hull_solutions/2896.txt; sleep 2
-./solution-submit 5887 hasi/convex/hull_solutions/5887.txt; sleep 2
-./solution-submit 5889 hasi/convex/hull_solutions/5889.txt; sleep 2
-./solution-submit 4567 hasi/convex/hull_solutions/4567.txt; sleep 2
-./solution-submit 1743 hasi/convex/hull_solutions/1743.txt; sleep 2
-./solution-submit 5008 hasi/convex/hull_solutions/5008.txt; sleep 2
-./solution-submit 721 hasi/convex/hull_solutions/721.txt; sleep 2
-./solution-submit 3756 hasi/convex/hull_solutions/3756.txt; sleep 2
-./solution-submit 6039 hasi/convex/hull_solutions/6039.txt; sleep 2
-./solution-submit 4897 hasi/convex/hull_solutions/4897.txt; sleep 2
-./solution-submit 4774 hasi/convex/hull_solutions/4774.txt; sleep 2
-./solution-submit 2209 hasi/convex/hull_solutions/2209.txt; sleep 2
-./solution-submit 5385 hasi/convex/hull_solutions/5385.txt; sleep 2
-./solution-submit 5417 hasi/convex/hull_solutions/5417.txt; sleep 2
-./solution-submit 3715 hasi/convex/hull_solutions/3715.txt; sleep 2
-./solution-submit 6035 hasi/convex/hull_solutions/6035.txt; sleep 2
-./solution-submit 5185 hasi/convex/hull_solutions/5185.txt; sleep 2
-./solution-submit 200 hasi/convex/hull_solutions/200.txt; sleep 2
-./solution-submit 732 hasi/convex/hull_solutions/732.txt; sleep 2
-./solution-submit 5407 hasi/convex/hull_solutions/5407.txt; sleep 2
-./solution-submit 1095 hasi/convex/hull_solutions/1095.txt; sleep 2
-./solution-submit 4570 hasi/convex/hull_solutions/4570.txt; sleep 2
-./solution-submit 2276 hasi/convex/hull_solutions/2276.txt; sleep 2
-./solution-submit 221 hasi/convex/hull_solutions/221.txt; sleep 2
-./solution-submit 2301 hasi/convex/hull_solutions/2301.txt; sleep 2
-./solution-submit 5950 hasi/convex/hull_solutions/5950.txt; sleep 2
-./solution-submit 3418 hasi/convex/hull_solutions/3418.txt; sleep 2
-./solution-submit 5097 hasi/convex/hull_solutions/5097.txt; sleep 2
-./solution-submit 5302 hasi/convex/hull_solutions/5302.txt; sleep 2
-./solution-submit 4285 hasi/convex/hull_solutions/4285.txt; sleep 2
-./solution-submit 2493 hasi/convex/hull_solutions/2493.txt; sleep 2
-./solution-submit 5611 hasi/convex/hull_solutions/5611.txt; sleep 2
-./solution-submit 2738 hasi/convex/hull_solutions/2738.txt; sleep 2
-./solution-submit 87 hasi/convex/hull_solutions/87.txt; sleep 2
-./solution-submit 5999 hasi/convex/hull_solutions/5999.txt; sleep 2
-./solution-submit 3401 hasi/convex/hull_solutions/3401.txt; sleep 2
-./solution-submit 2734 hasi/convex/hull_solutions/2734.txt; sleep 2
-./solution-submit 6204 hasi/convex/hull_solutions/6204.txt; sleep 2
-./solution-submit 3181 hasi/convex/hull_solutions/3181.txt; sleep 2
-./solution-submit 2109 hasi/convex/hull_solutions/2109.txt; sleep 2
-./solution-submit 6195 hasi/convex/hull_solutions/6195.txt; sleep 2
-./solution-submit 904 hasi/convex/hull_solutions/904.txt; sleep 2
-./solution-submit 6033 hasi/convex/hull_solutions/6033.txt; sleep 2
-./solution-submit 1956 hasi/convex/hull_solutions/1956.txt; sleep 2
-./solution-submit 4999 hasi/convex/hull_solutions/4999.txt; sleep 2
-./solution-submit 3568 hasi/convex/hull_solutions/3568.txt; sleep 2
-./solution-submit 5191 hasi/convex/hull_solutions/5191.txt; sleep 2
-./solution-submit 1395 hasi/convex/hull_solutions/1395.txt; sleep 2
-./solution-submit 3583 hasi/convex/hull_solutions/3583.txt; sleep 2
-./solution-submit 682 hasi/convex/hull_solutions/682.txt; sleep 2
-./solution-submit 2737 hasi/convex/hull_solutions/2737.txt; sleep 2
-./solution-submit 2330 hasi/convex/hull_solutions/2330.txt; sleep 2
-./solution-submit 2743 hasi/convex/hull_solutions/2743.txt; sleep 2
-./solution-submit 5614 hasi/convex/hull_solutions/5614.txt; sleep 2
-./solution-submit 4998 hasi/convex/hull_solutions/4998.txt; sleep 2
-./solution-submit 2786 hasi/convex/hull_solutions/2786.txt; sleep 2
-./solution-submit 171 hasi/convex/hull_solutions/171.txt; sleep 2
-./solution-submit 4694 hasi/convex/hull_solutions/4694.txt; sleep 2
-./solution-submit 3738 hasi/convex/hull_solutions/3738.txt; sleep 2
-./solution-submit 1885 hasi/convex/hull_solutions/1885.txt; sleep 2
-./solution-submit 2138 hasi/convex/hull_solutions/2138.txt; sleep 2
-./solution-submit 4977 hasi/convex/hull_solutions/4977.txt; sleep 2
-./solution-submit 6032 hasi/convex/hull_solutions/6032.txt; sleep 2
-./solution-submit 2291 hasi/convex/hull_solutions/2291.txt; sleep 2
-./solution-submit 3586 hasi/convex/hull_solutions/3586.txt; sleep 2
-./solution-submit 3188 hasi/convex/hull_solutions/3188.txt; sleep 2
-./solution-submit 3964 hasi/convex/hull_solutions/3964.txt; sleep 2
-./solution-submit 2712 hasi/convex/hull_solutions/2712.txt; sleep 2
-./solution-submit 6206 hasi/convex/hull_solutions/6206.txt; sleep 2
-./solution-submit 4986 hasi/convex/hull_solutions/4986.txt; sleep 2
-./solution-submit 5013 hasi/convex/hull_solutions/5013.txt; sleep 2
-./solution-submit 2797 hasi/convex/hull_solutions/2797.txt; sleep 2
-./solution-submit 2468 hasi/convex/hull_solutions/2468.txt; sleep 2
-./solution-submit 3971 hasi/convex/hull_solutions/3971.txt; sleep 2
-./solution-submit 1090 hasi/convex/hull_solutions/1090.txt; sleep 2
-./solution-submit 3595 hasi/convex/hull_solutions/3595.txt; sleep 2
-./solution-submit 1941 hasi/convex/hull_solutions/1941.txt; sleep 2
-./solution-submit 686 hasi/convex/hull_solutions/686.txt; sleep 2
-./solution-submit 2753 hasi/convex/hull_solutions/2753.txt; sleep 2
-./solution-submit 2824 hasi/convex/hull_solutions/2824.txt; sleep 2
-./solution-submit 2819 hasi/convex/hull_solutions/2819.txt; sleep 2
-./solution-submit 5609 hasi/convex/hull_solutions/5609.txt; sleep 2
-./solution-submit 3979 hasi/convex/hull_solutions/3979.txt; sleep 2
-./solution-submit 1734 hasi/convex/hull_solutions/1734.txt; sleep 2
-./solution-submit 4719 hasi/convex/hull_solutions/4719.txt; sleep 2
-./solution-submit 3996 hasi/convex/hull_solutions/3996.txt; sleep 2
-./solution-submit 4904 hasi/convex/hull_solutions/4904.txt; sleep 2
-./solution-submit 4824 hasi/convex/hull_solutions/4824.txt; sleep 2
-./solution-submit 2265 hasi/convex/hull_solutions/2265.txt; sleep 2
-./solution-submit 3885 hasi/convex/hull_solutions/3885.txt; sleep 2
-./solution-submit 6219 hasi/convex/hull_solutions/6219.txt; sleep 2
-./solution-submit 5504 hasi/convex/hull_solutions/5504.txt; sleep 2
-./solution-submit 252 hasi/convex/hull_solutions/252.txt; sleep 2
-./solution-submit 4708 hasi/convex/hull_solutions/4708.txt; sleep 2
-./solution-submit 4817 hasi/convex/hull_solutions/4817.txt; sleep 2
-./solution-submit 5383 hasi/convex/hull_solutions/5383.txt; sleep 2
-./solution-submit 1729 hasi/convex/hull_solutions/1729.txt; sleep 2
-./solution-submit 6088 hasi/convex/hull_solutions/6088.txt; sleep 2
-./solution-submit 5610 hasi/convex/hull_solutions/5610.txt; sleep 2
-./solution-submit 4688 hasi/convex/hull_solutions/4688.txt; sleep 2
-./solution-submit 3708 hasi/convex/hull_solutions/3708.txt; sleep 2
-./solution-submit 2747 hasi/convex/hull_solutions/2747.txt; sleep 2
-./solution-submit 2467 hasi/convex/hull_solutions/2467.txt; sleep 2
-./solution-submit 4223 hasi/convex/hull_solutions/4223.txt; sleep 2
-./solution-submit 3709 hasi/convex/hull_solutions/3709.txt; sleep 2
-./solution-submit 5319 hasi/convex/hull_solutions/5319.txt; sleep 2
-./solution-submit 5962 hasi/convex/hull_solutions/5962.txt; sleep 2
-./solution-submit 4347 hasi/convex/hull_solutions/4347.txt; sleep 2
-./solution-submit 1718 hasi/convex/hull_solutions/1718.txt; sleep 2
-./solution-submit 1148 hasi/convex/hull_solutions/1148.txt; sleep 2
-./solution-submit 5902 hasi/convex/hull_solutions/5902.txt; sleep 2
-./solution-submit 4645 hasi/convex/hull_solutions/4645.txt; sleep 2
-./solution-submit 6221 hasi/convex/hull_solutions/6221.txt; sleep 2
-./solution-submit 4850 hasi/convex/hull_solutions/4850.txt; sleep 2
-./solution-submit 22 hasi/convex/hull_solutions/22.txt; sleep 2
-./solution-submit 5970 hasi/convex/hull_solutions/5970.txt; sleep 2
-./solution-submit 4691 hasi/convex/hull_solutions/4691.txt; sleep 2
-./solution-submit 90 hasi/convex/hull_solutions/90.txt; sleep 2
-./solution-submit 2298 hasi/convex/hull_solutions/2298.txt; sleep 2
-./solution-submit 6031 hasi/convex/hull_solutions/6031.txt; sleep 2
-./solution-submit 5244 hasi/convex/hull_solutions/5244.txt; sleep 2
-./solution-submit 3580 hasi/convex/hull_solutions/3580.txt; sleep 2
-./solution-submit 6085 hasi/convex/hull_solutions/6085.txt; sleep 2
-./solution-submit 2303 hasi/convex/hull_solutions/2303.txt; sleep 2
-./solution-submit 4687 hasi/convex/hull_solutions/4687.txt; sleep 2
-./solution-submit 1716 hasi/convex/hull_solutions/1716.txt; sleep 2
-./solution-submit 5327 hasi/convex/hull_solutions/5327.txt; sleep 2
-./solution-submit 5516 hasi/convex/hull_solutions/5516.txt; sleep 2
-./solution-submit 3972 hasi/convex/hull_solutions/3972.txt; sleep 2
-./solution-submit 5419 hasi/convex/hull_solutions/5419.txt; sleep 2
-./solution-submit 3726 hasi/convex/hull_solutions/3726.txt; sleep 2
-./solution-submit 3718 hasi/convex/hull_solutions/3718.txt; sleep 2
-./solution-submit 5405 hasi/convex/hull_solutions/5405.txt; sleep 2
-./solution-submit 5332 hasi/convex/hull_solutions/5332.txt; sleep 2
-./solution-submit 5339 hasi/convex/hull_solutions/5339.txt; sleep 2
-./solution-submit 2861 hasi/convex/hull_solutions/2861.txt; sleep 2
-./solution-submit 2304 hasi/convex/hull_solutions/2304.txt; sleep 2
-./solution-submit 34 hasi/convex/hull_solutions/34.txt; sleep 2
-./solution-submit 719 hasi/convex/hull_solutions/719.txt; sleep 2
-./solution-submit 4893 hasi/convex/hull_solutions/4893.txt; sleep 2
-./solution-submit 675 hasi/convex/hull_solutions/675.txt; sleep 2
-./solution-submit 4704 hasi/convex/hull_solutions/4704.txt; sleep 2
-./solution-submit 4356 hasi/convex/hull_solutions/4356.txt; sleep 2
-./solution-submit 374 hasi/convex/hull_solutions/374.txt; sleep 2
-./solution-submit 5625 hasi/convex/hull_solutions/5625.txt; sleep 2
-./solution-submit 4699 hasi/convex/hull_solutions/4699.txt; sleep 2
-./solution-submit 2762 hasi/convex/hull_solutions/2762.txt; sleep 2
-./solution-submit 6162 hasi/convex/hull_solutions/6162.txt; sleep 2
-./solution-submit 5130 hasi/convex/hull_solutions/5130.txt; sleep 2
-./solution-submit 4718 hasi/convex/hull_solutions/4718.txt; sleep 2
-./solution-submit 614 hasi/convex/hull_solutions/614.txt; sleep 2
-./solution-submit 3356 hasi/convex/hull_solutions/3356.txt; sleep 2
-./solution-submit 4440 hasi/convex/hull_solutions/4440.txt; sleep 2
-./solution-submit 5178 hasi/convex/hull_solutions/5178.txt; sleep 2
-./solution-submit 4250 hasi/convex/hull_solutions/4250.txt; sleep 2
-./solution-submit 5022 hasi/convex/hull_solutions/5022.txt; sleep 2
-./solution-submit 2309 hasi/convex/hull_solutions/2309.txt; sleep 2
-./solution-submit 4601 hasi/convex/hull_solutions/4601.txt; sleep 2
-./solution-submit 6148 hasi/convex/hull_solutions/6148.txt; sleep 2
-./solution-submit 2277 hasi/convex/hull_solutions/2277.txt; sleep 2
-./solution-submit 5324 hasi/convex/hull_solutions/5324.txt; sleep 2
-./solution-submit 5318 hasi/convex/hull_solutions/5318.txt; sleep 2
-./solution-submit 3145 hasi/convex/hull_solutions/3145.txt; sleep 2
-./solution-submit 2196 hasi/convex/hull_solutions/2196.txt; sleep 2
-./solution-submit 2724 hasi/convex/hull_solutions/2724.txt; sleep 2
-./solution-submit 5184 hasi/convex/hull_solutions/5184.txt; sleep 2
-./solution-submit 2068 hasi/convex/hull_solutions/2068.txt; sleep 2
-./solution-submit 1738 hasi/convex/hull_solutions/1738.txt; sleep 2
-./solution-submit 1724 hasi/convex/hull_solutions/1724.txt; sleep 2
-./solution-submit 5853 hasi/convex/hull_solutions/5853.txt; sleep 2
-./solution-submit 6145 hasi/convex/hull_solutions/6145.txt; sleep 2
-./solution-submit 3968 hasi/convex/hull_solutions/3968.txt; sleep 2
-./solution-submit 6243 hasi/convex/hull_solutions/6243.txt; sleep 2
-./solution-submit 5503 hasi/convex/hull_solutions/5503.txt; sleep 2
-./solution-submit 2233 hasi/convex/hull_solutions/2233.txt; sleep 2
-./solution-submit 164 hasi/convex/hull_solutions/164.txt; sleep 2
-./solution-submit 2733 hasi/convex/hull_solutions/2733.txt; sleep 2
-./solution-submit 1942 hasi/convex/hull_solutions/1942.txt; sleep 2
-./solution-submit 1489 hasi/convex/hull_solutions/1489.txt; sleep 2
-./solution-submit 5868 hasi/convex/hull_solutions/5868.txt; sleep 2
-./solution-submit 5857 hasi/convex/hull_solutions/5857.txt; sleep 2
-./solution-submit 5373 hasi/convex/hull_solutions/5373.txt; sleep 2
-./solution-submit 1903 hasi/convex/hull_solutions/1903.txt; sleep 2
-./solution-submit 3151 hasi/convex/hull_solutions/3151.txt; sleep 2
-./solution-submit 3767 hasi/convex/hull_solutions/3767.txt; sleep 2
-./solution-submit 3949 hasi/convex/hull_solutions/3949.txt; sleep 2
-./solution-submit 3193 hasi/convex/hull_solutions/3193.txt; sleep 2
-./solution-submit 1715 hasi/convex/hull_solutions/1715.txt; sleep 2
-./solution-submit 3721 hasi/convex/hull_solutions/3721.txt; sleep 2
-./solution-submit 4836 hasi/convex/hull_solutions/4836.txt; sleep 2
-./solution-submit 2279 hasi/convex/hull_solutions/2279.txt; sleep 2
-./solution-submit 2307 hasi/convex/hull_solutions/2307.txt; sleep 2
-./solution-submit 1719 hasi/convex/hull_solutions/1719.txt; sleep 2
-./solution-submit 2507 hasi/convex/hull_solutions/2507.txt; sleep 2
-./solution-submit 1843 hasi/convex/hull_solutions/1843.txt; sleep 2
-./solution-submit 4352 hasi/convex/hull_solutions/4352.txt; sleep 2
-./solution-submit 219 hasi/convex/hull_solutions/219.txt; sleep 2
-./solution-submit 4828 hasi/convex/hull_solutions/4828.txt; sleep 2
-./solution-submit 3032 hasi/convex/hull_solutions/3032.txt; sleep 2
-./solution-submit 2126 hasi/convex/hull_solutions/2126.txt; sleep 2
-./solution-submit 382 hasi/convex/hull_solutions/382.txt; sleep 2
-./solution-submit 1721 hasi/convex/hull_solutions/1721.txt; sleep 2
-./solution-submit 6258 hasi/convex/hull_solutions/6258.txt; sleep 2
-./solution-submit 6217 hasi/convex/hull_solutions/6217.txt; sleep 2
-./solution-submit 3039 hasi/convex/hull_solutions/3039.txt; sleep 2
-./solution-submit 3967 hasi/convex/hull_solutions/3967.txt; sleep 2
-./solution-submit 63 hasi/convex/hull_solutions/63.txt; sleep 2
-./solution-submit 95 hasi/convex/hull_solutions/95.txt; sleep 2
-./solution-submit 4815 hasi/convex/hull_solutions/4815.txt; sleep 2
-./solution-submit 1989 hasi/convex/hull_solutions/1989.txt; sleep 2
-./solution-submit 3035 hasi/convex/hull_solutions/3035.txt; sleep 2
-./solution-submit 5236 hasi/convex/hull_solutions/5236.txt; sleep 2
-./solution-submit 5055 hasi/convex/hull_solutions/5055.txt; sleep 2
-./solution-submit 5499 hasi/convex/hull_solutions/5499.txt; sleep 2
-./solution-submit 3406 hasi/convex/hull_solutions/3406.txt; sleep 2
-./solution-submit 5142 hasi/convex/hull_solutions/5142.txt; sleep 2
-./solution-submit 5045 hasi/convex/hull_solutions/5045.txt; sleep 2
-./solution-submit 3719 hasi/convex/hull_solutions/3719.txt; sleep 2
-./solution-submit 1406 hasi/convex/hull_solutions/1406.txt; sleep 2
-./solution-submit 5375 hasi/convex/hull_solutions/5375.txt; sleep 2
-./solution-submit 4044 hasi/convex/hull_solutions/4044.txt; sleep 2
-./solution-submit 5032 hasi/convex/hull_solutions/5032.txt; sleep 2
-./solution-submit 5260 hasi/convex/hull_solutions/5260.txt; sleep 2
-./solution-submit 4077 hasi/convex/hull_solutions/4077.txt; sleep 2
-./solution-submit 3759 hasi/convex/hull_solutions/3759.txt; sleep 2
-./solution-submit 5330 hasi/convex/hull_solutions/5330.txt; sleep 2
-./solution-submit 1594 hasi/convex/hull_solutions/1594.txt; sleep 2
-./solution-submit 5738 hasi/convex/hull_solutions/5738.txt; sleep 2
-./solution-submit 5194 hasi/convex/hull_solutions/5194.txt; sleep 2
-./solution-submit 6153 hasi/convex/hull_solutions/6153.txt; sleep 2
-./solution-submit 4290 hasi/convex/hull_solutions/4290.txt; sleep 2
-./solution-submit 4401 hasi/convex/hull_solutions/4401.txt; sleep 2
-./solution-submit 1999 hasi/convex/hull_solutions/1999.txt; sleep 2
-./solution-submit 5511 hasi/convex/hull_solutions/5511.txt; sleep 2
-./solution-submit 3813 hasi/convex/hull_solutions/3813.txt; sleep 2
-./solution-submit 5421 hasi/convex/hull_solutions/5421.txt; sleep 2
-./solution-submit 1169 hasi/convex/hull_solutions/1169.txt; sleep 2
-./solution-submit 2200 hasi/convex/hull_solutions/2200.txt; sleep 2
-./solution-submit 375 hasi/convex/hull_solutions/375.txt; sleep 2
-./solution-submit 2103 hasi/convex/hull_solutions/2103.txt; sleep 2
-./solution-submit 1159 hasi/convex/hull_solutions/1159.txt; sleep 2
-./solution-submit 213 hasi/convex/hull_solutions/213.txt; sleep 2
-./solution-submit 57 hasi/convex/hull_solutions/57.txt; sleep 2
-./solution-submit 3710 hasi/convex/hull_solutions/3710.txt; sleep 2
-./solution-submit 3223 hasi/convex/hull_solutions/3223.txt; sleep 2
-./solution-submit 711 hasi/convex/hull_solutions/711.txt; sleep 2
-./solution-submit 4372 hasi/convex/hull_solutions/4372.txt; sleep 2
-./solution-submit 3271 hasi/convex/hull_solutions/3271.txt; sleep 2
-./solution-submit 2504 hasi/convex/hull_solutions/2504.txt; sleep 2
-./solution-submit 5102 hasi/convex/hull_solutions/5102.txt; sleep 2
-./solution-submit 3245 hasi/convex/hull_solutions/3245.txt; sleep 2
-./solution-submit 5202 hasi/convex/hull_solutions/5202.txt; sleep 2
-./solution-submit 5985 hasi/convex/hull_solutions/5985.txt; sleep 2
-./solution-submit 5193 hasi/convex/hull_solutions/5193.txt; sleep 2
-./solution-submit 2718 hasi/convex/hull_solutions/2718.txt; sleep 2
-./solution-submit 4117 hasi/convex/hull_solutions/4117.txt; sleep 2
-./solution-submit 3761 hasi/convex/hull_solutions/3761.txt; sleep 2
-./solution-submit 4584 hasi/convex/hull_solutions/4584.txt; sleep 2
-./solution-submit 4996 hasi/convex/hull_solutions/4996.txt; sleep 2
-./solution-submit 1945 hasi/convex/hull_solutions/1945.txt; sleep 2
-./solution-submit 2285 hasi/convex/hull_solutions/2285.txt; sleep 2
-./solution-submit 2354 hasi/convex/hull_solutions/2354.txt; sleep 2
-./solution-submit 2098 hasi/convex/hull_solutions/2098.txt; sleep 2
-./solution-submit 3959 hasi/convex/hull_solutions/3959.txt; sleep 2
-./solution-submit 6146 hasi/convex/hull_solutions/6146.txt; sleep 2
-./solution-submit 5974 hasi/convex/hull_solutions/5974.txt; sleep 2
-./solution-submit 1510 hasi/convex/hull_solutions/1510.txt; sleep 2
-./solution-submit 6133 hasi/convex/hull_solutions/6133.txt; sleep 2
-./solution-submit 6070 hasi/convex/hull_solutions/6070.txt; sleep 2
-./solution-submit 19 hasi/convex/hull_solutions/19.txt; sleep 2
-./solution-submit 1973 hasi/convex/hull_solutions/1973.txt; sleep 2
-./solution-submit 5276 hasi/convex/hull_solutions/5276.txt; sleep 2
-./solution-submit 1842 hasi/convex/hull_solutions/1842.txt; sleep 2
-./solution-submit 4913 hasi/convex/hull_solutions/4913.txt; sleep 2
-./solution-submit 4822 hasi/convex/hull_solutions/4822.txt; sleep 2
-./solution-submit 3840 hasi/convex/hull_solutions/3840.txt; sleep 2
-./solution-submit 3294 hasi/convex/hull_solutions/3294.txt; sleep 2
-./solution-submit 1591 hasi/convex/hull_solutions/1591.txt; sleep 2
-./solution-submit 4771 hasi/convex/hull_solutions/4771.txt; sleep 2
-./solution-submit 5374 hasi/convex/hull_solutions/5374.txt; sleep 2
-./solution-submit 6116 hasi/convex/hull_solutions/6116.txt; sleep 2
-./solution-submit 3706 hasi/convex/hull_solutions/3706.txt; sleep 2
-./solution-submit 5904 hasi/convex/hull_solutions/5904.txt; sleep 2
-./solution-submit 5139 hasi/convex/hull_solutions/5139.txt; sleep 2
-./solution-submit 1963 hasi/convex/hull_solutions/1963.txt; sleep 2
-./solution-submit 5047 hasi/convex/hull_solutions/5047.txt; sleep 2
-./solution-submit 3723 hasi/convex/hull_solutions/3723.txt; sleep 2
-./solution-submit 4119 hasi/convex/hull_solutions/4119.txt; sleep 2
-./solution-submit 5819 hasi/convex/hull_solutions/5819.txt; sleep 2
-./solution-submit 2526 hasi/convex/hull_solutions/2526.txt; sleep 2
-./solution-submit 6060 hasi/convex/hull_solutions/6060.txt; sleep 2
-./solution-submit 2275 hasi/convex/hull_solutions/2275.txt; sleep 2
-./solution-submit 379 hasi/convex/hull_solutions/379.txt; sleep 2
-./solution-submit 2236 hasi/convex/hull_solutions/2236.txt; sleep 2
-./solution-submit 6052 hasi/convex/hull_solutions/6052.txt; sleep 2
-./solution-submit 5519 hasi/convex/hull_solutions/5519.txt; sleep 2
-./solution-submit 3744 hasi/convex/hull_solutions/3744.txt; sleep 2
-./solution-submit 5510 hasi/convex/hull_solutions/5510.txt; sleep 2
-./solution-submit 2110 hasi/convex/hull_solutions/2110.txt; sleep 2
-./solution-submit 2090 hasi/convex/hull_solutions/2090.txt; sleep 2
-./solution-submit 5379 hasi/convex/hull_solutions/5379.txt; sleep 2
-./solution-submit 2399 hasi/convex/hull_solutions/2399.txt; sleep 2
-./solution-submit 5272 hasi/convex/hull_solutions/5272.txt; sleep 2
-./solution-submit 5532 hasi/convex/hull_solutions/5532.txt; sleep 2
-./solution-submit 5403 hasi/convex/hull_solutions/5403.txt; sleep 2
-./solution-submit 5133 hasi/convex/hull_solutions/5133.txt; sleep 2
-./solution-submit 4220 hasi/convex/hull_solutions/4220.txt; sleep 2
-./solution-submit 6071 hasi/convex/hull_solutions/6071.txt; sleep 2
-./solution-submit 523 hasi/convex/hull_solutions/523.txt; sleep 2
-./solution-submit 5265 hasi/convex/hull_solutions/5265.txt; sleep 2
-./solution-submit 5404 hasi/convex/hull_solutions/5404.txt; sleep 2
-./solution-submit 4992 hasi/convex/hull_solutions/4992.txt; sleep 2
-./solution-submit 5507 hasi/convex/hull_solutions/5507.txt; sleep 2
-./solution-submit 6084 hasi/convex/hull_solutions/6084.txt; sleep 2
-./solution-submit 5002 hasi/convex/hull_solutions/5002.txt; sleep 2
-./solution-submit 1831 hasi/convex/hull_solutions/1831.txt; sleep 2
-./solution-submit 5631 hasi/convex/hull_solutions/5631.txt; sleep 2
-./solution-submit 5406 hasi/convex/hull_solutions/5406.txt; sleep 2
-./solution-submit 3803 hasi/convex/hull_solutions/3803.txt; sleep 2
-./solution-submit 5986 hasi/convex/hull_solutions/5986.txt; sleep 2
-./solution-submit 381 hasi/convex/hull_solutions/381.txt; sleep 2
-./solution-submit 5860 hasi/convex/hull_solutions/5860.txt; sleep 2
-./solution-submit 1741 hasi/convex/hull_solutions/1741.txt; sleep 2
-./solution-submit 5006 hasi/convex/hull_solutions/5006.txt; sleep 2
-./solution-submit 3559 hasi/convex/hull_solutions/3559.txt; sleep 2
-./solution-submit 4306 hasi/convex/hull_solutions/4306.txt; sleep 2
-./solution-submit 4816 hasi/convex/hull_solutions/4816.txt; sleep 2
-./solution-submit 2260 hasi/convex/hull_solutions/2260.txt; sleep 2
-./solution-submit 6202 hasi/convex/hull_solutions/6202.txt; sleep 2
-./solution-submit 2523 hasi/convex/hull_solutions/2523.txt; sleep 2
-./solution-submit 3781 hasi/convex/hull_solutions/3781.txt; sleep 2
-./solution-submit 5797 hasi/convex/hull_solutions/5797.txt; sleep 2
-./solution-submit 3528 hasi/convex/hull_solutions/3528.txt; sleep 2
-./solution-submit 5998 hasi/convex/hull_solutions/5998.txt; sleep 2
-./solution-submit 5337 hasi/convex/hull_solutions/5337.txt; sleep 2
-./solution-submit 2288 hasi/convex/hull_solutions/2288.txt; sleep 2
-./solution-submit 3956 hasi/convex/hull_solutions/3956.txt; sleep 2
-./solution-submit 5770 hasi/convex/hull_solutions/5770.txt; sleep 2
-./solution-submit 2829 hasi/convex/hull_solutions/2829.txt; sleep 2
-./solution-submit 1987 hasi/convex/hull_solutions/1987.txt; sleep 2
-./solution-submit 5014 hasi/convex/hull_solutions/5014.txt; sleep 2
-./solution-submit 3724 hasi/convex/hull_solutions/3724.txt; sleep 2
-./solution-submit 4895 hasi/convex/hull_solutions/4895.txt; sleep 2
-./solution-submit 6196 hasi/convex/hull_solutions/6196.txt; sleep 2
-./solution-submit 2121 hasi/convex/hull_solutions/2121.txt; sleep 2
-./solution-submit 3346 hasi/convex/hull_solutions/3346.txt; sleep 2
-./solution-submit 5422 hasi/convex/hull_solutions/5422.txt; sleep 2
-./solution-submit 4778 hasi/convex/hull_solutions/4778.txt; sleep 2
-./solution-submit 23 hasi/convex/hull_solutions/23.txt; sleep 2
-./solution-submit 4769 hasi/convex/hull_solutions/4769.txt; sleep 2
-./solution-submit 3177 hasi/convex/hull_solutions/3177.txt; sleep 2
-./solution-submit 1901 hasi/convex/hull_solutions/1901.txt; sleep 2
-./solution-submit 2495 hasi/convex/hull_solutions/2495.txt; sleep 2
-./solution-submit 2619 hasi/convex/hull_solutions/2619.txt; sleep 2
-./solution-submit 3034 hasi/convex/hull_solutions/3034.txt; sleep 2
-./solution-submit 1982 hasi/convex/hull_solutions/1982.txt; sleep 2
-./solution-submit 1623 hasi/convex/hull_solutions/1623.txt; sleep 2
-./solution-submit 2774 hasi/convex/hull_solutions/2774.txt; sleep 2
-./solution-submit 2885 hasi/convex/hull_solutions/2885.txt; sleep 2
-./solution-submit 2290 hasi/convex/hull_solutions/2290.txt; sleep 2
-./solution-submit 4852 hasi/convex/hull_solutions/4852.txt; sleep 2
-./solution-submit 4697 hasi/convex/hull_solutions/4697.txt; sleep 2
-./solution-submit 2299 hasi/convex/hull_solutions/2299.txt; sleep 2
-./solution-submit 3958 hasi/convex/hull_solutions/3958.txt; sleep 2
-./solution-submit 3410 hasi/convex/hull_solutions/3410.txt; sleep 2
-./solution-submit 5863 hasi/convex/hull_solutions/5863.txt; sleep 2
-./solution-submit 2508 hasi/convex/hull_solutions/2508.txt; sleep 2
-./solution-submit 6114 hasi/convex/hull_solutions/6114.txt; sleep 2
-./solution-submit 5838 hasi/convex/hull_solutions/5838.txt; sleep 2
-./solution-submit 5607 hasi/convex/hull_solutions/5607.txt; sleep 2
-./solution-submit 6129 hasi/convex/hull_solutions/6129.txt; sleep 2
-./solution-submit 5888 hasi/convex/hull_solutions/5888.txt; sleep 2
-./solution-submit 4912 hasi/convex/hull_solutions/4912.txt; sleep 2
-./solution-submit 5782 hasi/convex/hull_solutions/5782.txt; sleep 2
-./solution-submit 5852 hasi/convex/hull_solutions/5852.txt; sleep 2
-./solution-submit 1938 hasi/convex/hull_solutions/1938.txt; sleep 2
-./solution-submit 2893 hasi/convex/hull_solutions/2893.txt; sleep 2
-./solution-submit 2111 hasi/convex/hull_solutions/2111.txt; sleep 2
-./solution-submit 687 hasi/convex/hull_solutions/687.txt; sleep 2
-./solution-submit 1722 hasi/convex/hull_solutions/1722.txt; sleep 2
-./solution-submit 3547 hasi/convex/hull_solutions/3547.txt; sleep 2
-./solution-submit 4408 hasi/convex/hull_solutions/4408.txt; sleep 2
-./solution-submit 5976 hasi/convex/hull_solutions/5976.txt; sleep 2
-./solution-submit 4813 hasi/convex/hull_solutions/4813.txt; sleep 2
-./solution-submit 4382 hasi/convex/hull_solutions/4382.txt; sleep 2
-./solution-submit 1390 hasi/convex/hull_solutions/1390.txt; sleep 2
-./solution-submit 531 hasi/convex/hull_solutions/531.txt; sleep 2
-./solution-submit 2789 hasi/convex/hull_solutions/2789.txt; sleep 2
-./solution-submit 2474 hasi/convex/hull_solutions/2474.txt; sleep 2
-./solution-submit 3101 hasi/convex/hull_solutions/3101.txt; sleep 2
-./solution-submit 5262 hasi/convex/hull_solutions/5262.txt; sleep 2
-./solution-submit 3824 hasi/convex/hull_solutions/3824.txt; sleep 2
-./solution-submit 1997 hasi/convex/hull_solutions/1997.txt; sleep 2
-./solution-submit 685 hasi/convex/hull_solutions/685.txt; sleep 2
-./solution-submit 5703 hasi/convex/hull_solutions/5703.txt; sleep 2
-./solution-submit 3730 hasi/convex/hull_solutions/3730.txt; sleep 2
-./solution-submit 2662 hasi/convex/hull_solutions/2662.txt; sleep 2
-./solution-submit 3960 hasi/convex/hull_solutions/3960.txt; sleep 2
-./solution-submit 5003 hasi/convex/hull_solutions/5003.txt; sleep 2
-./solution-submit 4898 hasi/convex/hull_solutions/4898.txt; sleep 2
-./solution-submit 5382 hasi/convex/hull_solutions/5382.txt; sleep 2
-./solution-submit 204 hasi/convex/hull_solutions/204.txt; sleep 2
-./solution-submit 4757 hasi/convex/hull_solutions/4757.txt; sleep 2
-./solution-submit 2294 hasi/convex/hull_solutions/2294.txt; sleep 2
-./solution-submit 1966 hasi/convex/hull_solutions/1966.txt; sleep 2
-./solution-submit 93 hasi/convex/hull_solutions/93.txt; sleep 2
-./solution-submit 5854 hasi/convex/hull_solutions/5854.txt; sleep 2
-./solution-submit 5968 hasi/convex/hull_solutions/5968.txt; sleep 2
-./solution-submit 1014 hasi/convex/hull_solutions/1014.txt; sleep 2
-./solution-submit 5570 hasi/convex/hull_solutions/5570.txt; sleep 2
-./solution-submit 4381 hasi/convex/hull_solutions/4381.txt; sleep 2
-./solution-submit 2513 hasi/convex/hull_solutions/2513.txt; sleep 2
-./solution-submit 5240 hasi/convex/hull_solutions/5240.txt; sleep 2
-./solution-submit 5723 hasi/convex/hull_solutions/5723.txt; sleep 2
-./solution-submit 5638 hasi/convex/hull_solutions/5638.txt; sleep 2
-./solution-submit 4291 hasi/convex/hull_solutions/4291.txt; sleep 2
-./solution-submit 2735 hasi/convex/hull_solutions/2735.txt; sleep 2
-./solution-submit 2283 hasi/convex/hull_solutions/2283.txt; sleep 2
-./solution-submit 716 hasi/convex/hull_solutions/716.txt; sleep 2
-./solution-submit 5875 hasi/convex/hull_solutions/5875.txt; sleep 2
-./solution-submit 4357 hasi/convex/hull_solutions/4357.txt; sleep 2
-./solution-submit 4855 hasi/convex/hull_solutions/4855.txt; sleep 2
-./solution-submit 4818 hasi/convex/hull_solutions/4818.txt; sleep 2
-./solution-submit 5387 hasi/convex/hull_solutions/5387.txt; sleep 2
-./solution-submit 6150 hasi/convex/hull_solutions/6150.txt; sleep 2
-./solution-submit 5583 hasi/convex/hull_solutions/5583.txt; sleep 2
-./solution-submit 1832 hasi/convex/hull_solutions/1832.txt; sleep 2
-./solution-submit 2661 hasi/convex/hull_solutions/2661.txt; sleep 2
-./solution-submit 2779 hasi/convex/hull_solutions/2779.txt; sleep 2
-./solution-submit 2234 hasi/convex/hull_solutions/2234.txt; sleep 2
-./solution-submit 3038 hasi/convex/hull_solutions/3038.txt; sleep 2
-./solution-submit 1730 hasi/convex/hull_solutions/1730.txt; sleep 2
-./solution-submit 2816 hasi/convex/hull_solutions/2816.txt; sleep 2
-./solution-submit 5973 hasi/convex/hull_solutions/5973.txt; sleep 2
-./solution-submit 5230 hasi/convex/hull_solutions/5230.txt; sleep 2
-./solution-submit 5352 hasi/convex/hull_solutions/5352.txt; sleep 2
-./solution-submit 6251 hasi/convex/hull_solutions/6251.txt; sleep 2
-./solution-submit 1241 hasi/convex/hull_solutions/1241.txt; sleep 2
-./solution-submit 2511 hasi/convex/hull_solutions/2511.txt; sleep 2
-./solution-submit 3416 hasi/convex/hull_solutions/3416.txt; sleep 2
-./solution-submit 1959 hasi/convex/hull_solutions/1959.txt; sleep 2
-./solution-submit 683 hasi/convex/hull_solutions/683.txt; sleep 2
-./solution-submit 3584 hasi/convex/hull_solutions/3584.txt; sleep 2
-./solution-submit 5908 hasi/convex/hull_solutions/5908.txt; sleep 2
-./solution-submit 4685 hasi/convex/hull_solutions/4685.txt; sleep 2
-./solution-submit 187 hasi/convex/hull_solutions/187.txt; sleep 2
-./solution-submit 5071 hasi/convex/hull_solutions/5071.txt; sleep 2
-./solution-submit 5007 hasi/convex/hull_solutions/5007.txt; sleep 2
-./solution-submit 3161 hasi/convex/hull_solutions/3161.txt; sleep 2
-./solution-submit 4825 hasi/convex/hull_solutions/4825.txt; sleep 2
-./solution-submit 2122 hasi/convex/hull_solutions/2122.txt; sleep 2
-./solution-submit 3162 hasi/convex/hull_solutions/3162.txt; sleep 2
-./solution-submit 5971 hasi/convex/hull_solutions/5971.txt; sleep 2
-./solution-submit 3164 hasi/convex/hull_solutions/3164.txt; sleep 2
-./solution-submit 1670 hasi/convex/hull_solutions/1670.txt; sleep 2
-./solution-submit 5816 hasi/convex/hull_solutions/5816.txt; sleep 2
-./solution-submit 6253 hasi/convex/hull_solutions/6253.txt; sleep 2
-./solution-submit 2217 hasi/convex/hull_solutions/2217.txt; sleep 2
-./solution-submit 5787 hasi/convex/hull_solutions/5787.txt; sleep 2
-./solution-submit 4820 hasi/convex/hull_solutions/4820.txt; sleep 2
-./solution-submit 4295 hasi/convex/hull_solutions/4295.txt; sleep 2
-./solution-submit 1608 hasi/convex/hull_solutions/1608.txt; sleep 2
-./solution-submit 4576 hasi/convex/hull_solutions/4576.txt; sleep 2
-./solution-submit 5580 hasi/convex/hull_solutions/5580.txt; sleep 2
-./solution-submit 2550 hasi/convex/hull_solutions/2550.txt; sleep 2
-./solution-submit 6061 hasi/convex/hull_solutions/6061.txt; sleep 2
-./solution-submit 2281 hasi/convex/hull_solutions/2281.txt; sleep 2
-./solution-submit 3647 hasi/convex/hull_solutions/3647.txt; sleep 2
-./solution-submit 6135 hasi/convex/hull_solutions/6135.txt; sleep 2
-./solution-submit 4684 hasi/convex/hull_solutions/4684.txt; sleep 2
-./solution-submit 5377 hasi/convex/hull_solutions/5377.txt; sleep 2
-./solution-submit 1720 hasi/convex/hull_solutions/1720.txt; sleep 2
-./solution-submit 3836 hasi/convex/hull_solutions/3836.txt; sleep 2
-./solution-submit 2091 hasi/convex/hull_solutions/2091.txt; sleep 2
-./solution-submit 3746 hasi/convex/hull_solutions/3746.txt; sleep 2
-./solution-submit 2666 hasi/convex/hull_solutions/2666.txt; sleep 2
-./solution-submit 206 hasi/convex/hull_solutions/206.txt; sleep 2
-./solution-submit 5753 hasi/convex/hull_solutions/5753.txt; sleep 2
-./solution-submit 4210 hasi/convex/hull_solutions/4210.txt; sleep 2
-./solution-submit 2230 hasi/convex/hull_solutions/2230.txt; sleep 2
-./solution-submit 1742 hasi/convex/hull_solutions/1742.txt; sleep 2
-./solution-submit 6067 hasi/convex/hull_solutions/6067.txt; sleep 2
-./solution-submit 5508 hasi/convex/hull_solutions/5508.txt; sleep 2
-./solution-submit 2548 hasi/convex/hull_solutions/2548.txt; sleep 2
-./solution-submit 5594 hasi/convex/hull_solutions/5594.txt; sleep 2
-./solution-submit 2295 hasi/convex/hull_solutions/2295.txt; sleep 2
-./solution-submit 5376 hasi/convex/hull_solutions/5376.txt; sleep 2
-./solution-submit 3166 hasi/convex/hull_solutions/3166.txt; sleep 2
-./solution-submit 2403 hasi/convex/hull_solutions/2403.txt; sleep 2
-./solution-submit 1160 hasi/convex/hull_solutions/1160.txt; sleep 2
-./solution-submit 3874 hasi/convex/hull_solutions/3874.txt; sleep 2
-./solution-submit 4700 hasi/convex/hull_solutions/4700.txt; sleep 2
-./solution-submit 4875 hasi/convex/hull_solutions/4875.txt; sleep 2
-./solution-submit 1723 hasi/convex/hull_solutions/1723.txt; sleep 2
-./solution-submit 5012 hasi/convex/hull_solutions/5012.txt; sleep 2
-./solution-submit 5654 hasi/convex/hull_solutions/5654.txt; sleep 2
-./solution-submit 1747 hasi/convex/hull_solutions/1747.txt; sleep 2
-./solution-submit 165 hasi/convex/hull_solutions/165.txt; sleep 2
-./solution-submit 5815 hasi/convex/hull_solutions/5815.txt; sleep 2
-./solution-submit 1141 hasi/convex/hull_solutions/1141.txt; sleep 2
-./solution-submit 502 hasi/convex/hull_solutions/502.txt; sleep 2
-./solution-submit 2129 hasi/convex/hull_solutions/2129.txt; sleep 2
-./solution-submit 3636 hasi/convex/hull_solutions/3636.txt; sleep 2
-./solution-submit 5817 hasi/convex/hull_solutions/5817.txt; sleep 2
-./solution-submit 679 hasi/convex/hull_solutions/679.txt; sleep 2
-./solution-submit 6179 hasi/convex/hull_solutions/6179.txt; sleep 2
-./solution-submit 1749 hasi/convex/hull_solutions/1749.txt; sleep 2
-./solution-submit 5615 hasi/convex/hull_solutions/5615.txt; sleep 2
-./solution-submit 3563 hasi/convex/hull_solutions/3563.txt; sleep 2
-./solution-submit 2741 hasi/convex/hull_solutions/2741.txt; sleep 2
-./solution-submit 6066 hasi/convex/hull_solutions/6066.txt; sleep 2
-./solution-submit 3567 hasi/convex/hull_solutions/3567.txt; sleep 2
-./solution-submit 5323 hasi/convex/hull_solutions/5323.txt; sleep 2
-./solution-submit 4832 hasi/convex/hull_solutions/4832.txt; sleep 2
-./solution-submit 4293 hasi/convex/hull_solutions/4293.txt; sleep 2
-./solution-submit 6065 hasi/convex/hull_solutions/6065.txt; sleep 2
-./solution-submit 1460 hasi/convex/hull_solutions/1460.txt; sleep 2
-./solution-submit 85 hasi/convex/hull_solutions/85.txt; sleep 2
-./solution-submit 6210 hasi/convex/hull_solutions/6210.txt; sleep 2
-./solution-submit 4993 hasi/convex/hull_solutions/4993.txt; sleep 2
-./solution-submit 88 hasi/convex/hull_solutions/88.txt; sleep 2
-./solution-submit 4976 hasi/convex/hull_solutions/4976.txt; sleep 2
-./solution-submit 1977 hasi/convex/hull_solutions/1977.txt; sleep 2
-./solution-submit 4674 hasi/convex/hull_solutions/4674.txt; sleep 2
-./solution-submit 2388 hasi/convex/hull_solutions/2388.txt; sleep 2
-./solution-submit 2297 hasi/convex/hull_solutions/2297.txt; sleep 2
-./solution-submit 4730 hasi/convex/hull_solutions/4730.txt; sleep 2
-./solution-submit 2730 hasi/convex/hull_solutions/2730.txt; sleep 2
-./solution-submit 198 hasi/convex/hull_solutions/198.txt; sleep 2
-./solution-submit 4364 hasi/convex/hull_solutions/4364.txt; sleep 2
-./solution-submit 6168 hasi/convex/hull_solutions/6168.txt; sleep 2
-./solution-submit 5743 hasi/convex/hull_solutions/5743.txt; sleep 2
-./solution-submit 1605 hasi/convex/hull_solutions/1605.txt; sleep 2
-./solution-submit 170 hasi/convex/hull_solutions/170.txt; sleep 2
-./solution-submit 3757 hasi/convex/hull_solutions/3757.txt; sleep 2
-./solution-submit 368 hasi/convex/hull_solutions/368.txt; sleep 2
-./solution-submit 5402 hasi/convex/hull_solutions/5402.txt; sleep 2
-./solution-submit 1751 hasi/convex/hull_solutions/1751.txt; sleep 2
-./solution-submit 2928 hasi/convex/hull_solutions/2928.txt; sleep 2
-./solution-submit 4830 hasi/convex/hull_solutions/4830.txt; sleep 2
-./solution-submit 2616 hasi/convex/hull_solutions/2616.txt; sleep 2
-./solution-submit 3409 hasi/convex/hull_solutions/3409.txt; sleep 2
-./solution-submit 4230 hasi/convex/hull_solutions/4230.txt; sleep 2
-./solution-submit 3973 hasi/convex/hull_solutions/3973.txt; sleep 2
-./solution-submit 6078 hasi/convex/hull_solutions/6078.txt; sleep 2
-./solution-submit 5326 hasi/convex/hull_solutions/5326.txt; sleep 2
-./solution-submit 5000 hasi/convex/hull_solutions/5000.txt; sleep 2
-./solution-submit 4994 hasi/convex/hull_solutions/4994.txt; sleep 2
-./solution-submit 3167 hasi/convex/hull_solutions/3167.txt; sleep 2
-./solution-submit 3867 hasi/convex/hull_solutions/3867.txt; sleep 2
-./solution-submit 4287 hasi/convex/hull_solutions/4287.txt; sleep 2
-./solution-submit 3564 hasi/convex/hull_solutions/3564.txt; sleep 2
-./solution-submit 5476 hasi/convex/hull_solutions/5476.txt; sleep 2
-./solution-submit 5381 hasi/convex/hull_solutions/5381.txt; sleep 2
-./solution-submit 5871 hasi/convex/hull_solutions/5871.txt; sleep 2
-./solution-submit 3571 hasi/convex/hull_solutions/3571.txt; sleep 2
-./solution-submit 5414 hasi/convex/hull_solutions/5414.txt; sleep 2
-./solution-submit 2120 hasi/convex/hull_solutions/2120.txt; sleep 2
-./solution-submit 899 hasi/convex/hull_solutions/899.txt; sleep 2
-./solution-submit 4428 hasi/convex/hull_solutions/4428.txt; sleep 2
-./solution-submit 3725 hasi/convex/hull_solutions/3725.txt; sleep 2
-./solution-submit 2130 hasi/convex/hull_solutions/2130.txt; sleep 2
-./solution-submit 5336 hasi/convex/hull_solutions/5336.txt; sleep 2
-./solution-submit 5937 hasi/convex/hull_solutions/5937.txt; sleep 2
-./solution-submit 3169 hasi/convex/hull_solutions/3169.txt; sleep 2
-./solution-submit 3860 hasi/convex/hull_solutions/3860.txt; sleep 2
-./solution-submit 3579 hasi/convex/hull_solutions/3579.txt; sleep 2
-./solution-submit 5514 hasi/convex/hull_solutions/5514.txt; sleep 2
-./solution-submit 3342 hasi/convex/hull_solutions/3342.txt; sleep 2
-./solution-submit 5051 hasi/convex/hull_solutions/5051.txt; sleep 2
-./solution-submit 2868 hasi/convex/hull_solutions/2868.txt; sleep 2
-./solution-submit 6194 hasi/convex/hull_solutions/6194.txt; sleep 2
-./solution-submit 4928 hasi/convex/hull_solutions/4928.txt; sleep 2
-./solution-submit 2003 hasi/convex/hull_solutions/2003.txt; sleep 2
-./solution-submit 5509 hasi/convex/hull_solutions/5509.txt; sleep 2
-./solution-submit 4340 hasi/convex/hull_solutions/4340.txt; sleep 2
-./solution-submit 2287 hasi/convex/hull_solutions/2287.txt; sleep 2
-./solution-submit 5972 hasi/convex/hull_solutions/5972.txt; sleep 2
-./solution-submit 2118 hasi/convex/hull_solutions/2118.txt; sleep 2
-./solution-submit 5590 hasi/convex/hull_solutions/5590.txt; sleep 2
-./solution-submit 3714 hasi/convex/hull_solutions/3714.txt; sleep 2
-./solution-submit 4286 hasi/convex/hull_solutions/4286.txt; sleep 2
-./solution-submit 5371 hasi/convex/hull_solutions/5371.txt; sleep 2
-./solution-submit 6000 hasi/convex/hull_solutions/6000.txt; sleep 2
-./solution-submit 5775 hasi/convex/hull_solutions/5775.txt; sleep 2
-./solution-submit 5573 hasi/convex/hull_solutions/5573.txt; sleep 2
-./solution-submit 3608 hasi/convex/hull_solutions/3608.txt; sleep 2
-./solution-submit 3403 hasi/convex/hull_solutions/3403.txt; sleep 2
-./solution-submit 2745 hasi/convex/hull_solutions/2745.txt; sleep 2
-./solution-submit 688 hasi/convex/hull_solutions/688.txt; sleep 2
-./solution-submit 2226 hasi/convex/hull_solutions/2226.txt; sleep 2
-./solution-submit 4353 hasi/convex/hull_solutions/4353.txt; sleep 2
-./solution-submit 3947 hasi/convex/hull_solutions/3947.txt; sleep 2
-./solution-submit 96 hasi/convex/hull_solutions/96.txt; sleep 2
-./solution-submit 387 hasi/convex/hull_solutions/387.txt; sleep 2
-./solution-submit 4349 hasi/convex/hull_solutions/4349.txt; sleep 2
-./solution-submit 5952 hasi/convex/hull_solutions/5952.txt; sleep 2
-./solution-submit 2744 hasi/convex/hull_solutions/2744.txt; sleep 2
-./solution-submit 5067 hasi/convex/hull_solutions/5067.txt; sleep 2
-./solution-submit 2530 hasi/convex/hull_solutions/2530.txt; sleep 2
-./solution-submit 86 hasi/convex/hull_solutions/86.txt; sleep 2
-./solution-submit 4749 hasi/convex/hull_solutions/4749.txt; sleep 2
-./solution-submit 4379 hasi/convex/hull_solutions/4379.txt; sleep 2
-./solution-submit 3969 hasi/convex/hull_solutions/3969.txt; sleep 2
-./solution-submit 4753 hasi/convex/hull_solutions/4753.txt; sleep 2
-./solution-submit 3712 hasi/convex/hull_solutions/3712.txt; sleep 2
-./solution-submit 4409 hasi/convex/hull_solutions/4409.txt; sleep 2
-./solution-submit 2124 hasi/convex/hull_solutions/2124.txt; sleep 2
-./solution-submit 1157 hasi/convex/hull_solutions/1157.txt; sleep 2
-./solution-submit 4762 hasi/convex/hull_solutions/4762.txt; sleep 2
-./solution-submit 722 hasi/convex/hull_solutions/722.txt; sleep 2
-./solution-submit 2300 hasi/convex/hull_solutions/2300.txt; sleep 2
-./solution-submit 6172 hasi/convex/hull_solutions/6172.txt; sleep 2
-./solution-submit 3400 hasi/convex/hull_solutions/3400.txt; sleep 2
-./solution-submit 371 hasi/convex/hull_solutions/371.txt; sleep 2
-./solution-submit 367 hasi/convex/hull_solutions/367.txt; sleep 2
-./solution-submit 2292 hasi/convex/hull_solutions/2292.txt; sleep 2
-./solution-submit 6058 hasi/convex/hull_solutions/6058.txt; sleep 2
-./solution-submit 1368 hasi/convex/hull_solutions/1368.txt; sleep 2
-./solution-submit 3984 hasi/convex/hull_solutions/3984.txt; sleep 2
-./solution-submit 2736 hasi/convex/hull_solutions/2736.txt; sleep 2
-./solution-submit 384 hasi/convex/hull_solutions/384.txt; sleep 2
-./solution-submit 1854 hasi/convex/hull_solutions/1854.txt; sleep 2
-./solution-submit 6096 hasi/convex/hull_solutions/6096.txt; sleep 2
-./solution-submit 1736 hasi/convex/hull_solutions/1736.txt; sleep 2
-./solution-submit 5351 hasi/convex/hull_solutions/5351.txt; sleep 2
-./solution-submit 5948 hasi/convex/hull_solutions/5948.txt; sleep 2
-./solution-submit 3691 hasi/convex/hull_solutions/3691.txt; sleep 2
-./solution-submit 3549 hasi/convex/hull_solutions/3549.txt; sleep 2
-./solution-submit 4752 hasi/convex/hull_solutions/4752.txt; sleep 2
-./solution-submit 4407 hasi/convex/hull_solutions/4407.txt; sleep 2
-./solution-submit 3072 hasi/convex/hull_solutions/3072.txt; sleep 2
-./solution-submit 4030 hasi/convex/hull_solutions/4030.txt; sleep 2
-./solution-submit 4894 hasi/convex/hull_solutions/4894.txt; sleep 2
-./solution-submit 770 hasi/convex/hull_solutions/770.txt; sleep 2
-./solution-submit 6012 hasi/convex/hull_solutions/6012.txt; sleep 2
-./solution-submit 4826 hasi/convex/hull_solutions/4826.txt; sleep 2
-./solution-submit 3763 hasi/convex/hull_solutions/3763.txt; sleep 2
-./solution-submit 1979 hasi/convex/hull_solutions/1979.txt; sleep 2
-./solution-submit 3031 hasi/convex/hull_solutions/3031.txt; sleep 2
-./solution-submit 5746 hasi/convex/hull_solutions/5746.txt; sleep 2
-./solution-submit 2516 hasi/convex/hull_solutions/2516.txt; sleep 2
-./solution-submit 5785 hasi/convex/hull_solutions/5785.txt; sleep 2
-./solution-submit 5200 hasi/convex/hull_solutions/5200.txt; sleep 2
-./solution-submit 5039 hasi/convex/hull_solutions/5039.txt; sleep 2
-./solution-submit 3351 hasi/convex/hull_solutions/3351.txt; sleep 2
-./solution-submit 6181 hasi/convex/hull_solutions/6181.txt; sleep 2
-./solution-submit 215 hasi/convex/hull_solutions/215.txt; sleep 2
-./solution-submit 3639 hasi/convex/hull_solutions/3639.txt; sleep 2
-./solution-submit 2872 hasi/convex/hull_solutions/2872.txt; sleep 2
-./solution-submit 4165 hasi/convex/hull_solutions/4165.txt; sleep 2
-./solution-submit 4698 hasi/convex/hull_solutions/4698.txt; sleep 2
-./solution-submit 2093 hasi/convex/hull_solutions/2093.txt; sleep 2
-./solution-submit 24 hasi/convex/hull_solutions/24.txt; sleep 2
-./solution-submit 3041 hasi/convex/hull_solutions/3041.txt; sleep 2
-./solution-submit 2296 hasi/convex/hull_solutions/2296.txt; sleep 2
-./solution-submit 3040 hasi/convex/hull_solutions/3040.txt; sleep 2
-./solution-submit 5004 hasi/convex/hull_solutions/5004.txt; sleep 2
-./solution-submit 376 hasi/convex/hull_solutions/376.txt; sleep 2
-./solution-submit 684 hasi/convex/hull_solutions/684.txt; sleep 2
-./solution-submit 1735 hasi/convex/hull_solutions/1735.txt; sleep 2
-./solution-submit 4881 hasi/convex/hull_solutions/4881.txt; sleep 2
-./solution-submit 1726 hasi/convex/hull_solutions/1726.txt; sleep 2
-./solution-submit 1933 hasi/convex/hull_solutions/1933.txt; sleep 2
-./solution-submit 2514 hasi/convex/hull_solutions/2514.txt; sleep 2
-./solution-submit 2817 hasi/convex/hull_solutions/2817.txt; sleep 2
-./solution-submit 1965 hasi/convex/hull_solutions/1965.txt; sleep 2
-./solution-submit 2240 hasi/convex/hull_solutions/2240.txt; sleep 2
-./solution-submit 4784 hasi/convex/hull_solutions/4784.txt; sleep 2
-./solution-submit 5001 hasi/convex/hull_solutions/5001.txt; sleep 2
-./solution-submit 759 hasi/convex/hull_solutions/759.txt; sleep 2
-./solution-submit 2087 hasi/convex/hull_solutions/2087.txt; sleep 2
-./solution-submit 4337 hasi/convex/hull_solutions/4337.txt; sleep 2
-./solution-submit 5984 hasi/convex/hull_solutions/5984.txt; sleep 2
-./solution-submit 3625 hasi/convex/hull_solutions/3625.txt; sleep 2
-./solution-submit 3966 hasi/convex/hull_solutions/3966.txt; sleep 2
-./solution-submit 2074 hasi/convex/hull_solutions/2074.txt; sleep 2
-./solution-submit 2278 hasi/convex/hull_solutions/2278.txt; sleep 2
-./solution-submit 2875 hasi/convex/hull_solutions/2875.txt; sleep 2
-./solution-submit 5005 hasi/convex/hull_solutions/5005.txt; sleep 2
-./solution-submit 4454 hasi/convex/hull_solutions/4454.txt; sleep 2
-./solution-submit 3073 hasi/convex/hull_solutions/3073.txt; sleep 2
-./solution-submit 6138 hasi/convex/hull_solutions/6138.txt; sleep 2
-./solution-submit 3405 hasi/convex/hull_solutions/3405.txt; sleep 2
-./solution-submit 6191 hasi/convex/hull_solutions/6191.txt; sleep 2
-./solution-submit 372 hasi/convex/hull_solutions/372.txt; sleep 2
-./solution-submit 5618 hasi/convex/hull_solutions/5618.txt; sleep 2
-./solution-submit 4281 hasi/convex/hull_solutions/4281.txt; sleep 2
-./solution-submit 3368 hasi/convex/hull_solutions/3368.txt; sleep 2
-./solution-submit 1453 hasi/convex/hull_solutions/1453.txt; sleep 2
-./solution-submit 4639 hasi/convex/hull_solutions/4639.txt; sleep 2
-./solution-submit 3402 hasi/convex/hull_solutions/3402.txt; sleep 2
-./solution-submit 5592 hasi/convex/hull_solutions/5592.txt; sleep 2
-./solution-submit 5075 hasi/convex/hull_solutions/5075.txt; sleep 2
-./solution-submit 6245 hasi/convex/hull_solutions/6245.txt; sleep 2
-./solution-submit 2866 hasi/convex/hull_solutions/2866.txt; sleep 2
-./solution-submit 5671 hasi/convex/hull_solutions/5671.txt; sleep 2
-./solution-submit 4679 hasi/convex/hull_solutions/4679.txt; sleep 2
-./solution-submit 2764 hasi/convex/hull_solutions/2764.txt; sleep 2
-./solution-submit 3713 hasi/convex/hull_solutions/3713.txt; sleep 2
-./solution-submit 4351 hasi/convex/hull_solutions/4351.txt; sleep 2
-./solution-submit 4931 hasi/convex/hull_solutions/4931.txt; sleep 2
-./solution-submit 5401 hasi/convex/hull_solutions/5401.txt; sleep 2
-./solution-submit 59 hasi/convex/hull_solutions/59.txt; sleep 2
-./solution-submit 6220 hasi/convex/hull_solutions/6220.txt; sleep 2
-./solution-submit 5196 hasi/convex/hull_solutions/5196.txt; sleep 2
-./solution-submit 202 hasi/convex/hull_solutions/202.txt; sleep 2
-./solution-submit 4995 hasi/convex/hull_solutions/4995.txt; sleep 2
-./solution-submit 2005 hasi/convex/hull_solutions/2005.txt; sleep 2
-./solution-submit 6115 hasi/convex/hull_solutions/6115.txt; sleep 2
-./solution-submit 2125 hasi/convex/hull_solutions/2125.txt; sleep 2
-./solution-submit 5777 hasi/convex/hull_solutions/5777.txt; sleep 2
-./solution-submit 6213 hasi/convex/hull_solutions/6213.txt; sleep 2
-./solution-submit 2731 hasi/convex/hull_solutions/2731.txt; sleep 2
-./solution-submit 2503 hasi/convex/hull_solutions/2503.txt; sleep 2
-./solution-submit 2898 hasi/convex/hull_solutions/2898.txt; sleep 2
-./solution-submit 2006 hasi/convex/hull_solutions/2006.txt; sleep 2
-./solution-submit 2749 hasi/convex/hull_solutions/2749.txt; sleep 2
-./solution-submit 4172 hasi/convex/hull_solutions/4172.txt; sleep 2
-./solution-submit 2512 hasi/convex/hull_solutions/2512.txt; sleep 2
-./solution-submit 3755 hasi/convex/hull_solutions/3755.txt; sleep 2
-./solution-submit 4702 hasi/convex/hull_solutions/4702.txt; sleep 2
-./solution-submit 53 hasi/convex/hull_solutions/53.txt; sleep 2
-./solution-submit 5186 hasi/convex/hull_solutions/5186.txt; sleep 2
-./solution-submit 1958 hasi/convex/hull_solutions/1958.txt; sleep 2
-./solution-submit 6207 hasi/convex/hull_solutions/6207.txt; sleep 2
-./solution-submit 99 hasi/convex/hull_solutions/99.txt; sleep 2
-./solution-submit 4847 hasi/convex/hull_solutions/4847.txt; sleep 2
-./solution-submit 3758 hasi/convex/hull_solutions/3758.txt; sleep 2
-./solution-submit 3585 hasi/convex/hull_solutions/3585.txt; sleep 2
-./solution-submit 270 hasi/convex/hull_solutions/270.txt; sleep 2
-./solution-submit 2282 hasi/convex/hull_solutions/2282.txt; sleep 2
-./solution-submit 5378 hasi/convex/hull_solutions/5378.txt; sleep 2
-./solution-submit 2969 hasi/convex/hull_solutions/2969.txt; sleep 2
-./solution-submit 21 hasi/convex/hull_solutions/21.txt; sleep 2
-./solution-submit 2877 hasi/convex/hull_solutions/2877.txt; sleep 2
-./solution-submit 5954 hasi/convex/hull_solutions/5954.txt; sleep 2
-./solution-submit 2818 hasi/convex/hull_solutions/2818.txt; sleep 2
-./solution-submit 5759 hasi/convex/hull_solutions/5759.txt; sleep 2
-./solution-submit 4732 hasi/convex/hull_solutions/4732.txt; sleep 2
-./solution-submit 5517 hasi/convex/hull_solutions/5517.txt; sleep 2
-./solution-submit 3286 hasi/convex/hull_solutions/3286.txt; sleep 2
-./solution-submit 5011 hasi/convex/hull_solutions/5011.txt; sleep 2
-./solution-submit 5912 hasi/convex/hull_solutions/5912.txt; sleep 2
-./solution-submit 3189 hasi/convex/hull_solutions/3189.txt; sleep 2
-./solution-submit 689 hasi/convex/hull_solutions/689.txt; sleep 2
-./solution-submit 5188 hasi/convex/hull_solutions/5188.txt; sleep 2
-./solution-submit 2306 hasi/convex/hull_solutions/2306.txt; sleep 2
-./solution-submit 3570 hasi/convex/hull_solutions/3570.txt; sleep 2
-./solution-submit 762 hasi/convex/hull_solutions/762.txt; sleep 2
-./solution-submit 1972 hasi/convex/hull_solutions/1972.txt; sleep 2
-./solution-submit 2231 hasi/convex/hull_solutions/2231.txt; sleep 2
-./solution-submit 1240 hasi/convex/hull_solutions/1240.txt; sleep 2
-./solution-submit 5321 hasi/convex/hull_solutions/5321.txt; sleep 2
-./solution-submit 3866 hasi/convex/hull_solutions/3866.txt; sleep 2
-./solution-submit 1234 hasi/convex/hull_solutions/1234.txt; sleep 2
-./solution-submit 5420 hasi/convex/hull_solutions/5420.txt; sleep 2
-./solution-submit 5915 hasi/convex/hull_solutions/5915.txt; sleep 2
-./solution-submit 3565 hasi/convex/hull_solutions/3565.txt; sleep 2
-./solution-submit 5124 hasi/convex/hull_solutions/5124.txt; sleep 2
-./solution-submit 1167 hasi/convex/hull_solutions/1167.txt; sleep 2
-./solution-submit 5129 hasi/convex/hull_solutions/5129.txt; sleep 2
-./solution-submit 1752 hasi/convex/hull_solutions/1752.txt; sleep 2
-./solution-submit 4777 hasi/convex/hull_solutions/4777.txt; sleep 2
-./solution-submit 3113 hasi/convex/hull_solutions/3113.txt; sleep 2
-./solution-submit 3722 hasi/convex/hull_solutions/3722.txt; sleep 2
-./solution-submit 3981 hasi/convex/hull_solutions/3981.txt; sleep 2
-./solution-submit 3917 hasi/convex/hull_solutions/3917.txt; sleep 2
-./solution-submit 2088 hasi/convex/hull_solutions/2088.txt; sleep 2
-./solution-submit 1952 hasi/convex/hull_solutions/1952.txt; sleep 2
-./solution-submit 729 hasi/convex/hull_solutions/729.txt; sleep 2
-./solution-submit 3865 hasi/convex/hull_solutions/3865.txt; sleep 2
-./solution-submit 5861 hasi/convex/hull_solutions/5861.txt; sleep 2
-./solution-submit 1713 hasi/convex/hull_solutions/1713.txt; sleep 2
-./solution-submit 2241 hasi/convex/hull_solutions/2241.txt; sleep 2
-./solution-submit 1239 hasi/convex/hull_solutions/1239.txt; sleep 2
-./solution-submit 5328 hasi/convex/hull_solutions/5328.txt; sleep 2
-./solution-submit 4927 hasi/convex/hull_solutions/4927.txt; sleep 2
-./solution-submit 5958 hasi/convex/hull_solutions/5958.txt; sleep 2
-./solution-submit 92 hasi/convex/hull_solutions/92.txt; sleep 2
-./solution-submit 4475 hasi/convex/hull_solutions/4475.txt; sleep 2
-./solution-submit 1949 hasi/convex/hull_solutions/1949.txt; sleep 2
+./solution-submit 4358 hasi/convex/hull_solutions/4358.txt
+./solution-submit 5515 hasi/convex/hull_solutions/5515.txt
+./solution-submit 5811 hasi/convex/hull_solutions/5811.txt
+./solution-submit 2293 hasi/convex/hull_solutions/2293.txt
+./solution-submit 2123 hasi/convex/hull_solutions/2123.txt
+./solution-submit 524 hasi/convex/hull_solutions/524.txt
+./solution-submit 2891 hasi/convex/hull_solutions/2891.txt
+./solution-submit 5513 hasi/convex/hull_solutions/5513.txt
+./solution-submit 846 hasi/convex/hull_solutions/846.txt
+./solution-submit 3729 hasi/convex/hull_solutions/3729.txt
+./solution-submit 5266 hasi/convex/hull_solutions/5266.txt
+./solution-submit 6132 hasi/convex/hull_solutions/6132.txt
+./solution-submit 2883 hasi/convex/hull_solutions/2883.txt
+./solution-submit 3610 hasi/convex/hull_solutions/3610.txt
+./solution-submit 690 hasi/convex/hull_solutions/690.txt
+./solution-submit 5333 hasi/convex/hull_solutions/5333.txt
+./solution-submit 3962 hasi/convex/hull_solutions/3962.txt
+./solution-submit 4724 hasi/convex/hull_solutions/4724.txt
+./solution-submit 2739 hasi/convex/hull_solutions/2739.txt
+./solution-submit 2284 hasi/convex/hull_solutions/2284.txt
+./solution-submit 2232 hasi/convex/hull_solutions/2232.txt
+./solution-submit 2750 hasi/convex/hull_solutions/2750.txt
+./solution-submit 1980 hasi/convex/hull_solutions/1980.txt
+./solution-submit 1737 hasi/convex/hull_solutions/1737.txt
+./solution-submit 5565 hasi/convex/hull_solutions/5565.txt
+./solution-submit 1727 hasi/convex/hull_solutions/1727.txt
+./solution-submit 3569 hasi/convex/hull_solutions/3569.txt
+./solution-submit 2286 hasi/convex/hull_solutions/2286.txt
+./solution-submit 5879 hasi/convex/hull_solutions/5879.txt
+./solution-submit 5386 hasi/convex/hull_solutions/5386.txt
+./solution-submit 4876 hasi/convex/hull_solutions/4876.txt
+./solution-submit 743 hasi/convex/hull_solutions/743.txt
+./solution-submit 2527 hasi/convex/hull_solutions/2527.txt
+./solution-submit 4354 hasi/convex/hull_solutions/4354.txt
+./solution-submit 2000 hasi/convex/hull_solutions/2000.txt
+./solution-submit 5079 hasi/convex/hull_solutions/5079.txt
+./solution-submit 5418 hasi/convex/hull_solutions/5418.txt
+./solution-submit 1732 hasi/convex/hull_solutions/1732.txt
+./solution-submit 3745 hasi/convex/hull_solutions/3745.txt
+./solution-submit 5335 hasi/convex/hull_solutions/5335.txt
+./solution-submit 2280 hasi/convex/hull_solutions/2280.txt
+./solution-submit 4415 hasi/convex/hull_solutions/4415.txt
+./solution-submit 3754 hasi/convex/hull_solutions/3754.txt
+./solution-submit 3397 hasi/convex/hull_solutions/3397.txt
+./solution-submit 6038 hasi/convex/hull_solutions/6038.txt
+./solution-submit 4476 hasi/convex/hull_solutions/4476.txt
+./solution-submit 4829 hasi/convex/hull_solutions/4829.txt
+./solution-submit 3986 hasi/convex/hull_solutions/3986.txt
+./solution-submit 5010 hasi/convex/hull_solutions/5010.txt
+./solution-submit 5347 hasi/convex/hull_solutions/5347.txt
+./solution-submit 4360 hasi/convex/hull_solutions/4360.txt
+./solution-submit 2886 hasi/convex/hull_solutions/2886.txt
+./solution-submit 1711 hasi/convex/hull_solutions/1711.txt
+./solution-submit 715 hasi/convex/hull_solutions/715.txt
+./solution-submit 2310 hasi/convex/hull_solutions/2310.txt
+./solution-submit 5502 hasi/convex/hull_solutions/5502.txt
+./solution-submit 5131 hasi/convex/hull_solutions/5131.txt
+./solution-submit 6225 hasi/convex/hull_solutions/6225.txt
+./solution-submit 2331 hasi/convex/hull_solutions/2331.txt
+./solution-submit 2466 hasi/convex/hull_solutions/2466.txt
+./solution-submit 519 hasi/convex/hull_solutions/519.txt
+./solution-submit 5411 hasi/convex/hull_solutions/5411.txt
+./solution-submit 4997 hasi/convex/hull_solutions/4997.txt
+./solution-submit 5955 hasi/convex/hull_solutions/5955.txt
+./solution-submit 3711 hasi/convex/hull_solutions/3711.txt
+./solution-submit 678 hasi/convex/hull_solutions/678.txt
+./solution-submit 4608 hasi/convex/hull_solutions/4608.txt
+./solution-submit 4905 hasi/convex/hull_solutions/4905.txt
+./solution-submit 3985 hasi/convex/hull_solutions/3985.txt
+./solution-submit 1744 hasi/convex/hull_solutions/1744.txt
+./solution-submit 4833 hasi/convex/hull_solutions/4833.txt
+./solution-submit 5576 hasi/convex/hull_solutions/5576.txt
+./solution-submit 5603 hasi/convex/hull_solutions/5603.txt
+./solution-submit 2759 hasi/convex/hull_solutions/2759.txt
+./solution-submit 5372 hasi/convex/hull_solutions/5372.txt
+./solution-submit 328 hasi/convex/hull_solutions/328.txt
+./solution-submit 3989 hasi/convex/hull_solutions/3989.txt
+./solution-submit 3576 hasi/convex/hull_solutions/3576.txt
+./solution-submit 680 hasi/convex/hull_solutions/680.txt
+./solution-submit 4423 hasi/convex/hull_solutions/4423.txt
+./solution-submit 4844 hasi/convex/hull_solutions/4844.txt
+./solution-submit 4410 hasi/convex/hull_solutions/4410.txt
+./solution-submit 294 hasi/convex/hull_solutions/294.txt
+./solution-submit 3961 hasi/convex/hull_solutions/3961.txt
+./solution-submit 6126 hasi/convex/hull_solutions/6126.txt
+./solution-submit 4389 hasi/convex/hull_solutions/4389.txt
+./solution-submit 100 hasi/convex/hull_solutions/100.txt
+./solution-submit 4054 hasi/convex/hull_solutions/4054.txt
+./solution-submit 3716 hasi/convex/hull_solutions/3716.txt
+./solution-submit 3974 hasi/convex/hull_solutions/3974.txt
+./solution-submit 6121 hasi/convex/hull_solutions/6121.txt
+./solution-submit 3707 hasi/convex/hull_solutions/3707.txt
+./solution-submit 3566 hasi/convex/hull_solutions/3566.txt
+./solution-submit 5526 hasi/convex/hull_solutions/5526.txt
+./solution-submit 2305 hasi/convex/hull_solutions/2305.txt
+./solution-submit 166 hasi/convex/hull_solutions/166.txt
+./solution-submit 5259 hasi/convex/hull_solutions/5259.txt
+./solution-submit 2844 hasi/convex/hull_solutions/2844.txt
+./solution-submit 163 hasi/convex/hull_solutions/163.txt
+./solution-submit 3199 hasi/convex/hull_solutions/3199.txt
+./solution-submit 2289 hasi/convex/hull_solutions/2289.txt
+./solution-submit 2095 hasi/convex/hull_solutions/2095.txt
+./solution-submit 454 hasi/convex/hull_solutions/454.txt
+./solution-submit 4706 hasi/convex/hull_solutions/4706.txt
+./solution-submit 4841 hasi/convex/hull_solutions/4841.txt
+./solution-submit 5346 hasi/convex/hull_solutions/5346.txt
+./solution-submit 5408 hasi/convex/hull_solutions/5408.txt
+./solution-submit 5956 hasi/convex/hull_solutions/5956.txt
+./solution-submit 2302 hasi/convex/hull_solutions/2302.txt
+./solution-submit 3411 hasi/convex/hull_solutions/3411.txt
+./solution-submit 3875 hasi/convex/hull_solutions/3875.txt
+./solution-submit 2271 hasi/convex/hull_solutions/2271.txt
+./solution-submit 6170 hasi/convex/hull_solutions/6170.txt
+./solution-submit 5317 hasi/convex/hull_solutions/5317.txt
+./solution-submit 5384 hasi/convex/hull_solutions/5384.txt
+./solution-submit 3179 hasi/convex/hull_solutions/3179.txt
+./solution-submit 4981 hasi/convex/hull_solutions/4981.txt
+./solution-submit 1714 hasi/convex/hull_solutions/1714.txt
+./solution-submit 2097 hasi/convex/hull_solutions/2097.txt
+./solution-submit 5316 hasi/convex/hull_solutions/5316.txt
+./solution-submit 5589 hasi/convex/hull_solutions/5589.txt
+./solution-submit 6180 hasi/convex/hull_solutions/6180.txt
+./solution-submit 4348 hasi/convex/hull_solutions/4348.txt
+./solution-submit 1943 hasi/convex/hull_solutions/1943.txt
+./solution-submit 5641 hasi/convex/hull_solutions/5641.txt
+./solution-submit 5050 hasi/convex/hull_solutions/5050.txt
+./solution-submit 3168 hasi/convex/hull_solutions/3168.txt
+./solution-submit 5914 hasi/convex/hull_solutions/5914.txt
+./solution-submit 4896 hasi/convex/hull_solutions/4896.txt
+./solution-submit 5535 hasi/convex/hull_solutions/5535.txt
+./solution-submit 3194 hasi/convex/hull_solutions/3194.txt
+./solution-submit 4361 hasi/convex/hull_solutions/4361.txt
+./solution-submit 4710 hasi/convex/hull_solutions/4710.txt
+./solution-submit 2455 hasi/convex/hull_solutions/2455.txt
+./solution-submit 676 hasi/convex/hull_solutions/676.txt
+./solution-submit 5599 hasi/convex/hull_solutions/5599.txt
+./solution-submit 5538 hasi/convex/hull_solutions/5538.txt
+./solution-submit 6089 hasi/convex/hull_solutions/6089.txt
+./solution-submit 3347 hasi/convex/hull_solutions/3347.txt
+./solution-submit 2794 hasi/convex/hull_solutions/2794.txt
+./solution-submit 2506 hasi/convex/hull_solutions/2506.txt
+./solution-submit 5329 hasi/convex/hull_solutions/5329.txt
+./solution-submit 5512 hasi/convex/hull_solutions/5512.txt
+./solution-submit 97 hasi/convex/hull_solutions/97.txt
+./solution-submit 5380 hasi/convex/hull_solutions/5380.txt
+./solution-submit 6203 hasi/convex/hull_solutions/6203.txt
+./solution-submit 91 hasi/convex/hull_solutions/91.txt
+./solution-submit 1740 hasi/convex/hull_solutions/1740.txt
+./solution-submit 681 hasi/convex/hull_solutions/681.txt
+./solution-submit 4819 hasi/convex/hull_solutions/4819.txt
+./solution-submit 20 hasi/convex/hull_solutions/20.txt
+./solution-submit 5322 hasi/convex/hull_solutions/5322.txt
+./solution-submit 1163 hasi/convex/hull_solutions/1163.txt
+./solution-submit 1750 hasi/convex/hull_solutions/1750.txt
+./solution-submit 2628 hasi/convex/hull_solutions/2628.txt
+./solution-submit 1717 hasi/convex/hull_solutions/1717.txt
+./solution-submit 3760 hasi/convex/hull_solutions/3760.txt
+./solution-submit 5843 hasi/convex/hull_solutions/5843.txt
+./solution-submit 4350 hasi/convex/hull_solutions/4350.txt
+./solution-submit 4366 hasi/convex/hull_solutions/4366.txt
+./solution-submit 4336 hasi/convex/hull_solutions/4336.txt
+./solution-submit 3036 hasi/convex/hull_solutions/3036.txt
+./solution-submit 5905 hasi/convex/hull_solutions/5905.txt
+./solution-submit 6201 hasi/convex/hull_solutions/6201.txt
+./solution-submit 2888 hasi/convex/hull_solutions/2888.txt
+./solution-submit 4731 hasi/convex/hull_solutions/4731.txt
+./solution-submit 4105 hasi/convex/hull_solutions/4105.txt
+./solution-submit 5394 hasi/convex/hull_solutions/5394.txt
+./solution-submit 5015 hasi/convex/hull_solutions/5015.txt
+./solution-submit 210 hasi/convex/hull_solutions/210.txt
+./solution-submit 5780 hasi/convex/hull_solutions/5780.txt
+./solution-submit 4026 hasi/convex/hull_solutions/4026.txt
+./solution-submit 5957 hasi/convex/hull_solutions/5957.txt
+./solution-submit 2400 hasi/convex/hull_solutions/2400.txt
+./solution-submit 2746 hasi/convex/hull_solutions/2746.txt
+./solution-submit 60 hasi/convex/hull_solutions/60.txt
+./solution-submit 4990 hasi/convex/hull_solutions/4990.txt
+./solution-submit 4722 hasi/convex/hull_solutions/4722.txt
+./solution-submit 369 hasi/convex/hull_solutions/369.txt
+./solution-submit 5189 hasi/convex/hull_solutions/5189.txt
+./solution-submit 5320 hasi/convex/hull_solutions/5320.txt
+./solution-submit 2515 hasi/convex/hull_solutions/2515.txt
+./solution-submit 2839 hasi/convex/hull_solutions/2839.txt
+./solution-submit 1960 hasi/convex/hull_solutions/1960.txt
+./solution-submit 3873 hasi/convex/hull_solutions/3873.txt
+./solution-submit 5054 hasi/convex/hull_solutions/5054.txt
+./solution-submit 84 hasi/convex/hull_solutions/84.txt
+./solution-submit 3954 hasi/convex/hull_solutions/3954.txt
+./solution-submit 2742 hasi/convex/hull_solutions/2742.txt
+./solution-submit 6188 hasi/convex/hull_solutions/6188.txt
+./solution-submit 6124 hasi/convex/hull_solutions/6124.txt
+./solution-submit 3037 hasi/convex/hull_solutions/3037.txt
+./solution-submit 6211 hasi/convex/hull_solutions/6211.txt
+./solution-submit 208 hasi/convex/hull_solutions/208.txt
+./solution-submit 4468 hasi/convex/hull_solutions/4468.txt
+./solution-submit 3102 hasi/convex/hull_solutions/3102.txt
+./solution-submit 167 hasi/convex/hull_solutions/167.txt
+./solution-submit 5348 hasi/convex/hull_solutions/5348.txt
+./solution-submit 217 hasi/convex/hull_solutions/217.txt
+./solution-submit 3762 hasi/convex/hull_solutions/3762.txt
+./solution-submit 3399 hasi/convex/hull_solutions/3399.txt
+./solution-submit 2896 hasi/convex/hull_solutions/2896.txt
+./solution-submit 5887 hasi/convex/hull_solutions/5887.txt
+./solution-submit 5889 hasi/convex/hull_solutions/5889.txt
+./solution-submit 4567 hasi/convex/hull_solutions/4567.txt
+./solution-submit 1743 hasi/convex/hull_solutions/1743.txt
+./solution-submit 5008 hasi/convex/hull_solutions/5008.txt
+./solution-submit 721 hasi/convex/hull_solutions/721.txt
+./solution-submit 3756 hasi/convex/hull_solutions/3756.txt
+./solution-submit 6039 hasi/convex/hull_solutions/6039.txt
+./solution-submit 4897 hasi/convex/hull_solutions/4897.txt
+./solution-submit 4774 hasi/convex/hull_solutions/4774.txt
+./solution-submit 2209 hasi/convex/hull_solutions/2209.txt
+./solution-submit 5385 hasi/convex/hull_solutions/5385.txt
+./solution-submit 5417 hasi/convex/hull_solutions/5417.txt
+./solution-submit 3715 hasi/convex/hull_solutions/3715.txt
+./solution-submit 6035 hasi/convex/hull_solutions/6035.txt
+./solution-submit 5185 hasi/convex/hull_solutions/5185.txt
+./solution-submit 200 hasi/convex/hull_solutions/200.txt
+./solution-submit 732 hasi/convex/hull_solutions/732.txt
+./solution-submit 5407 hasi/convex/hull_solutions/5407.txt
+./solution-submit 1095 hasi/convex/hull_solutions/1095.txt
+./solution-submit 4570 hasi/convex/hull_solutions/4570.txt
+./solution-submit 2276 hasi/convex/hull_solutions/2276.txt
+./solution-submit 221 hasi/convex/hull_solutions/221.txt
+./solution-submit 2301 hasi/convex/hull_solutions/2301.txt
+./solution-submit 5950 hasi/convex/hull_solutions/5950.txt
+./solution-submit 3418 hasi/convex/hull_solutions/3418.txt
+./solution-submit 5097 hasi/convex/hull_solutions/5097.txt
+./solution-submit 5302 hasi/convex/hull_solutions/5302.txt
+./solution-submit 4285 hasi/convex/hull_solutions/4285.txt
+./solution-submit 2493 hasi/convex/hull_solutions/2493.txt
+./solution-submit 5611 hasi/convex/hull_solutions/5611.txt
+./solution-submit 2738 hasi/convex/hull_solutions/2738.txt
+./solution-submit 87 hasi/convex/hull_solutions/87.txt
+./solution-submit 5999 hasi/convex/hull_solutions/5999.txt
+./solution-submit 3401 hasi/convex/hull_solutions/3401.txt
+./solution-submit 2734 hasi/convex/hull_solutions/2734.txt
+./solution-submit 6204 hasi/convex/hull_solutions/6204.txt
+./solution-submit 3181 hasi/convex/hull_solutions/3181.txt
+./solution-submit 2109 hasi/convex/hull_solutions/2109.txt
+./solution-submit 6195 hasi/convex/hull_solutions/6195.txt
+./solution-submit 904 hasi/convex/hull_solutions/904.txt
+./solution-submit 6033 hasi/convex/hull_solutions/6033.txt
+./solution-submit 1956 hasi/convex/hull_solutions/1956.txt
+./solution-submit 4999 hasi/convex/hull_solutions/4999.txt
+./solution-submit 3568 hasi/convex/hull_solutions/3568.txt
+./solution-submit 5191 hasi/convex/hull_solutions/5191.txt
+./solution-submit 1395 hasi/convex/hull_solutions/1395.txt
+./solution-submit 3583 hasi/convex/hull_solutions/3583.txt
+./solution-submit 682 hasi/convex/hull_solutions/682.txt
+./solution-submit 2737 hasi/convex/hull_solutions/2737.txt
+./solution-submit 2330 hasi/convex/hull_solutions/2330.txt
+./solution-submit 2743 hasi/convex/hull_solutions/2743.txt
+./solution-submit 5614 hasi/convex/hull_solutions/5614.txt
+./solution-submit 4998 hasi/convex/hull_solutions/4998.txt
+./solution-submit 2786 hasi/convex/hull_solutions/2786.txt
+./solution-submit 171 hasi/convex/hull_solutions/171.txt
+./solution-submit 4694 hasi/convex/hull_solutions/4694.txt
+./solution-submit 3738 hasi/convex/hull_solutions/3738.txt
+./solution-submit 1885 hasi/convex/hull_solutions/1885.txt
+./solution-submit 2138 hasi/convex/hull_solutions/2138.txt
+./solution-submit 4977 hasi/convex/hull_solutions/4977.txt
+./solution-submit 2291 hasi/convex/hull_solutions/2291.txt
+./solution-submit 3586 hasi/convex/hull_solutions/3586.txt
+./solution-submit 3188 hasi/convex/hull_solutions/3188.txt
+./solution-submit 3964 hasi/convex/hull_solutions/3964.txt
+./solution-submit 2712 hasi/convex/hull_solutions/2712.txt
+./solution-submit 6206 hasi/convex/hull_solutions/6206.txt
+./solution-submit 4986 hasi/convex/hull_solutions/4986.txt
+./solution-submit 5013 hasi/convex/hull_solutions/5013.txt
+./solution-submit 2797 hasi/convex/hull_solutions/2797.txt
+./solution-submit 2468 hasi/convex/hull_solutions/2468.txt
+./solution-submit 3971 hasi/convex/hull_solutions/3971.txt
+./solution-submit 1090 hasi/convex/hull_solutions/1090.txt
+./solution-submit 3595 hasi/convex/hull_solutions/3595.txt
+./solution-submit 1941 hasi/convex/hull_solutions/1941.txt
+./solution-submit 686 hasi/convex/hull_solutions/686.txt
+./solution-submit 2753 hasi/convex/hull_solutions/2753.txt
+./solution-submit 2824 hasi/convex/hull_solutions/2824.txt
+./solution-submit 2819 hasi/convex/hull_solutions/2819.txt
+./solution-submit 5609 hasi/convex/hull_solutions/5609.txt
+./solution-submit 3979 hasi/convex/hull_solutions/3979.txt
+./solution-submit 1734 hasi/convex/hull_solutions/1734.txt
+./solution-submit 4719 hasi/convex/hull_solutions/4719.txt
+./solution-submit 3996 hasi/convex/hull_solutions/3996.txt
+./solution-submit 4904 hasi/convex/hull_solutions/4904.txt
+./solution-submit 4824 hasi/convex/hull_solutions/4824.txt
+./solution-submit 2265 hasi/convex/hull_solutions/2265.txt
+./solution-submit 3885 hasi/convex/hull_solutions/3885.txt
+./solution-submit 6219 hasi/convex/hull_solutions/6219.txt
+./solution-submit 5504 hasi/convex/hull_solutions/5504.txt
+./solution-submit 252 hasi/convex/hull_solutions/252.txt
+./solution-submit 4708 hasi/convex/hull_solutions/4708.txt
+./solution-submit 4817 hasi/convex/hull_solutions/4817.txt
+./solution-submit 5383 hasi/convex/hull_solutions/5383.txt
+./solution-submit 1729 hasi/convex/hull_solutions/1729.txt
+./solution-submit 6088 hasi/convex/hull_solutions/6088.txt
+./solution-submit 5610 hasi/convex/hull_solutions/5610.txt
+./solution-submit 4688 hasi/convex/hull_solutions/4688.txt
+./solution-submit 3708 hasi/convex/hull_solutions/3708.txt
+./solution-submit 2747 hasi/convex/hull_solutions/2747.txt
+./solution-submit 2467 hasi/convex/hull_solutions/2467.txt
+./solution-submit 4223 hasi/convex/hull_solutions/4223.txt
+./solution-submit 3709 hasi/convex/hull_solutions/3709.txt
+./solution-submit 5319 hasi/convex/hull_solutions/5319.txt
+./solution-submit 5962 hasi/convex/hull_solutions/5962.txt
+./solution-submit 4347 hasi/convex/hull_solutions/4347.txt
+./solution-submit 1718 hasi/convex/hull_solutions/1718.txt
+./solution-submit 1148 hasi/convex/hull_solutions/1148.txt
+./solution-submit 5902 hasi/convex/hull_solutions/5902.txt
+./solution-submit 4645 hasi/convex/hull_solutions/4645.txt
+./solution-submit 6221 hasi/convex/hull_solutions/6221.txt
+./solution-submit 4850 hasi/convex/hull_solutions/4850.txt
+./solution-submit 22 hasi/convex/hull_solutions/22.txt
+./solution-submit 5970 hasi/convex/hull_solutions/5970.txt
+./solution-submit 4691 hasi/convex/hull_solutions/4691.txt
+./solution-submit 90 hasi/convex/hull_solutions/90.txt
+./solution-submit 2298 hasi/convex/hull_solutions/2298.txt
+./solution-submit 6031 hasi/convex/hull_solutions/6031.txt
+./solution-submit 5244 hasi/convex/hull_solutions/5244.txt
+./solution-submit 3580 hasi/convex/hull_solutions/3580.txt
+./solution-submit 6085 hasi/convex/hull_solutions/6085.txt
+./solution-submit 2303 hasi/convex/hull_solutions/2303.txt
+./solution-submit 4687 hasi/convex/hull_solutions/4687.txt
+./solution-submit 1716 hasi/convex/hull_solutions/1716.txt
+./solution-submit 5327 hasi/convex/hull_solutions/5327.txt
+./solution-submit 5516 hasi/convex/hull_solutions/5516.txt
+./solution-submit 3972 hasi/convex/hull_solutions/3972.txt
+./solution-submit 5419 hasi/convex/hull_solutions/5419.txt
+./solution-submit 3726 hasi/convex/hull_solutions/3726.txt
+./solution-submit 3718 hasi/convex/hull_solutions/3718.txt
+./solution-submit 5405 hasi/convex/hull_solutions/5405.txt
+./solution-submit 5332 hasi/convex/hull_solutions/5332.txt
+./solution-submit 5339 hasi/convex/hull_solutions/5339.txt
+./solution-submit 2861 hasi/convex/hull_solutions/2861.txt
+./solution-submit 2304 hasi/convex/hull_solutions/2304.txt
+./solution-submit 34 hasi/convex/hull_solutions/34.txt
+./solution-submit 719 hasi/convex/hull_solutions/719.txt
+./solution-submit 4893 hasi/convex/hull_solutions/4893.txt
+./solution-submit 675 hasi/convex/hull_solutions/675.txt
+./solution-submit 4704 hasi/convex/hull_solutions/4704.txt
+./solution-submit 4356 hasi/convex/hull_solutions/4356.txt
+./solution-submit 374 hasi/convex/hull_solutions/374.txt
+./solution-submit 5625 hasi/convex/hull_solutions/5625.txt
+./solution-submit 4699 hasi/convex/hull_solutions/4699.txt
+./solution-submit 2762 hasi/convex/hull_solutions/2762.txt
+./solution-submit 6162 hasi/convex/hull_solutions/6162.txt
+./solution-submit 5130 hasi/convex/hull_solutions/5130.txt
+./solution-submit 4718 hasi/convex/hull_solutions/4718.txt
+./solution-submit 614 hasi/convex/hull_solutions/614.txt
+./solution-submit 3356 hasi/convex/hull_solutions/3356.txt
+./solution-submit 4440 hasi/convex/hull_solutions/4440.txt
+./solution-submit 5178 hasi/convex/hull_solutions/5178.txt
+./solution-submit 4250 hasi/convex/hull_solutions/4250.txt
+./solution-submit 5022 hasi/convex/hull_solutions/5022.txt
+./solution-submit 2309 hasi/convex/hull_solutions/2309.txt
+./solution-submit 4601 hasi/convex/hull_solutions/4601.txt
+./solution-submit 6148 hasi/convex/hull_solutions/6148.txt
+./solution-submit 2277 hasi/convex/hull_solutions/2277.txt
+./solution-submit 5324 hasi/convex/hull_solutions/5324.txt
+./solution-submit 5318 hasi/convex/hull_solutions/5318.txt
+./solution-submit 3145 hasi/convex/hull_solutions/3145.txt
+./solution-submit 2196 hasi/convex/hull_solutions/2196.txt
+./solution-submit 2724 hasi/convex/hull_solutions/2724.txt
+./solution-submit 5184 hasi/convex/hull_solutions/5184.txt
+./solution-submit 2068 hasi/convex/hull_solutions/2068.txt
+./solution-submit 1738 hasi/convex/hull_solutions/1738.txt
+./solution-submit 1724 hasi/convex/hull_solutions/1724.txt
+./solution-submit 5853 hasi/convex/hull_solutions/5853.txt
+./solution-submit 6145 hasi/convex/hull_solutions/6145.txt
+./solution-submit 3968 hasi/convex/hull_solutions/3968.txt
+./solution-submit 5503 hasi/convex/hull_solutions/5503.txt
+./solution-submit 2233 hasi/convex/hull_solutions/2233.txt
+./solution-submit 164 hasi/convex/hull_solutions/164.txt
+./solution-submit 2733 hasi/convex/hull_solutions/2733.txt
+./solution-submit 1942 hasi/convex/hull_solutions/1942.txt
+./solution-submit 1489 hasi/convex/hull_solutions/1489.txt
+./solution-submit 5868 hasi/convex/hull_solutions/5868.txt
+./solution-submit 5857 hasi/convex/hull_solutions/5857.txt
+./solution-submit 5373 hasi/convex/hull_solutions/5373.txt
+./solution-submit 1903 hasi/convex/hull_solutions/1903.txt
+./solution-submit 3151 hasi/convex/hull_solutions/3151.txt
+./solution-submit 3767 hasi/convex/hull_solutions/3767.txt
+./solution-submit 3949 hasi/convex/hull_solutions/3949.txt
+./solution-submit 3193 hasi/convex/hull_solutions/3193.txt
+./solution-submit 1715 hasi/convex/hull_solutions/1715.txt
+./solution-submit 3721 hasi/convex/hull_solutions/3721.txt
+./solution-submit 4836 hasi/convex/hull_solutions/4836.txt
+./solution-submit 2279 hasi/convex/hull_solutions/2279.txt
+./solution-submit 2307 hasi/convex/hull_solutions/2307.txt
+./solution-submit 1719 hasi/convex/hull_solutions/1719.txt
+./solution-submit 2507 hasi/convex/hull_solutions/2507.txt
+./solution-submit 1843 hasi/convex/hull_solutions/1843.txt
+./solution-submit 4352 hasi/convex/hull_solutions/4352.txt
+./solution-submit 219 hasi/convex/hull_solutions/219.txt
+./solution-submit 4828 hasi/convex/hull_solutions/4828.txt
+./solution-submit 3032 hasi/convex/hull_solutions/3032.txt
+./solution-submit 2126 hasi/convex/hull_solutions/2126.txt
+./solution-submit 382 hasi/convex/hull_solutions/382.txt
+./solution-submit 1721 hasi/convex/hull_solutions/1721.txt
+./solution-submit 6258 hasi/convex/hull_solutions/6258.txt
+./solution-submit 6217 hasi/convex/hull_solutions/6217.txt
+./solution-submit 3039 hasi/convex/hull_solutions/3039.txt
+./solution-submit 3967 hasi/convex/hull_solutions/3967.txt
+./solution-submit 63 hasi/convex/hull_solutions/63.txt
+./solution-submit 95 hasi/convex/hull_solutions/95.txt
+./solution-submit 4815 hasi/convex/hull_solutions/4815.txt
+./solution-submit 1989 hasi/convex/hull_solutions/1989.txt
+./solution-submit 3035 hasi/convex/hull_solutions/3035.txt
+./solution-submit 5236 hasi/convex/hull_solutions/5236.txt
+./solution-submit 5055 hasi/convex/hull_solutions/5055.txt
+./solution-submit 5499 hasi/convex/hull_solutions/5499.txt
+./solution-submit 3406 hasi/convex/hull_solutions/3406.txt
+./solution-submit 5142 hasi/convex/hull_solutions/5142.txt
+./solution-submit 5045 hasi/convex/hull_solutions/5045.txt
+./solution-submit 3719 hasi/convex/hull_solutions/3719.txt
+./solution-submit 1406 hasi/convex/hull_solutions/1406.txt
+./solution-submit 5375 hasi/convex/hull_solutions/5375.txt
+./solution-submit 4044 hasi/convex/hull_solutions/4044.txt
+./solution-submit 5032 hasi/convex/hull_solutions/5032.txt
+./solution-submit 5260 hasi/convex/hull_solutions/5260.txt
+./solution-submit 4077 hasi/convex/hull_solutions/4077.txt
+./solution-submit 3759 hasi/convex/hull_solutions/3759.txt
+./solution-submit 5330 hasi/convex/hull_solutions/5330.txt
+./solution-submit 1594 hasi/convex/hull_solutions/1594.txt
+./solution-submit 5738 hasi/convex/hull_solutions/5738.txt
+./solution-submit 5194 hasi/convex/hull_solutions/5194.txt
+./solution-submit 6153 hasi/convex/hull_solutions/6153.txt
+./solution-submit 4290 hasi/convex/hull_solutions/4290.txt
+./solution-submit 4401 hasi/convex/hull_solutions/4401.txt
+./solution-submit 1999 hasi/convex/hull_solutions/1999.txt
+./solution-submit 5511 hasi/convex/hull_solutions/5511.txt
+./solution-submit 3813 hasi/convex/hull_solutions/3813.txt
+./solution-submit 5421 hasi/convex/hull_solutions/5421.txt
+./solution-submit 1169 hasi/convex/hull_solutions/1169.txt
+./solution-submit 2200 hasi/convex/hull_solutions/2200.txt
+./solution-submit 375 hasi/convex/hull_solutions/375.txt
+./solution-submit 2103 hasi/convex/hull_solutions/2103.txt
+./solution-submit 1159 hasi/convex/hull_solutions/1159.txt
+./solution-submit 213 hasi/convex/hull_solutions/213.txt
+./solution-submit 57 hasi/convex/hull_solutions/57.txt
+./solution-submit 3710 hasi/convex/hull_solutions/3710.txt
+./solution-submit 3223 hasi/convex/hull_solutions/3223.txt
+./solution-submit 711 hasi/convex/hull_solutions/711.txt
+./solution-submit 4372 hasi/convex/hull_solutions/4372.txt
+./solution-submit 3271 hasi/convex/hull_solutions/3271.txt
+./solution-submit 2504 hasi/convex/hull_solutions/2504.txt
+./solution-submit 5102 hasi/convex/hull_solutions/5102.txt
+./solution-submit 3245 hasi/convex/hull_solutions/3245.txt
+./solution-submit 5202 hasi/convex/hull_solutions/5202.txt
+./solution-submit 5985 hasi/convex/hull_solutions/5985.txt
+./solution-submit 5193 hasi/convex/hull_solutions/5193.txt
+./solution-submit 2718 hasi/convex/hull_solutions/2718.txt
+./solution-submit 4117 hasi/convex/hull_solutions/4117.txt
+./solution-submit 3761 hasi/convex/hull_solutions/3761.txt
+./solution-submit 4584 hasi/convex/hull_solutions/4584.txt
+./solution-submit 4996 hasi/convex/hull_solutions/4996.txt
+./solution-submit 1945 hasi/convex/hull_solutions/1945.txt
+./solution-submit 2285 hasi/convex/hull_solutions/2285.txt
+./solution-submit 2354 hasi/convex/hull_solutions/2354.txt
+./solution-submit 2098 hasi/convex/hull_solutions/2098.txt
+./solution-submit 3959 hasi/convex/hull_solutions/3959.txt
+./solution-submit 6146 hasi/convex/hull_solutions/6146.txt
+./solution-submit 5974 hasi/convex/hull_solutions/5974.txt
+./solution-submit 1510 hasi/convex/hull_solutions/1510.txt
+./solution-submit 6133 hasi/convex/hull_solutions/6133.txt
+./solution-submit 6070 hasi/convex/hull_solutions/6070.txt
+./solution-submit 19 hasi/convex/hull_solutions/19.txt
+./solution-submit 1973 hasi/convex/hull_solutions/1973.txt
+./solution-submit 5276 hasi/convex/hull_solutions/5276.txt
+./solution-submit 1842 hasi/convex/hull_solutions/1842.txt
+./solution-submit 4822 hasi/convex/hull_solutions/4822.txt
+./solution-submit 3840 hasi/convex/hull_solutions/3840.txt
+./solution-submit 3294 hasi/convex/hull_solutions/3294.txt
+./solution-submit 1591 hasi/convex/hull_solutions/1591.txt
+./solution-submit 4771 hasi/convex/hull_solutions/4771.txt
+./solution-submit 5374 hasi/convex/hull_solutions/5374.txt
+./solution-submit 6116 hasi/convex/hull_solutions/6116.txt
+./solution-submit 3706 hasi/convex/hull_solutions/3706.txt
+./solution-submit 5904 hasi/convex/hull_solutions/5904.txt
+./solution-submit 5139 hasi/convex/hull_solutions/5139.txt
+./solution-submit 1963 hasi/convex/hull_solutions/1963.txt
+./solution-submit 5047 hasi/convex/hull_solutions/5047.txt
+./solution-submit 3723 hasi/convex/hull_solutions/3723.txt
+./solution-submit 4119 hasi/convex/hull_solutions/4119.txt
+./solution-submit 5819 hasi/convex/hull_solutions/5819.txt
+./solution-submit 2526 hasi/convex/hull_solutions/2526.txt
+./solution-submit 6060 hasi/convex/hull_solutions/6060.txt
+./solution-submit 2275 hasi/convex/hull_solutions/2275.txt
+./solution-submit 379 hasi/convex/hull_solutions/379.txt
+./solution-submit 2236 hasi/convex/hull_solutions/2236.txt
+./solution-submit 6052 hasi/convex/hull_solutions/6052.txt
+./solution-submit 5519 hasi/convex/hull_solutions/5519.txt
+./solution-submit 3744 hasi/convex/hull_solutions/3744.txt
+./solution-submit 5510 hasi/convex/hull_solutions/5510.txt
+./solution-submit 2110 hasi/convex/hull_solutions/2110.txt
+./solution-submit 2090 hasi/convex/hull_solutions/2090.txt
+./solution-submit 5379 hasi/convex/hull_solutions/5379.txt
+./solution-submit 2399 hasi/convex/hull_solutions/2399.txt
+./solution-submit 5272 hasi/convex/hull_solutions/5272.txt
+./solution-submit 5532 hasi/convex/hull_solutions/5532.txt
+./solution-submit 5403 hasi/convex/hull_solutions/5403.txt
+./solution-submit 5133 hasi/convex/hull_solutions/5133.txt
+./solution-submit 4220 hasi/convex/hull_solutions/4220.txt
+./solution-submit 6071 hasi/convex/hull_solutions/6071.txt
+./solution-submit 523 hasi/convex/hull_solutions/523.txt
+./solution-submit 5265 hasi/convex/hull_solutions/5265.txt
+./solution-submit 5404 hasi/convex/hull_solutions/5404.txt
+./solution-submit 4992 hasi/convex/hull_solutions/4992.txt
+./solution-submit 5507 hasi/convex/hull_solutions/5507.txt
+./solution-submit 6084 hasi/convex/hull_solutions/6084.txt
+./solution-submit 5002 hasi/convex/hull_solutions/5002.txt
+./solution-submit 1831 hasi/convex/hull_solutions/1831.txt
+./solution-submit 5631 hasi/convex/hull_solutions/5631.txt
+./solution-submit 5406 hasi/convex/hull_solutions/5406.txt
+./solution-submit 3803 hasi/convex/hull_solutions/3803.txt
+./solution-submit 5986 hasi/convex/hull_solutions/5986.txt
+./solution-submit 381 hasi/convex/hull_solutions/381.txt
+./solution-submit 5860 hasi/convex/hull_solutions/5860.txt
+./solution-submit 1741 hasi/convex/hull_solutions/1741.txt
+./solution-submit 5006 hasi/convex/hull_solutions/5006.txt
+./solution-submit 3559 hasi/convex/hull_solutions/3559.txt
+./solution-submit 4306 hasi/convex/hull_solutions/4306.txt
+./solution-submit 4816 hasi/convex/hull_solutions/4816.txt
+./solution-submit 2260 hasi/convex/hull_solutions/2260.txt
+./solution-submit 6202 hasi/convex/hull_solutions/6202.txt
+./solution-submit 2523 hasi/convex/hull_solutions/2523.txt
+./solution-submit 3781 hasi/convex/hull_solutions/3781.txt
+./solution-submit 5797 hasi/convex/hull_solutions/5797.txt
+./solution-submit 3528 hasi/convex/hull_solutions/3528.txt
+./solution-submit 5998 hasi/convex/hull_solutions/5998.txt
+./solution-submit 5337 hasi/convex/hull_solutions/5337.txt
+./solution-submit 2288 hasi/convex/hull_solutions/2288.txt
+./solution-submit 3956 hasi/convex/hull_solutions/3956.txt
+./solution-submit 5770 hasi/convex/hull_solutions/5770.txt
+./solution-submit 2829 hasi/convex/hull_solutions/2829.txt
+./solution-submit 1987 hasi/convex/hull_solutions/1987.txt
+./solution-submit 5014 hasi/convex/hull_solutions/5014.txt
+./solution-submit 3724 hasi/convex/hull_solutions/3724.txt
+./solution-submit 4895 hasi/convex/hull_solutions/4895.txt
+./solution-submit 6196 hasi/convex/hull_solutions/6196.txt
+./solution-submit 2121 hasi/convex/hull_solutions/2121.txt
+./solution-submit 3346 hasi/convex/hull_solutions/3346.txt
+./solution-submit 5422 hasi/convex/hull_solutions/5422.txt
+./solution-submit 4778 hasi/convex/hull_solutions/4778.txt
+./solution-submit 23 hasi/convex/hull_solutions/23.txt
+./solution-submit 4769 hasi/convex/hull_solutions/4769.txt
+./solution-submit 3177 hasi/convex/hull_solutions/3177.txt
+./solution-submit 1901 hasi/convex/hull_solutions/1901.txt
+./solution-submit 2495 hasi/convex/hull_solutions/2495.txt
+./solution-submit 2619 hasi/convex/hull_solutions/2619.txt
+./solution-submit 3034 hasi/convex/hull_solutions/3034.txt
+./solution-submit 1982 hasi/convex/hull_solutions/1982.txt
+./solution-submit 1623 hasi/convex/hull_solutions/1623.txt
+./solution-submit 2774 hasi/convex/hull_solutions/2774.txt
+./solution-submit 2885 hasi/convex/hull_solutions/2885.txt
+./solution-submit 2290 hasi/convex/hull_solutions/2290.txt
+./solution-submit 4852 hasi/convex/hull_solutions/4852.txt
+./solution-submit 4697 hasi/convex/hull_solutions/4697.txt
+./solution-submit 2299 hasi/convex/hull_solutions/2299.txt
+./solution-submit 3958 hasi/convex/hull_solutions/3958.txt
+./solution-submit 3410 hasi/convex/hull_solutions/3410.txt
+./solution-submit 5863 hasi/convex/hull_solutions/5863.txt
+./solution-submit 2508 hasi/convex/hull_solutions/2508.txt
+./solution-submit 6114 hasi/convex/hull_solutions/6114.txt
+./solution-submit 5838 hasi/convex/hull_solutions/5838.txt
+./solution-submit 5607 hasi/convex/hull_solutions/5607.txt
+./solution-submit 6129 hasi/convex/hull_solutions/6129.txt
+./solution-submit 5888 hasi/convex/hull_solutions/5888.txt
+./solution-submit 4912 hasi/convex/hull_solutions/4912.txt
+./solution-submit 5782 hasi/convex/hull_solutions/5782.txt
+./solution-submit 5852 hasi/convex/hull_solutions/5852.txt
+./solution-submit 1938 hasi/convex/hull_solutions/1938.txt
+./solution-submit 2893 hasi/convex/hull_solutions/2893.txt
+./solution-submit 2111 hasi/convex/hull_solutions/2111.txt
+./solution-submit 687 hasi/convex/hull_solutions/687.txt
+./solution-submit 1722 hasi/convex/hull_solutions/1722.txt
+./solution-submit 3547 hasi/convex/hull_solutions/3547.txt
+./solution-submit 4408 hasi/convex/hull_solutions/4408.txt
+./solution-submit 5976 hasi/convex/hull_solutions/5976.txt
+./solution-submit 4813 hasi/convex/hull_solutions/4813.txt
+./solution-submit 4382 hasi/convex/hull_solutions/4382.txt
+./solution-submit 1390 hasi/convex/hull_solutions/1390.txt
+./solution-submit 531 hasi/convex/hull_solutions/531.txt
+./solution-submit 2789 hasi/convex/hull_solutions/2789.txt
+./solution-submit 2474 hasi/convex/hull_solutions/2474.txt
+./solution-submit 3101 hasi/convex/hull_solutions/3101.txt
+./solution-submit 5262 hasi/convex/hull_solutions/5262.txt
+./solution-submit 3824 hasi/convex/hull_solutions/3824.txt
+./solution-submit 1997 hasi/convex/hull_solutions/1997.txt
+./solution-submit 685 hasi/convex/hull_solutions/685.txt
+./solution-submit 5703 hasi/convex/hull_solutions/5703.txt
+./solution-submit 3730 hasi/convex/hull_solutions/3730.txt
+./solution-submit 2662 hasi/convex/hull_solutions/2662.txt
+./solution-submit 3960 hasi/convex/hull_solutions/3960.txt
+./solution-submit 5003 hasi/convex/hull_solutions/5003.txt
+./solution-submit 4898 hasi/convex/hull_solutions/4898.txt
+./solution-submit 5382 hasi/convex/hull_solutions/5382.txt
+./solution-submit 204 hasi/convex/hull_solutions/204.txt
+./solution-submit 4757 hasi/convex/hull_solutions/4757.txt
+./solution-submit 2294 hasi/convex/hull_solutions/2294.txt
+./solution-submit 1966 hasi/convex/hull_solutions/1966.txt
+./solution-submit 93 hasi/convex/hull_solutions/93.txt
+./solution-submit 5854 hasi/convex/hull_solutions/5854.txt
+./solution-submit 5968 hasi/convex/hull_solutions/5968.txt
+./solution-submit 1014 hasi/convex/hull_solutions/1014.txt
+./solution-submit 5570 hasi/convex/hull_solutions/5570.txt
+./solution-submit 4381 hasi/convex/hull_solutions/4381.txt
+./solution-submit 2513 hasi/convex/hull_solutions/2513.txt
+./solution-submit 5240 hasi/convex/hull_solutions/5240.txt
+./solution-submit 5723 hasi/convex/hull_solutions/5723.txt
+./solution-submit 5638 hasi/convex/hull_solutions/5638.txt
+./solution-submit 4291 hasi/convex/hull_solutions/4291.txt
+./solution-submit 2735 hasi/convex/hull_solutions/2735.txt
+./solution-submit 2283 hasi/convex/hull_solutions/2283.txt
+./solution-submit 716 hasi/convex/hull_solutions/716.txt
+./solution-submit 5875 hasi/convex/hull_solutions/5875.txt
+./solution-submit 4357 hasi/convex/hull_solutions/4357.txt
+./solution-submit 4855 hasi/convex/hull_solutions/4855.txt
+./solution-submit 4818 hasi/convex/hull_solutions/4818.txt
+./solution-submit 5387 hasi/convex/hull_solutions/5387.txt
+./solution-submit 6150 hasi/convex/hull_solutions/6150.txt
+./solution-submit 5583 hasi/convex/hull_solutions/5583.txt
+./solution-submit 1832 hasi/convex/hull_solutions/1832.txt
+./solution-submit 2661 hasi/convex/hull_solutions/2661.txt
+./solution-submit 2779 hasi/convex/hull_solutions/2779.txt
+./solution-submit 2234 hasi/convex/hull_solutions/2234.txt
+./solution-submit 3038 hasi/convex/hull_solutions/3038.txt
+./solution-submit 1730 hasi/convex/hull_solutions/1730.txt
+./solution-submit 2816 hasi/convex/hull_solutions/2816.txt
+./solution-submit 5973 hasi/convex/hull_solutions/5973.txt
+./solution-submit 5230 hasi/convex/hull_solutions/5230.txt
+./solution-submit 5352 hasi/convex/hull_solutions/5352.txt
+./solution-submit 6251 hasi/convex/hull_solutions/6251.txt
+./solution-submit 1241 hasi/convex/hull_solutions/1241.txt
+./solution-submit 2511 hasi/convex/hull_solutions/2511.txt
+./solution-submit 3416 hasi/convex/hull_solutions/3416.txt
+./solution-submit 1959 hasi/convex/hull_solutions/1959.txt
+./solution-submit 683 hasi/convex/hull_solutions/683.txt
+./solution-submit 3584 hasi/convex/hull_solutions/3584.txt
+./solution-submit 5908 hasi/convex/hull_solutions/5908.txt
+./solution-submit 4685 hasi/convex/hull_solutions/4685.txt
+./solution-submit 187 hasi/convex/hull_solutions/187.txt
+./solution-submit 5071 hasi/convex/hull_solutions/5071.txt
+./solution-submit 5007 hasi/convex/hull_solutions/5007.txt
+./solution-submit 3161 hasi/convex/hull_solutions/3161.txt
+./solution-submit 4825 hasi/convex/hull_solutions/4825.txt
+./solution-submit 2122 hasi/convex/hull_solutions/2122.txt
+./solution-submit 3162 hasi/convex/hull_solutions/3162.txt
+./solution-submit 5971 hasi/convex/hull_solutions/5971.txt
+./solution-submit 3164 hasi/convex/hull_solutions/3164.txt
+./solution-submit 1670 hasi/convex/hull_solutions/1670.txt
+./solution-submit 5816 hasi/convex/hull_solutions/5816.txt
+./solution-submit 6253 hasi/convex/hull_solutions/6253.txt
+./solution-submit 2217 hasi/convex/hull_solutions/2217.txt
+./solution-submit 5787 hasi/convex/hull_solutions/5787.txt
+./solution-submit 4820 hasi/convex/hull_solutions/4820.txt
+./solution-submit 4295 hasi/convex/hull_solutions/4295.txt
+./solution-submit 1608 hasi/convex/hull_solutions/1608.txt
+./solution-submit 4576 hasi/convex/hull_solutions/4576.txt
+./solution-submit 5580 hasi/convex/hull_solutions/5580.txt
+./solution-submit 2550 hasi/convex/hull_solutions/2550.txt
+./solution-submit 6061 hasi/convex/hull_solutions/6061.txt
+./solution-submit 2281 hasi/convex/hull_solutions/2281.txt
+./solution-submit 3647 hasi/convex/hull_solutions/3647.txt
+./solution-submit 4684 hasi/convex/hull_solutions/4684.txt
+./solution-submit 5377 hasi/convex/hull_solutions/5377.txt
+./solution-submit 1720 hasi/convex/hull_solutions/1720.txt
+./solution-submit 3836 hasi/convex/hull_solutions/3836.txt
+./solution-submit 2091 hasi/convex/hull_solutions/2091.txt
+./solution-submit 3746 hasi/convex/hull_solutions/3746.txt
+./solution-submit 2666 hasi/convex/hull_solutions/2666.txt
+./solution-submit 206 hasi/convex/hull_solutions/206.txt
+./solution-submit 5753 hasi/convex/hull_solutions/5753.txt
+./solution-submit 4210 hasi/convex/hull_solutions/4210.txt
+./solution-submit 2230 hasi/convex/hull_solutions/2230.txt
+./solution-submit 1742 hasi/convex/hull_solutions/1742.txt
+./solution-submit 6067 hasi/convex/hull_solutions/6067.txt
+./solution-submit 5508 hasi/convex/hull_solutions/5508.txt
+./solution-submit 2548 hasi/convex/hull_solutions/2548.txt
+./solution-submit 5594 hasi/convex/hull_solutions/5594.txt
+./solution-submit 2295 hasi/convex/hull_solutions/2295.txt
+./solution-submit 5376 hasi/convex/hull_solutions/5376.txt
+./solution-submit 3166 hasi/convex/hull_solutions/3166.txt
+./solution-submit 2403 hasi/convex/hull_solutions/2403.txt
+./solution-submit 1160 hasi/convex/hull_solutions/1160.txt
+./solution-submit 3874 hasi/convex/hull_solutions/3874.txt
+./solution-submit 4700 hasi/convex/hull_solutions/4700.txt
+./solution-submit 4875 hasi/convex/hull_solutions/4875.txt
+./solution-submit 1723 hasi/convex/hull_solutions/1723.txt
+./solution-submit 5012 hasi/convex/hull_solutions/5012.txt
+./solution-submit 5654 hasi/convex/hull_solutions/5654.txt
+./solution-submit 1747 hasi/convex/hull_solutions/1747.txt
+./solution-submit 165 hasi/convex/hull_solutions/165.txt
+./solution-submit 5815 hasi/convex/hull_solutions/5815.txt
+./solution-submit 1141 hasi/convex/hull_solutions/1141.txt
+./solution-submit 502 hasi/convex/hull_solutions/502.txt
+./solution-submit 2129 hasi/convex/hull_solutions/2129.txt
+./solution-submit 3636 hasi/convex/hull_solutions/3636.txt
+./solution-submit 5817 hasi/convex/hull_solutions/5817.txt
+./solution-submit 679 hasi/convex/hull_solutions/679.txt
+./solution-submit 6179 hasi/convex/hull_solutions/6179.txt
+./solution-submit 1749 hasi/convex/hull_solutions/1749.txt
+./solution-submit 5615 hasi/convex/hull_solutions/5615.txt
+./solution-submit 3563 hasi/convex/hull_solutions/3563.txt
+./solution-submit 2741 hasi/convex/hull_solutions/2741.txt
+./solution-submit 6066 hasi/convex/hull_solutions/6066.txt
+./solution-submit 3567 hasi/convex/hull_solutions/3567.txt
+./solution-submit 5323 hasi/convex/hull_solutions/5323.txt
+./solution-submit 4832 hasi/convex/hull_solutions/4832.txt
+./solution-submit 4293 hasi/convex/hull_solutions/4293.txt
+./solution-submit 6065 hasi/convex/hull_solutions/6065.txt
+./solution-submit 1460 hasi/convex/hull_solutions/1460.txt
+./solution-submit 85 hasi/convex/hull_solutions/85.txt
+./solution-submit 6210 hasi/convex/hull_solutions/6210.txt
+./solution-submit 4993 hasi/convex/hull_solutions/4993.txt
+./solution-submit 88 hasi/convex/hull_solutions/88.txt
+./solution-submit 4976 hasi/convex/hull_solutions/4976.txt
+./solution-submit 1977 hasi/convex/hull_solutions/1977.txt
+./solution-submit 4674 hasi/convex/hull_solutions/4674.txt
+./solution-submit 2388 hasi/convex/hull_solutions/2388.txt
+./solution-submit 2297 hasi/convex/hull_solutions/2297.txt
+./solution-submit 4730 hasi/convex/hull_solutions/4730.txt
+./solution-submit 2730 hasi/convex/hull_solutions/2730.txt
+./solution-submit 198 hasi/convex/hull_solutions/198.txt
+./solution-submit 4364 hasi/convex/hull_solutions/4364.txt
+./solution-submit 6168 hasi/convex/hull_solutions/6168.txt
+./solution-submit 5743 hasi/convex/hull_solutions/5743.txt
+./solution-submit 1605 hasi/convex/hull_solutions/1605.txt
+./solution-submit 170 hasi/convex/hull_solutions/170.txt
+./solution-submit 3757 hasi/convex/hull_solutions/3757.txt
+./solution-submit 368 hasi/convex/hull_solutions/368.txt
+./solution-submit 5402 hasi/convex/hull_solutions/5402.txt
+./solution-submit 1751 hasi/convex/hull_solutions/1751.txt
+./solution-submit 2928 hasi/convex/hull_solutions/2928.txt
+./solution-submit 4830 hasi/convex/hull_solutions/4830.txt
+./solution-submit 2616 hasi/convex/hull_solutions/2616.txt
+./solution-submit 3409 hasi/convex/hull_solutions/3409.txt
+./solution-submit 4230 hasi/convex/hull_solutions/4230.txt
+./solution-submit 3973 hasi/convex/hull_solutions/3973.txt
+./solution-submit 6078 hasi/convex/hull_solutions/6078.txt
+./solution-submit 5326 hasi/convex/hull_solutions/5326.txt
+./solution-submit 5000 hasi/convex/hull_solutions/5000.txt
+./solution-submit 4994 hasi/convex/hull_solutions/4994.txt
+./solution-submit 3167 hasi/convex/hull_solutions/3167.txt
+./solution-submit 3867 hasi/convex/hull_solutions/3867.txt
+./solution-submit 4287 hasi/convex/hull_solutions/4287.txt
+./solution-submit 3564 hasi/convex/hull_solutions/3564.txt
+./solution-submit 5476 hasi/convex/hull_solutions/5476.txt
+./solution-submit 5381 hasi/convex/hull_solutions/5381.txt
+./solution-submit 5871 hasi/convex/hull_solutions/5871.txt
+./solution-submit 3571 hasi/convex/hull_solutions/3571.txt
+./solution-submit 5414 hasi/convex/hull_solutions/5414.txt
+./solution-submit 2120 hasi/convex/hull_solutions/2120.txt
+./solution-submit 899 hasi/convex/hull_solutions/899.txt
+./solution-submit 4428 hasi/convex/hull_solutions/4428.txt
+./solution-submit 3725 hasi/convex/hull_solutions/3725.txt
+./solution-submit 2130 hasi/convex/hull_solutions/2130.txt
+./solution-submit 5336 hasi/convex/hull_solutions/5336.txt
+./solution-submit 5937 hasi/convex/hull_solutions/5937.txt
+./solution-submit 3169 hasi/convex/hull_solutions/3169.txt
+./solution-submit 3860 hasi/convex/hull_solutions/3860.txt
+./solution-submit 3579 hasi/convex/hull_solutions/3579.txt
+./solution-submit 5514 hasi/convex/hull_solutions/5514.txt
+./solution-submit 3342 hasi/convex/hull_solutions/3342.txt
+./solution-submit 5051 hasi/convex/hull_solutions/5051.txt
+./solution-submit 2868 hasi/convex/hull_solutions/2868.txt
+./solution-submit 6194 hasi/convex/hull_solutions/6194.txt
+./solution-submit 4928 hasi/convex/hull_solutions/4928.txt
+./solution-submit 2003 hasi/convex/hull_solutions/2003.txt
+./solution-submit 5509 hasi/convex/hull_solutions/5509.txt
+./solution-submit 4340 hasi/convex/hull_solutions/4340.txt
+./solution-submit 2287 hasi/convex/hull_solutions/2287.txt
+./solution-submit 5972 hasi/convex/hull_solutions/5972.txt
+./solution-submit 2118 hasi/convex/hull_solutions/2118.txt
+./solution-submit 5590 hasi/convex/hull_solutions/5590.txt
+./solution-submit 3714 hasi/convex/hull_solutions/3714.txt
+./solution-submit 4286 hasi/convex/hull_solutions/4286.txt
+./solution-submit 5371 hasi/convex/hull_solutions/5371.txt
+./solution-submit 6000 hasi/convex/hull_solutions/6000.txt
+./solution-submit 5775 hasi/convex/hull_solutions/5775.txt
+./solution-submit 5573 hasi/convex/hull_solutions/5573.txt
+./solution-submit 3608 hasi/convex/hull_solutions/3608.txt
+./solution-submit 3403 hasi/convex/hull_solutions/3403.txt
+./solution-submit 2745 hasi/convex/hull_solutions/2745.txt
+./solution-submit 688 hasi/convex/hull_solutions/688.txt
+./solution-submit 2226 hasi/convex/hull_solutions/2226.txt
+./solution-submit 4353 hasi/convex/hull_solutions/4353.txt
+./solution-submit 3947 hasi/convex/hull_solutions/3947.txt
+./solution-submit 96 hasi/convex/hull_solutions/96.txt
+./solution-submit 387 hasi/convex/hull_solutions/387.txt
+./solution-submit 4349 hasi/convex/hull_solutions/4349.txt
+./solution-submit 5952 hasi/convex/hull_solutions/5952.txt
+./solution-submit 2744 hasi/convex/hull_solutions/2744.txt
+./solution-submit 5067 hasi/convex/hull_solutions/5067.txt
+./solution-submit 2530 hasi/convex/hull_solutions/2530.txt
+./solution-submit 86 hasi/convex/hull_solutions/86.txt
+./solution-submit 4749 hasi/convex/hull_solutions/4749.txt
+./solution-submit 4379 hasi/convex/hull_solutions/4379.txt
+./solution-submit 3969 hasi/convex/hull_solutions/3969.txt
+./solution-submit 4753 hasi/convex/hull_solutions/4753.txt
+./solution-submit 3712 hasi/convex/hull_solutions/3712.txt
+./solution-submit 4409 hasi/convex/hull_solutions/4409.txt
+./solution-submit 2124 hasi/convex/hull_solutions/2124.txt
+./solution-submit 1157 hasi/convex/hull_solutions/1157.txt
+./solution-submit 4762 hasi/convex/hull_solutions/4762.txt
+./solution-submit 722 hasi/convex/hull_solutions/722.txt
+./solution-submit 2300 hasi/convex/hull_solutions/2300.txt
+./solution-submit 6172 hasi/convex/hull_solutions/6172.txt
+./solution-submit 3400 hasi/convex/hull_solutions/3400.txt
+./solution-submit 371 hasi/convex/hull_solutions/371.txt
+./solution-submit 367 hasi/convex/hull_solutions/367.txt
+./solution-submit 2292 hasi/convex/hull_solutions/2292.txt
+./solution-submit 6058 hasi/convex/hull_solutions/6058.txt
+./solution-submit 1368 hasi/convex/hull_solutions/1368.txt
+./solution-submit 3984 hasi/convex/hull_solutions/3984.txt
+./solution-submit 2736 hasi/convex/hull_solutions/2736.txt
+./solution-submit 384 hasi/convex/hull_solutions/384.txt
+./solution-submit 1854 hasi/convex/hull_solutions/1854.txt
+./solution-submit 6096 hasi/convex/hull_solutions/6096.txt
+./solution-submit 1736 hasi/convex/hull_solutions/1736.txt
+./solution-submit 5351 hasi/convex/hull_solutions/5351.txt
+./solution-submit 5948 hasi/convex/hull_solutions/5948.txt
+./solution-submit 3691 hasi/convex/hull_solutions/3691.txt
+./solution-submit 3549 hasi/convex/hull_solutions/3549.txt
+./solution-submit 4752 hasi/convex/hull_solutions/4752.txt
+./solution-submit 4407 hasi/convex/hull_solutions/4407.txt
+./solution-submit 3072 hasi/convex/hull_solutions/3072.txt
+./solution-submit 4030 hasi/convex/hull_solutions/4030.txt
+./solution-submit 4894 hasi/convex/hull_solutions/4894.txt
+./solution-submit 770 hasi/convex/hull_solutions/770.txt
+./solution-submit 6012 hasi/convex/hull_solutions/6012.txt
+./solution-submit 4826 hasi/convex/hull_solutions/4826.txt
+./solution-submit 3763 hasi/convex/hull_solutions/3763.txt
+./solution-submit 1979 hasi/convex/hull_solutions/1979.txt
+./solution-submit 3031 hasi/convex/hull_solutions/3031.txt
+./solution-submit 5746 hasi/convex/hull_solutions/5746.txt
+./solution-submit 2516 hasi/convex/hull_solutions/2516.txt
+./solution-submit 5785 hasi/convex/hull_solutions/5785.txt
+./solution-submit 5200 hasi/convex/hull_solutions/5200.txt
+./solution-submit 5039 hasi/convex/hull_solutions/5039.txt
+./solution-submit 3351 hasi/convex/hull_solutions/3351.txt
+./solution-submit 6181 hasi/convex/hull_solutions/6181.txt
+./solution-submit 215 hasi/convex/hull_solutions/215.txt
+./solution-submit 3639 hasi/convex/hull_solutions/3639.txt
+./solution-submit 2872 hasi/convex/hull_solutions/2872.txt
+./solution-submit 4165 hasi/convex/hull_solutions/4165.txt
+./solution-submit 4698 hasi/convex/hull_solutions/4698.txt
+./solution-submit 2093 hasi/convex/hull_solutions/2093.txt
+./solution-submit 24 hasi/convex/hull_solutions/24.txt
+./solution-submit 3041 hasi/convex/hull_solutions/3041.txt
+./solution-submit 2296 hasi/convex/hull_solutions/2296.txt
+./solution-submit 3040 hasi/convex/hull_solutions/3040.txt
+./solution-submit 5004 hasi/convex/hull_solutions/5004.txt
+./solution-submit 376 hasi/convex/hull_solutions/376.txt
+./solution-submit 684 hasi/convex/hull_solutions/684.txt
+./solution-submit 1735 hasi/convex/hull_solutions/1735.txt
+./solution-submit 4881 hasi/convex/hull_solutions/4881.txt
+./solution-submit 1726 hasi/convex/hull_solutions/1726.txt
+./solution-submit 1933 hasi/convex/hull_solutions/1933.txt
+./solution-submit 2514 hasi/convex/hull_solutions/2514.txt
+./solution-submit 2817 hasi/convex/hull_solutions/2817.txt
+./solution-submit 1965 hasi/convex/hull_solutions/1965.txt
+./solution-submit 2240 hasi/convex/hull_solutions/2240.txt
+./solution-submit 4784 hasi/convex/hull_solutions/4784.txt
+./solution-submit 5001 hasi/convex/hull_solutions/5001.txt
+./solution-submit 759 hasi/convex/hull_solutions/759.txt
+./solution-submit 2087 hasi/convex/hull_solutions/2087.txt
+./solution-submit 4337 hasi/convex/hull_solutions/4337.txt
+./solution-submit 5984 hasi/convex/hull_solutions/5984.txt
+./solution-submit 3625 hasi/convex/hull_solutions/3625.txt
+./solution-submit 3966 hasi/convex/hull_solutions/3966.txt
+./solution-submit 2074 hasi/convex/hull_solutions/2074.txt
+./solution-submit 2278 hasi/convex/hull_solutions/2278.txt
+./solution-submit 2875 hasi/convex/hull_solutions/2875.txt
+./solution-submit 5005 hasi/convex/hull_solutions/5005.txt
+./solution-submit 4454 hasi/convex/hull_solutions/4454.txt
+./solution-submit 3073 hasi/convex/hull_solutions/3073.txt
+./solution-submit 6138 hasi/convex/hull_solutions/6138.txt
+./solution-submit 3405 hasi/convex/hull_solutions/3405.txt
+./solution-submit 6191 hasi/convex/hull_solutions/6191.txt
+./solution-submit 372 hasi/convex/hull_solutions/372.txt
+./solution-submit 5618 hasi/convex/hull_solutions/5618.txt
+./solution-submit 4281 hasi/convex/hull_solutions/4281.txt
+./solution-submit 3368 hasi/convex/hull_solutions/3368.txt
+./solution-submit 1453 hasi/convex/hull_solutions/1453.txt
+./solution-submit 4639 hasi/convex/hull_solutions/4639.txt
+./solution-submit 3402 hasi/convex/hull_solutions/3402.txt
+./solution-submit 5592 hasi/convex/hull_solutions/5592.txt
+./solution-submit 5075 hasi/convex/hull_solutions/5075.txt
+./solution-submit 6245 hasi/convex/hull_solutions/6245.txt
+./solution-submit 2866 hasi/convex/hull_solutions/2866.txt
+./solution-submit 5671 hasi/convex/hull_solutions/5671.txt
+./solution-submit 4679 hasi/convex/hull_solutions/4679.txt
+./solution-submit 2764 hasi/convex/hull_solutions/2764.txt
+./solution-submit 3713 hasi/convex/hull_solutions/3713.txt
+./solution-submit 4351 hasi/convex/hull_solutions/4351.txt
+./solution-submit 4931 hasi/convex/hull_solutions/4931.txt
+./solution-submit 5401 hasi/convex/hull_solutions/5401.txt
+./solution-submit 59 hasi/convex/hull_solutions/59.txt
+./solution-submit 6220 hasi/convex/hull_solutions/6220.txt
+./solution-submit 5196 hasi/convex/hull_solutions/5196.txt
+./solution-submit 202 hasi/convex/hull_solutions/202.txt
+./solution-submit 4995 hasi/convex/hull_solutions/4995.txt
+./solution-submit 2005 hasi/convex/hull_solutions/2005.txt
+./solution-submit 6115 hasi/convex/hull_solutions/6115.txt
+./solution-submit 2125 hasi/convex/hull_solutions/2125.txt
+./solution-submit 5777 hasi/convex/hull_solutions/5777.txt
+./solution-submit 6213 hasi/convex/hull_solutions/6213.txt
+./solution-submit 2731 hasi/convex/hull_solutions/2731.txt
+./solution-submit 2503 hasi/convex/hull_solutions/2503.txt
+./solution-submit 2898 hasi/convex/hull_solutions/2898.txt
+./solution-submit 2006 hasi/convex/hull_solutions/2006.txt
+./solution-submit 2749 hasi/convex/hull_solutions/2749.txt
+./solution-submit 4172 hasi/convex/hull_solutions/4172.txt
+./solution-submit 2512 hasi/convex/hull_solutions/2512.txt
+./solution-submit 3755 hasi/convex/hull_solutions/3755.txt
+./solution-submit 4702 hasi/convex/hull_solutions/4702.txt
+./solution-submit 53 hasi/convex/hull_solutions/53.txt
+./solution-submit 5186 hasi/convex/hull_solutions/5186.txt
+./solution-submit 1958 hasi/convex/hull_solutions/1958.txt
+./solution-submit 6207 hasi/convex/hull_solutions/6207.txt
+./solution-submit 99 hasi/convex/hull_solutions/99.txt
+./solution-submit 4847 hasi/convex/hull_solutions/4847.txt
+./solution-submit 3758 hasi/convex/hull_solutions/3758.txt
+./solution-submit 3585 hasi/convex/hull_solutions/3585.txt
+./solution-submit 270 hasi/convex/hull_solutions/270.txt
+./solution-submit 2282 hasi/convex/hull_solutions/2282.txt
+./solution-submit 5378 hasi/convex/hull_solutions/5378.txt
+./solution-submit 2969 hasi/convex/hull_solutions/2969.txt
+./solution-submit 21 hasi/convex/hull_solutions/21.txt
+./solution-submit 2877 hasi/convex/hull_solutions/2877.txt
+./solution-submit 5954 hasi/convex/hull_solutions/5954.txt
+./solution-submit 2818 hasi/convex/hull_solutions/2818.txt
+./solution-submit 5759 hasi/convex/hull_solutions/5759.txt
+./solution-submit 4732 hasi/convex/hull_solutions/4732.txt
+./solution-submit 5517 hasi/convex/hull_solutions/5517.txt
+./solution-submit 3286 hasi/convex/hull_solutions/3286.txt
+./solution-submit 5011 hasi/convex/hull_solutions/5011.txt
+./solution-submit 5912 hasi/convex/hull_solutions/5912.txt
+./solution-submit 3189 hasi/convex/hull_solutions/3189.txt
+./solution-submit 689 hasi/convex/hull_solutions/689.txt
+./solution-submit 5188 hasi/convex/hull_solutions/5188.txt
+./solution-submit 2306 hasi/convex/hull_solutions/2306.txt
+./solution-submit 3570 hasi/convex/hull_solutions/3570.txt
+./solution-submit 762 hasi/convex/hull_solutions/762.txt
+./solution-submit 1972 hasi/convex/hull_solutions/1972.txt
+./solution-submit 2231 hasi/convex/hull_solutions/2231.txt
+./solution-submit 1240 hasi/convex/hull_solutions/1240.txt
+./solution-submit 5321 hasi/convex/hull_solutions/5321.txt
+./solution-submit 3866 hasi/convex/hull_solutions/3866.txt
+./solution-submit 1234 hasi/convex/hull_solutions/1234.txt
+./solution-submit 5420 hasi/convex/hull_solutions/5420.txt
+./solution-submit 5915 hasi/convex/hull_solutions/5915.txt
+./solution-submit 3565 hasi/convex/hull_solutions/3565.txt
+./solution-submit 5124 hasi/convex/hull_solutions/5124.txt
+./solution-submit 1167 hasi/convex/hull_solutions/1167.txt
+./solution-submit 5129 hasi/convex/hull_solutions/5129.txt
+./solution-submit 1752 hasi/convex/hull_solutions/1752.txt
+./solution-submit 4777 hasi/convex/hull_solutions/4777.txt
+./solution-submit 3113 hasi/convex/hull_solutions/3113.txt
+./solution-submit 3722 hasi/convex/hull_solutions/3722.txt
+./solution-submit 3981 hasi/convex/hull_solutions/3981.txt
+./solution-submit 3917 hasi/convex/hull_solutions/3917.txt
+./solution-submit 2088 hasi/convex/hull_solutions/2088.txt
+./solution-submit 1952 hasi/convex/hull_solutions/1952.txt
+./solution-submit 729 hasi/convex/hull_solutions/729.txt
+./solution-submit 3865 hasi/convex/hull_solutions/3865.txt
+./solution-submit 5861 hasi/convex/hull_solutions/5861.txt
+./solution-submit 1713 hasi/convex/hull_solutions/1713.txt
+./solution-submit 2241 hasi/convex/hull_solutions/2241.txt
+./solution-submit 1239 hasi/convex/hull_solutions/1239.txt
+./solution-submit 5328 hasi/convex/hull_solutions/5328.txt
+./solution-submit 4927 hasi/convex/hull_solutions/4927.txt
+./solution-submit 5958 hasi/convex/hull_solutions/5958.txt
+./solution-submit 92 hasi/convex/hull_solutions/92.txt
+./solution-submit 4475 hasi/convex/hull_solutions/4475.txt
+./solution-submit 1949 hasi/convex/hull_solutions/1949.txt
