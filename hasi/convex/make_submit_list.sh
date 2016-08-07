@@ -10,7 +10,7 @@ python3.5 convex_list.py > convex_list.txt
 for i in $(cat convex_list.txt); do
   size=`perl -pe 's|\s||g' solutions/$i.txt | wc --bytes`
   if [ $size -le 5000 ]; then
-    echo "./solution-submit $i hasi/matching/solutions/$i.txt"
+    echo "./solution-submit $i hasi/convex/solutions/$i.txt"
   else
     echo "# [SKIPPED] $i.txt (solution size = $size)"
   fi
