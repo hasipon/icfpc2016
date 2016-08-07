@@ -11,6 +11,6 @@ $ make run
 * problem_id を指定して生成
 ```
 $ make
-$ make run ID='<problem_id1> <problem_id2>'
+$ make run ID='<problem_id1> <problem_id2> ...'
 ```
 生成用のファイルは `tmp/*` ，画像は `img/*` に出力されるよ．
