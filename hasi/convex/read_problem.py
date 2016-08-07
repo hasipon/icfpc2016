@@ -52,6 +52,7 @@ def calc(polygons: List[List[Vector]]):
         if cross(sub(t, s), sub(u, t)) < Fraction(0):
             return
 
+    # 0,0から1,1に収まってるかを確認
     min_x = min(s.x for s in a)
     min_y = min(s.y for s in a)
     b = [Vector(s.x - min_x, s.y - min_y) for s in a]
@@ -78,7 +79,7 @@ def main():
     if r:
         print(json.dumps(r))
     else:
-        print(json.dumps({'a': False    }))
+        print(json.dumps({'a': False}))
 
 
 main()
