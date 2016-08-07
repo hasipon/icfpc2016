@@ -295,6 +295,17 @@ class ProblemSprite extends Sprite
 				state = ProblemSpriteState.RemoveSelect(p, line, arr, removePolygons);
 		}
 	}
+	
+	public function removeAll():Void
+	{
+		switch (state)
+		{
+			case LineSelect(_) | PolygonSelect(_) | Newtral:
+				
+			case RemoveSelect(p, line, polygons, removePolygons):
+				state = ProblemSpriteState.RemoveSelect(p, line, polygons, [for (p in polygons) p]);
+		}
+	}
 }
 
 enum ProblemSpriteState
