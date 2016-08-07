@@ -322,7 +322,7 @@ void solve_convex_hull(Problem2 base_prob) {
   }
 
   for (int h = 0; h < history.size(); ++h) {
-    auto& cut = history[h];
+    const auto& cut = history[h];
     gvNewTime();
     gvPolygon(hull, gvColor(0));
     gvSegment(history[h].seg, 0.1, gvColor(1));
@@ -337,11 +337,134 @@ void solve_convex_hull(Problem2 base_prob) {
       }
     }
     for (int i = 0; i < reversing.size(); ++i) {
+      bg::unique(reversing[i].pol);
+    }
+    for (int i = 0; i < reversing.size(); ++i) {
       gvPolygon(reversing[i].pol, gvColor(i));
     }
   }
 
-  // todo fukugen
+  vector<point> all_points;
+  for (int i = 0; i < reversing.size(); ++i) {
+    for (auto& p : reversing[i].pol.outer()) {
+      all_points.push_back(p);
+    }
+  }
+
+  sort(all_points.begin(), all_points.end(),
+       [](const point& a, const point& b) {
+         if (a.y() == b.y())
+           return a.x() < b.x();
+         else
+           return a.y() < b.y();
+       });
+  all_points.erase(unique(all_points.begin(), all_points.end(),
+                          [](const point& a, const point& b) {
+                            return a.x() == b.x() && a.y() == b.y();
+                          }),
+                   all_points.end());
+
+  for (int i = 0; i < all_points.size(); ++i) {
+    auto p1 = all_points[i];
+    gvCircle(p1.x().convert_to<double>(), p1.y().convert_to<double>(), 0.01,
+             gvColor(i));
+  }
+
+  map<int, vector<pair<int, point>>> mapping;
+  vector<pair<int, point>> vppi;
+  for (int i = 0; i < all_points.size(); ++i) {
+    vppi.emplace_back(i, all_points[i]);
+  }
+  mapping[1] = vppi;
+
+  reverse(begin(history), end(history));
+
+  for (int h = 0; h < history.size(); ++h) {
+    gvNewTime();
+    gvSegment(history[h].seg, 0.1, gvColor(1));
+    const auto& cut = history[h];
+    const auto& m = mapping[cut.polygon_parent];
+    const auto& cur = nodes[cut.step];
+
+    for (int i = 0; i < cur.pols.size(); ++i) {
+      gvPolygon(cur.pols[i].pol, gvColor(i));
+    }
+
+    for (auto& p : m) {
+      auto& p1 = p.second;
+      gvCircle(p1.x().convert_to<double>(), p1.y().convert_to<double>(), 0.01,
+               gvColor(p.first));
+    }
+
+    const auto& nex = nodes[cut.step + 1];
+    auto it = find_if(begin(nex.pols), end(nex.pols), [&](const polygon2& pol) {
+      return pol.id == cut.polygon_child2;
+    });
+    assert(it != end(nex.pols));
+    const auto& child2 = *it;
+
+    // const auto& cur = nodes[h];
+    /*
+    const auto& parent = *find_if(
+        begin(cur.pols), end(cur.pols),
+        [&](const polygon2& pol) { return pol.id == cut.polygon_parent; });
+    const auto& child1 = *find_if(
+        begin(nex.pols), end(nex.pols),
+        [&](const polygon2& pol) { return pol.id == cut.polygon_child1; });
+     */
+    // auto child1_rev = flip(child1.pol, cut.seg.first, cut.seg.second);
+    for (const auto& p : m) {
+      if (bg::intersects(child2.pol, p.second)) {
+        mapping[cut.polygon_child2].push_back(p);
+      } else {
+        mapping[cut.polygon_child1].push_back(p);
+        mapping[cut.polygon_child1].back().second =
+            reflect(cut.seg.first, cut.seg.second, p.second);
+      }
+    }
+  }
+
+  vppi.clear();
+  for (auto& p : nodes.back().pols) {
+    vppi.insert(vppi.end(), mapping[p.id].begin(), mapping[p.id].end());
+  }
+  sort(begin(vppi), end(vppi),
+       [](const pair<int, point>& a, const pair<int, point>& b) {
+         return a.first < b.first;
+       });
+  assert(vppi.size() == all_points.size());
+
+  // output
+
+  cout << all_points.size() << endl;
+  for (int i = 0; i < all_points.size(); ++i) {
+    cout << all_points[i] << endl;
+  }
+
+  cout << reversing.size() << endl;
+  for (int i = 0; i < reversing.size(); ++i) {
+    auto n = reversing[i].pol.outer().size() - 1;
+    cout << n;
+    for (int j = 0; j < n; ++j) {
+      const auto& p = reversing[i].pol.outer()[j];
+      auto index = lower_bound(all_points.begin(), all_points.end(), p,
+                               [](const point& a, const point& b) {
+                                 if (a.y() == b.y())
+                                   return a.x() < b.x();
+                                 else
+                                   return a.y() < b.y();
+                               }) -
+                   all_points.begin();
+      cout << " " << index;
+    }
+    cout << endl;
+  }
+
+  for (const auto& p : vppi) {
+    point q;
+    bg::transform(p.second, q, fix_positions);
+    cout << q << endl;
+  }
 }
 
 int main(int argc, char** argv) {
