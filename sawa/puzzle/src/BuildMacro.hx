@@ -9,6 +9,21 @@ class BuildMacro
 {
 	public static function run():Void
 	{
+		var id = "9";
+		Context.addResource(
+			id, 
+			Bytes.ofString(
+				Json.stringify(
+					{
+						id: id,
+						data : File.getContent("../../problems2/" + id + ".txt"),
+						solution : null,
+					}
+				)
+			)
+		);
+			
+		/*
 		var solutionFiles = new Map();
 		var dir = "../../solutions";
 		for (name in FileSystem.readDirectory(dir))
@@ -16,11 +31,7 @@ class BuildMacro
 			if (StringTools.endsWith(name, ".json"))
 			{
 				var id = name.split("-")[0];
-				var data = Json.parse(File.getContent(dir + "/" + name));
-				if (data.resemblance < 1)
-				{
-					solutionFiles[id] = data;
-				}
+				solutionFiles[id] = Json.parse(File.getContent(dir + "/" + name));
 			}
 		}
 		
@@ -40,6 +51,6 @@ class BuildMacro
 					)
 				)
 			);
-		}
-	}	
+		}*/
+	}
 }
