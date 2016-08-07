@@ -489,7 +489,7 @@ get_trans_pair(const Problem2& base_prob, int i) {
 }
 
 int main(int argc, char** argv) {
-  g_gvEnableFlag = false;
+  // g_gvEnableFlag = false;
   g_gvDefaultAlpha = 64;
   if (argc == 1) return 1;
   string problem_path = argv[1];
@@ -502,7 +502,19 @@ int main(int argc, char** argv) {
     auto trans = get_trans_pair(base_prob, i);
     auto prob = base_prob;
     for (int j = 0; j < base_prob.points.size(); ++j) {
-      bg::transform(base_prob.points[i], prob.points[i], trans.first);
+      bg::transform(base_prob.points[j], prob.points[j], trans.first);
+    }
+    gvNewTime();
+    gvOutput("%d", i);
+    auto pol = convex_hull(prob);
+    gvPolygon(pol, gvColor(i));
+  }
+
+  for (int i = 0; i < 4; ++i) {
+    auto trans = get_trans_pair(base_prob, i);
+    auto prob = base_prob;
+    for (int j = 0; j < base_prob.points.size(); ++j) {
+      bg::transform(base_prob.points[j], prob.points[j], trans.first);
     }
     auto ans = solve_convex_hull(prob);
     for (int j = 0; j < ans.to.size(); ++j) {
