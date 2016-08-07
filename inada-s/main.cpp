@@ -2,7 +2,6 @@
 #include <boost/assign/list_of.hpp>
 #include <fstream>
 #include <iostream>
-#include <random>
 #include <vector>
 #include "common.hpp"
 using namespace std;
@@ -456,8 +455,9 @@ Answer solve_convex_hull(Problem2 prob) {
   return ans;
 }
 
-pair<Problem2, trans::translate_transformer<rational, 2, 2>> trans_to_origin(
-    const Problem2& base_prob, int i) {
+pair<trans::translate_transformer<rational, 2, 2>,
+     trans::translate_transformer<rational, 2, 2>>
+get_trans_pair(const Problem2& base_prob, int i) {
   auto prob = base_prob;
   rational minx, miny, maxx, maxy;
   maxx = minx = base_prob.points[0].x();
@@ -471,38 +471,25 @@ pair<Problem2, trans::translate_transformer<rational, 2, 2>> trans_to_origin(
   }
 
   if (i % 4 == 0) {
-    for (int i = 0; i < prob.points.size(); ++i) {
-      prob.points[i].x(prob.points[i].x() - minx);
-      prob.points[i].y(prob.points[i].y() - miny);
-    }
-    return make_pair(prob,
+    return make_pair(trans::translate_transformer<rational, 2, 2>(-minx, -miny),
                      trans::translate_transformer<rational, 2, 2>(minx, miny));
-  }
-  if (i % 4 == 1) {
-    for (int i = 0; i < prob.points.size(); ++i) {
-      prob.points[i].x(prob.points[i].x() - maxx + 1);
-      prob.points[i].y(prob.points[i].y() - miny);
-    }
+  } else if (i % 4 == 1) {
     return make_pair(
-        prob, trans::translate_transformer<rational, 2, 2>(maxx + 1, miny));
+        trans::translate_transformer<rational, 2, 2>(-maxx + 1, -miny),
+        trans::translate_transformer<rational, 2, 2>(maxx - 1, miny));
   } else if (i % 4 == 2) {
-    for (int i = 0; i < prob.points.size(); ++i) {
-      prob.points[i].x(prob.points[i].x() - minx);
-      prob.points[i].y(prob.points[i].y() - maxy + 1);
-    }
     return make_pair(
-        prob, trans::translate_transformer<rational, 2, 2>(minx, maxy + 1));
+        trans::translate_transformer<rational, 2, 2>(-minx, -maxy + 1),
+        trans::translate_transformer<rational, 2, 2>(minx, maxy - 1));
   } else {
-    for (int i = 0; i < prob.points.size(); ++i) {
-      prob.points[i].x(prob.points[i].x() - maxx + 1);
-      prob.points[i].y(prob.points[i].y() - maxy + 1);
-    }
     return make_pair(
-        prob, trans::translate_transformer<rational, 2, 2>(maxx + 1, maxy + 1));
+        trans::translate_transformer<rational, 2, 2>(-maxx + 1, -maxy + 1),
+        trans::translate_transformer<rational, 2, 2>(maxx - 1, maxy - 1));
   }
 }
 
 int main(int argc, char** argv) {
+  // g_gvEnableFlag = false;
   g_gvDefaultAlpha = 64;
   if (argc == 1) return 1;
   string problem_path = argv[1];
@@ -512,17 +499,33 @@ int main(int argc, char** argv) {
   base_prob.init(ifs);
 
   for (int i = 0; i < 4; ++i) {
-    auto prob_trans = trans_to_origin(base_prob, i);
-    auto ans = solve_convex_hull(prob_trans.first);
-    auto ans2 = ans;
-    for (int t = 0; t < ans.to.size(); ++t) {
-      bg::transform(ans2.to[i], ans.to[i], prob_trans.second);
+    auto trans = get_trans_pair(base_prob, i);
+    auto prob = base_prob;
+    for (int j = 0; j < base_prob.points.size(); ++j) {
+      bg::transform(base_prob.points[j], prob.points[j], trans.first);
+    }
+    gvNewTime();
+    gvOutput("%d", i);
+    auto pol = convex_hull(prob);
+    gvPolygon(pol, gvColor(i));
+  }
+
+  for (int i = 0; i < 4; ++i) {
+    auto trans = get_trans_pair(base_prob, i);
+    auto prob = base_prob;
+    for (int j = 0; j < base_prob.points.size(); ++j) {
+      bg::transform(base_prob.points[j], prob.points[j], trans.first);
+    }
+    auto ans = solve_convex_hull(prob);
+    for (int j = 0; j < ans.to.size(); ++j) {
+      auto tmp = ans.to[j];
+      bg::transform(tmp, ans.to[j], trans.second);
     }
     auto str = ans.output_format();
+    cerr << str.length() << endl;
     if (str.length() <= 5000) {
       cout << str;
       break;
     }
-    cerr << str.length() << endl;
   }
 }
