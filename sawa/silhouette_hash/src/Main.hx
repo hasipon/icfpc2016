@@ -1,5 +1,6 @@
 package;
 
+import haxe.Json;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -14,16 +15,17 @@ class Main
 		{
 			if (StringTools.endsWith(file, ".txt"))
 			{
-				start(PROBLEM_DIRECTORY + "/" + file);
+				start(file);
 			}
 		}
 		
 		Sys.getChar(false);
 	}
 	
-	public static function start(file:String):Void
+	public static function start(id:String):Void
 	{
-		var content = File.getContent(file);
-		new Pro;
+		var content = File.getContent(dir + "/" + id + ".txt");
+		var result = new Silhoette(file, content).calc();
+		File.saveContent(Json.stringify(result));
 	}
 }

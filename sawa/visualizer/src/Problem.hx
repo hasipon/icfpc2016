@@ -72,7 +72,6 @@ class Problem
 	
 	public function apply(startPointIndex:Int, endPointIndex:Int, polygonIndexes:Array<Int>, removePolygonIndexes:Array<Int>):Void
 	{
-		
 		var sv = points[startPointIndex];
 		var ev = points[endPointIndex];
 		var vecOA = new Vec(sv, ev);
