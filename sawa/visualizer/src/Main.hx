@@ -253,7 +253,7 @@ class Main extends Sprite
 		problemSprite.x = 300;
 		problemSprite.y = 300;
 		
-		outputField.text = problem.output(currentProblem[0]);
+		outputField.text = problem.output(currentProblem[0]).split("-0").join("0");
 		outputField2.text = outputField.text.length + "Byte です。";
 		
 		// outputField.text = Resource.getString(name).split("\r\n").join("\n") + problem.output2();
