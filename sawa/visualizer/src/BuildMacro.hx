@@ -17,10 +17,7 @@ class BuildMacro
 			{
 				var id = name.split("-")[0];
 				var data = Json.parse(File.getContent(dir + "/" + name));
-				if (data.resemblance < 1)
-				{
-					solutionFiles[id] = data;
-				}
+				solutionFiles[id] = data;
 			}
 		}
 		
@@ -28,6 +25,12 @@ class BuildMacro
 		for (name in FileSystem.readDirectory(dir))
 		{
 			var id = name.split(".txt")[0];
+			var solution = if (solutionFiles.exists(id)){
+					var s = solutionFiles[id];
+					if (s.resemblance >= 1)  continue;
+					s;
+				} else null;
+			
 			Context.addResource(
 				id, 
 				Bytes.ofString(
@@ -35,7 +38,7 @@ class BuildMacro
 						{
 							id: id,
 							data : File.getContent(dir + "/" + name),
-							solution : if (solutionFiles.exists(id)) solutionFiles[id] else null,
+							solution : solution,
 						}
 					)
 				)
