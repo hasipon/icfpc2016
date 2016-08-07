@@ -10,5 +10,9 @@ for x in glob(os.path.join(sys.argv[1], '*.json')):
         s = json.loads(f.read())
         if s['resemblance'] == 1:
             solved.add((problem_id, s['solution_spec_hash']))
+for x in glob(os.path.join(sys.argv[2], '*.json')):
+    with open(x) as f:
+        s = json.loads(f.read())
+        solved.add((s['problem_id'], ''))
 for x, t in sorted(solved):
     print(x, t)
