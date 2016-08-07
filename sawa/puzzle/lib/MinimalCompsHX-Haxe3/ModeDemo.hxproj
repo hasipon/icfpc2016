@@ -4,30 +4,32 @@
   <output>
     <movie outputType="CustomBuild" />
     <movie input="" />
-    <movie path="build.hxml" />
+    <movie path="ModeDemo.xml" />
     <movie fps="30" />
-    <movie width="1200" />
-    <movie height="800" />
-    <movie version="0" />
+    <movie width="640" />
+    <movie height="480" />
+    <movie version="1" />
     <movie minorVersion="0" />
-    <movie platform="hxml" />
-    <movie background="FFFFFF" />
-    <movie preferredSDK="Haxe 3.3.0;3.3.0;" />
+    <movie platform="Lime" />
+    <movie background="000000" />
+    <movie preferredSDK="Haxe 3.0.0;3.0.0;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="src" />
-    <class path="lib\MinimalCompsHX-Haxe3\Source" />
-    <class path="lib\thx\src" />
+    <class path="C:\HaxeToolkit_RC\haxe\lib\openfl\3,6,1" />
+    <class path="C:\HaxeToolkit_RC\haxe\lib\lime\2,9,1" />
+    <class path="source" />
+    <class path="C:\HaxeToolkit_RC\haxe\lib\openfl\3,6,1\extern" />
+    <class path="bin\flash\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="" />
+    <option directives="openfl=3.6.1&#xA;lime=2.9.1&#xA;openfl-next&#xA;tools=2.9.1&#xA;no-compilation&#xA;openfl-flash&#xA;web&#xA;display" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
-    <option mainClass="Main" />
-    <option enabledebug="True" />
-    <option additional="-swf-version 11.8 &#xA;--macro BuildMacro.run()" />
+    <option mainClass="ApplicationMain" />
+    <option enabledebug="False" />
+    <option additional="-swf-version 11.2" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
@@ -35,21 +37,21 @@
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
-    <compile path="src\Main.hx" />
+    <compile path="Source\ProjectClass.hx" />
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>cmd /c haxe $(OutputFile) -debug</preBuildCommand>
+  <preBuildCommand>"$(CompilerPath)/haxelib" run lime build "$(OutputFile)" $(TargetBuild) -$(BuildConfig) -Dfdb</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="OpenDocument" />
-    <option testMovieCommand="bin/Visualizer.swf" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="" />
   </options>
   <!-- Plugin storage -->
   <storage />
