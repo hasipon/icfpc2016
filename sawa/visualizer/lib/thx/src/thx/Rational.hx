@@ -144,10 +144,16 @@ abstract Rational(RationalImpl) from RationalImpl to RationalImpl {
     return num.toFloat() / den.toFloat();
 
   public function toString() : String {
-    if(den == 1)
-      return '${num.toString()}';
+    var str = if(den == 1)
+      '${num.toString()}';
     else
-      return '${num.toString()}/${den.toString()}'; // ⁄ or /
+      '${num.toString()}/${den.toString()}'; // ⁄ or /
+	  
+	if (str == "-0")
+	{
+		str = "0";
+	}
+	return str;
   }
 
   inline function get_num() return this.num;
