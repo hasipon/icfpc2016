@@ -154,7 +154,6 @@ class Problem
 		}
 		var newPoints = [];
 		var pointMap = new Map();
-		
 		for (i in 0...points.length)
 		{
 			var point = points[i];

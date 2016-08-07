@@ -110,6 +110,9 @@ class Main extends Sprite
 			case Keyboard.O:
 				open(null);
 				
+			case Keyboard.Q:
+				center(null);
+				
 			case Keyboard.Z:
 				undo(null);
 				
@@ -127,12 +130,18 @@ class Main extends Sprite
 	
 	private function undo(e:Event):Void 
 	{
-		update(currentIndex - 1);
+		if (undoButton.enabled)
+		{
+			update(currentIndex - 1);
+		}
 	}
 	
 	private function redo(e:Event):Void 
 	{
-		update(currentIndex + 1);
+		if (redoButton.enabled)
+		{
+			update(currentIndex + 1);
+		}
 	}
 	
 	private function center(e:Event):Void 
