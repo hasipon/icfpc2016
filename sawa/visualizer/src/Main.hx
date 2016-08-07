@@ -284,10 +284,10 @@ class Main extends Sprite
 		arr.sort(
 			function(a:String, b:String):Int
 			{
-				a = a.toLowerCase();
-				b = b.toLowerCase();
-				if (a < b) return -1;
-				if (a > b) return 1;
+				var ai = Std.parseInt(a);
+				var bi = Std.parseInt(b);
+				if (ai < bi) return -1;
+				if (ai > bi) return 1;
 				return 0;
 			} 
 		);
