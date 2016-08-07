@@ -186,7 +186,6 @@ def main():
 
     a11, a12, a13 = map(Fraction, data['x'])
     a21, a22, a23 = map(Fraction, data['y'])
-    print([a11, a12, a13, a21, a22, a23])
 
     #: :type: Dict[Vector, Vector]
     mapping = {}
@@ -196,16 +195,17 @@ def main():
     src_v_list = list(mapping.keys())
     src_v_dict = {s: i for i, s in enumerate(src_v_list)}
 
-    print(len(src_v_list))
-    for s in src_v_list:
-        print(s)
-    print(len(facets))
-    for s in facets:
-        print(' '.join(map(str, [len(s.src)] + [src_v_dict[t] for t in s.src])))
-    for s in src_v_list:
-        p = mapping[s]
-        q = Vector(p.x * a11 + p.y * a12 + a13, p.x * a21 + p.y * a22 + a23)
-        print(q)
+    with open(sys.argv[2], 'w') as f:
+        f.write('%d\n' % len(src_v_list))
+        for s in src_v_list:
+            f.write('%s\n' % s)
+        f.write('%d\n' % len(facets))
+        for s in facets:
+            f.write('%s\n' % ' '.join(map(str, [len(s.src)] + [src_v_dict[t] for t in s.src])))
+        for s in src_v_list:
+            p = mapping[s]
+            q = Vector(p.x * a11 + p.y * a12 + a13, p.x * a21 + p.y * a22 + a23)
+            f.write('%s\n' % q)
 
 
 main()
