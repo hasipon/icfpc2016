@@ -111,6 +111,7 @@ void f(int id)
     rational a = mx_x - mn_x;
     rational b = mx_y - mn_y;
     rational c = max(a, b);
+    fout << "set size ratio 1" << endl;
     fout << "set xrange[" << -eps << ":" << c.convert_to<double>()+eps << "]" << endl;
     fout << "set yrange[" << -eps << ":" << c.convert_to<double>()+eps << "]" << endl;
     fout << "set terminal png" << endl;

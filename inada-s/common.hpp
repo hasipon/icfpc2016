@@ -7,6 +7,7 @@
 #include <sstream>
 
 #include <boost/geometry.hpp>
+#include <boost/geometry/algorithms/equals.hpp>
 #include <boost/geometry/algorithms/intersection.hpp>
 #include <boost/geometry/geometries/point_xy.hpp>
 #include <boost/geometry/geometries/segment.hpp>
@@ -16,6 +17,7 @@
 #include <boost/multiprecision/number.hpp>
 
 namespace bg = boost::geometry;
+namespace trans = bg::strategy::transform;
 namespace bm = boost::multiprecision;
 
 typedef bm::number<bm::gmp_rational, bm::et_off> rational;
@@ -28,6 +30,10 @@ typedef bg::model::box<point> box;
 const rational eps = rational("1/1000000000");
 const rational PI = rational(M_PI);
 const point ORIGIN(0, 0);
+
+bool operator==(const point& a, const point& b) {
+  return a.x() == b.x() && a.y() == b.y();
+}
 
 point operator-=(point& a, point b) {
   bg::subtract_point(a, b);
@@ -170,6 +176,14 @@ void gvPolygon(const polygon& pol, GV_RGB rgb) {
       gvPolygonAdd(x, y);
     });
   });
+  /*
+  int i = 0;
+  bg::for_each_point(pol, [&](const point& p) {
+    const auto x = p.x().convert_to<double>();
+    const auto y = p.y().convert_to<double>();
+    gvText(x, y, 0.1, "%d", i++);
+  });
+   */
 }
 
 void gvSegment(const segment& s, double r, GV_RGB rgb) {

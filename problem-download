@@ -31,8 +31,9 @@ function download() {
     ret_code=$?
     if [ $ret_code != 0 ]; then
       echo "wait for retry.."
-      sleep 5
+      sleep 3
     else
+      sleep 3
       break
     fi
     done
