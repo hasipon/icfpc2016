@@ -2,6 +2,7 @@
 #include <boost/assign/list_of.hpp>
 #include <fstream>
 #include <iostream>
+#include <random>
 #include <vector>
 #include "common.hpp"
 using namespace std;
@@ -87,36 +88,35 @@ polygon flip(const polygon& target, point p1, point p2) {
   return ret;
 }
 
-void solve_convex_hull(Problem2 base_prob) {
-  Problem2 prob = base_prob;
-  rational minx = base_prob.points[0].x(), miny = base_prob.points[0].y();
-  for (int i = 0; i < base_prob.points.size(); ++i) {
-    minx = min(minx, base_prob.points[i].x());
-    miny = min(miny, base_prob.points[i].y());
-  }
+struct Answer {
+  vector<point> from, to;
+  vector<vector<int>> index;
+  string output_format() {
+    stringstream ss;
 
-  for (int i = 0; i < prob.points.size(); ++i) {
-    prob.points[i].x(prob.points[i].x() - minx);
-    prob.points[i].y(prob.points[i].y() - miny);
-  }
-
-  // 元の位置に戻すやつ
-  trans::translate_transformer<rational, 2, 2> fix_positions(minx, miny);
-
-  vector<polygon> pols(prob.polygon_index.size());
-  for (int i = 0; i < prob.polygon_index.size(); ++i) {
-    polygon& pol = pols[i];
-    for (int j = 0; j < prob.polygon_index[i].size(); ++j) {
-      bg::append(pol, prob.points[prob.polygon_index[i][j]]);
+    ss << from.size() << endl;
+    for (int i = 0; i < from.size(); ++i) {
+      ss << from[i] << endl;
     }
+
+    ss << index.size() << endl;
+    for (int i = 0; i < index.size(); ++i) {
+      ss << index[i].size();
+      for (int j = 0; j < index[i].size(); ++j) {
+        ss << " " << index[i][j];
+      }
+      ss << endl;
+    }
+
+    for (int i = 0; i < to.size(); ++i) {
+      ss << to[i] << endl;
+    }
+
+    return ss.str();
   }
+};
 
-  for (int i = 0; i < pols.size(); ++i) {
-    gvPolygon(pols[i], gvColor(i));
-  }
-
-  gvNewTime();
-
+polygon convex_hull(Problem2 prob) {
   // 頂点集合から凸包求める
   polygon hull;
   auto points = prob.points;
@@ -142,10 +142,28 @@ void solve_convex_hull(Problem2 base_prob) {
     if (best_index == 0) break;
     last_index = best_index;
   }
-  gvPolygon(hull, gvColor(1));
+  return hull;
+}
+
+Answer solve_convex_hull(Problem2 prob) {
+  vector<polygon> pols(prob.polygon_index.size());
+  for (int i = 0; i < prob.polygon_index.size(); ++i) {
+    polygon& pol = pols[i];
+    for (int j = 0; j < prob.polygon_index[i].size(); ++j) {
+      bg::append(pol, prob.points[prob.polygon_index[i][j]]);
+    }
+  }
+
+  for (int i = 0; i < pols.size(); ++i) {
+    gvPolygon(pols[i], gvColor(i));
+  }
+
+  gvNewTime();
+
+  const auto hull = convex_hull(prob);
   const point hull_center = bg::return_centroid<point>(hull);
 
-  vector<segment> tocut;  // 長い辺
+  vector<segment> tocut;
   auto& outer = hull.outer();
   for (int j = 1; j < outer.size(); ++j) {
     auto v = outer[j] - outer[j - 1];
@@ -197,18 +215,20 @@ void solve_convex_hull(Problem2 base_prob) {
     // 一つみつかったらつぎのステップへ
     bool found = false;
     for (int t = 0; t < tocut.size() && !found; ++t) {
+      const auto& target = tocut[(step + t) % tocut.size()];
+
       for (auto& pol : cur.pols) {
         vector<point> out, tmp;
         const auto& outer = pol.pol.outer();
         for (int i = 1; i < outer.size(); ++i) {
           segment seg(outer[i], outer[i - 1]);
           auto v1 = outer[i] - outer[i - 1];
-          auto v2 = tocut[t].first - tocut[t].second;
+          auto v2 = target.first - target.second;
           if (cross(v1, v2) == 0) {
             continue;  // 平行
           }
           tmp.clear();
-          bg::intersection(tocut[t], seg, tmp);
+          bg::intersection(target, seg, tmp);
           if (tmp.size()) {
             out.insert(end(out), begin(tmp), end(tmp));
           }
@@ -408,36 +428,77 @@ void solve_convex_hull(Problem2 base_prob) {
        });
   assert(vppi.size() == all_points.size());
 
-  // output
+  Answer ans;
+  ans.from = all_points;
 
-  cout << all_points.size() << endl;
-  for (int i = 0; i < all_points.size(); ++i) {
-    cout << all_points[i] << endl;
-  }
-
-  cout << reversing.size() << endl;
+  ans.index.resize(reversing.size());
   for (int i = 0; i < reversing.size(); ++i) {
     auto n = reversing[i].pol.outer().size() - 1;
-    cout << n;
+    ans.index[i].resize(n);
     for (int j = 0; j < n; ++j) {
       const auto& p = reversing[i].pol.outer()[j];
-      auto index = lower_bound(all_points.begin(), all_points.end(), p,
-                               [](const point& a, const point& b) {
-                                 if (a.y() == b.y())
-                                   return a.x() < b.x();
-                                 else
-                                   return a.y() < b.y();
-                               }) -
-                   all_points.begin();
-      cout << " " << index;
+      ans.index[i][j] =
+          static_cast<int>(lower_bound(all_points.begin(), all_points.end(), p,
+                                       [](const point& a, const point& b) {
+                                         if (a.y() == b.y())
+                                           return a.x() < b.x();
+                                         else
+                                           return a.y() < b.y();
+                                       }) -
+                           all_points.begin());
     }
-    cout << endl;
   }
 
   for (const auto& p : vppi) {
-    point q;
-    bg::transform(p.second, q, fix_positions);
-    cout << q << endl;
+    ans.to.push_back(p.second);
+  }
+
+  return ans;
+}
+
+pair<Problem2, trans::translate_transformer<rational, 2, 2>> trans_to_origin(
+    const Problem2& base_prob, int i) {
+  auto prob = base_prob;
+  rational minx, miny, maxx, maxy;
+  maxx = minx = base_prob.points[0].x();
+  maxy = miny = base_prob.points[0].y();
+
+  for (int i = 0; i < base_prob.points.size(); ++i) {
+    minx = min(minx, base_prob.points[i].x());
+    miny = min(miny, base_prob.points[i].y());
+    maxx = max(maxx, base_prob.points[i].x());
+    maxy = max(maxy, base_prob.points[i].y());
+  }
+
+  if (i % 4 == 0) {
+    for (int i = 0; i < prob.points.size(); ++i) {
+      prob.points[i].x(prob.points[i].x() - minx);
+      prob.points[i].y(prob.points[i].y() - miny);
+    }
+    return make_pair(prob,
+                     trans::translate_transformer<rational, 2, 2>(minx, miny));
+  }
+  if (i % 4 == 1) {
+    for (int i = 0; i < prob.points.size(); ++i) {
+      prob.points[i].x(prob.points[i].x() - maxx + 1);
+      prob.points[i].y(prob.points[i].y() - miny);
+    }
+    return make_pair(
+        prob, trans::translate_transformer<rational, 2, 2>(maxx + 1, miny));
+  } else if (i % 4 == 2) {
+    for (int i = 0; i < prob.points.size(); ++i) {
+      prob.points[i].x(prob.points[i].x() - minx);
+      prob.points[i].y(prob.points[i].y() - maxy + 1);
+    }
+    return make_pair(
+        prob, trans::translate_transformer<rational, 2, 2>(minx, maxy + 1));
+  } else {
+    for (int i = 0; i < prob.points.size(); ++i) {
+      prob.points[i].x(prob.points[i].x() - maxx + 1);
+      prob.points[i].y(prob.points[i].y() - maxy + 1);
+    }
+    return make_pair(
+        prob, trans::translate_transformer<rational, 2, 2>(maxx + 1, maxy + 1));
   }
 }
 
@@ -447,7 +508,21 @@ int main(int argc, char** argv) {
   string problem_path = argv[1];
   ifstream ifs(argv[1]);
 
-  Problem2 prob;
-  prob.init(ifs);
-  solve_convex_hull(prob);
+  Problem2 base_prob;
+  base_prob.init(ifs);
+
+  for (int i = 0; i < 4; ++i) {
+    auto prob_trans = trans_to_origin(base_prob, i);
+    auto ans = solve_convex_hull(prob_trans.first);
+    auto ans2 = ans;
+    for (int t = 0; t < ans.to.size(); ++t) {
+      bg::transform(ans2.to[i], ans.to[i], prob_trans.second);
+    }
+    auto str = ans.output_format();
+    if (str.length() <= 5000) {
+      cout << str;
+      break;
+    }
+    cerr << str.length() << endl;
+  }
 }
