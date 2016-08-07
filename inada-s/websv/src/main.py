@@ -63,7 +63,6 @@ def make_user_dict(json_data):
     leaderboard = json_data['leaderboard']
     ret = {}
     for u in users:
-        print u
         ret[u['username']] = u
     for u in leaderboard:
         ret[u['username']]['score'] = u['score']

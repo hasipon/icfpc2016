@@ -1,14 +1,7 @@
-run: plot.sh problem
+run:
+	g++ -std=c++11 ./main.cpp
+	./a.out > ./plot.sh
 	bash ./plot.sh
 
-a.out:
-	g++ -std=c++11 ./main.cpp
-
-plot.sh: a.out
-	./a.out > ./plot.sh
-
 clean:
-	rm ./a.out ./plot.sh
-
-problem:
-	mkdir problem
+	rm -rf ./problem/* || rm ./a.out
