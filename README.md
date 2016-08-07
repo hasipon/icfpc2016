@@ -29,3 +29,8 @@ http://52.197.240.199:8000/
 ## visualizerビルド
 
 `sawa/visualizer/` で `haxe build.hxml`
+
+## 凸解
+
+`hasi/convex/read_problem.sh`, `hasi/convex/run_solve.sh` を順に実行。
+`hasi/convex/make_submit_list.sh` を実行して得たコマンドを適当にsleep挟んだりして実行。
