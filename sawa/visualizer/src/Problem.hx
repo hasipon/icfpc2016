@@ -152,7 +152,6 @@ class Problem
 				v0.active = true;
 			}
 		}
-		
 		var newPoints = [];
 		var pointMap = new Map();
 		
@@ -358,6 +357,7 @@ class Problem
 	public function reduce():Void
 	{
 		var pointMap = [0 => 0];
+		
 		// 同一の点を除去
 		for (i in 1...points.length)
 		{
@@ -384,6 +384,65 @@ class Problem
 		{
 			refresh();
 		}
+		
+		// ポリゴンの頂点でない点の削除
+		for (polygon in polygons)
+		{
+			var vs = polygon.vertexes;
+			var l = vs.length;
+			var newVs = [];
+			for (i in 0...l)
+			{
+				var v0 = points[vs[i]];
+				var v1 = points[vs[(i + 1) % l]];
+				var v2 = points[vs[(i + 2) % l]];
+				var vec0 = new Vec(v0, v1);
+				var vec1 = new Vec(v1, v2);
+				if (vec0.isZero() || vec1.isZero() || !vec0.isParallel(vec1))
+				{
+					newVs.push(vs[(i + 1) % l]);
+				}
+			}
+			polygon.vertexes = newVs;
+		}
+		// ポリゴンの途中に点があったらその点を経由
+		for (polygon in polygons)
+		{
+			var vs = polygon.vertexes;
+			var l = vs.length;
+			var newVs = [];
+			for (i in 0...l)
+			{
+				var v0 = points[vs[i]];
+				var v1 = points[vs[(i + 1) % l]];
+				newVs.push(vs[i]);
+				
+				var targets = [];
+				var j = 0;
+				for (point in points)
+				{
+					var vec0 = new Vec(v0, v1);
+					var vec1 = new Vec(v0, point);
+					var inner = vec0.inner(vec1);
+					if (vec0.isParallel(vec1) && 0 < inner && inner < vec0.length2())
+					{
+						targets.push( {i:inner, p: j} );
+					}
+					j++;
+				}
+				/*
+				targets.sort(function (a, b) return if (a.i < b.i) -1 else 1);
+				for (p in targets)
+				{
+					newVs.push(p.p);
+				}
+				*/
+			}
+			
+			polygon.vertexes = newVs;
+		}
+		
+		refresh();
 	}
 	
 	public function removeUnusedLine():Bool
