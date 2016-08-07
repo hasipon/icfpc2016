@@ -65,21 +65,6 @@ vector<polygon> cut(const polygon& pol, point p1, point p2) {
     } else if (c == CCW::ONSEGMENT) {
       bg::append(res[0], p);
       bg::append(res[1], p);
-      /*
-      gvNewTime();
-      cerr << p1 << endl;
-      cerr << p2 << endl;
-      cerr << p << endl;
-      gvOutput("CutFailed");
-      gvPolygon(pol, gvColor(0));
-      gvCircle(p1.x().convert_to<double>(), p1.y().convert_to<double>(), 0.01,
-               gvColor(1));
-      gvCircle(p2.x().convert_to<double>(), p2.y().convert_to<double>(), 0.01,
-               gvColor(2));
-      gvCircle(p.x().convert_to<double>(), p.y().convert_to<double>(), 0.02,
-               gvColor(3));
-      exit(0);
-       */
     }
     prev_ccw = c;
   }
@@ -402,17 +387,6 @@ void solve_convex_hull(Problem2 base_prob) {
     });
     assert(it != end(nex.pols));
     const auto& child2 = *it;
-
-    // const auto& cur = nodes[h];
-    /*
-    const auto& parent = *find_if(
-        begin(cur.pols), end(cur.pols),
-        [&](const polygon2& pol) { return pol.id == cut.polygon_parent; });
-    const auto& child1 = *find_if(
-        begin(nex.pols), end(nex.pols),
-        [&](const polygon2& pol) { return pol.id == cut.polygon_child1; });
-     */
-    // auto child1_rev = flip(child1.pol, cut.seg.first, cut.seg.second);
     for (const auto& p : m) {
       if (bg::intersects(child2.pol, p.second)) {
         mapping[cut.polygon_child2].push_back(p);
@@ -476,38 +450,4 @@ int main(int argc, char** argv) {
   Problem2 prob;
   prob.init(ifs);
   solve_convex_hull(prob);
-
-  /*
-    // box
-    {
-      const box x(point(0, 0), point(3, 3));
-      const auto result = bg::area(x);
-      std::cout << result << std::endl;
-      gvBox(x, gvColor(0));
-      const box y(point(1, 1), point(4, 4));
-      gvBox(y, gvColor(2));
-    }
-    // polygon
-    {
-      gvNewTime();
-      polygon x;
-      bg::exterior_ring(x) =
-          boost::assign::list_of<point>(0, 0)(0, 3)(3, 3)(0, 0);
-
-      const auto result = bg::area(x);
-      gvPolygon(x, gvColor(9));
-      std::cout << result << std::endl;
-    }
-    {
-      const box a(point(0, 0), point(3, 3));
-      const box b(point(4, 4), point(7, 7));
-      cout << bg::disjoint(a, b) << endl;
-    }
-
-    {
-      gvNewTime();
-      segment s(point(1, 1), point(3, 3));
-      gvSegment(s, 0.1, gvColor(4));
-    }
-   */
 }
