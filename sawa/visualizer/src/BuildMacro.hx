@@ -16,7 +16,11 @@ class BuildMacro
 			if (StringTools.endsWith(name, ".json"))
 			{
 				var id = name.split("-")[0];
-				solutionFiles[id] = Json.parse(File.getContent(dir + "/" + name));
+				var data = Json.parse(File.getContent(dir + "/" + name));
+				if (data.resemblance < 1)
+				{
+					solutionFiles[id] = data;
+				}
 			}
 		}
 		
