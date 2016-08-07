@@ -31,7 +31,7 @@ function download() {
     ret_code=$?
     if [ $ret_code != 0 ]; then
       echo "wait for retry.."
-      sleep 5
+      sleep 3
     else
       break
     fi
@@ -41,6 +41,7 @@ function download() {
 
 cat problems.json | jq -r ".problems[] | [.problem_id, .problem_spec_hash] | @sh" | while read line; do
   download $line
+  sleep 3
 done
 
 echo $a > "lasthash"
