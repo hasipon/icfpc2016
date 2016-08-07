@@ -5,6 +5,6 @@ sample: a.out
 	./a.out < ../../problems/762.txt
 
 run: a.out
-	./a.out 	< $(FILE)
+	@./a.out 	< $(FILE)
 
 
