@@ -12,6 +12,7 @@ import flash.events.KeyboardEvent;
 import flash.text.TextField;
 import flash.ui.Keyboard;
 import haxe.Http;
+import haxe.Json;
 import haxe.Resource;
 import haxe.Timer;
 import haxe.ds.Option;
@@ -24,7 +25,7 @@ import thx.Rational;
  */
 class Main extends Sprite 
 {
-	private var problems:Array<String>;
+	private var problems:Array<ProblemSource>;
 	private var index:Int = 0;
 	private var problemSprite:ProblemSprite;
 	private var textField:TextField;
@@ -82,7 +83,9 @@ class Main extends Sprite
 		graphics.beginFill(0, 0.05);
 		graphics.drawRect(300, 300, 250, 250);
 		
-		var comboBox = new ComboBox(this, 0, 20, problems[index], problems);
+		var comboBox = new ComboBox(this, 0, 20, problems[index].id, 
+			[for (p in problems) p.id + " (" + (if (p.solution != null) Std.int(p.solution.resemblance * 100) else 0) + "%)" ]
+		);
 		comboBox.addEventListener(Event.SELECT, onSelect);
 		new PushButton(this, 0, 50, "cancel(C)", cancel);
 		new PushButton(this, 0, 70, "open(O)", open);
@@ -91,7 +94,7 @@ class Main extends Sprite
 		new PushButton(this, 0, 130, "normalize(N)", finalize);
 		new PushButton(this, 0, 150, "centering(Q)", center);
 		new PushButton(this, 0, 180, "select_all(A)", selectAll);
-		submitButton = new PushButton(this, 800, 400, "submit", submit);
+		submitButton = new PushButton(this, 800, 400, "submit(S)", submit);
 		
 		updateTarget(index);
 	}
@@ -124,6 +127,9 @@ class Main extends Sprite
 				
 			case Keyboard.R:
 				reduce(null);
+				
+			case Keyboard.S:
+				submit(null);
 		}
 	}
 	
@@ -179,8 +185,8 @@ class Main extends Sprite
 	private function updateTarget(index:Int):Void
 	{
 		this.index = index;
-		this.name = problems[index];
-		currentProblem = [new Problem(name, Resource.getString(name))];
+		this.name = problems[index].id;
+		currentProblem = [new Problem(name, problems[index].data)];
 		update(0);
 	}
 
@@ -242,7 +248,7 @@ class Main extends Sprite
 		Timer.delay(Lib.current.addChild.bind(new Main()), 1);
 	}
 	
-	public static function getProblems():Array<String>
+	public static function getProblems():Array<ProblemSource>
 	{
 //		var inputDir = File.applicationDirectory.resolvePath("input");
 //		
@@ -270,14 +276,19 @@ class Main extends Sprite
 			} 
 		);
 		
-		return arr;
+		return [
+			for (name in arr) 
+			{
+				Json.parse(Resource.getString(name));
+			}
+		];
 	}
 	
 	private static var resultEReg = ~/pre(.*)pre/s;
 	public function submit(e:Event):Void
 	{
 		var http = new Http("http://52.197.240.199:5000/submit-solution");
-		var id = StringTools.urlEncode(problems[index].split(".txt")[0]);
+		var id = problems[index].id;
 		var solution = StringTools.urlEncode(outputField.text);
 		var postData = "problem_id=" + id + "&solution=" + solution;
 		
