@@ -301,7 +301,14 @@ abstract BigInt(BigIntImpl) from BigIntImpl to BigIntImpl {
     return this.toFloat();
 
   @:to inline public function toString() : String
-    return this.toString();
+  {
+    var str = this.toString();
+	if (str == "-0")
+	{
+		str = "0";
+	}
+	return str;
+}
 
   inline public function toStringWithBase(base : Int) : String
     return this.toStringWithBase(base);

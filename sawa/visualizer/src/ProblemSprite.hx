@@ -303,7 +303,7 @@ class ProblemSprite extends Sprite
 			case LineSelect(_) | PolygonSelect(_) | Newtral:
 				
 			case RemoveSelect(p, line, polygons, removePolygons):
-				state = ProblemSpriteState.RemoveSelect(p, line, polygons, [for (p in polygons) p]);
+				state = ProblemSpriteState.RemoveSelect(p, line, polygons, [for (p in polygons) { p.transform.colorTransform = DARK_RED_TRANSFORM;p; } ]);
 		}
 	}
 }
