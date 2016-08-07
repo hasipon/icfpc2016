@@ -323,6 +323,7 @@ python3.5 getref.py ../problems/1472.txt ../solutions/1472-ec1b583391c80b1d7e6ec
 python3.5 getref.py ../problems/1473.txt ../solutions/1473-851a3f537396a7e45cd93e1a0a311c5c5ad9c5f1.txt
 python3.5 getref.py ../problems/1474.txt ../solutions/1474-f1dcca5bc373ce4820b88742500d24a3fd32bfc1.txt
 python3.5 getref.py ../problems/1478.txt ../solutions/1478-7934e22825c83ac5c37c73dc79fc6be9dd5a3ebb.txt
+python3.5 getref.py ../problems/1481.txt ../solutions/1481-bfabd92f1bc7793bcab9ff4a7934634356d0b921.txt
 python3.5 getref.py ../problems/1527.txt ../solutions/1527-c8155ac070bbda3e253ff90a1606c63ee34eacd8.txt
 python3.5 getref.py ../problems/1558.txt ../solutions/1558-a78eea01effbb6bf1ee6b995442146207c5165a4.txt
 python3.5 getref.py ../problems/1567.txt ../solutions/1567-50f8c7d820006ceccb33739f3e7ef071688ff37c.txt
