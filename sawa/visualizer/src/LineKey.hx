@@ -1,7 +1,7 @@
 package;
 import haxe.ds.Option;
 
-abstract LineKey(String) 
+abstract LineKey(String) to String
 {
 	public function new(i0:Int, i1:Int)
 	{

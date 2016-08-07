@@ -1,4 +1,5 @@
 package thx.bigint;
+import haxe.Int64;
 
 using thx.Strings;
 
@@ -450,16 +451,16 @@ class Bigs {
   public static function divModSmall(value : Array<Int>, lambda : Int) : { q : Array<Int>, r : Int } {
     var length = value.length,
         quotient = createArray(length),
-        i, q : Float, remainder : Float, divisor;
+        i:Int, q : Int64, remainder : Int64, divisor:Int64;
     remainder = 0;
     i = length - 1;
     while(i >= 0) {
       divisor = remainder * BASE + value[i];
-      q = Floats.ftrunc(divisor / lambda);
+      q = divisor / lambda;
       remainder = divisor - q * lambda;
-      quotient[i--] = Std.int(q);
+      quotient[i--] = q.low;
     }
-    return { q : quotient, r : Floats.trunc(remainder) };
+    return { q : quotient, r : remainder.low };
   }
 
   public static function parseBase(text : String, base : Int) : BigIntImpl {
