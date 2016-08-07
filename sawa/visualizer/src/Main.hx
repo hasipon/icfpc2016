@@ -99,6 +99,7 @@ class Main extends Sprite
 		new PushButton(this, 0, 150, "normalize(N)", finalize);
 		new PushButton(this, 0, 170, "centering(Q)", center);
 		new PushButton(this, 0, 190, "select_all(A)", selectAll);
+		new PushButton(this, 0, 210, "remove_all(D)", removeAll);
 		submitButton = new PushButton(this, 800, 400, "submit(S)", submit);
 		
 		updateTarget(index);
@@ -133,9 +134,17 @@ class Main extends Sprite
 			case Keyboard.R:
 				reduce(null);
 				
+			case Keyboard.D:
+				removeAll(null);
+				
 			case Keyboard.S:
 				submit(null);
 		}
+	}
+	
+	public function removeAll(e:Event):Void 
+	{
+		problemSprite.removeAll();
 	}
 	
 	private function input(e:Event):Void 
