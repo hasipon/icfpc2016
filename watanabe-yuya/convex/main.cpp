@@ -224,8 +224,16 @@ void f(istream& is, ostream& os)
   }
 
   bg::convex_hull(p, q);
-  os << q.outer().size() << endl;
-  each (i, q.outer()) os << i << endl;  
+
+  auto v = q.outer();
+  reverse(v.begin(), v.end());
+
+  os << 1 << endl;
+  os << v.size() - 1 << endl;
+  for (int i = 0; i + 1 < v.size(); ++i) {
+    os << v.at(i) << endl;
+  }
+  os << 0 << endl;
 
   return ;
 }
