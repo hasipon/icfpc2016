@@ -267,7 +267,7 @@ class Main extends Sprite
 	private static var resultEReg = ~/pre(.*)pre/s;
 	public function submit(e:Event):Void
 	{
-		var http = new Http("http://52.197.240.199:8000/submit-solution");
+		var http = new Http("http://52.197.240.199:5000/submit-solution");
 		var id = StringTools.urlEncode(problems[index].split(".txt")[0]);
 		var solution = StringTools.urlEncode(outputField.text);
 		var postData = "problem_id=" + id + "&solution=" + solution;

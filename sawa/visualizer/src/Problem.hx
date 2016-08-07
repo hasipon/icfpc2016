@@ -405,43 +405,59 @@ class Problem
 			}
 			polygon.vertexes = newVs;
 		}
-		// ポリゴンの途中に点があったらその点を経由
-		for (polygon in polygons)
+		refresh();
+	
+		// 線分の途中に点があったらその点を経由
+		for (line in lines)
 		{
-			var vs = polygon.vertexes;
-			var l = vs.length;
-			var newVs = [];
-			for (i in 0...l)
+			var s = points[line.start];
+			var e = points[line.end];
+			var vec0 = new Vec(s, e);
+			var vec0Length = vec0.length2();
+			var targets = [];
+			
+			for (j in 0...points.length)
 			{
-				var v0 = points[vs[i]];
-				var v1 = points[vs[(i + 1) % l]];
-				newVs.push(vs[i]);
-				
-				var targets = [];
-				var j = 0;
-				for (point in points)
+				var vec1 = new Vec(s, points[j]);
+				var inner = vec0.inner(vec1);
+				if (0 < inner && inner < vec0Length &&vec0.isParallel(vec1))
 				{
-					var vec0 = new Vec(v0, v1);
-					var vec1 = new Vec(v0, point);
-					var inner = vec0.inner(vec1);
-					if (vec0.isParallel(vec1) && 0 < inner && inner < vec0.length2())
-					{
-						targets.push( {i:inner, p: j} );
-					}
-					j++;
+					targets.push( {i:inner, p: j} );
 				}
-				/*
-				targets.sort(function (a, b) return if (a.i < b.i) -1 else 1);
-				for (p in targets)
-				{
-					newVs.push(p.p);
-				}
-				*/
 			}
 			
-			polygon.vertexes = newVs;
+			if (targets.length > 0)
+			{
+				targets.sort(function (a, b) return if (a.i < b.i) -1 else 1);
+				
+				for (p in line.polygons)
+				{
+					var polygon = polygons[p];
+					var vs = polygon.vertexes;
+					var l = vs.length;
+					var newVs = [];
+					for (i in 0...l)
+					{
+						var v0 = vs[i];
+						var v1 = vs[(i + 1) % l];
+						newVs.push(v0);
+						if (line.key == new LineKey(v0, v1))
+						{
+							if (v1 == line.start)
+							{
+								targets.reverse();
+							}
+							for (t in targets)
+							{
+								newVs.push(t.p);
+							}
+						}
+					}
+					
+					polygon.vertexes = newVs;
+				}
+			}
 		}
-		
 		refresh();
 	}
 	
