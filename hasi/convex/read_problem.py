@@ -6,6 +6,20 @@ from typing import Dict, List
 import hashlib
 import os.path
 
+def sqrt(n: Fraction):
+    if n == Fraction(0):
+        return Fraction(0)
+
+    small = Fraction(0)
+    large = Fraction(n)
+
+    for i in range(0,1000):
+        mid = (small + large) / Fraction(2)
+        if mid * mid < n:
+            small = mid
+        else:
+            large = mid
+    return large if large * large == n else None
 
 class Vector:
     def __init__(self, x: Fraction, y: Fraction):
@@ -32,6 +46,11 @@ class Vector:
     def __hash__(self):
         return (self.x, self.y).__hash__()
 
+    def norm(self):
+        return self.x * self.x + self.y * self.y
+
+    def abs(self):
+        return sqrt(self.norm())
 
 def sub(s: Vector, t: Vector):
     return Vector(s.x - t.x, s.y - t.y)
@@ -40,6 +59,19 @@ def sub(s: Vector, t: Vector):
 def cross(s: Vector, t: Vector):
     return s.x * t.y - s.y * t.x
 
+def rot(v: Vector, sin: Fraction):
+    cos = Fraction(1) - sin
+    x = v.x * cos - v.y * sin
+    y = v.x * sin + v.y * cos
+    return Vector(x, y)
+
+def rot_angle(_v: Vector):
+    v = Vector(_v.x, _v.y)
+    v.x = max(v.x, -1 * v.x)
+    v.y = max(v.y, -1 * v.y)
+    if v.abs() is None:
+        return None
+    return v.y / v.abs()
 
 def calc(polygons: List[List[Vector]]):
     # 穴あきは対象外
@@ -53,13 +85,32 @@ def calc(polygons: List[List[Vector]]):
             return
 
     # 0,0から1,1に収まってるかを確認
-    min_x = min(s.x for s in a)
-    min_y = min(s.y for s in a)
-    b = [Vector(s.x - min_x, s.y - min_y) for s in a]
-    if max(s.x for s in b) > Fraction(1) or max(s.y for s in b) > Fraction(1):
-        return
-        # todo 回転を考える
+    def move(vs):
+        min_x = min(s.x for s in vs)
+        min_y = min(s.y for s in vs)
+        return [Vector(s.x - min_x, s.y - min_y) for s in vs]
 
+    # 遠いですか?
+    def is_faraway(vs):
+        if max(s.x for s in vs) > Fraction(1) or max(s.y for s in vs) > Fraction(1):
+            return True
+        if min(s.x for s in vs) < Fraction(0) or min(s.y for s in vs) < Fraction(0):
+            return True
+        return False
+
+    b = a
+    if is_faraway(a):
+        for v, u in zip(a, a[1:]):
+            if v == u: continue
+            w = sub(v, u)
+            th = rot_angle(w)
+            if th is None: continue
+            b = list(map(lambda n: rot(n, th), a))
+            b = move(b)
+            if not is_faraway(b): break
+
+    min_x = min(s.x for s in b)
+    min_y = min(s.y for s in b)
     return {
         'a': True,
         'x': ['1', '0', str(min_x)],  # 出力変換式
