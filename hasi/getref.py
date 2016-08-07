@@ -44,10 +44,6 @@ class Segment:
 class Polygon:
     def __init__(self, points: List[Vector]):
         self.points = points
-        self.segments = [Segment(p0, p1) for p0, p1 in zip(points, points[1:] + points[:1])]
-
-    def __repr__(self):
-        return "Polygon(" + repr(self.points) + ")"
 
 
 class Problem:
@@ -63,6 +59,24 @@ class Problem:
                 self.polygons.append(Polygon([Vector.from_str(f.readline()) for _ in range(num_vertices)]))
 
 
+class Solution:
+    def __init__(self):
+        #: :type: List[Vector]
+        self.source = None
+        #: :type: List[str]
+        self.area = None
+        #: :type: List[Vector]
+        self.target = None
+
+    def load(self, filename):
+        with open(filename) as f:
+            nv = int(f.readline())
+            self.source = [Vector.from_str(f.readline()) for _ in range(nv)]
+            na = int(f.readline())
+            self.area = [f.readline() for _ in range(na)]
+            self.target = [Vector.from_str(f.readline()) for _ in range(nv)]
+
+
 def hoge(v: List[Vector]) -> str:
     r = None
     for i in range(len(v)):
@@ -72,39 +86,58 @@ def hoge(v: List[Vector]) -> str:
     return r
 
 
-def main():
-    problem = Problem()
-    problem.load(sys.argv[1])
-    min_x = problem.polygons[0].points[0].x
-    min_y = problem.polygons[0].points[0].y
-    for p in problem.polygons:
-        for q in p.points:
-            min_x = min(min_x, q.x)
-            min_y = min(min_y, q.y)
-    moved_polygons = ';'.join(sorted(
-        hoge([Vector(q.x - min_x, q.y - min_y) for q in p.points])
-        for p in problem.polygons
-    )).encode()
+def func(v: List[Vector], flip_x, flip_y, swap_xy):
+    def f(p: Vector):
+        x = -p.x if flip_x else p.x
+        y = -p.y if flip_y else p.y
+        if swap_xy:
+            x, y = y, x
+        return Vector(x, y)
+    return [f(q) for q in v]
+
+
+def calc(polygons: List[List[Vector]], solution: Solution, flip_x, flip_y, swap_xy):
+    problem0 = [func(q, flip_x, flip_y, swap_xy) for q in polygons]
+    if flip_x:
+        problem0 = problem0[::-1]
+    if flip_y:
+        problem0 = problem0[::-1]
+    if swap_xy:
+        problem0 = problem0[::-1]
+    source = solution.source
+    target0 = func(solution.target, flip_x, flip_y, swap_xy)
+
+    min_x = min(min(p.x for p in q) for q in problem0)
+    min_y = min(min(p.y for p in q) for q in problem0)
+    problem = [[Vector(p.x - min_x, p.y - min_y) for p in q] for q in problem0]
+    target = [Vector(p.x - min_x, p.y - min_y) for p in target0]
+
+    moved_polygons = ';'.join(sorted(hoge(p) for p in problem)).encode()
     h = hashlib.sha1(moved_polygons).hexdigest()
     ref_dir = os.path.join(os.path.dirname(__file__), 'reference')
     ref_path = os.path.join(ref_dir, h + '.txt')
-    with open(sys.argv[2]) as f:
-        nv = f.readline()
-        v = [f.readline() for _ in range(int(nv))]
-        na = f.readline()
-        a = [f.readline() for _ in range(int(na))]
-        d = [Vector.from_str(f.readline()) for _ in range(int(nv))]
     if os.path.exists(ref_path):
         return
     with open(ref_path, 'w') as f:
-        f.write(nv)
-        for s in v:
+        f.write('%d\n' % len(solution.source))
+        for s in source:
+            f.write('%s\n' % s)
+        f.write('%d\n' % len(solution.area))
+        for s in solution.area:
             f.write(s)
-        f.write(na)
-        for s in a:
-            f.write(s)
-        for s in d:
-            f.write('%s\n' % Vector(s.x - min_x, s.y - min_y))
+        for s in target:
+            f.write('%s\n' % s)
+
+
+def main():
+    if not os.path.exists(sys.argv[1]):
+        return
+    problem = Problem()
+    problem.load(sys.argv[1])
+    solution = Solution()
+    solution.load(sys.argv[2])
+    for i in range(8):
+        calc([x.points for x in problem.polygons], solution, bool(i & 4), bool(i & 2), bool(i & 1))
 
 
 main()

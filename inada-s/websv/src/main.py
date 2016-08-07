@@ -63,7 +63,6 @@ def make_user_dict(json_data):
     leaderboard = json_data['leaderboard']
     ret = {}
     for u in users:
-        print u
         ret[u['username']] = u
     for u in leaderboard:
         ret[u['username']]['score'] = u['score']
@@ -185,4 +184,4 @@ def problem_submit_post(publish_time):
     return template('output', output=output)
 
 debug(True)
-run(host="0.0.0.0", port=8000)
+run(host="0.0.0.0", port=5000)
