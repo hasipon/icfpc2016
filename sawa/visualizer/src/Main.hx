@@ -89,6 +89,7 @@ class Main extends Sprite
 		undoButton = new PushButton(this, 0, 90, "< undo(Z)", undo);
 		redoButton = new PushButton(this, 0, 110, "redo(Y) >", redo);
 		new PushButton(this, 0, 130, "finalize(N)", finalize);
+		new PushButton(this, 0, 150, "centering(Q)", center);
 		new PushButton(this, 0, 180, "select_all(A)", selectAll);
 		submitButton = new PushButton(this, 800, 400, "submit", submit);
 		
@@ -132,6 +133,13 @@ class Main extends Sprite
 	private function redo(e:Event):Void 
 	{
 		update(currentIndex + 1);
+	}
+	
+	private function center(e:Event):Void 
+	{
+		var child = currentProblem[currentIndex].clone();
+		child.center();
+		addProblem(child);
 	}
 	
 	private function finalize(e:Event):Void 

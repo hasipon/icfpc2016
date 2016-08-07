@@ -110,9 +110,10 @@ class Problem
 				{
 					usedLines[nk] = true;
 				}
-				if (k == nk)
+				if (vecOA.isParallel(new Vec(points[v0], points[v1])))
 				{
 					usedLines[nk] = true;
+					usedLines[k] = true;
 				}
 			}
 		}
@@ -190,14 +191,6 @@ class Problem
 			}
 		}
 		
-		// 外周を使用済みの線に
-		for (line in lines)
-		{
-			if (line.polygons.length == 1)
-			{
-				usedLines[line.key] = true;
-			}
-		}
 	}
 	
 	public function applyPointMove(pointMap:Map<Int, Int>):Void
@@ -424,6 +417,24 @@ class Problem
 	{
 		normalize();
 		reduce();
+	}
+	
+	public function center():Void
+	{
+		var x = points[0].x;
+		var y = points[0].y;
+		for (point in points)
+		{
+			var px = point.x;
+			var py = point.y;
+			if (px < x) x = px;
+			if (py < y) y = py;
+		}
+		for (point in points)
+		{
+			point.x -= x;
+			point.y -= y;
+		}
 	}
 	
 }
