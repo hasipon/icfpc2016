@@ -1,6 +1,7 @@
 package;
 
 import com.bit101.components.ComboBox;
+import com.bit101.components.InputText;
 import com.bit101.components.PushButton;
 import flash.Lib;
 import flash.display.Shape;
@@ -37,6 +38,8 @@ class Main extends Sprite
 	private var redoButton:PushButton;
 	private var undoButton:PushButton;
 	private var submitButton:PushButton;
+	var inputText:InputText;
+	var comboBox:ComboBox;
 	
 	public function new() 
 	{
@@ -83,17 +86,19 @@ class Main extends Sprite
 		graphics.beginFill(0, 0.05);
 		graphics.drawRect(300, 300, 250, 250);
 		
-		var comboBox = new ComboBox(this, 0, 20, problems[index].id, 
+		comboBox = new ComboBox(this, 0, 20, problems[index].id, 
 			[for (p in problems) p.id + " (" + (if (p.solution != null) Std.int(p.solution.resemblance * 100) else 0) + "%)" ]
 		);
 		comboBox.addEventListener(Event.SELECT, onSelect);
-		new PushButton(this, 0, 50, "cancel(C)", cancel);
-		new PushButton(this, 0, 70, "open(O)", open);
-		undoButton = new PushButton(this, 0, 90, "< undo(Z)", undo);
-		redoButton = new PushButton(this, 0, 110, "redo(Y) >", redo);
-		new PushButton(this, 0, 130, "normalize(N)", finalize);
-		new PushButton(this, 0, 150, "centering(Q)", center);
-		new PushButton(this, 0, 180, "select_all(A)", selectAll);
+		inputText = new InputText(this, 0, 50, "", null);
+		new PushButton(this, 100, 50, "go", input);
+		new PushButton(this, 0, 70, "cancel(C)", cancel);
+		new PushButton(this, 0, 90, "open(O)", open);
+		undoButton = new PushButton(this, 0, 110, "< undo(Z)", undo);
+		redoButton = new PushButton(this, 0, 130, "redo(Y) >", redo);
+		new PushButton(this, 0, 150, "normalize(N)", finalize);
+		new PushButton(this, 0, 170, "centering(Q)", center);
+		new PushButton(this, 0, 190, "select_all(A)", selectAll);
 		submitButton = new PushButton(this, 800, 400, "submit(S)", submit);
 		
 		updateTarget(index);
@@ -133,6 +138,18 @@ class Main extends Sprite
 		}
 	}
 	
+	private function input(e:Event):Void 
+	{
+		var l = problems.length;
+		for (i in 0...l)
+		{
+			if (problems[i].id == inputText.text)
+			{
+				comboBox.selectedIndex = i;
+				onSelect(null);
+			}
+		}
+	}
 	
 	private function undo(e:Event):Void 
 	{
@@ -178,8 +195,7 @@ class Main extends Sprite
 	
 	private function onSelect(e:Event):Void 
 	{
-		var box:ComboBox = e.currentTarget;
-		updateTarget(box.selectedIndex);
+		updateTarget(comboBox.selectedIndex);
 	}
 	
 	private function updateTarget(index:Int):Void
