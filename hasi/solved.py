@@ -17,6 +17,7 @@ for x in glob(os.path.join(sys.argv[2], '*.json')):
         problem_id = s['problem_id']
         solution_spec_hash = s['solution_spec_hash']
         solved.add((problem_id, solution_spec_hash))
+        shutil.copyfile(x, os.path.join(sys.argv[1], '%d-%s.json' % (problem_id, solution_spec_hash)))
         shutil.copyfile(x[:-5] + '.txt', os.path.join(sys.argv[1], '%d-%s.txt' % (problem_id, solution_spec_hash)))
 for x, t in sorted(solved):
     print(x, t)
