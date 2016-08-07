@@ -11,6 +11,7 @@ for x in ../../problems/*.txt; do
   fi
   if [ ! -e hulls/$(basename $x) ]; then
     echo $(basename $x)
-    ../../watanabe-yuya/convex/a.out < $x > hulls/$(basename $x)
+    ../../watanabe-yuya/convex/a.out < $x > hulls/$(basename $x)_
+    python3.5 read_problem.py hulls/$(basename $x)_ > hulls/$(basename $x)
   fi
 done
