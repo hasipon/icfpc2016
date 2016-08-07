@@ -117,10 +117,8 @@ def move(a, s: Vector):
 
 def calc_matrix(s0: Vector, s1: Vector, s2: Vector, t0: Vector, t1: Vector, t2: Vector):
     s01 = sub(s1, s0)
-    s12 = sub(s2, s1)
     t01 = sub(t1, t0)
-    t12 = sub(t2, t1)
-    if sq(s01) != sq(t01) or sq(s12) != sq(t12) or dot(s01, s12) != dot(t01, t12):
+    if sq(s01) != sq(t01):
         return
 
     d = sq(s01)
@@ -133,13 +131,22 @@ def calc_matrix(s0: Vector, s1: Vector, s2: Vector, t0: Vector, t1: Vector, t2: 
     if u2.x == t2.x and u2.y == t2.y:
         return m
 
-    print('warn')
+    u01 = Vector(-s01.x, s01.y)
+    cc = dot(t01, u01) / d
+    ss = crs(t01, u01) / d
+    x = t0.x + cc * s0.x - ss * s0.y
+    y = t0.y - ss * s0.x - cc * s0.y
+    m = [[-cc, ss, x], [ss, cc, y]]
+    u2 = move(m, s2)
+    if u2.x == t2.x and u2.y == t2.y:
+        return m
+
     return None
 
 
 def normalize(a: List[List[Vector]]):
     return sorted(
-        min(s[i:] + s[:i] for i in range(len(s)))
+        min(min(s[i:] + s[:i], s[::-1][i:] + s[::-1][:i]) for i in range(len(s)))
         for s in a
     )
 
@@ -149,6 +156,14 @@ def get_matrix(polygons: List[List[Vector]], ref_polygon: List[List[Vector]]):
     target = normalize(polygons)
     for p in polygons:
         for t0, t1, t2 in zip(p, p[1:] + p[:1], p[2:] + p[:2]):
+            m = calc_matrix(s0, s1, s2, t0, t1, t2)
+            if not m:
+                continue
+            a = normalize([[move(m, t) for t in s] for s in ref_polygon])
+            if target == a:
+                return m
+        q = p[::-1]
+        for t0, t1, t2 in zip(q, q[1:] + q[:1], q[2:] + q[:2]):
             m = calc_matrix(s0, s1, s2, t0, t1, t2)
             if not m:
                 continue
@@ -179,7 +194,7 @@ def main():
 
     a = get_matrix(polygons, ref_polygons)
     if not a:
-        print('error')
+        print('error', name)
         return
 
     with open(sys.argv[2], 'w') as w:
