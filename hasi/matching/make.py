@@ -91,10 +91,14 @@ def main():
             num_vertices = int(f.readline())
             polygons.append([Vector.from_str(f.readline()) for _ in range(num_vertices)])
         name = calc(polygons)
-    print(name)
     with open(sys.argv[2]) as f:
         solution = f.read()
-    print(json.dumps([[[str(t) for t in s] for s in polygons], solution]))
+    ref_dir = os.path.join(os.path.dirname(__file__), 'reference')
+    ref_path = os.path.join(ref_dir, name + '.txt')
+    if os.path.exists(ref_path):
+        return
+    with open(ref_path, 'w') as f:
+        f.write(json.dumps([[[str(t) for t in s] for s in polygons], solution]))
 
 
 main()
