@@ -18,7 +18,7 @@ class ProblemSprite extends Sprite
 	private var updateText:String->Void;
 	
 	private static var RED_TRANSFORM:ColorTransform = new ColorTransform(1, 0.2, 0.2, 1, 100);
-	private static var DARK_RED_TRANSFORM:ColorTransform = new ColorTransform(0.5, 0.0, 0.0, 1, 30);
+	private static var DARK_RED_TRANSFORM:ColorTransform = new ColorTransform(0.3, 0.0, 0.0, 1, 30);
 	private static var DEFAULT_TRANSFORM:ColorTransform = new ColorTransform();
 	
 	public function new(problem:Problem, updateText:String->Void) 

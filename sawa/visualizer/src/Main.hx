@@ -27,7 +27,7 @@ import thx.Rational;
 class Main extends Sprite 
 {
 	private var problems:Array<ProblemSource>;
-	private var index:Int = 0;
+	private var index:Int = 14;
 	private var problemSprite:ProblemSprite;
 	private var textField:TextField;
 	private var currentProblem:Array<Problem>;
@@ -101,6 +101,7 @@ class Main extends Sprite
 		new PushButton(this, 0, 190, "select_all(A)", selectAll);
 		new PushButton(this, 0, 210, "remove_all(D)", removeAll);
 		submitButton = new PushButton(this, 800, 400, "submit(S)", submit);
+		submitButton.enabled = false;
 		
 		updateTarget(index);
 	}
@@ -312,34 +313,34 @@ class Main extends Sprite
 	private static var resultEReg = ~/pre(.*)pre/s;
 	public function submit(e:Event):Void
 	{
-		var http = new Http("http://52.197.240.199:5000/submit-solution");
-		var id = problems[index].id;
-		var solution = StringTools.urlEncode(outputField.text);
-		var postData = "problem_id=" + id + "&solution=" + solution;
-		
-		outputField2.text = "通信中";
-		submitButton.enabled = false;
-		http.onError = function (e)
-		{
-			outputField2.text = "error";
-			submitButton.enabled = true;
-		};
-		http.onData = function (data:String)
-		{
-			if (resultEReg.match(StringTools.htmlUnescape(data)))
-			{
-				outputField2.text = resultEReg.matched(1);
-			}
-			else
-			{
-				outputField2.text = data;
-			}
-			
-			submitButton.enabled = true;
-		};
-		
-		http.setPostData(postData);
-		http.setHeader("ContentType", "application/x-www-form-urlencoded");
-		http.request(true);
+//		var http = new Http("http://52.197.240.199:5000/submit-solution");
+//		var id = problems[index].id;
+//		var solution = StringTools.urlEncode(outputField.text);
+//		var postData = "problem_id=" + id + "&solution=" + solution;
+//		
+//		outputField2.text = "通信中";
+//		submitButton.enabled = false;
+//		http.onError = function (e)
+//		{
+//			outputField2.text = "error";
+//			submitButton.enabled = true;
+//		};
+//		http.onData = function (data:String)
+//		{
+//			if (resultEReg.match(StringTools.htmlUnescape(data)))
+//			{
+//				outputField2.text = resultEReg.matched(1);
+//			}
+//			else
+//			{
+//				outputField2.text = data;
+//			}
+//			
+//			submitButton.enabled = true;
+//		};
+//		
+//		http.setPostData(postData);
+//		http.setHeader("ContentType", "application/x-www-form-urlencoded");
+//		http.request(true);
 	}
 }

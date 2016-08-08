@@ -1,14 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>ICFPC　ビジュアライザ</title>
 </head>
-<body bgcolor="#000" style="padding:0px; margin:0px">
+<body bgcolor="#F6F6F6" style="padding:0px; margin:0px">
 	<object width="1200" height="800" style="padding:0px; margin:0px">
 		<param name="movie" value="Visualizer.swf">
 		<embed src="Visualizer.swf" width="1200" height="800">
 		</embed>
 	</object>
+	
+	<div style="padding:15px; margin:15px">
+		ICFPC 2016 ( <a href="http://icfpc2016.blogspot.jp/2016/08/task-description.html">http://icfpc2016.blogspot.jp/2016/08/task-description.html</a> ) の問題のビジュアライザ。Flashが必要。
+		
+		<h3>問題概要</h3>
+		<ul>
+			<li>折り紙の完成形が与えられるので、正方形に開いた状態の各辺の位置と、完成形との各頂点の対応を求める</li>
+			<li>入力も解答も、有理数でおこなう</li>
+			<li>解答は5000byte以内におさめる</li>
+			<li>古事記にもそう書かれている</li>
+		</ul>
+		<h3>操作方法</h3>
+		<ul>
+			<li>左上が問題選択。(%はうちのチームの解答状況)</li>
+			<li>ドラッグして、開く線と開く面を選択できる。まず最初に交差した線が開く線、以降に通過した面が選択される(赤)。</li>
+			<li>開く面を選択後もう一度ドラッグすると、開いたときに消える面として選択される(黒)。</li>
+			<li>openボタンで、選択したものを開く。</li>
+			<li>cancelボタンで、選択解除。</li>
+			<li>画面外に折り紙がある場合、centeringボタンを押す。</li>
+			<li>1×1の正方形ができたら、normalizeボタンを押して、解答が完成。不要な線が消える。</li>
+			<li>各ボタンのカッコ内はキーボードショートカット。</li>
+		</ul>
+		<h3>表示内容について</h3>
+		<ul>
+			<li>灰色の四角が目標の正方形。</li>
+			<li>青が長さが無理数の辺、緑が有理数の辺。</li>
+			<li>使用済みの線は濃くなる。</li>
+			<li>領域は半透明なので重なると分かる。重なってる領域は上にある領域だけ選択できる。</li>
+		</ul>
+		<h3>備考</h3>
+		<ul>
+			<li>Haxeで書いた。</li>
+			<li>重い問題を開くとフリーズする。</li>
+			<li>1x1の正方形じゃない状態で、normalizeするとバグる。</li>
+			<li>それ以外でも、たまにバグる。</li>
+		</ul>
+		<h3>ソース</h3>
+		<a href="https://github.com/hasipon/icfpc2016">https://github.com/hasipon/icfpc2016</a>
+	</div>
 </body>
 </html>

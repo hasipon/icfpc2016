@@ -30,7 +30,6 @@ class BuildMacro
 			var id = name.split(".txt")[0];
 			var solution = if (solutionFiles.exists(id)){
 					var s = solutionFiles[id];
-					if (s.resemblance >= 1)  continue;
 					s;
 				} else null;
 			
